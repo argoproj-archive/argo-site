@@ -16,15 +16,15 @@ export class DocsService {
     }
 
     public getVersions(): Promise<DocsVersion[]> {
-        return this.http.get('/docs/versions.json').toPromise().then(res => res.json());
+        return this.http.get('docs/versions.json').toPromise().then(res => res.json());
     }
 
     public loadDocsTree(version: DocsVersion): Promise<DocsTree> {
-        return this.http.get(`/docs${version.path}/structure.json`).toPromise().then(res => res.json());
+        return this.http.get(`docs${version.path}/structure.json`).toPromise().then(res => res.json());
     }
 
     public loadDocMarkdown(version: DocsVersion, path: string) {
-        return this.http.get(`/docs${version.path}/${path}`).toPromise().then(res => res.text());
+        return this.http.get(`docs${version.path}/${path}`).toPromise().then(res => res.text());
     }
 
     public async search(text: string, version: DocsVersion): Promise<DocSearchItem[]> {
@@ -50,7 +50,7 @@ export class DocsService {
     }
 
     private async loadIndex(version: DocsVersion): Promise<any> {
-        let indexData = await this.http.get(`/docs${version.path}index.json`).toPromise().then(res => res.json());
+        let indexData = await this.http.get(`docs${version.path}index.json`).toPromise().then(res => res.json());
         return elasticlunr.Index.load(indexData);
     }
 }
