@@ -4,7 +4,7 @@ This tutorial shows how to deploy and scale a stateful, containerized applicatio
 
 ## Deploy and Scale Odoo App
 
-1.  Go to [https://github.com/argoproj/odd-app](https://github.com/argoproj/odd-app) repository.
+1.  Go to [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app) repository.
 2.  Review the `odoo-with-vol.yaml` under `.argo` folder in that repo. It defines a workflow with two steps: "`deploy-postgres`" and "`deploy-odoo`". Each step is specified as a deployment. Argo deployment YAMLs internally maps to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see [Argo YAML DSL Reference](#/docs;doc=dsl_reference_intro.md).
 3.  Because both deployments need to persist data, you need to first create two volumes . Go to Argo web UI->infrastructure > Volumes and create two EBS volumes called "`odoo`" and "`postgres`" of 1 GB each. You can do this automatically in YAML also as defined in YAML tutorial at [Adding a Volume as Storage for Deployment](#/docs;doc=ex_add_volume_deployment.md).
 4.  Configure the domains for deployment. This allows you to control which applications can access a deployment. From the Argo Web UI, go to Navigation Bar > Settings > Domain Management, make your changes, and click UPDATE DOMAINS.
@@ -22,7 +22,7 @@ This tutorial shows how to deploy and scale a stateful, containerized applicatio
 ### Create your YAML files
 
 1.  Create an `.argo` folder under your repository.
-2.  Copy `odoo-with-vol.yaml` from [https://github.com/argoproj/odd-app](https://github.com/argoproj/odd-app) to your `.argo` folder. Customize it with your deployment and container specs.
+2.  Copy `odoo-with-vol.yaml` from [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app) to your `.argo` folder. Customize it with your deployment and container specs.
 3.  Create volumes through your YAML template through the Argo Web UI.
 4.  (Optional) If you want the application to show up in your Catalog, .the file `odoo-project.yaml` specifies this. You can also run all your YAML-based workflows from the Templates menu in the Argo Web UI.
 
