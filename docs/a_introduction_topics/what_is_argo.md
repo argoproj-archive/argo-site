@@ -1,0 +1,9 @@
+# What is <span class="GeneralApplatix Platform Name">Argo</span>?
+
+<span class="GeneralApplatix Platform Name">Argo</span> is a platform for automating the building and running of containerized applications at scale in the public cloud. The platform helps you use Docker containers, Kubernetes orchestration, and public cloud APIs without the pain of configuration, maintenance, and upgrades. Driven by <span class="GeneralYAML template">YAML template</span>s written in the <span class="GeneralApplatix Platform Name">Argo</span> Domain Specific Language (DSL), the platform handles the complexity of deploying, running, and managing containers at scale in the public cloud, which allows you to focus on developing applications.
+
+<span class="GeneralApplatix Platform Name">Argo</span> is composed of several major parts:
+
+*   A SaaS portal ([portal.applatix.com](http://portal.applatix.com/)) for creating and deploying multiple <span class="GeneralKubernetes Cluster with Argo">Argo</span>.
+*   The <span class="GeneralKubernetes Cluster with Argo">Argo</span> ("Cluster"), which is the platform entity that automates the underlying cloud infrastructure for running containerized applications. The Cluster is driven by the <span class="GeneralYAML template">YAML template</span>s. For details about the DSL language, see <madcap:conditionaltext data-mc-conditions="General.Not for Print">[Tutorials](#/docs;doc=%2Fyaml%2Fusing_the_yaml_dsl.md).</madcap:conditionaltext>
+*   The <span class="NewSetApplatix Cluster Console">Argo Web UI</span> is the browser-based user interface for managing the <span class="GeneralKubernetes Cluster with Argo">Argo</span> and monitoring the containerized applications running in your clusters. From the <span class="NewSetApplatix Cluster Console">Argo Web UI</span>, you can easily track your resource usage in the public cloud and manage your policies to enforce time and cost-based limits.

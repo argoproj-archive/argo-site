@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45 (43475) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="V3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-3">
+            <g id="Page-1" transform="translate(40.500000, 40.500000) scale(-1, -1) rotate(90.000000) translate(-40.500000, -40.500000) translate(8.000000, 8.000000)">
+                <polygon id="Fill-1" fill="#FB9E00" points="20 56 24 64 40 64 44 56 40 48 24 48"></polygon>
+                <polygon id="Stroke-2" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="20 56 24 64 40 64 44 56 40 48 24 48"></polygon>
+                <polygon id="Fill-4" fill="#725DB1" points="20 32 24 40 40 40 44 32 40 24 24 24"></polygon>
+                <polygon id="Stroke-5" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="20 32 24 40 40 40 44 32 40 24 24 24"></polygon>
+                <polygon id="Fill-6" fill="#35C9CB" points="20 8 24 16 40 16 44 8 40 0 24 0"></polygon>
+                <polygon id="Stroke-7" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="20 8 24 16 40 16 44 8 40 0 24 0"></polygon>
+                <path d="M28,56 L36,56" id="Stroke-12" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M28,8 L36,8" id="Stroke-13" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M28,12 L36,12" id="Stroke-14" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8,56 L8,32" id="Stroke-16" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8,32 L16,32" id="Stroke-17" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M16,32 L14,34" id="Stroke-18" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M16,32 L14,30" id="Stroke-19" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8,56 L16,56" id="Stroke-20" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M48,32 L56,32" id="Stroke-21" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M56,32 L56,8" id="Stroke-22" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M56,8 L48,8" id="Stroke-23" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M48,32 L50,34" id="Stroke-24" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M48,32 L50,30" id="Stroke-25" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M48,56 L56,56" id="Stroke-26" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M56,56 L56,36" id="Stroke-27" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M56,36 L54,38" id="Stroke-28" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M56,36 L58,38" id="Stroke-29" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8,28 L8,8" id="Stroke-30" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8,8 L16,8" id="Stroke-31" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8,28 L6,26" id="Stroke-32" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M8,28 L10,26" id="Stroke-33" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <g id="Group-46" stroke="#020210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0,4">
+                    <path d="M64,60 L64,2" id="Stroke-36"></path>
+                    <path d="M0,60 L0,2" id="Stroke-42"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

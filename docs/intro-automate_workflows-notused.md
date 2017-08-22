@@ -1,0 +1,5 @@
+# Automating Workflows using Policies
+
+Now that you've seen how to manually start, stop, or terminate jobs as workflows, the next step is to automate when workflows get triggered. <span class="GeneralApplatix Platform Name">Argo</span> uses policies to do this. For details about creating policies, see <madcap:conditionaltext data-mc-conditions="General.Not for Print">[Automating Workflows Using Policies](#/docs;doc=yaml%2Fex_create_policy_4_workflow.md).</madcap:conditionaltext> for details. You can also enable or disable a policy. For details, see [Viewing, Enabling and Disabling Policies](#/docs;doc=user_guide%2Fpolicies%2Fenable-disablepolicies_notused.md).
+
+Additionally, you can also write a policy that alerts users as to when certain events happen on the <span class="GeneralKubernetes Cluster with Argo">Argo</span>. For details, see [Using Policies to Trigger a Notification Message](user_guide/configapplatixcluster/setupnotificationmanagement.htm#UsingPolicies2TriggerNotificationMessage).

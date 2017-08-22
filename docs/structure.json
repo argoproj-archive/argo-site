@@ -1,0 +1,238 @@
+{
+  "children": [
+    {
+      "title": "What is Argo?",
+      "path": "a_introduction_topics/what_is_argo.md"
+    },
+    {
+      "title": "Using Argo",
+      "path": "a_introduction_topics/how_to_use_applatix.md"
+    },
+    {
+      "title": "Quick Start",
+      "path": "quickstart/intro_applatix_quick_start.md",
+      "children": [
+        {
+          "title": "Configure Argo to Build and Run Code",
+          "path": "intro-connect-cluster-build.md"
+        },
+        {
+          "title": "Upgrading Argo",
+          "path": "user_guide/configapplatixcluster/upgrade_ax_cluster.md"
+        }
+      ]
+    },
+    {
+      "title": "Tutorials",
+      "path": "yaml/using_the_yaml_dsl.md",
+      "children": [
+        {
+          "title": "Tutorial 1: Create CI Workflow",
+          "path": "yaml/argo_tutorial_1_create_ci_workflow.md"
+        },
+        {
+          "title": "Tutorial 2: Build Docker Image and Deploy Workflow using Docker-in-Docker (DinD) on Kubernetes",
+          "path": "yaml/argo_tutorial_2_create_docker_image_build_workflow.md"
+        },
+        {
+          "title": "Tutorial 3: Deploy a Stateless App",
+          "path": "yaml/argo_tutorial_3_deploy_stateless_mlb_app.md"
+        },
+        {
+          "title": "Tutorial 4: Deploy a Stateful App",
+          "path": "yaml/argo_tutorial_4_deploy_stateful_odoo_app_volume.md"
+        },
+        {
+          "title": "Tutorial 5: Deploy Stateful App with AWS RDS",
+          "path": "yaml/argo_tutorial_5_deploy_stateful_odoo_app_rds.md"
+        },
+        {
+          "title": "Tutorial 6: Running Nested Workflows",
+          "path": "yaml/argo_tutorial_6_execute_selenium_tests.md"
+        },
+        {
+          "title": "Tutorial 7: Deploy Microservices-based App",
+          "path": "yaml/argo_tutorial_7_deploy_microservices_sockshop_app.md"
+        }
+      ]
+    },
+    {
+      "title": "User Guide",
+      "path": "a_introduction_topics/overview.md",
+      "children": [
+        {
+          "title": "Creating a Job",
+          "path": "user_guide/timeline/create_job-viewhistory.md"
+        },
+        {
+          "title": "Creating a Policy that Triggers a Workflow",
+          "path": "yaml/ex_create_policy_4_workflow.md"
+        },
+        {
+          "title": "Running Applications and Deployments",
+          "path": "user_guide/applications/applications.md"
+        },
+        {
+          "title": "Running Stateful Applications",
+          "path": "intro-run_stateful_apps_volumes_fixtures.md",
+          "children": [
+            {
+              "title": "Create Managed Fixtures",
+              "path": "yaml/ex_create_managed_fixtures.md"
+            },
+            {
+              "title": "Using Managed Fixtures",
+              "path": "user_guide/infrastructure/using_fixtures.md"
+            },
+            {
+              "title": "Adding Volumes for Deployment",
+              "path": "yaml/ex_add_volume_deployment.md"
+            }
+          ]
+        },
+        {
+          "title": "Monitoring, Governance, and Spend",
+          "path": "intro-monitor_gov_spend.md",
+          "children": [
+            {
+              "title": "Cashboard",
+              "path": "user_guide/dashboards/cashboard.md"
+            },
+            {
+              "title": "Hosts",
+              "path": "user_guide/dashboards/hosts.md"
+            },
+            {
+              "title": "Metrics",
+              "path": "user_guide/dashboards/metrics.md"
+            }
+          ]
+        },
+        {
+          "title": "Running Workflows/Apps in Catalog",
+          "path": "user_guide/catalog/deploycatalogapp.md"
+        },
+        {
+          "title": "Configure System Settings",
+          "path": "intro-set_system_security_settings.md",
+          "children": [
+            {
+              "title": "Managing Users and Permissions for the Applatix Cluster",
+              "path": "user_guide/configapplatixcluster/manageuserpermissions.md"
+            },
+            {
+              "title": "Configuring System Settings",
+              "path": "user_guide/configapplatixcluster/managesystemsettings.md"
+            },
+            {
+              "title": "Configuring Single Sign-On",
+              "path": "user_guide/configapplatixcluster/setupsso.md"
+            },
+            {
+              "title": "Configure Domains",
+              "path": "user_guide/configapplatixcluster/managedomains.md"
+            }
+          ]
+        },
+        {
+          "title": "Connecting an Artifact Repository to Argo",
+          "path": "user_guide/configapplatixcluster/connectartifactrepo.md"
+        },
+        {
+          "title": "Setting Up Notifications",
+          "path": "user_guide/configapplatixcluster/setupnotificationmanagement.md"
+        },
+        {
+          "title": "Connect to Issue Tracking System",
+          "path": "user_guide/configapplatixcluster/connectjira.md"
+        },
+        {
+          "title": "Rolling Updates for Apps",
+          "path": "app_rolling_update.md"
+        },
+        {
+          "title": "Adding an Internal Elastic Load Balancer",
+          "path": "yaml/ex_adding_a_private_elastic_load_balancer.md"
+        },
+        {
+          "title": "About Argo Configuration Parameters",
+          "path": "a_introduction_topics/about_the_cluster_configuration_parameters.md"
+        },
+        {
+          "title": "Updating Argo",
+          "path": "user_guide/configapplatixcluster/upgrade_ax_cluster.md"
+        },
+        {
+          "title": "Check Your Amazon Resources for Argo",
+          "path": "a_introduction_topics/required_amazon_resources.md"
+        },
+        {
+          "title": "Release Notes",
+          "path": "releasenotes/release_notes_argo.md"
+        }
+      ]
+    },
+    {
+      "title": "FAQs",
+      "path": "d_more_information/faqs.md"
+    },
+    {
+      "title": "YAML Reference",
+      "path": "yaml/using_the_yaml_dsl.md",
+      "children": [
+        {
+          "title": "Building Hello World! Using a Docker Container",
+          "path": "yaml/ex_building_hello_world.md"
+        },
+        {
+          "title": "Running a Docker Container in Applatix for Hello World!",
+          "path": "yaml/ex_running_hello_world.md"
+        },
+        {
+          "title": "Applatix YAML DSL Reference",
+          "path": "yaml/dsl_reference_intro.md"
+        },
+        {
+          "title": "Container and Workflow Templates",
+          "path": "yaml/container_workflow_templates.md"
+        },
+        {
+          "title": "Policy Templates",
+          "path": "yaml/policy_templates.md"
+        },
+        {
+          "title": "Deployment Template",
+          "path": "yaml/deployment_template.md"
+        },
+        {
+          "title": "Project Templates",
+          "path": "yaml/project_templates.md"
+        },
+        {
+          "title": "Adding a Volume as Storage for Deployment",
+          "path": "yaml/ex_add_volume_deployment.md"
+        },
+        {
+          "title": "Managed Fixture Templates",
+          "path": "yaml/managed_fixture_templates.md"
+        },
+        {
+          "title": "Creating a Deployment as a Long Running Service",
+          "path": "yaml/ex_create_deploy_long_run_service_coretemplate_notused.md"
+        },
+        {
+          "title": "Building a Container that Checks Out Code",
+          "path": "yaml/ex_check_out_code_coretemplate_notused.md"
+        },
+        {
+          "title": "Publishing a Workflow or Application in Catalog",
+          "path": "yaml/ex_publish_workflow_app_coretemplatenotused.md"
+        },
+        {
+          "title": "Using Special Values for Parameters",
+          "path": "yaml/special_parameters_values.md"
+        }
+      ]
+    }
+  ]
+}
