@@ -5,7 +5,7 @@ This tutorial shows how to deploy and scale a Stateful containerized application
 ## Deploy and Scale Example Odoo App with AWS RDS
 
 1.  From your AWS console, create an AWS RDS database instance of type "PostgreSQL" taking all default parameters. Make sure the database endpoint can be accessed from Argo.
-2.  Go to [https://github.com/argoproj/odd-app](https://github.com/argoproj/odd-app) repository.
+2.  Go to [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app) repository.
 3.  Review the `odoo-with-rds.yaml` under `.argo` folder in that repo. It defines a workflow with one step - "`deploy-odoo`" which is of type `deployment`. This step deploys the Odoo app server. Argo deployment YAMLs internally maps to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see [Argo YAML DSL Reference](#/docs;doc=dsl_reference_intro.md).
 4.  Because the Odoo deployment must persist data, you must first create a volume. Go to Argo web UI->infrastructure > Volumes and create an EBS volume called "odoo-rds" of 1 GB size. You can do this automatically in the YAML template. For an example, see [Adding a Volume as Storage for Deployment](#/docs;doc=ex_add_volume_deployment.md).
 5.  Configure the domains for deployment. This allows you to control which applications can access a deployment. From the Argo Web UI, go to Navigation Bar > Settings > Domain Management, make your changes, and click UPDATE DOMAINS.
@@ -23,7 +23,7 @@ This tutorial shows how to deploy and scale a Stateful containerized application
 ### Create your YAML files
 
 1.  Create an `.argo` folder under your repository.
-2.  Copy `odoo-with-rds.yaml` from [https://github.com/argoproj/odd-app](https://github.com/argoproj/odd-app) to your `.argo` folder. Customize it with your deployment and container specs.
+2.  Copy `odoo-with-rds.yaml` from [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app) to your `.argo` folder. Customize it with your deployment and container specs.
 3.  Create volumes using the [YAML templates](#/docs;doc=ex_add_volume_deployment.md) or the Argo Web UI.
 4.  (Optional) If you want the application to show up in your Catalog, .the file `odoo-project.yaml` specifies this. You can also run all your YAML-based workflows from the Templates menu in the Argo Web UI
 

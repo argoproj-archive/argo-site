@@ -5,7 +5,7 @@ This tutorial shows how to deploy and scale a stateful microservices based appli
 ## Deploy and Scale Example Sock Shop App
 
 1.  From your AWS console, create an AWS RDS database instance of type PostgreSQL taking all default parameters. Make sure the database endpoint can be accessed from Argo.
-2.  Go to [https://github.com/argoproj/omicroservices-demo](https://github.com/argoproj/omicroservices-demo) repository.
+2.  Go to [https://github.com/argoproj/microservices-demo](https://github.com/argoproj/microservices-demo) repository.
 3.  Review the `sock-shop-workflow.yaml` under `.argo` folder in that repo. This file defines a workflow that has fourteen deployments for deploying sock shop and three deployments to deploy Zipkin. Argo deployment YAMLs internally maps to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see [Argo YAML DSL Reference](#/docs;doc=dsl_reference_intro.md).
 4.  Because the Sock shop deployment needs to persist the data, you must first create six EBS volumes. Go to Argo web UI->Infrastructure→Volumes and create six EBS volumes of 1 GB each. Name the volumes as `sock-shop-order-db`, `sock-shop-cart`, `sock-shop-cart-db`, `sock-shop-shipping`, `sock-shop-user-db`, and `sock-shop-order`. You can do this automatically in the YAML template. For an example, see [Adding a Volume as Storage for Deployment](#/docs;doc=ex_add_volume_deployment.md).
 5.  Configure the domains for deployment. This allows you to control which applications can access a deployment. From the Argo Web UI, go to Navigation Bar > Settings > Domain Management, make your changes, and click UPDATE DOMAINS.
@@ -23,7 +23,7 @@ This tutorial shows how to deploy and scale a stateful microservices based appli
 ### Create your YAML files
 
 1.  Create an .argo folder under your repository
-2.  Copy `sock-shop-with-rds.yaml` from [https://github.com/argoproj/sock-shop-app](https://github.com/argoproj/odd-app) to your .argo folder. Customize it with your deployment and container specs
+2.  Copy `sock-shop-with-rds.yaml` from [https://github.com/argoproj/sock-shop-app](https://github.com/argoproj/odoo-app) to your .argo folder. Customize it with your deployment and container specs
 3.  Create volumes through YAML or using the Argo Web UI.
 4.  `odoo-project.yaml` defines how it will show up in your Catalog menu. This is optional only if you want it to show up in your catalog. You can see and run all your yaml based workflows from Templates menu in Argo web UI.
 
