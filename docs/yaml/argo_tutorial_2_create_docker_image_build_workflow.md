@@ -1,12 +1,12 @@
-# Tutorial 2: Build Docker Image and Deploy Workflow
+# Tutorial 2: Build and Deploy Docker Image using DinD
 
 This tutorial shows how to easily build and deploy docker images on Kubernetes.
 
-In an Argo workflow, every step must be defined as a container specification and creates a Kubernetes job. In some cases, you may need to run a Docker container from within a Docker container. For example, your Continuous Integration (CI) app (like Jenkins) may be containerized and you want to provide a build/test container for each CI job you want Jenkins to run. Or you may want to build a Docker container image from inside your containerized CI job..
+In an Argo workflow, every step must be defined as a container specification and creates a Kubernetes job. In some cases, you may need to run a Docker container within a Docker container. You may want to build a Docker container image inside your containerized CI job..
 
 To build a Docker container image within our Docker container step, Argo uses the Docker-in-Docker (DinD) technique. If you are interested in knowing more about how DinD works, please see our blog on [https://applatix.com/case-docker-docker-kubernetes-part/](https://applatix.com/case-docker-docker-kubernetes-part/)
 
-## Run a Docker Build and Deploy (DinD) workflow
+## Run a Docker Build and Deploy (DinD) Workflow
 
 1.  Go to the sample `DinD` workflow repository at [https://github.com/argoproj](https://github.com/argoproj).
 2.  Review the `dind-workflow.yaml` file under `.argo` folder in that repo. It has a checkout, build, approval and deploy step. Every step in the workflow needs to be defined as a container specification and creates a Kubernetes job. The `dind-workflow.yaml` workflow checks out code, builds a node.js image, pushes the image to Docker hub and then deploys it as a Kubernetes deployment.
@@ -14,14 +14,11 @@ To build a Docker container image within our Docker container step, Argo uses th
     To enable a Docker-in-Docker workflow, you must add two lines to the container template that is part of this workflow:
 
     ```
-annotations:
-```
-
+    annotations:
+    ax_ea_docker_enable: '{"graph-storage-size": "10Gi", "cpu_cores":0.1, "mem_mib":200}'
     ```
-  ax_ea_docker_enable: '{"graph-storage-size": "10Gi", "cpu_cores":0.1, "mem_mib":200}'
-```
 
-    For more details these two lines of YAML DSL code, please check the YAML reference at [Container calling Docker Commands "Docker-in-Docker"](container_templates.htm#ContainerDinDWorkflow).
+    For more details these two lines of YAML DSL code, please check the YAML reference at [Container Calling Docker Commands "Docker-in-Docker"](container_templates.htm#ContainerDinDWorkflow).
 
     To make the credentials secure for accessing the container registry, the YAML DSL example uses Argo Secret management to encrypt the user id and password.
 
@@ -40,10 +37,10 @@ annotations:
 
 ### Create your YAML files
 
-1.  Create an `.argo` folder under your repository
+1.  Create a `.argo` folder under your repository
 2.  Copy YAML templates from [https://github.com/argoproj/dind/](https://github.com/argoproj/dind/) to your `.argo` folder.
-3.  `axscm_checkout.yaml` defines a container that Argo provides for checking out code in your AWS S3 which can be accessed by your other workflow steps. You shouldn't need to modify it.
-4.  `axapproval.yaml` defines a container provided by Argo for sending email for approval. You shouldn't need to modify it.
+3.  `argo_checkout.yaml` defines a container that Argo provides for checking out code in your AWS S3 which can be accessed by your other workflow steps. You shouldn't need to modify it.
+4.  `argoapproval.yaml` defines a container provided by Argo for sending email for approval. You shouldn't need to modify it.
 5.  Customize the `dind-workflow.yaml` file with your build and deploy containers.
 6.  (Optional) The `dind-project.yaml` file defines how it will show up in your Catalog menu. You only need this file if you want workflow to show up in your Catalog. Otherwise you can run the workflow against your commits in Timelines menu. You can also see and run all your YAML templates under Templates menu.
 7.  If you want to add more test steps or configure a policy to automatically trigger this workflow, then please review the steps and YAML template files in the CI-workflow tutorial.
@@ -57,4 +54,4 @@ annotations:
 
 1.  To set up a policy to automatically trigger this workflow, please review the steps for policy creation and YAML templates under the CI-workflow tutorial
 2.  In Argo web UI, go to Templates menu, search for that policy and click Enabled.
-3.  For every commit on thatrepo, <span style="color: #ff0000;">your workflow will get triggered based on your policy.</span>
+3.  For every commit on that repo, your workflow will get triggered based on your policy.
