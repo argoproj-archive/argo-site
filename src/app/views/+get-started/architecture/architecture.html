@@ -1,0 +1,156 @@
+<div class="main__container">
+    <img src="/assets/images/ArgoArchitecture.png" alt="">
+    <div class="architecture">
+        <h3>Argo API Server (aka. AXOPS)</h3>
+        <ul>
+            <li>Serves Argo API</li>
+            <li>YAML verification</li>
+            <li>Manages state needed by UI</li>
+            <li>Handle events from WFE</li>
+            <li>Misc/util logic</li>
+        </ul>
+        <h3>ADC (Admission Controller)</h3>
+        <ul>
+            <li>Limits work in progress. Prevents the system from being overloaded</li>
+            <li>Admits work as resources become available</li>
+            <li>Decides which jobs to admit next (QoS)</li>
+            <li>Launch WFE for new workflows via AX Mon</li>
+            <li>Monitor WFE's</li>
+        </ul>
+        <h3>WFE (Workflow Executor)</h3>
+        <ul>
+            <li>
+                Runs a workflow (a graph of sequential and parallel steps)
+                <ul>
+                    <li>Manage workflow state transitions</li>
+                    <li>Launch new steps</li>
+                </ul>
+            </li>
+            <li>One WFE service per workflow and deployment (exits after deployment starts)</li>
+            <li>Restarts itself (via K8s) and failed steps if they are interrupted (e.g. minion restart)</li>
+            <li>Schedules dynamic fixtures</li>
+            <li>Reserves static fixtures</li>
+            <li>Schedules deployments</li>
+        </ul>
+        <h3>Artifact Manager</h3>
+        <ul>
+            <li>Supports querying and searching for artifacts</li>
+            <li>Lifecycle management of artifacts (retention policies etc.)</li>
+            <li>Query/find internal/external artifacts.</li>
+            <li>Serves/manages AXDB table of artifacts</li>
+            <li>Collects and catalogs output artifacts</li>
+        </ul>
+        <h3>Fixture Manager</h3>
+        <ul>
+            <li>Manages a table of static fixtures and persistent volumes</li>
+            <li>Manages reservations for fixtures and volumes (e.g. some fixtures can be shared, others cannot)</li>
+            <li>Create fixtures/volumes (via AX Mon)</li>
+        </ul>
+        <h3>Repo Manager (aka. gateway)</h3>
+        <ul>
+            <li>approval API (merge with AXOPS)</li>
+            <li>Caches git state</li>
+            <li>Provides a query API for git state (commits, branches, etc.)</li>
+        </ul>
+        <h3>Commitdata</h3>
+        <p>Event Trigger</p>
+        <ul>
+            <li>Triggers policies (merge with AX Scheduler, which does the cron jobs today)</li>
+            <li>Events from webhook</li>
+            <li>Polls repos</li>
+            <li>Updates AXDB</li>
+            <li>Submits jobs via AXOPS</li>
+        </ul>
+        <h3>AXDB</h3>
+        <ul>
+            <li>Argo configuration, operational, historical, and stats database</li>
+        </ul>
+        <h3>Kafka</h3>
+        <ul>
+            <li>
+                Collects events
+                <ul>
+                    <li>AX stats</li>
+                    <li>Notification center</li>
+                    <li>WFE events</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>AX Stats</h3>
+        <ul>
+            <li>Talks w/ cadvisor</li>
+            <li>Sends data to Kafka, which saves it in AXDB</li>
+            <li>(eventually replace with prometheus)</li>
+        </ul>
+        <h3>Prometheus</h3>
+        <ul>
+            <li>monitor volume stats</li>
+            <li>filesystem & block device stats (capacity & performances)</li>
+            <li>k8s data from cadvisor</li>
+            <li>Argo stats</li>
+        </ul>
+        <h3>Notification Center</h3>
+        <ul>
+            <li>Processes events from Kafka</li>
+            <li>Logs events to AXDB</li>
+            <li>Distribute events according to system/user preferences including UI</li>
+            <li>(Merge with Notification which does email today)</li>
+        </ul>
+        <h3>Redis</h3>
+        <ul>
+            <li>caching</li>
+            <li>WFE notifications</li>
+        </ul>
+        <h3>AX Mon</h3>
+        <ul>
+            <li>Platform API server (interface to K8s)</li>
+            <li>Abstracts infrastructure services (e.g. K8s & AWS)</li>
+            <li>Create and runs K8s specs</li>
+            <li>Monitor/return job/deployment status</li>
+            <li>Create/modify/delete volumes</li>
+        </ul>
+        <h3>Master Manager</h3>
+        <ul>
+            <li>Monitor the health of the K8s master</li>
+            <li>Terminates unhealthy master</li>
+            <li>Starts new K8s master</li>
+        </ul>
+        <h3>Minion Manager</h3>
+        <ul>
+            <li>Monitors health of all minions</li>
+            <li>Terminates unhealthy minions (ASG's automatically start minions)</li>
+            <li>Monitors spot prices, submits bids, switches to on-demand when prices are high</li>
+            <li>Switches back to spot instances when prices drop</li>
+            <li>Reports hourly spot prices for each instance</li>
+        </ul>
+        <h3>Pod Executors (artifacts)</h3>
+        <ul>
+            <li>
+                Init container
+                <ul>
+                    <li>Unpack artifact</li>
+                    <li>Setup env vars</li>
+                    <li>Replaces user entrypoint with wrapper entrypoint</li>
+                </ul>
+            </li>
+            <li>
+                user container wrapper
+                <ul>
+                    <li>Setup env vars</li>
+                    <li>Invoke user entrypoint</li>
+                    <li>Tar output artifacts</li>
+                    <li>Record exit status</li>
+                    <li>Inform wait container that we're done</li>
+                </ul>
+            </li>
+            <li>
+                Wait container
+                <ul>
+                    <li>Collect live log from K8s</li>
+                    <li>Upload logs/artifacts</li>
+                    <li>Report status to WFE</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

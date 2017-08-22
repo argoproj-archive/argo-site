@@ -1,0 +1,178 @@
+$body-font-family: 'Muli', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Muli');
+@import 'node_modules/argo-ui-lib/src/assets/styles/gui-lib';
+@import '../../assets/styles/config';
+
+body {
+    background-color: #fbfaff !important;
+}
+
+.main {
+    @include clearfix;
+    font: 400 16px/1.3 'Heebo', sans-serif;
+    color: #fff;
+
+    a {
+        color: #4884cd;
+
+        &:hover {
+            color: #4884cd;
+        }
+    }
+
+    &__container {
+        width: $base-width;
+        margin: 0 auto;
+    }
+
+    &__header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        height: $header-height;
+        line-height: $header-height;
+        background: linear-gradient(to top left, rgba($base-color, 0.9) 0%, rgba($base-color, 0.9) 100%), url(assets/images/stars.gif) bottom;
+    }
+
+    &__logo {
+        display: inline-block;
+        cursor: pointer;
+
+        img {
+            width: 2.4em;
+        }
+    }
+
+    &__logo-text {
+        display: inline-block;
+        vertical-align: middle;
+        width: 56px;
+        line-height: 1;
+        margin: 10px 0 0 4px;
+
+        svg {
+            fill: #fff;
+        }
+    }
+
+    &__header-nav {
+        float: right;
+
+        a {
+            display: inline-block;
+            margin-left: 24px;
+            font-size: .8em;
+            font-weight: 500;
+            color: $ax-color-cyan;
+            text-transform: uppercase;
+
+            &:active,
+            &:visited {
+                color: $ax-color-cyan;
+            }
+
+            &:hover {
+                color: darken($ax-color-cyan, 20);
+            }
+
+            &.active {
+                color: #fff;
+            }
+
+            i {
+                vertical-align: middle;
+                font-size: 2em;
+                color: $ax-color-gray-3;
+            }
+        }
+    }
+
+    &__content {
+        padding-top: $header-height;
+    }
+
+    &__nav {
+        position: relative;
+        z-index: 1;
+        padding: 24px 20px 0 120px;
+        background-color: #fff;
+        overflow: hidden;
+        border-bottom: 1px solid #dee6eb;
+
+        a {
+            position: relative;
+            display: inline-block;
+            padding: 18px 30px;
+            color: #4a90e2;
+            font-weight: 500;
+            transition: color .2s;
+
+            &.active {
+                color: #000;
+
+                &::after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    background-color: #6778db;
+                    content: '';
+                }
+            }
+
+            i {
+                vertical-align: middle;
+                margin-right: 4px;
+                font-size: 18px;
+                color: #aaa;
+            }
+        }
+    }
+
+    &__intro {
+        padding: 30px 0;
+        text-align: center;
+        background: linear-gradient(to top left, rgba($base-color, 0.9) 0%, rgba($base-color, 0.9) 100%), url(assets/images/stars.gif);
+
+        h1 {
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 2em;
+            color: #fff;
+        }
+    }
+
+    &__box {
+        margin: 10px 0;
+        padding: 30px 20px;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: -1px 1px 2px rgba(#000, .1);
+
+        h3 {
+            margin-bottom: 20px;
+            color: $argo-orange;
+            font-size: 1.2em;
+        }
+
+        ul {
+            margin-bottom: 0;
+
+            > li > ul {
+                list-style-type: circle;
+
+                > li > ul {
+                    list-style-type: disc;
+                }
+            }
+        }
+
+        li {
+            color: #788994;
+        }
+    }
+}

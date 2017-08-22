@@ -1,0 +1,25 @@
+.docs-tree {
+    &__node {
+        margin-top: 4px;
+        //padding-top: 4px;
+        //border-top: 1px solid #e6e6e6;
+
+        a {
+            display: block;
+            padding: 6px 10px;
+            color: #4884cd;
+            border-radius: 4px;
+
+            &.active {
+                color: #515567;
+                background-color: #f0eef9;
+            }
+        }
+
+        .docs-tree__node {
+            padding-top: 0;
+            padding-left: 1em;
+            border: 0;
+        }
+    }
+}

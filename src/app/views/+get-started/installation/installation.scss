@@ -1,0 +1,60 @@
+@import '../../../../assets/styles/config';
+
+.installation {
+    &__row {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 20px 30px;
+        font-size: 1.16em;
+        line-height: 2;
+        color: #788394;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        background-color: #f2f2f9;
+    }
+
+    pre {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 6px 14px;
+        padding: 8px 14px;
+        font-weight: bold;
+        color: #3e90d1;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px rgba(#000, .07);
+
+        &.first {
+            margin-left: 0;
+        }
+    }
+
+    &__has-tooltip {
+        position: relative;
+        display: inline-block;
+        color: #4884cd;
+
+        &:hover {
+            .installation__tooltip {
+                display: block !important;
+            }
+        }
+    }
+
+    &__tooltip {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 300px;
+        padding: 8px;
+        color: #ddd;
+        font-size: .6em;
+        background: #333;
+
+        ul {
+            margin-bottom: 0;
+        }
+    }
+}

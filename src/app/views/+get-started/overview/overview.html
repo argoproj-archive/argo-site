@@ -1,0 +1,143 @@
+<div class="main__container">
+    <p>Argo is an open source project to provide container-native workflows for Kubernetes. Each step in an Argo workflow is defined as a container. Argo integrates artifact management, admission control, "fixtures," and source code management to create a complete, easy to use system that can be used for a variety of workflow-driven tasks ranging from continuous integration to orchestration and lifecycle management of complex distributed applications.</p>
+    <p>Argo helps you use Docker containers, Kubernetes orchestration, and public cloud APIs without the pain of configuration, maintenance, and upgrades. Driven by YAML templates written in the Argo DSL (Domain Specific Language), argo handles the complexity of deploying, running, and managing containers at scale.</p>
+    <h2>Concepts</h2>
+    <div class="main__box">
+        <h3>Admission Control</h3>
+        <ul>
+            <li>Delays workflows until there are sufficient resources to run the workflow.</li>
+            <li>Allows implementation of QoS (Quality of Service) controls.</li>
+            <li>Prevents overloading Kubernetes with too much work that cannot be scheduled.</li>
+            <li>Prevents resource deadlocks when executing complex workflows.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Workflow</h3>
+        <ul>
+            <li>An argo workflow consists of a sequence of sequential and/or parallel steps.</li>
+            <li>A workflow may be arbitrarily nested.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Step</h3>
+        <ul>
+            <li>A step is the basic execution unit of a workflow.</li>
+            <li>A step is executed by running a container.</li>
+            <li>A step itself may be a workflow, which contains other steps.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Artifact</h3>
+        <ul>
+            <li>An artifact is a collection of files/directories that can be used as input or output to a step in a workflow.</li>
+            <li>Artifacts may be "internal", in which case they may be referenced only within the execution of a particular workflow.</li>
+            <li>Internal artifacts are automatically garbage collected after 7 days.</li>
+            <li>Exported artifacts may be referenced by other workflows.</li>
+            <li>Exported artifacts are automatically garbage collected after 6 months.</li>
+            <li>Any "tagged" artifacts are retained indefinitely and must be manually deleted.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Fixture</h3>
+        <ul>
+            <li>A service needed to run a workflow.
+                <ul>
+                    <li>E.g. A mysql service needed to run a test.</li>
+                </ul>
+            </li>
+            <li>A dynamic fixture is created automatically by the system before executing a workflow by running a specified container that implements the service.</li>
+            <li>
+                A static fixture can be any service that is registered with the Argo system.
+                <ul>
+                    <li>E.g. A Windows VM running SQL Server or any accessible SaaS service.</li>
+                </ul>
+            </li>
+            <li>
+                A static fixture is specified using labels.
+                <ul>
+                    <li>E.g. mem=2mib os=Windows</li>
+                    <li>E.g. db=RDS</li>
+                </ul>
+            </li>
+            <li>
+                A static fixture may be "exclusive" or "shared".
+                <ul>
+                    <li>
+                        An exclusive fixture may only be used by one workflow at a time.
+                        <ul>
+                            <li>Workflows that need a static fixture will wait until it becomes available.</li>
+                        </ul>
+                    </li>
+                    <li>A shared fixture may be used by multiple resources concurrently.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Volume</h3>
+        <ul>
+            <li>A persistent volume used to store data used by workflows.</li>
+            <li>An anonymous volume exists only within the context of a specific executing workflow.</li>
+            <li>A named volume exists independently of workflows.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>CMDB (Configuration Management Database aka. AXDB)</h3>
+        <ul>
+            <li>Stores the configuration and operational state of all Argo component and services including active workflows, fixtures, etc.</li>
+            <li>Currently also stores stats but much of that will be moving to Prometheus.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Secret</h3>
+        <ul>
+            <li>An encrypted string that can be included in Argo templates to avoid exposing the secret in source repos.</li>
+            <li>The secret is decrypted just prior to when it is used during the execution of a workflow.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Configuration Parameter</h3>
+        <ul>
+            <li>A parameter that is stored in CMDB and can be referenced by name from within Argo templates.</li>
+            <li>Avoids having to hardwire parameters in source repos.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Policy</h3>
+        <ul>
+            <li>An Argo policy template is used to specify automatically triggered workflows.</li>
+            <li>
+                Common triggers include:
+                <ul>
+                    <li>Time based (e.g. cron)</li>
+                    <li>Commits, pull requests, merges to repos</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Project</h3>
+        <ul>
+            <li>An Argo project template is used to create a catalog of workflows that can be executed by users.</li>
+            <li>This allows convenient grouping and identification of commonly used workflows.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Repo</h3>
+        <ul>
+            <li>Generally used to refer to a git repository.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Commit</h3>
+        <ul>
+            <li>Generally refers to a commit made to a git repository.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Image</h3>
+        <ul>
+            <li>A Docker container image.</li>
+        </ul>
+    </div>
+</div>

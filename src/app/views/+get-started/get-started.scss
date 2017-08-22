@@ -1,0 +1,19 @@
+@import '../../../assets/styles/config';
+
+.get-started {
+    color: #555;
+
+    &__content {
+        padding: 60px 0 40px;
+
+        p {
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            color: #000;
+        }
+    }
+}

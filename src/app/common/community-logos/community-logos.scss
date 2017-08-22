@@ -1,0 +1,17 @@
+.community-logos {
+    overflow: hidden;
+
+    &__item {
+        float: left;
+        width: calc(25% - 16px);
+        margin: 8px;
+        padding: 30px 0;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(#000, .06);
+
+        img {
+            max-width: 100%;
+        }
+    }
+}

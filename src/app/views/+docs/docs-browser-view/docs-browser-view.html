@@ -1,0 +1,22 @@
+<div class="docs-browser-view">
+    <div class="docs-browser-view__top">
+        <div class="docs-browser-view__search-box">
+            <input class="docs-browser-view__search-input" type="text" id="input" (keypress)="$event.code === 'Enter' && search() || true" [(ngModel)]="searchText">
+            <button class="docs-browser-view__search-button" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns small-3">
+            <argo-docs-tree *ngIf="tree" [tree]="tree"></argo-docs-tree>
+        </div>
+        <div class="columns small-9">
+            <argo-doc-viewer *ngIf="!searchItems" [doc]="selectedDocContent"></argo-doc-viewer>
+            <div *ngIf="searchItems">
+                <div *ngFor="let item of searchItems">
+                    <a [routerLink]="[{doc: item.path}]">{{item.title}}</a>
+                    <div class="docs-browser-view__search-summary" [innerHTML]="item.summary"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

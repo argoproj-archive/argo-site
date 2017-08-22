@@ -1,0 +1,82 @@
+---
+type: deployment
+name: argo-site-server
+application_name: "%%inputs.parameters.application%%"
+deployment_name: web
+scale:
+  min: 1
+external_routes:
+- dns_prefix: "%%inputs.parameters.dns-prefix%%"
+  dns_domain: "%%inputs.parameters.domain-name%%"
+  target_port: 3000
+  ip_white_list:
+  - 0.0.0.0/0
+containers:
+  argo-site:
+    image: node:6.3.1
+    command: ["bash", "-c"]
+    args: ["cd /argo-site && node ./scripts/http-server.js"]
+    inputs:
+      artifacts:
+        code:
+          from: "%%inputs.artifacts.code%%"
+          path: /argo-site
+inputs:
+  parameters:
+    application:
+    dns-prefix:
+    domain-name:
+  artifacts:
+    code:
+
+---
+type: workflow
+version: 1
+name: build-deploy
+inputs:
+  parameters:
+    commit:
+        default: "%%session.commit%%"
+    repo:
+        default: "%%session.repo%%"
+    dns-prefix:
+        default: "argo-site"
+    domain-name:
+        default: ""
+    application:
+        default: "argo-site"
+steps:
+- build:
+    template: build
+- deploy:
+    template: argo-site-server
+    arguments:
+      artifacts.code: "%%steps.build.outputs.artifacts.code%%"
+
+---
+type: policy
+version: 1
+name: build-policy
+template: build-deploy
+notifications:
+- when:
+  - on_failure
+  whom:
+  - committer
+  - author
+when:
+- event: on_pull_request
+
+---
+type: policy
+version: 1
+name: build-deploy-policy
+template: build-deploy
+notifications:
+- when:
+  - on_failure
+  whom:
+  - committer
+  - author
+when:
+- event: on_push

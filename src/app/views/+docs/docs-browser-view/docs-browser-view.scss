@@ -1,0 +1,49 @@
+@import 'node_modules/argo-ui-lib/src/assets/styles/config';
+
+.docs-browser-view {
+    &__top {
+        margin-bottom: 30px;
+        padding: 30px 20px;
+        background-color: #fff;
+        border-bottom: 1px solid #e4ebef;
+    }
+
+    &__search-box {
+        position: relative;
+        max-width: 400px;
+        margin: 0 auto;
+
+        input {
+            width: 100%;
+        }
+    }
+
+    &__search-input {
+        padding: 8px 40px 8px 12px;
+        font-size: .9em;
+        color: $ax-color-gray-6;
+        border-radius: 20px;
+        border: 1px solid #d7dee4;
+    }
+
+    &__search-button {
+        position: absolute;
+        top: 9px;
+        right: 16px;
+        color: #818181;
+    }
+
+    &__search-summary {
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $ax-color-gray-6;
+    }
+
+    &__highlight {
+        font-weight: bold;
+        color: $ax-color-gray-8;
+        font-size: 0.8em;
+    }
+}

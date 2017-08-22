@@ -1,0 +1,19 @@
+@import '../../../../assets/styles/config';
+
+.tutorials {
+    &__box {
+        display: block;
+        margin: 1em;
+        padding: 1.2em 1.4em;
+        color: #0055b9;
+        background-color: #fff;
+        border-radius: 4px;
+        border-left: 3px solid $argo-orange;
+        box-shadow: 1px 1px 3px rgba(#000, .1);
+        cursor: pointer;
+
+        &:hover {
+            color: #0055b9;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.get-started-features {
+    &__row {
+        display: flex;
+    }
+
+    &__box {
+        padding: .6em;
+        flex: 1;
+
+        .main__box {
+            margin: 0;
+            height: 100%;
+        }
+    }
+}

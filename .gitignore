@@ -1,0 +1,8 @@
+.DS_Store
+/node_modules
+/.idea
+/app/dist
+.vscode
+npm-debug.log
+phantomjsdriver.log
+dist

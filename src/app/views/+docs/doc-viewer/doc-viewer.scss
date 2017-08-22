@@ -1,0 +1,97 @@
+@import 'node_modules/argo-ui-lib/src/assets/styles/config';
+@import 'node_modules/github-markdown-css/github-markdown.css';
+@import '../../../../assets/styles/config';
+
+.doc-viewer {
+    position: relative;
+    margin: 0 0 40px;
+    padding: 26px 30px;
+    color: #676c76;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 1px 2px rgba(#000, .1);
+    border-left: 1px solid #f3f1fa;
+
+    &::before {
+        position: absolute;
+        top: 28px;
+        left: -4px;
+        width: 4px;
+        height: 40px;
+        background-color: #e4e4e4;
+        content: '';
+    }
+
+    h1 {
+        margin-bottom: 30px;
+        font-weight: 400;
+        font-size: 2em;
+        color: $argo-orange;
+        border: 0;
+    }
+
+    h2 {
+        margin: 30px 0 20px;
+        font-size: 1.6em;
+        font-weight: 500;
+        color: inherit;
+        border: 0;
+    }
+
+    h3 {
+        font-size: 1.4em;
+        border: 0;
+    }
+
+    h4,
+    h5 {
+        font-size: 1.2em;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    li > p {
+        margin: 0;
+    }
+
+    a {
+        color: #4884cd;
+    }
+
+    &__section {
+        padding-bottom: 1em;
+
+        &__header {
+            label {
+                cursor: pointer;
+                color: $ax-color-teal-6;
+                font-size: 1.2rem;
+                vertical-align: middle;
+            }
+            .fa-angle-up {
+                display: none;
+            }
+        }
+
+        &__content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+
+        &.expanded &__content {
+             max-height: 50000px;
+        }
+
+        &.expanded &__header {
+            .fa-angle-up {
+                display: inline;
+            }
+            .fa-angle-down {
+                display: none;
+            }
+        }
+    }
+}

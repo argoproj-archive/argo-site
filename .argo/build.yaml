@@ -1,0 +1,57 @@
+---
+type: workflow
+version: 1
+name: build
+inputs:
+  parameters:
+    commit:
+        default: "%%session.commit%%"
+    repo:
+        default: "%%session.repo%%"
+steps:
+- checkout-site:
+    template: argo-checkout
+  checkout-docs:
+    template: argo-checkout
+    arguments:
+      parameters.repo: https://github.com/axinternal/argo-docs.git
+      parameters.commit: master
+- build-site:
+    image: node:6.3.1
+    command: ["bash", "-c"]
+    args: ["cd /src && npm install && npm run build:prod"]
+    resources:
+      mem_mib: 1536
+      cpu_cores: 0.2
+    inputs:
+      artifacts:
+        code:
+          from: "%%steps.checkout-site.outputs.artifacts.code%%"
+          path: /src
+    outputs:
+      artifacts:
+        code:
+          path: /src
+- prepare:
+    image: node:6.3.1
+    command: ["bash", "-c"]
+    args: ["cp -r /argo-docs/* /argo-site && cd /argo-site && ./scripts/copy-docs.sh"]
+    resources:
+      mem_mib: 1536
+      cpu_cores: 0.2
+    inputs:
+      artifacts:
+        docs-code:
+          from: "%%steps.checkout-docs.outputs.artifacts.code%%"
+          path: /argo-docs
+        site-code:
+          from: "%%steps.build-site.outputs.artifacts.code%%"
+          path: /argo-site
+    outputs:
+      artifacts:
+        code:
+          path: /argo-site
+outputs:
+  artifacts:
+    code:
+      from: "%%steps.prepare.outputs.artifacts.code%%"

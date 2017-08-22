@@ -1,0 +1,34 @@
+<div class="main__container">
+    <div class="installation">
+        <div class="installation__row">
+            Argo is super simple to install and set up! Check these
+            <span class="installation__has-tooltip">prerequisites
+                <span class="installation__tooltip">
+                    <ul>
+                        <li>Make sure you have an AWS account with Minimum resource quota requirements for Argo running in AWS.
+                        <li>Docker client is installed on your client system.</li>
+                        <li>AWS Command-Line Interface (CLI) is installed on your client system.</li>
+                    </ul>
+                </span>
+            </span> before you start the installation.
+        </div><br>
+        <div class="installation__row">
+            For Mac<br>
+            <pre class="first">curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/latest/darwin_amd64/argo</pre><br>
+            For Linux<br>
+            <pre class="first">curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/latest/linux_amd64/argo</pre>
+        </div><br>
+        <div class="installation__row">
+            <pre class="first">chmod +x argo</pre>
+        </div><br>
+        <div class="installation__row">
+            Then <pre>./argo cluster</pre> to open the Argo Command Shell
+        </div><br>
+        <div class="installation__row">
+            Once you get the prompt, <pre>argo cluster ops> argocluster install </pre> to start the installation
+        </div><br>
+        <div class="installation__row">
+            Then enter a name for your cluster and your AWS profile details. Your cluster would be ready in about 20 minutes.
+        </div>
+    </div>
+</div>
