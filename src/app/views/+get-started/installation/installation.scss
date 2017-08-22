@@ -1,6 +1,15 @@
 @import '../../../../assets/styles/config';
 
 .installation {
+    position: relative;
+
+    &__logo {
+        position: absolute;
+        top: 0;
+        left: -110px;
+        width: 84px;
+    }
+
     &__row {
         display: inline-block;
         margin-bottom: 20px;
