@@ -1,6 +1,6 @@
 # Hosts
 
-This view shows real-time details about the instances /hosts that are running jobs in your <span class="GeneralKubernetes Cluster with Argo">Argo</span>:
+This view shows real-time details about the instances /hosts that are running jobs in your Argo:
 
 *   Internal Host IP address for an instance, the AWS Availability Zone the instance is running in, and the type of instance.
 *   Memory allocated to the instance and percent utilization.

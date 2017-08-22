@@ -1,6 +1,6 @@
 # Using Special Values for Parameters
 
-In the Applatix DSL language, there are parameters that can have special values. These values are Applatix variables that refer to session-specific data. The YAML templates use this data to populate the variables. Use this table to determine whether you can use the parameters with special values in your YAML template.
+In the Argo DSL language, there are parameters that can have special values. These values are Argo variables that refer to session-specific data. The YAML templates use this data to populate the variables. Use this table to determine whether you can use the parameters with special values in your YAML template.
 
 <table style="border-left-style: solid;border-left-width: 1px;border-left-color: black;border-right-style: solid;border-right-width: 1px;border-right-color: black;border-top-style: solid;border-top-width: 1px;border-top-color: black;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: black;margin-left: 0;margin-right: auto;" xmlns=""><colgroup><col> <col> <col> <col> <col> <col> <col></colgroup>
 
@@ -52,7 +52,7 @@ Used in these templates
 
 <td>
 
-The commit that the user selected on the Applatix Console.
+The commit that the user selected on the Argo Console.
 
 </td>
 

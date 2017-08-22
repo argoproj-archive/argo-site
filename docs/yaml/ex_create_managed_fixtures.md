@@ -1,39 +1,39 @@
 # Creating a Managed Fixture for Workflows and Apps
 
-When you run a workflow or deploy an app, you might need to access a resource that is external to your <span class="GeneralKubernetes Cluster with Argo">Argo</span>, such as a pool of virtual machines (VMs), databases, other REST-based services, etc. To manage and access these external resources, <span class="GeneralApplatix Platform Name">Argo</span> provides “<span class="GeneralManaged Fixture">managed fixture</span>s”. A <span class="GeneralManaged Fixture">managed fixture</span> allows <span class="GeneralApplatix Platform Name">Argo</span> to perform life-cycle management of these external resources like creating and deleting instances, loading data, or any other custom action. In a <span class="GeneralManaged Fixture">managed fixture</span>, attributes are used to distinguish instances that come from different <span class="GeneralManaged Fixture">managed fixture</span> classes. Actions are workflows that you can perform on a <span class="GeneralManaged Fixture">managed fixture</span>, (such as creating a <span class="GeneralManaged Fixture">managed fixture</span> for an external database)
+When you run a workflow or deploy an app, you might need to access a resource that is external to your Argo, such as a pool of virtual machines (VMs), databases, other REST-based services, etc. To manage and access these external resources, Argo provides “managed fixtures”. A managed fixture allows Argo to perform life-cycle management of these external resources like creating and deleting instances, loading data, or any other custom action.
+
+Managed fixtures have attributes and actions. **Attributes** are used to distinguish instances that come from different managed fixture classes. **Actions** are workflows that you can perform on a managed fixture, (such as creating a managed fixture for an external database)
 
 Fixtures also allow you to use policies to automatically manage resources such as auto-suspension or termination based on various metrics and conditions.
 
-The process for using fixtures in a workflow or app is:
+The process for creating fixtures for a workflow or application is:
 
-1.  In the <span class="GeneralYAML template">YAML template</span>, define a fixture class for each distinct type of resource that you need. See [Creating a fixture class for a workflow](#CreateFixture) for an example.
-2.  Go to the Applatix Console for your cluster.
+1.  In the YAML template, define a fixture class for each distinct type of resource that you need. See [Creating a fixture class for a workflow](#CreateFixture) for an example.
+2.  Go to the Argo Console for your cluster.
 3.  Connect to the repo containing the YAML fixture class definition you created.
 
-4.  Add the fixture class that you need. See [Using Fixtures for Accessing External Resources](#/docs;doc=%2Fuser_guide%2Finfrastructure%2Fusing_fixtures.md).
-5.  Create the instances of the fixture class. For details, see [Using Fixtures for Accessing External Resources](#/docs;doc=%2Fuser_guide%2Finfrastructure%2Fusing_fixtures.md).
+4.  Add the fixture class that you need to the repo. For details, see [To add a new fixture class to your repo branch](../user_guide/infrastructure/using_fixtures.htm#AddFixtureClass2Repo)[Using Fixtures for Accessing External Resources](#/docs;doc=%2Fuser_guide%2Finfrastructure%2Fusing_fixtures.md).
+5.  Create the instances of the fixture class. For details, see [To create an instance of a fixture class](../user_guide/infrastructure/using_fixtures.htm#CreateInstanceFixtureClass).
 
 ## <a name="CreateFixture"></a>Creating a fixture class for a workflow
 
 These are the tasks for creating a fixture class:
 
-*   **Create** a <span class="GeneralYAML template">YAML template</span> for each fixture class.
+*   **Create** a YAML template for each fixture class.
 
     You'll declare a template that is of type "fixture".
 
 *   **Add** the desired attributes and actions to the fixture class.
 
-    In a <span class="GeneralManaged Fixture">managed fixture</span>, attributes are used to distinguish instances that come from different <span class="GeneralManaged Fixture">managed fixture</span> classes.
+    See [YAML Code for managed fixture](#YAML)for an example of attributes and actions.
 
-    Actions are workflows that you can perform on a <span class="GeneralManaged Fixture">managed fixture</span>, (such as creating a <span class="GeneralManaged Fixture">managed fixture</span> for an external database)
-
-You are now ready to use this fixture class. See for [Using Fixtures for Accessing External Resources](#/docs;doc=%2Fuser_guide%2Finfrastructure%2Fusing_fixtures.md) details.
+You are now ready to use this fixture class. See [Using Fixtures for Accessing External Resources](#/docs;doc=%2Fuser_guide%2Finfrastructure%2Fusing_fixtures.md) for details.
 
 ### About Attributes and Actions for a Fixture
 
-Fixture class attributes and actions are totally configurable. Here's an example of attributes and actions for an EC2 instance fixture:
+Fixture class attributes and actions are totally configurable. You create the attributes and actions that your fixture requires. Here's an example of attributes and actions for an EC2 instance fixture:
 
-### Attributes
+### <a name="Attributes"></a>Attributes
 
 <table style="border-left-style: solid;border-left-width: 1px;border-left-color: black;border-right-style: solid;border-right-width: 1px;border-right-color: black;border-top-style: solid;border-top-width: 1px;border-top-color: black;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: black;margin-left: 0;margin-right: auto;" xmlns=""><colgroup><col style="width: 220px;"> <col style="width: 296px;"> <col style="width: 192px;"></colgroup>
 
@@ -82,13 +82,13 @@ Fixture class attributes and actions are totally configurable. Here's an example
 
 <tr>
 
-<td>`applatix_cluster_affinity`</td>
+<td>`argo_cluster_affinity`</td>
 
-<td>`managed` -. Allows access to the fixture from the Applatix cluster. To see the default security settings, go to <madcap:conditionaltext data-mc-conditions="General.Not for Print">.[Configuring System Settings](#/docs;doc=%2Fuser_guide%2Fconfigapplatixcluster%2Fmanagesystemsettings.md)</madcap:conditionaltext> under Access settings.  
+<td>`managed` -. Allows access to the fixture from the Argo cluster. To see the default security settings, go to .[Configuring System Settings](#/docs;doc=%2Fuser_guide%2Fconfigapplatixcluster%2Fmanagesystemsettings.md) under Access settings.  
 `accessible` - provides limited access to EC2 instance.  
 `isolated` - no default access to EC2 instance.</td>
 
-<td>Pre-configured networking options that Applatix provides.</td>
+<td>Pre-configured networking options that Argo provides.</td>
 
 </tr>
 
@@ -136,11 +136,13 @@ Fixture class attributes and actions are totally configurable. Here's an example
 
 <td>Calling "test-fixture-action" template to create the fixture.  
 
-<pre>create:
+```
+create:
   template: test-fixture-action
   parameters:
     INSTANCE_TYPE: "%%fixture.instance_type%%"
-    ACTION: create </pre>
+    ACTION: create 
+```
 
 </td>
 
@@ -155,16 +157,20 @@ Fixture class attributes and actions are totally configurable. Here's an example
 
 <td>Call this action to delete an instance of a fixture class.</td>
 
-<td>Passing a cross-account role and extra arguments into the test-fixture-action container to run the delete action.  
+<td>Passing a cross-account role and extra arguments into the `ec2-fixture-action` container to run the delete action.  
 
-<pre xml:space="preserve">delete:
+```
+delete:
   template: ec2-fixture-action
   parameters:
-    MANAGEMENT_ROLE: "arn:aws:iam::111111111111:role/</pre>
+    MANAGEMENT_ROLE: "arn:aws:iam::111111111111:role/
+```
 
-<pre xml:space="preserve">managed-fixture-ec2-example"
+```
+managed-fixture-ec2-example"
     ACTION: delete
-    EXTRA_ARGS: "--instance-id %%fixture.instance_id%%"</pre>
+    EXTRA_ARGS: "--instance-id %%fixture.instance_id%%"
+```
 
 </td>
 
@@ -174,15 +180,19 @@ Fixture class attributes and actions are totally configurable. Here's an example
 
 </table>
 
-### <a name="YAML"></a>YAML Code for <span class="GeneralManaged Fixture">managed fixture</span>
+### <a name="YAML"></a>YAML Code for managed fixture
 
-The following sample code shows an EC2 instance used as a fixture for a test.
+The following sample code shows
+
+*   a fixture template that declares the fixture class's attributes and actions for an EC2 instance.
+*   a container template that creates a container for running an EC2 instance of the fixture class.
 
 <div xmlns="">
 
-<pre xml:space="preserve">---
+```
+---
 type: fixture
-name: ApplatixManagedEC2Fixture
+name: ArgoManagedEC2Fixture
 description: ec2 test fixture
 # Declare the attributes for a EC2 fixture
 # Available types of attributes are string, int, bool, float or array.
@@ -227,7 +237,7 @@ attributes:
   subnet_id:
     type: string
     default: "None"
-  applatix_cluster_affinity:
+  argo_cluster_affinity:
     type: string
     default: "managed"
     options:
@@ -246,7 +256,7 @@ actions:
       EXTRA_ARGS: "
         --name %%fixture.name%%
         --launch-configuration %%fixture.launch_configuration_name%%
-        --applatix-cluster-affinity %%fixture.applatix_cluster_affinity%%
+        --argo-cluster-affinity %%fixture.argo_cluster_affinity%%
         --subnet-id %%fixture.subnet_id%%"
   delete:
     template: ec2-fixture-action
@@ -272,16 +282,16 @@ actions:
 ---
 type: container
 name: ec2-fixture-action
-container:
-  resources:
-    mem_mib: 64
-    cpu_cores: 0.02
-  image: "get.applatix.io/managed-fixture/mfctl:latest"
-  # axmfctl is the Applatix command for creating a fixture
-  # This command creates an EC2 instance of the fixture class
-  # by passing in the cross-account role and arguements for 
-  # the instance of the fixture class
-  command: "axmfctl ec2 %%ACTION%% --management-role %%MANAGEMENT_ROLE%% %%EXTRA_ARGS%%"
+resources:
+  mem_mib: 64
+  cpu_cores: 0.02
+image: "get.argoproj.io/managed-fixture/mfctl:latest"
+# axmfctl is the argo command for creating a fixture
+# This command creates an EC2 instance of the fixture class
+# by passing in the cross-account role and arguements for 
+# the instance of the fixture class
+command: ["axmfctl"]
+args: ["ec2 %%ACTION%% --management-role %%MANAGEMENT_ROLE%% %%EXTRA_ARGS%%"]
 inputs:
   parameters:
     ACTION:
@@ -291,6 +301,7 @@ outputs:
   artifacts:
     attributes:
       path: /tmp/fix_attrs.json
-</pre>
+
+```
 
 </div>

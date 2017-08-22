@@ -1,97 +1,97 @@
 # Project Templates
 
-You use project templates to make a workflow or application available in the <span class="GeneralApplatix Catalog">Argo Catalog</span>. This makes it possible for your users to run the workflow or application from the Catalog.
+You use project templates to make a workflow or application available in the Argo Catalog. This makes it possible for your users to run the workflow or application from the Catalog.
 
 A project template has the following sections.
 
 #### Common Name and Type
 
-*   name: the unique name of the object.
+*   `name`: the unique name of the object.
 
-*   type: project.
+*   `type`: project.
 
-*   description: optional, describes the object for the benefit of the users.
+*   `description`: describes the object for the benefit of the users. Optional.
 
-<div xmlns="">
-
+```
 ---
-
 type: project
-
 name: Sample Go Project
-
 description: Sample Project to launch golang example
-
 template: golang check and build
-
-</div>
+```
 
 #### Actions
 
-One or more entry points to a project. Each entry point is a reference to an existing template. An action contains these fields:
+Actions map the "action name" to template references. One or more entry points to a project. Each entry point is a reference to an existing template. An action contains these fields:
 
-*   name: action name unique in the project
+*   `action_name`
 
-*   template: template to launch
+*   `template`: template to launch
 
-*   parameters: optional, parameters to launch the template. The parameters should exist in the template. Parameter values defined here override the default values specified in the template.
+*   `parameters`: parameters to launch the template. (Optional) The parameters should exist in the template. Parameter values defined here override the default values specified in the template.
 
-<div xmlns="">
-
-actions:
-
-  -
-
-    name: build
-
+```
+actions: 
+  build:
     template: golang check and build
-
     parameters:
-
-      repo: "https://github.com/Applatix/appstore.git"
-
-</div>
+      repo: "https://github.com/Argo/appstore.git"
+```
 
 #### Assets
 
-Project assets are used by the Applatix Catalog and include the icon and detail description of the project.
+Project assets are used by the Argo Catalog and include the icon and detail description of the project.
 
-*   icon: optional, path to the icon file for the project. Only .png is supported
+*   `icon`: path to the icon file for the project. (Optional) Only `.png` is supported
 
-*   detail: optional, path to a mark down that provides details for the project
+*   `detail`: path to a mark down that provides details for the project. (Optional)
 
-<div xmlns="">
-
+```
 assets:
-
   icon: "/sample/sample.png"
-
-  detail: "/sample/detail.md" 
-
-</div>
+  detail: "/sample/detail.md"  
+```
 
 #### Categories
 
-A list of categories under which the project displays in the Applatix Catalog.  
+A list of categories under which the project displays in the Argo Catalog.  
 
+```
 categories: ["language", "promoted"]
+```
 
 #### Publish
 
-Zero or more criteria for publishing a project to the Applatix Catalog. Only published projects are visible in the Catalog.  
+Zero or more criteria for publishing a project to the Argo Catalog. Only published projects are visible in the Catalog.  
 
-<div xmlns="">
-
+```
 publish:
-
-# publish is based on branches
-
+# publish is based on branches 
   branches:
-
-  # branches are in regular expression format, eg. ".*" matches all branches 
-
+  # branches are in regular expression format, eg. ".*" matches all branches  
     -master
-
     -r.*
+```
 
-</div>
+### Example
+
+```
+---
+type: project
+name: Claudia
+description: AWS cost and usage analysis.
+actions:
+  run:
+    template: claudia-workflow
+categories: ["monitoring", "promoted"]
+publish:
+  branches:
+  - master
+labels:
+  tags: "[\"aws\"]"
+  publisher: Applatix
+assets:
+  icon: "/claudia/icon.png"
+  publisher_icon: "/claudia/AX_Pub.png"
+  detail: "/claudia/detail.md"
+```

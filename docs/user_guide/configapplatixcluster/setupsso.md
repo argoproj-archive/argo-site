@@ -1,10 +1,10 @@
 # Configuring Single Sign-On
 
-The <span class="GeneralApplatix Platform Name">Argo</span> uses the Security Assertion Markup Language (SAML) to securely connect Applatix with an Identity Provider (IdP) and enable single sign-on (SSO). Applatix is the service provider and Active Directory is an example of an Identity Provider.
+The Argo uses the Security Assertion Markup Language (SAML) to securely connect Applatix with an Identity Provider (IdP) and enable single sign-on (SSO). Applatix is the service provider and Active Directory is an example of an Identity Provider.
 
-By default, when a new SAML user is registered with your <span class="GeneralKubernetes Cluster with Argo">Argo</span>, the new user is assigned to a developer group, which has restricted permissions to the Cluster. If the new user needs administrative privileges, then you must promote the new user account to an administrative account.
+By default, when a new SAML user is registered with your Argo, the new user is assigned to a developer group, which has restricted permissions to the Cluster. If the new user needs administrative privileges, then you must promote the new user account to an administrative account.
 
-To complete the following steps for configuring SSO for <span class="GeneralKubernetes Cluster with Argo">Argo</span>, go to **Configurations** > **Set Up Single Sign-on**:
+Go to **Configurations** > **Set Up Single Sign-on** and follow these steps for configuring SSO for Argo:
 
 ## Step 1 Give Applatix Information to your Identity Provider
 

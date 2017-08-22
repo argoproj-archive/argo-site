@@ -1,213 +1,153 @@
 # Adding a Volume as Storage for Deployment
 
-When a long-running deployment executes, it may need storage for persisting data. <span class="GeneralApplatix Platform Name">Argo</span> provides volumes to enable the storage of data. There are two types of volumes that <span class="GeneralApplatix Platform Name">Argo</span> supports:
+When a long-running deployment executes, it may need storage for persisting data. Argo provides volumes to enable the storage of data. There are two types of volumes that Argo supports:
 
-*   <span class="UI_element">NAMED</span> volumes persist independently of an application. The volume and its data persist even after an application terminates. NAMED volumes must be declared from the <span class="NewSetApplatix Cluster Console">Argo Web UI</span> (under <span class="UI_element">Infrastructure</span> > <span class="UI_element">Volumes</span>) before they can be referenced in a <span class="NewSetYAML template">YAML template</span>.
-*   <span class="UI_element">ANONYMOUS</span> volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are **only** declared in the <span class="NewSetYAML template">YAML template</span>.
+*   NAMED volumes persist independently of an application. The volume and its data persist even after an application terminates. NAMED volumes must be declared from the Argo Web UI before they can be referenced in a YAML template. Follow these steps to declare a NAMED volume
 
-## Required templates for volumes
+    1.  From the Argo Web UI, click **Infrastructure** > **Volumes** > **+**.
+    2.  Click **SELECT** for the row the storage class you want for the new named volume.
+    3.  Enter a name for the volume and the size of the volume (in Gibibytes).
+    4.  Click **SAVE**.
 
-You'll need to use two types of <span class="NewSetYAML template">YAML template</span>s to implement volumes:
+        The newly-created volume is now visible on the main volumes page (Infrastructure > Volumes)
 
-*   Deployment - specifies a section named "Volumes", the name of the volume, the Storage class, and the size of the volume
-*   Container - specifies the name of the container image used in a deployment (such as a database, web server) and references the name of the volume that is to be mounted on the <span class="NewSetApplatix Cluster">Argo Cluster</span>
+*   ANONYMOUS volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are **only** declared in the YAML template and you must specify a `storage_class` for it and its required parameters. For details about the storage class, see [About Storage Classes for Volumes](#AboutStorageClass4Volumes).For details about declaring an anonymous volume, see [Code Example for An Anonymous Volume](#Code4DeclaringAnonymousVolume).
 
-The following pseudo-code shows the specific lines to add to support for named and anonymous volumes in the two templates (Deployment and Container):
+When creating a new volume, you must decide whether the volume is "named" or "anonymous".
+
+## <a name="AboutStorageClass4Volumes"></a>About Storage Classes for Volumes
+
+Argo provides pre-configured storage classes for volumes. A storage class is composed of specific characteristics:
+
+*   **STORAGE PROVIDER NAME** - This is the name of the storage provider used for the volume, such as "`ebs`" or Elastic Block Storage (EBS) if you are using AWS.
+*   **VOLUME TYPE** - The type of volume that the storage provider has, such as "gp2" for EBS. This is an example of a required parameter the for "ebs" storage provider.
+*   **FILE SYSTEM** - The type of file system that the storage provider uses, such as "ext4" for EBS. This is an example of a required parameter for "ebs" storage provider.
+
+## Required YAML Templates for Volumes
+
+You'll need to use two types of YAML templates to implement volumes:
+
+*   **Deployment** - specifies a section named "`volumes`", the name of the volume, the Storage class, and the size of the volume.
+*   **Container** - specifies the name of the container image used in a deployment (such as a database, web server) and references the name of the volume that is to be mounted on the Argo Cluster
+
+The following pseudo-code shows the specific lines to add to support for named and anonymous volumes in the two templates (Deployment and Container) and it uses a "referenced"container to mount a volume:
 
 ### Deployment Template
 
-<pre xml:space="preserve" xmlns=""># section name</pre>
+```
+# section name
+```
 
-<pre xml:space="preserve" xmlns="">Volumes:</pre>
+```
+volumes:
+```
 
-<pre xml:space="preserve" xmlns=""> # Reference to an anonymous volume for deployment</pre>
+```
+# Reference a named volume for deployment with the "name" reserved word 
+```
 
-<pre xml:space="preserve" xmlns=""><reference_to_volume1>:</pre>
+<pre xml:space="preserve" xmlns="">  <reference_to_named_volume>:</pre>
 
-<pre xml:space="preserve" xmlns=""> # Storage_class is an Applatix keyword that refers to pre-configured storage provider </pre>
+<pre xml:space="preserve" xmlns="">    name: <user_created_name_for_the_volume></pre>
 
-<pre xml:space="preserve" xmlns=""> # and its required parameters that Applatix supports. For example,  "ebs" or 
- # Elastic Block Storage (EBS) is the storage provider for AWS, "gp2" is a type of volume</pre>
+```
+# Reference to an anonymous volume for deployment
+```
 
-<pre xml:space="preserve" xmlns=""> # that EBS has, and "ext4" is a type of file system that EBS uses</pre>
+<pre xml:space="preserve" xmlns="">  <reference_to_volume1>:
+    # Storage_class is an Argo keyword that refers to pre-configured
+    # storage provider and its required parameters that Argo supports</pre>
 
-<pre xml:space="preserve" xmlns="">  **Storage_class:** <Applatix_reserved_name_4_class></pre>
+<pre xml:space="preserve" xmlns="">    **Storage_class:** <Argo_reserved_name_4_class></pre>
 
-<pre xml:space="preserve" xmlns="">  Size: xx GB</pre>
-
-<pre xml:space="preserve" xmlns=""># Reference a named volume for deployment with the "name" reserved word </pre>
-
-> <pre xml:space="preserve"> <reference_to_volume2>:</pre>
-
-<pre xml:space="preserve" xmlns="">    name: <user_created_name></pre>
+```
+    Size: xx GB
+```
 
 ### Container Template
 
-<pre xml:space="preserve" xmlns=""># Name of image for container</pre>
+```
+# Name of image for container
+```
 
-<pre xml:space="preserve" xmlns="">Image: <database_type or server_type> such as MySQL or HTTP server</pre>
+<pre xml:space="preserve" xmlns="">image: <database_type or server_type such as MySQL or HTTP server></pre>
 
-<pre xml:space="preserve" xmlns="">#section name for mounting a volume to the <span class="NewSetApplatix Cluster">Argo Cluster</span></pre>
+<pre xml:space="preserve" xmlns="">resources:
+  cpu_cores: <number_of_cpu_cores>
+..mem_mib: <size_of_memory></pre>
 
-<pre xml:space="preserve" xmlns="">volume_mounts:</pre>
+```
+# inputs section that has the mount path for a volume (such as /var/log)
+```
 
-<pre xml:space="preserve" xmlns=""># Mount path for a volume (such as /var/log)</pre>
+<pre xml:space="preserve" xmlns="">inputs:
+  volumes:
+    <reference_to_volume>
+      mount_path: <path_to_volume>
+</pre>
 
-<pre xml:space="preserve" xmlns="">- mount-path: <location_to_mount_the_volume> </pre>
-
-<pre xml:space="preserve" xmlns="">  volume: <reference_to_volume></pre>
-
-## Code Example
+## Code Example for Named Volume
 
 The following code example shows the following:
 
-*   uses a named volume (`data-vol`) to store persistent data
-*   uses an anonymous volume (`log-vol`) to store data for an application while it is running
-*   attaches the volumes to an Apache HTTP server
-*   uses a workflow to check out the code and deploy the container for the HTTP server
+*   references a named volume (`data`) to store persistent data.
+*   references a container (`test-container`) with-a named volume (`my-test-vol`) attached.
+*   the container has a mount_path of `/data` for the named volume.
 
 The code marked in **bold** is the volume-related code.
 
-<pre xml:space="preserve" xmlns="">---
-type: **container**
-name: deployment-container-vol
-container:
-  resources:
-    mem_mib: 512
-    cpu_cores: 0.01
-  image: "httpd:latest"
-inputs:
-  parameters:
-    code:
-    vol_data:
-    vol_log:
-</pre>
-
-<pre style="font-weight: bold;" xml:space="preserve" xmlns=""># Mount the named volume (data-vol) at this path</pre>
-
-<pre style="font-weight: bold;" xml:space="preserve" xmlns=""># Mount the anonymous volume (log-vol) at this path</pre>
-
-<pre xml:space="preserve" xmlns="">volume_mounts:
-  - mount_path: /ax/data
-    volume: "%%vol_data%%"
-  - mount_path: /ax/log
-    volume: "%%vol_log%%"
+```
 ---
-type: **deployment**
-name: deployment-example-vol
-description: Deploying an Apache HTTP Web Server with named and anonymous volumes attached.
-inputs:
-  parameters:
-    code:
-      default: "%%session.artifacts%%"
-    appname:
-      default: "test-app"
-    deployname:
-      default: "test-deploy"
-    domain:
-      default: "app.company.com"
-    data-volume:
-application:
-  name: "%%appname%%"
-deployment:
-  name: "%%deployname%%"
-scale:
-  min: 1
+type: deployment
+version: 1
+name: test-deployment-with-named-volume
+description: Deployment which requests a named volume
+application_name: test-app
+deployment_name: deployment-with-named-volume
 external_routes:
-  - name: deploy-external
-    dns_prefix:
-    dns_domain: "%%domain%%"
-    target_port: 80
-    redirect_http_to_https: true
-    ip_white_list:
-      - 0.0.0.0/0
-internal_routes:
-  - name: deploy-internal
-    ports:
-      - name: http
-        port: 80
-        target_port: 80
-volumes:</pre>
-
-<pre xml:space="preserve" xmlns="">**# Named volume is "data-vol"**</pre>
-
-<pre xml:space="preserve" xmlns="">  data-vol:
-    name: "%%data-volume%%"</pre>
-
-<pre style="font-weight: bold;" xml:space="preserve" xmlns=""># Anonymous volume is "log-vol"</pre>
-
-<pre style="font-weight: bold;" xml:space="preserve" xmlns=""># "attached-gp" is an Applatix reserved name for a storage class </pre>
-
-<pre xml:space="preserve" xmlns="">  log-vol:
-    storage_class: attached-gp
-    size_gb: 10
+- target_port: 80
+  ip_white_list:
+  - 0.0.0.0/0 **volumes:
+  data:
+    name: "%%inputs.parameters.VOLUME_NAME%%"**
 containers:
-  - server:
-      template: deployment-container-vol
-      parameters:
-        vol_log: "%%volumes.log-vol%%"
-        vol_data: "%%volumes.data-vol%%"
-termination_policy:
-  time_seconds: "43200"
-  spending_cents: "100"
-
----
-type: **workflow**
-name: deployment-workflow-vol
+  WEB:
+    template: test-container-with-volume
+    arguments:
+      volumes.DATA: "%%volumes.data%%"
 inputs:
   parameters:
-    commit:
+    COMMIT:
       default: "%%session.commit%%"
-    repo:
+    REPO:
       default: "%%session.repo%%"
-    appname:
-      default: "test-app"
-    domain:
-      default: "applatix.net"
-    data-volume:
-steps:
-  - checkout:
-      template: axscm-checkout
-  - deploy:
-      template: deployment-example-vol
-      parameters:
-        code: "%%steps.checkout.code%%"
-        deployname: "deploy"</pre>
+    VOLUME_NAME:
+      default: my-test-vol
 
-# Adding Volumes as Storage for Deployments
+---
+type: container
+version: 2
+name: test-container-with-volume
+image: nginx:latest
+resources:
+  cpu_cores: 0.05
+  mem_mib: 32
+inputs: **volumes:
+    DATA:
+      mount_path: /data**
+```
 
-When a long-running deployment executes, it may need storage for persisting data. <span class="GeneralApplatix Platform Name">Argo</span> provides volumes to enable the storage of data. There are two types of volumes that <span class="GeneralApplatix Platform Name">Argo</span> supports:
+## <a name="Code4DeclaringAnonymousVolume"></a>Code Example for An Anonymous Volume
 
-*   <span class="UI_element">NAMED</span> volumes persist independently of an application. The volume and its data persist even after an application terminates. NAMED volumes must be declared from the <span class="NewSetApplatix Cluster Console">Argo Web UI</span> (under <span class="UI_element">Infrastructure</span> > <span class="UI_element">Volumes</span>) before they can be referenced in a <span class="NewSetYAML template">YAML template</span>.
-*   <span class="UI_element">ANONYMOUS</span> volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are **only** declared in the <span class="NewSetYAML template">YAML template</span>.
+The YAML code for declaring an anonymous volume for a deployment is exactly the same as for a named volume except for a couple of lines in the `volumes` section of the deployment template:
 
-For details about creating a volume in a deployment template or referencing a volume from a <span class="GeneralYAML template">YAML template</span>, see [Adding a Volume as Storage for Deployment](#).
+```
+volumes:
+  data: **storage_class: ssd
+    size_gb: 1**
+```
 
-## About Storage Classes for Volumes
-
-Applatix provides pre-configured storage classes for volumes. A storage class is composed of specific characteristics:
-
-*   **STORAGE PROVIDER NAME** - This is the name of the storage provider used for the volume, such as "ebs" or Elastic Block Storage (EBS) if you are using AWS.
-*   **VOLUME TYPE** - The type of volume that the storage provider has, such as "gp2" for EBS.
-*   **FILE SYSTEM** - The type of file system that the storage provider uses, such as "ext4" for EBS.
-
-When creating a new volume, you must decide whether the volume is "named" or "anonymous". Here are the procedures for creating either type of volume.
-
-### To create a Named volume:
-
-1.  Click **Infrastructure** > **Volumes** > **+** from the <span class="GeneralApplatix Cluster Console">Argo Web UI</span>.
-
-2.  Click **SELECT** for the row the storage class you want for the new named volume.
-
-3.  Enter a name for the volume and the size of the volume (in Gibibytes).
-
-4.  Click **SAVE**.
-
-    The newly-created volume is now visible on the main volumes page (Infrastructure > Volumes)
-
-### To create an Anonymous volume:
-
-Specify an anonymous volume in the <span class="GeneralYAML template">YAML template</span> for your workflow. For details, see .
+Notice that the value for the data volume is not a name, but a mapping to a `storage_class: ssd` and any of its required parameters (such as `size_gb`).
 
 ### To view details about a volume:
 
@@ -216,5 +156,3 @@ NOTE: Usage refers the current utilization of the volume.
 1.  Click **Infrastructure** > **Volumes** > _name_of_the_volume_ to view details about the volume (STORAGE PROVIDER NAME, VOLUME TYPE, FILE SYSTEM)
 
 2.  Click the name of the **VOLUME USERS** to view details about the deployment(s) that an application uses.
-
-    ![](docs/images/applications_deployed_details_spending.png)

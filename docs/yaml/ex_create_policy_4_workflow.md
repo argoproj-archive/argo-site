@@ -1,10 +1,10 @@
 # Automating Workflows Using Policies
 
-Edit this topic to merge content together
+Now that you've seen how to manually start, stop, or terminate jobs as workflows, the next step is to automate when workflows get triggered. Argo uses policies to do this. You can also enable or disable a policy. For details, see [Viewing, Enabling and Disabling Policies](#/docs;doc=%2Fuser_guide%2Fpolicies%2Fenable-disablepolicies_notused.md).
 
-Now that you've seen how to manually start, stop, or terminate jobs as workflows, the next step is to automate when workflows get triggered. <span class="GeneralApplatix Platform Name">Argo</span> uses policies to do this. For details about creating policies, see <madcap:conditionaltext data-mc-conditions="General.Not for Print">[Automating Workflows Using Policies](#).</madcap:conditionaltext> for details. You can also enable or disable a policy. For details, see [Viewing, Enabling and Disabling Policies](#/docs;doc=%2Fuser_guide%2Fpolicies%2Fenable-disablepolicies_notused.md).
+Additionally, you can also write a policy that alerts users as to when certain events happen on the Argo. For details, see [Using Policies to Trigger a Notification Message](../user_guide/configapplatixcluster/setupnotificationmanagement.htm#UsingPolicies2TriggerNotificationMessage).
 
-Additionally, you can also write a policy that alerts users as to when certain events happen on the <span class="GeneralKubernetes Cluster with Argo">Argo</span>. For details, see [Using Policies to Trigger a Notification Message](../user_guide/configapplatixcluster/setupnotificationmanagement.htm#UsingPolicies2TriggerNotificationMessage).
+## About Policies
 
 Policies are a set of rules that determine
 
@@ -12,148 +12,264 @@ Policies are a set of rules that determine
 *   when notifications should be generated
 *   whom the notifications should be sent to
 
-Policies help you automate your operational processes. You define policies in a <span class="GeneralYAML template">YAML template</span>. To define a policy, see "Creating a Policy that Triggers a Workflow" in the <span class="GeneralYAML Tutorial">Argo YAML Tutorial and Reference</span>.
+Essentially, policies help you automate your operational processes. You define a policy using a YAML template. The policy template can specify when certain workflows or container templates should be run and when and to whom notifications should be generated based on the result of running the templates. To define a policy, see "Creating a Policy that Triggers a Workflow" in the Argo YAML Tutorial and Reference.
 
-Now that you know how to create containers and workflow templates for <span class="GeneralApplatix Platform Name">Argo</span>, but how do you set up things to trigger automatically? The solution is policy templates.
-
-The policy template can specify when certain workflows or container templates should be run and when and to whom notifications should be generated based on the result of running the templates.
-
-In the following example, the policy template specifies when to trigger a workflow named golang check and build and when notifications are sent based on several events:
+In the following example, the policy template specifies when to trigger a workflow named "`golang check and build`" and when notifications are sent based on several events:
 
 <div xmlns="">
 
-<pre>---</pre>
+```
+---
+```
 
-<pre>type: policy</pre>
+```
+type: policy
+```
 
-<pre>name: Sample Policy</pre>
+```
+name: Sample Policy
+```
 
-<pre>description: Sample Policy to trigger golang example</pre>
+```
+description: Sample Policy to trigger golang example
+```
 
-<pre>template: golang check and build</pre>
+```
+template: golang check and build
+```
 
-<pre>parameters:</pre>
+```
+parameters:
+```
 
-<pre># parameters with "%%session.*%%" as default value can be fulfilled automatically,</pre>
+```
+# parameters with "%%session.*%%" as default value can be fulfilled automatically,
+```
 
-<pre xml:space="preserve"># others need to be specified in this section</pre>
+```
+# others need to be specified in this section
+```
 
-<pre>notifications:</pre>
+```
+notifications:
+```
 
-<pre># multiple notification can be specified</pre>
+```
+# multiple notification can be specified
+```
 
-<pre>  -</pre>
+```
+  -
+```
 
-<pre>    **when**:</pre>
+```
+    **when**:
+```
 
-<pre>      # options: on_start, on_success, on_failure, on_change </pre>
+```
+      # options: on_start, on_success, on_failure, on_change 
+```
 
-<pre>      - on_start</pre>
+```
+      - on_start
+```
 
-<pre>      - on_success</pre>
+```
+      - on_success
+```
 
-<pre>      - on_failure</pre>
+```
+      - on_failure
+```
 
-<pre>    **whom**:</pre>
+```
+    **whom**:
+```
 
-<pre>      # options: committer, author, email address, user label</pre>
+```
+      # options: committer, author, email address, user label
+```
 
-<pre>      - committer</pre>
+```
+      - committer
+```
 
-<pre>      - author</pre>
+```
+      - author
+```
 
-<pre>      - abc@company.com</pre>
+```
+      - abc@company.com
+```
 
-<pre>  -</pre>
+```
+  -
+```
 
-<pre>    **when**:</pre>
+```
+    **when**:
+```
 
-<pre>      - on_change</pre>
+```
+      - on_change
+```
 
-<pre>    whom:</pre>
+```
+    whom:
+```
 
-<pre>      - abc@company.slack.com</pre>
+```
+      - abc@company.slack.com
+```
 
-<pre>**when**:</pre>
+```
+**when**:
+```
 
-<pre># multiple triggers can be specified</pre>
+```
+# multiple triggers can be specified
+```
 
-<pre>  -</pre>
+```
+  -
+```
 
-<pre>    # options: on_push, on_pull_request, on_pull_request_merge, on_cron</pre>
+```
+    # options: on_push, on_pull_request, on_pull_request_merge, on_cron
+```
 
-<pre>    **event**: on_push</pre>
+```
+    **event**: on_push
+```
 
-<pre>    target_branches:</pre>
+```
+    target_branches:
+```
 
-<pre>      # target_branches are in regular expression format, eg. ".*" matches all branches</pre>
+```
+      # target_branches are in regular expression format, eg. ".*" matches all branches
+```
 
-<pre>      - "master"</pre>
+```
+      - "master"
+```
 
-<pre>      - "dev.*"</pre>
+```
+      - "dev.*"
+```
 
-<pre>  -</pre>
+```
+  -
+```
 
-<pre>    **event**: on_pull_request</pre>
+```
+    **event**: on_pull_request
+```
 
-<pre>    target_branches:</pre>
+```
+    target_branches:
+```
 
-<pre>      - ".*"</pre>
+```
+      - ".*"
+```
 
-<pre>  -</pre>
+```
+  -
+```
 
-<pre>    **event**: on_pull_request_merge</pre>
+```
+    **event**: on_pull_request_merge
+```
 
-<pre>    target_branches:</pre>
+```
+    target_branches:
+```
 
-<pre>      - ".*"</pre>
+```
+      - ".*"
+```
 
-<pre>  -</pre>
+```
+  -
+```
 
-<pre>    **event**: on_cron</pre>
+```
+    **event**: on_cron
+```
 
-<pre>    target_branches:</pre>
+```
+    target_branches:
+```
 
-<pre>      - ".*"</pre>
+```
+      - ".*"
+```
 
-<pre>    # cron expression</pre>
+```
+    # cron expression
+```
 
-<pre>    # 0 1 * * *</pre>
+```
+    # 0 1 * * *
+```
 
-<pre>    #   | | | | |</pre>
+```
+    #   | | | | |
+```
 
-<pre>    #   | | | | |</pre>
+```
+    #   | | | | |
+```
 
-<pre>    #   | | | | +---- Run every day of the week</pre>
+```
+    #   | | | | +---- Run every day of the week
+```
 
-<pre>    #   | | | +------ Run every month of the year</pre>
+```
+    #   | | | +------ Run every month of the year
+```
 
-<pre>    #   | | +-------- Run every day of the month</pre>
+```
+    #   | | +-------- Run every day of the month
+```
 
-<pre>    #   | +---------- Run at 1 Hour (1AM)</pre>
+```
+    #   | +---------- Run at 1 Hour (1AM)
+```
 
-<pre>    #   +------------ Run at 0 Minute</pre>
+```
+    #   +------------ Run at 0 Minute
+```
 
-<pre>    schedule: "0 */2 * * *"</pre>
+```
+    schedule: "0 */2 * * *"
+```
 
-<pre>    timezone: "US/Pacific"</pre>
+```
+    timezone: "US/Pacific"
+```
 
-<pre>labels:</pre>
+```
+labels:
+```
 
-<pre>  release: 1.0.2</pre>
+```
+  release: 1.0.2
+```
 
-<pre>  milestone: m6</pre>
+```
+  milestone: m6
+```
 
 </div>
 
-In the code example, you see that the golang check and build, which you previously defined, should be run on push, pull-request and cron events. The target_branch is a regular expression filter that can be used to limit the policy to only certain branches. In this case, the policy applies to all branches.
+In the code example, you see that the `golang check and build`, which you previously defined, should be run on push, pull-request and cron events. The `target_branch` is a regular expression filter that can be used to limit the policy to only certain branches. In this case, the policy applies to all branches.
 
 The policy also specifies that notifications should be generated for failures and that the committer and author of the commit should be notified.
 
 # Viewing, Enabling and Disabling Policies
 
-To view the policy details, click <span class="UI_element">Policies</span>, the name of the policy you want to view.
+To view the policy details, click Policies, and double-click the name of the policy you want to view.
 
-To enable or disable the policy, just click **ENABLE** or **DISABLE** at the bottom of the screen.
-
-To enable or disable a policy, click **Policies** > check the`<name_of_policy>` that you want to enable or disable.
+To enable or disable a policy, click **Policies** > check the`<name_of_policy>` , and click **ENABLE** or **DISABLE** at the bottom of the screen.
