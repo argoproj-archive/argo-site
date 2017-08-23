@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { DocsTree } from '../../../services';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'argo-docs-tree',
@@ -36,8 +36,8 @@ export class DocsTreeComponent implements OnInit {
     selector: 'argo-docs-tree-node',
     template: `
         <div class="docs-tree__node">
-            <a [routerLink]="[{doc: node.path}]" [class.active]="isActive(node.path)"> {{node.title}} </a>
-            <div>
+            <a [class.active]="isActive(node.path)" (click)="open(node)"> {{node.title}} </a>
+            <div *ngIf="expanded">
               <argo-docs-tree-node [node]="child" *ngFor="let child of (node.children || [])"></argo-docs-tree-node>
             </div>
         </div>`,
@@ -46,12 +46,10 @@ export class DocsTreeNodeComponent implements OnInit {
     @Input()
     public node: DocsTree = {};
 
-    @Input()
-    public expanded: boolean = false;
-
+    public expanded: boolean;
     public currentDoc: string;
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute, private router: Router) {
     }
 
     public async ngOnInit() {
@@ -62,5 +60,13 @@ export class DocsTreeNodeComponent implements OnInit {
 
     public isActive(doc: string) {
         return doc === this.currentDoc;
+    }
+
+    public open(node: DocsTree) {
+        this.expanded = true;
+
+        if (node.path) {
+            this.router.navigate([{ doc: node.path }]);
+        }
     }
 }
