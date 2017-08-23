@@ -28,6 +28,7 @@ export class TrackingService {
     private doInitialize(gaId: string): Promise<any> {
         return this.loadGa().then(ga => {
             ga('create', gaId, 'auto');
+            ga('send', 'pageview', this.router.routerState.snapshot.url);
             this.router.events.subscribe(event => {
                 if (event instanceof NavigationEnd) {
                     ga('send', 'pageview', event.url);
