@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class InstallationComponent {
 
+    public showPlayer: boolean;
+
+    public play() {
+        this.showPlayer = true;
+    }
 }
