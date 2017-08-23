@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BaseModule } from '../common';
-import { ServicesModule } from '../services';
+import { ServicesModule, TrackingService } from '../services';
 import { AppComponent } from './main.component';
 
 @NgModule({
@@ -32,5 +32,9 @@ import { AppComponent } from './main.component';
     ],
 })
 export class MainModule {
-
+    constructor(trackingService: TrackingService) {
+        if (TRACKING_ID) {
+            trackingService.initialize(TRACKING_ID);
+        }
+    }
 }
