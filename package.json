@@ -48,7 +48,6 @@
     "extend": "^3.0.0",
     "font-awesome": "^4.6.3",
     "foundation-sites": "^6.2.3",
-    "github-markdown-css": "^2.8.0",
     "html-webpack-plugin": "^2.24.1",
     "import-glob-loader": "^1.1.0",
     "intl": "^1.2.4",

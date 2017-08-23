@@ -1,3 +1,5 @@
+/* tslint:disable */
+
 declare var ENV: string;
 declare var TRACKING_ID: string;
 declare var HMR: boolean;
@@ -25,9 +27,8 @@ type AsyncRoutes = {
     [component: string]: Es6PromiseLoader |
     Function |
     FactoryEs6PromiseLoader |
-    FactoryPromise
+    FactoryPromise,
 };
-
 
 type IdleCallbacks = Es6PromiseLoader |
     Function |
@@ -50,7 +51,6 @@ interface WebpackModule {
     };
 }
 
-
 interface WebpackRequire {
     (id: string): any;
     (paths: string[], callback: (...modules: any[]) => void): void;
@@ -66,10 +66,10 @@ interface ErrorStackTraceLimit {
     stackTraceLimit: number;
 }
 
-
 // Extend typings
 interface NodeRequire extends WebpackRequire { }
 interface ErrorConstructor extends ErrorStackTraceLimit { }
 interface NodeRequireFunction extends Es6PromiseLoader { }
 interface NodeModule extends WebpackModule { }
 interface Global extends GlobalEnvironment { }
+/* tslint:enable */

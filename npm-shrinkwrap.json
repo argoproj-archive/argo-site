@@ -3010,11 +3010,6 @@
         }
       }
     },
-    "github-markdown-css": {
-      "version": "2.8.0",
-      "from": "github-markdown-css@latest",
-      "resolved": "https://registry.npmjs.org/github-markdown-css/-/github-markdown-css-2.8.0.tgz"
-    },
     "glob": {
       "version": "7.1.1",
       "from": "glob@>=7.0.3 <8.0.0",

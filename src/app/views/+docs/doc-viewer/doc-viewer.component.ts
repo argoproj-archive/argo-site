@@ -11,7 +11,7 @@ interface MarkdownExtension {
 
 @Component({
     selector: 'argo-doc-viewer',
-    template: '<div class="doc-viewer markdown-body" [innerHTML]="docHTML"></div>',
+    template: '<div class="doc-viewer" [innerHTML]="docHTML"></div>',
     styles: [require('./doc-viewer.scss').toString()],
 })
 export class DocViewerComponent implements OnChanges, AfterViewChecked {
