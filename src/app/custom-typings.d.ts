@@ -1,4 +1,5 @@
 declare var ENV: string;
+declare var TRACKING_ID: string;
 declare var HMR: boolean;
 declare var System: SystemJS;
 
