@@ -14,7 +14,7 @@ steps:
   checkout-docs:
     template: argo-checkout
     arguments:
-      parameters.repo: https://github.com/axinternal/argo-docs.git
+      parameters.repo: https://github.com/argoproj/docs.git
       parameters.commit: master
 - build-site:
     image: node:6.3.1
