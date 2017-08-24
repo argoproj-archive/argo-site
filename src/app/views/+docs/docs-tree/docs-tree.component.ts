@@ -49,7 +49,7 @@ export class DocsTreeNodeComponent implements OnInit {
     }
 
     public open(node: DocsTree) {
-        this.expanded = this.node.path === this.currentDoc ? !this.expanded : true;
+        this.expanded = this.node.path === this.currentDoc || !this.node.path ? !this.expanded : true;
 
         if (node.path) {
             this.router.navigate([{ doc: node.path }]);
@@ -73,10 +73,9 @@ export class DocsTreeNodeComponent implements OnInit {
         }
 
         if (node.children) {
-            for (let i = 0; i < node.children.length; i++) {
-                this.hasActiveChild(node.children[i]);
+            for (let child of node.children) {
+                this.hasActiveChild(child);
             }
         }
-
     }
 }
