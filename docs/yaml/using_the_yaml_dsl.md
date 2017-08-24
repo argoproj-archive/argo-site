@@ -1,6 +1,6 @@
 # Tutorials
 
-The Argo tutorials take you through the creation of YAML templates for workflows and deployments of containerized apps running at scale in Argo. The following examples show how to run Docker containers in an Argo, how to automate the running of workflows and deployments, and how to use other resources that are external to the Argo.
+The Argo tutorials take you through the creation of YAML templates for workflows and deployments of containerized apps running at scale in Argo. The following examples show how to run CI/CD workflows, deploy stateful and stateless applications, and also use external, non-containerized resources (fixtures) in your workflows.
 
 NOTE: All examples in these tutorials are available on the Argo GitHub account at [https://github.com/argoproj](https://github.com/argoproj) repo.
 

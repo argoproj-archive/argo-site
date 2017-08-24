@@ -13,7 +13,7 @@
           "path": "yaml/argo_tutorial_1_create_ci_workflow.md"
         },
         {
-          "title": "Tutorial 2: Build Docker Image and Deploy Workflow using Docker-in-Docker (DinD) on Kubernetes",
+          "title": "Tutorial 2: Build and Deploy Docker Image using DinD",
           "path": "yaml/argo_tutorial_2_create_docker_image_build_workflow.md"
         },
         {

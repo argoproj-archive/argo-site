@@ -61,12 +61,12 @@ when:
 - event: on_cron
   # cron expression
   # 0 1 * * *
-  #   | | | | |
-  #   | | | | |
-  #   | | | | +---- Run every day of the week
-  #   | | | +------ Run every month of the year
-  #   | +---------- Run at 1 Hour (1AM)
-  #   +------------ Run at 0 Minute
+  # | | | | |
+  # | | | | |
+  # | | | | +---- Run every day of the week
+  # | | | +------ Run every month of the year
+  # | +---------- Run at 1 Hour (1AM)
+  # +------------ Run at 0 Minute
   schedule: "0 * * * *"
   timezone: "US/Pacific"</pre>
 
