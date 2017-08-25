@@ -81,6 +81,9 @@ module.exports = function () {
           from: 'node_modules/font-awesome/fonts',
           to: 'assets/font-awesome/fonts'
       }, {
+          from: 'src/assets/favicon',
+          to: 'assets/favicon'
+      }, {
           from: 'src/assets/images',
           to: 'assets/images'
       }]),
