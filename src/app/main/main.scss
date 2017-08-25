@@ -31,7 +31,9 @@ body {
 
     &__container {
         width: $base-width;
+        max-width: 100%;
         margin: 0 auto;
+        padding: 0 20px;
     }
 
     &__header {
@@ -69,31 +71,85 @@ body {
     &__header-nav {
         float: right;
 
+        @media screen and (max-width: $screen-sm-max) {
+            float: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 20px;
+            background-color: #FBFAFD;
+
+            &:not(.show) {
+                display: none;
+            }
+        }
+
         a {
-            display: inline-block;
-            margin-left: 24px;
-            font-size: .8em;
             font-weight: 500;
-            color: $ax-color-cyan;
-            text-transform: uppercase;
 
-            &:active,
-            &:visited {
+            @media screen and (min-width: $screen-md-min) {
+                display: inline-block;
+                margin-left: 24px;
+                font-size: .8em;
                 color: $ax-color-cyan;
+                text-transform: uppercase;
+
+                &:active,
+                &:visited {
+                    color: $ax-color-cyan;
+                }
+
+                &:hover {
+                    color: darken($ax-color-cyan, 20);
+                }
+
+                i {
+                    font-size: 2em;
+                    color: $ax-color-gray-3;
+                }
+
+                .github-text {
+                    display: none;
+                }
             }
 
-            &:hover {
-                color: darken($ax-color-cyan, 20);
-            }
+            @media screen and (max-width: $screen-sm-max) {
+                display: block;
+                padding: 6px 0;
+                font-size: 1.2em;
+                border-bottom: 1px solid #e4e0f2;
 
-            &.active {
-                color: #fff;
+                &.active {
+                    color: #6d7f8b;
+                }
             }
 
             i {
                 vertical-align: middle;
-                font-size: 2em;
-                color: $ax-color-gray-3;
+            }
+        }
+
+        &-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            font-size: 1.4em;
+            line-height: 1;
+            color: #737275;
+
+            @media screen and (min-width: $screen-md-min) {
+                display: none;
+            }
+        }
+
+        &-toggle {
+            float: right;
+            
+            @media screen and (min-width: $screen-md-min) {
+                display: none;
             }
         }
     }

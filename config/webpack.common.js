@@ -81,6 +81,9 @@ module.exports = function () {
           from: 'node_modules/font-awesome/fonts',
           to: 'assets/font-awesome/fonts'
       }, {
+          from: 'node_modules/argo-ui-lib/src/assets/fonts',
+          to: 'assets/fonts'
+      }, {
           from: 'src/assets/favicon',
           to: 'assets/favicon'
       }, {
