@@ -156,6 +156,10 @@ body {
     }
 
     &__header-subnav {
+        @media screen and (min-width: $screen-md-min) {
+            display: none;
+        }
+
         a {
             display: block;
             margin-left: 20px;
