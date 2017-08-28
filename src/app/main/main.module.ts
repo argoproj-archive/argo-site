@@ -6,17 +6,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BaseModule } from '../common';
 import { ServicesModule, TrackingService } from '../services';
-import { AppComponent } from './main.component';
+import { MainComponent } from './main.component';
 
 @NgModule({
     declarations: [
-        AppComponent,
+        MainComponent,
     ],
     providers: [{
         provide: LocationStrategy,
         useClass: HashLocationStrategy,
     }],
-    bootstrap: [ AppComponent ],
+    bootstrap: [ MainComponent ],
     imports: [
         ServicesModule,
         BaseModule,
@@ -25,7 +25,6 @@ import { AppComponent } from './main.component';
             { path: '', loadChildren: () => System.import('../views/+home').then((comp: any) => comp.default) },
             { path: 'get-started', loadChildren: () => System.import('../views/+get-started').then((comp: any) => comp.default) },
             { path: 'docs', loadChildren: () => System.import('../views/+docs').then((comp: any) => comp.default) },
-            { path: 'features', loadChildren: () => System.import('../views/+features').then((comp: any) => comp.default) },
             { path: 'community', loadChildren: () => System.import('../views/+community').then((comp: any) => comp.default) },
             { path: '**', redirectTo: '' },
         ]),

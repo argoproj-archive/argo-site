@@ -43,6 +43,7 @@
         "array-type": [false],
         "prefer-const": false,
         "max-classes-per-file": [false],
-        "no-angle-bracket-type-assertion": false
+        "no-angle-bracket-type-assertion": false,
+        "no-unused-variable": true
     }
 }
