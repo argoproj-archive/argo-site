@@ -21,6 +21,10 @@
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
         background-color: #f2f2f9;
+
+        @media screen and (max-width: $screen-sm-max) {
+            font-size: .9em;
+        }
     }
 
     pre {
@@ -33,6 +37,11 @@
         background-color: #fff;
         border-radius: 4px;
         box-shadow: 0 2px 3px rgba(#000, .07);
+
+        @media screen and (max-width: $screen-sm-max) {
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
 
         &.first {
             margin-left: 0;

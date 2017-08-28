@@ -1,11 +1,18 @@
+@import '../../../../assets/styles/config';
+
 .get-started-features {
     &__row {
-        display: flex;
+        @media screen and (min-width: $screen-md-min) {
+            display: flex;
+        }
     }
 
     &__box {
         padding: .6em;
-        flex: 1;
+
+        @media screen and (min-width: $screen-md-min) {
+            flex: 1;
+        }
 
         .main__box {
             margin: 0;

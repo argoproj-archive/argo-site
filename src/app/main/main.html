@@ -9,8 +9,19 @@
             </div>
             <div class="main__header-nav" [class.show]="showNav">
                 <a routerLink="get-started" routerLinkActive="active">Get Started</a>
+                <div class="main__header-subnav">
+                    <a routerLink="get-started/overview">Overview</a>
+                    <a routerLink="get-started/architecture">Architecture</a>
+                    <a routerLink="get-started/features">Features</a>
+                    <a routerLink="get-started/installation">Installation</a>
+                    <a routerLink="get-started/tutorials">Tutorials</a>
+                </div>
                 <a routerLink="docs" routerLinkActive="active">Docs</a>
                 <a routerLink="community" routerLinkActive="active">Community</a>
+                <div class="main__header-subnav">
+                    <a routerLink="community/overview" routerLinkActive="active">Community</a>
+                    <a routerLink="community/releases" routerLinkActive="active">Releases</a>
+                </div>
                 <a routerLink="get-started/installation">Install</a>
                 <a href="https://github.com/argoproj/argo" target="_blank">
                     <i class="fa fa-github"></i> <span class="github-text">GitHub Project</span>

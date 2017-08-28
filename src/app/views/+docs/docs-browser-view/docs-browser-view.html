@@ -6,10 +6,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="columns small-3">
+        <div class="columns medium-3">
             <argo-docs-tree *ngIf="tree" [tree]="tree"></argo-docs-tree>
         </div>
-        <div class="columns small-9">
+        <div class="columns medium-9">
             <argo-doc-viewer *ngIf="!searchItems" [doc]="selectedDocContent"></argo-doc-viewer>
             <div *ngIf="searchItems">
                 <div *ngFor="let item of searchItems">

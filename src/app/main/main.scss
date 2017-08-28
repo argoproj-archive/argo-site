@@ -78,6 +78,7 @@ body {
             right: 0;
             bottom: 0;
             left: 0;
+            overflow: auto;
             padding: 20px;
             background-color: #FBFAFD;
 
@@ -86,7 +87,7 @@ body {
             }
         }
 
-        a {
+        & > a {
             font-weight: 500;
 
             @media screen and (min-width: $screen-md-min) {
@@ -154,6 +155,15 @@ body {
         }
     }
 
+    &__header-subnav {
+        a {
+            display: block;
+            margin-left: 20px;
+            font-size: 1.2em;
+            border-bottom: 1px solid #e4e0f2;
+        }
+    }
+
     &__content {
         padding: $header-height 0 30px;
     }
@@ -165,6 +175,10 @@ body {
         background-color: #fff;
         overflow: hidden;
         border-bottom: 1px solid #dee6eb;
+
+        @media screen and (max-width: $screen-sm-max) {
+            display: none;
+        }
 
         a {
             position: relative;
@@ -202,11 +216,19 @@ body {
         text-align: center;
         background: linear-gradient(to top left, rgba($base-color, 0.9) 0%, rgba($base-color, 0.9) 100%), url(assets/images/stars.gif);
 
+        @media screen and (max-width: $screen-sm-max) {
+            padding: 6px 0;
+        }
+
         h1 {
             font-family: inherit;
             font-weight: 500;
             font-size: 2em;
             color: #fff;
+
+            @media screen and (max-width: $screen-sm-max) {
+                font-size: 1.2em;
+            }
         }
     }
 
