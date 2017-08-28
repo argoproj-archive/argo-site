@@ -2,15 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
-import { DocsService, DocsVersion, DocsTree, DocSearchItem } from '../../../services';
+import { DocsService, DocsVersion } from '../../../services';
 import { DocsTreeInfo } from '../view-models';
+import { PageSettings, HasPageSettings } from '../../../common';
 
 @Component({
     selector: 'argo-docs-browser-view',
     templateUrl: './docs-browser-view.html',
     styles: [ require('./docs-browser-view.scss').toString() ],
 })
-export class DocsBrowserViewComponent implements OnInit {
+export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSettings {
+
+    public pageTitle = 'Documentation for open source workflow engine on Kubernetes';
+    public pageDescription = 'Documentation for Argo, open source workflow engine for Kubernetes.  Tutorials, User guide, CLI reference, FAQs, release notes.';
+    public settings = this;
 
     public tree: DocsTreeInfo;
     public docsVersion: DocsVersion;
