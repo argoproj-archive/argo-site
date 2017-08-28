@@ -1,3 +1,5 @@
+@import '../../../assets/styles/config';
+
 .community-logos {
     overflow: hidden;
 
@@ -9,6 +11,11 @@
         text-align: center;
         background-color: #fff;
         box-shadow: 0 2px 4px rgba(#000, .06);
+
+        @media screen and (max-width: $screen-sm-max) {
+            width: calc(50% - 16px);
+            padding: 16px 0;
+        }
 
         img {
             max-width: 100%;

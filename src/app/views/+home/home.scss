@@ -31,32 +31,54 @@
 }
 
 .intro {
-    min-height: 400px;
     padding: 40px 0 80px;
     text-align: center;
     background: linear-gradient(to bottom, rgba($base-color, 0.9) 0%, rgba(#4b5892, 0.9) 100%), url(assets/images/stars.gif);
+
+    @media screen and (max-width: $screen-sm-max) {
+        padding: 20px 0 40px;
+    }
 
     h1 {
         font-family: inherit;
         font-weight: 500;
         font-size: 2.4em;
         color: #fff;
+
+        @media screen and (max-width: $screen-sm-max) {
+            font-size: 1.7em;
+        }
     }
 
     h2 {
         font-family: inherit;
-        font-size: 1.2em;
+        font-size: 1.3em;
         font-weight: 300;
         color: $ax-color-gray-3;
+
+        @media screen and (max-width: $screen-sm-max) {
+            font-size: 1em;
+        }
     }
 
     img {
         width: 220px;
         margin-top: 40px;
+
+        @media screen and (max-width: $screen-sm-max) {
+            width: 160px;
+            margin-top: 20px;
+        }
     }
 
     .btns {
         margin-top: 30px;
+
+        .btn {
+            @media screen and (max-width: $screen-sm-max) {
+                margin-bottom: 20px;
+            }
+        }
     }
 }
 
@@ -71,7 +93,10 @@
         top: 0;
         bottom: 0;
         z-index: 0;
-        content: '';
+
+        @media screen and (min-width: $screen-md-min) {
+            content: '';
+        }
     }
 
     &::before {
@@ -94,6 +119,12 @@
         width: 50%;
         padding: 0 60px;
         text-align: center;
+
+        @media screen and (max-width: $screen-sm-max) {
+            float: none;
+            width: 100%;
+            padding: 0;
+        }
     }
 
     h3 {
@@ -115,14 +146,22 @@
         }
     }
 
-    .problem img {
-        margin-top: 10px;
-        max-width: 480px;
+    .problem {
+        @media screen and (max-width: $screen-sm-max) {
+            margin-bottom: 40px;
+        }
+
+        img {
+            margin-top: 10px;
+            width: 480px;
+            max-width: 100%;
+        }
     }
 
     .solution img {
         margin-top: -30px;
-        max-width: 300px;
+        width: 300px;
+        max-width: 100%;
     }
 }
 
@@ -130,7 +169,10 @@
     position: relative;
     border-top: 1px solid $ax-color-gray-3;
     border-bottom: 1px solid $ax-color-gray-3;
-    background-color: #00bccf;
+
+    @media screen and (min-width: $screen-md-min) {
+        background-color: #00bccf;
+    }
 
     &::before {
         position: absolute;
@@ -145,7 +187,10 @@
     .features-bg {
         position: relative;
         padding: 80px 0;
-        overflow: hidden;
+
+        @media screen and (max-width: $screen-sm-max) {
+            padding: 30px 0;
+        }
 
         & > * {
             position: relative;
@@ -161,19 +206,51 @@
             background: url(assets/images/ArgBG.png) no-repeat left top 40%;
             background-size: auto 130%;
             content: '';
+
+            @media screen and (max-width: $screen-sm-max) {
+                left: -20px;
+                right: -20px;
+                background: url(assets/images/ArgBG.png) no-repeat center bottom -50%;
+                background-size: auto 70% ;
+            }
         }
     }
 
     .cases-section {
-        width: 40%;
         display: inline-block;
         vertical-align: middle;
+        width: 40%;
         padding: 30px 40px;
 
+        @media screen and (max-width: $screen-sm-max) {
+            display: block;
+            width: 100%;
+            padding: 0;
+        }
+
         &__item {
+            position: relative;
             padding: 16px 0;
             color: #6d7f8b;
             border-bottom: 1px solid #eaeef2;
+
+            @media screen and (max-width: $screen-sm-max) {
+                border: 0;
+
+                &:nth-child(odd):before {
+                    position: absolute;
+                    top: 0;
+                    right: -20px;
+                    bottom: 0;
+                    left: -20px;
+                    background-color: #f8f8fb;
+                    content: '';
+                }
+
+                & > * {
+                    position: relative;
+                }
+            }
 
             h3 {
                 margin-bottom: 4px;
@@ -194,6 +271,10 @@
         font-size: 1.5em;
         color: $argo-orange;
         border-bottom: 1px solid #eaeef2;
+
+        @media screen and (max-width: $screen-sm-max) {
+            text-align: center;
+        }
     }
 
     .img {
@@ -206,12 +287,19 @@
     }
 
     .features-section {
-        width: 46%;
         float: right;
+        width: 46%;
         padding: 30px 40px;
         background: #fff;
         border-radius: 6px;
         box-shadow: -2px 2px 4px rgba(#000, .1);
+
+        @media screen and (max-width: $screen-sm-max) {
+            float: none;
+            width: 100%;
+            margin-top: 30px;
+            box-shadow: 0 0 3px rgba(#000, .2);
+        }
     }
 
     .feature {
@@ -221,6 +309,10 @@
         padding: 22px 0 22px 16px;
         color: #363c4a;
         border-bottom: 1px solid $ax-color-gray-3;
+
+        @media screen and (max-width: $screen-sm-max) {
+            display: block;
+        }
     }
 
     .feature-img {
@@ -239,6 +331,10 @@
     padding: 160px 0;
     background: #f8f6fd;
     border-bottom: 1px solid $ax-color-gray-3;
+
+    @media screen and (max-width: $screen-sm-max) {
+        padding: 80px 0;
+    }
 
     &::before {
         position: absolute;
@@ -259,6 +355,13 @@
         background: url(assets/images/ARGBG1.svg) no-repeat right top 40%;
         background-size: auto 140%;
         content: '';
+
+        @media screen and (max-width: $screen-sm-max) {
+            padding: 80px 0;
+            right: 0;
+            background: url(assets/images/ARGBG1.svg) no-repeat center top -20%;
+            background-size: auto 120%;
+        }
     }
 
     .box {
@@ -271,6 +374,11 @@
         background: #fff;
         border-radius: 6px;
         box-shadow: 2px 2px 4px rgba(#000, .1);
+
+        @media screen and (max-width: $screen-sm-max) {
+            width: 100%;
+            padding: 50px 20px;
+        }
     }
 
     h3 {
@@ -289,6 +397,12 @@
 
     .btns {
         margin-top: 60px;
+
+        .btn {
+            @media screen and (max-width: $screen-sm-max) {
+                margin-bottom: 20px;
+            }
+        }
     }
 
     .btn {
@@ -315,6 +429,10 @@
         font-weight: 500;
         font-size: 1.5em;
         color: $base-color;
+
+        @media screen and (max-width: $screen-sm-max) {
+            text-align: center;
+        }
     }
 
     .items {
