@@ -4,18 +4,23 @@
             <input class="docs-browser-view__search-input" type="text" id="input" (keypress)="$event.code === 'Enter' && search() || true" [(ngModel)]="searchText">
             <button class="docs-browser-view__search-button" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
+        <div class="docs-browser-view__search-text" *ngIf="searchItems">
+            Your search for "{{ searchText }}" returned {{ searchItems?.length }} result(s).</div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="!searchItems">
         <div class="columns medium-3">
             <argo-docs-tree *ngIf="tree" [tree]="tree"></argo-docs-tree>
         </div>
         <div class="columns medium-9">
-            <argo-doc-viewer *ngIf="!searchItems" [doc]="selectedDocContent"></argo-doc-viewer>
-            <div *ngIf="searchItems">
-                <div *ngFor="let item of searchItems">
-                    <a [routerLink]="[{doc: item.path}]">{{item.title}}</a>
-                    <div class="docs-browser-view__search-summary" [innerHTML]="item.summary"></div>
-                </div>
+            <argo-doc-viewer [doc]="selectedDocContent"></argo-doc-viewer>
+        </div>
+    </div>
+    <div class="main__container" *ngIf="searchItems">
+        <div class="docs-browser-view__search-results">
+            <div *ngFor="let item of searchItems" class="docs-browser-view__search-result">
+                <a [routerLink]="[{doc: item.path}]">{{item.title}}</a>
+                <div class="docs-browser-view__search-summary" [innerHTML]="item.summary"></div>
+                {{ item.path }}
             </div>
         </div>
     </div>

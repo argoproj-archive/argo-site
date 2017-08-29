@@ -33,9 +33,33 @@
         color: #818181;
     }
 
+    &__search-text {
+        margin-top: 30px;
+        font-size: .9em;
+        color: $ax-color-gray-7;
+        text-align: center;
+    }
+
+    &__search-result {
+        padding-bottom: 20px;
+    }
+
+    &__search-result {
+        padding: 20px 0;
+        line-height: 1.3;
+        font-size: .86em;
+        color: $ax-color-gray-8;
+        border-bottom: 1px solid $ax-color-gray-3;
+
+        a {
+            font-size: 1.3em;
+        }
+    }
+
     &__search-summary {
-        white-space: nowrap;
         width: 100%;
+        max-height: 48px;
+        margin-bottom: 4px;
         overflow: hidden;
         text-overflow: ellipsis;
         color: $ax-color-gray-6;
@@ -44,6 +68,5 @@
     &__highlight {
         font-weight: bold;
         color: $ax-color-gray-8;
-        font-size: 0.8em;
     }
 }
