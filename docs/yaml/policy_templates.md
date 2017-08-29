@@ -34,7 +34,8 @@ The `when` section has different event types. For all events, `target_branches` 
 *   `on_pull_request_merge`: trigger on the pull request merge
 *   `on_cron`: trigger on the cron schedule; the key `schedule` is required, the key `timezone` is optional
 
-<pre xml:space="preserve" xmlns="">---
+```
+---
 type: policy
 name: Argo Build Policy
 description: Policy to trigger build for all events
@@ -44,11 +45,11 @@ parameters:
   version: "latest"
   build_options: "--no-push"
 notifications:
-# options: on_start, on_success, on_failure, on_change 
+# options: on_start, on_success, on_failure, on_change
 - when:
   - on_failure
   whom:
-  # options: committer, author, <email address>, <user label>
+  # options: committer, author, &lt;email address&gt;, &lt;user label&gt;
   - committer
   - author
   - prod@slack

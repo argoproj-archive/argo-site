@@ -78,30 +78,19 @@ In many cases, you will want to specially handle errors and exceptions that occu
 In the following code snippet, the cleanup step is always run even if the job fails or is canceled during the setup or test phase. Furthermore, any errors during the cleanup step will be ignored and cannot fail the workflow.
 
 
-
----
-
+```
 steps:
-
 - setup:
-
     template: mysetup
-
 - test:
-
     template: mytest
-
 - cleanup:
-
     template: mycleanup
-
     flags:
-
         always_run: true
-
         ignore_error: true
 
-
+```
 
 #### Steps executed sequentially
 
@@ -149,9 +138,7 @@ steps:
     image: alpine:latest
     command: ["sh", "-c"]
     args: ["echo 'sleeping for 2 minutes' ; sleep 120; echo 'done
-```
 
-```
   STEP2:
     image: alpine:latest
     command: ["sh", "-c"]

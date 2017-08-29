@@ -43,7 +43,7 @@ volumes:
 ```
 
 ```
-# Reference a named volume for deployment with the "name" reserved word 
+# Reference a named volume for deployment with the "name" reserved word
 ```
 
 <pre xml:space="preserve" xmlns="">  <reference_to_named_volume>:</pre>
@@ -134,7 +134,7 @@ resources:
   mem_mib: 32
 inputs: **volumes:
     DATA:
-      mount_path: /data**
+      mount_path: /data
 ```
 
 ## <a name="Code4DeclaringAnonymousVolume"></a>Code Example for An Anonymous Volume

@@ -90,9 +90,6 @@ deployment:
 scale:
   min: 3
 strategy:
-```
-
-```
 # Specify the rolling update
   type: rolling_update
   rolling_update:

@@ -270,48 +270,47 @@ The name you use to identify your Argo environment. This will also be used as yo
 
 <td>
 
-Argo supports pre-canned cluster sizes. Choose from "small", "medium", "large", "xlarge".
+<p>Argo supports pre-canned cluster sizes. Choose from "small", "medium", "large", "xlarge".
 
-This is the size of the Argo cluster that you want.
+This is the size of the Argo cluster that you want.</p>
 
-NOTE: The number in parentheses indicates the number of node instances. For example, (2) indicates two node instances.
+<p>NOTE: The number in parentheses indicates the number of node instances. For example, (2) indicates two node instances.</p>
 
-STANDARD
+<h3>STANDARD</h3>
 
-*   SMALL (Recommended for running proof-of-concept (POC) workloads).  
-    **Master** node size: **m3.medium** (1)  
-    <span class="UI_element">Argo</span> node size: **m3.large** (2)  
-    User node size: **m3.large** (maximum 3)  
-
-*   MEDIUM (Recommended if you only want to try out the Argo solution).  
-    **Master** node size: **m3.large** (1)  
+<p>**SMALL** (Recommended for running proof-of-concept (POC) workloads).  
+    Master node size: **m3.medium** (1)  
     Argo node size: **m3.large** (2)  
-    User node size: **m3.large** (maximum 8)  
+    User node size: **m3.large** (maximum 3)  </p>
 
-*   LARGE (Recommended if you want to use Argo for a small group)  
+<p>**MEDIUM** (Recommended if you only want to try out the Argo solution).  
+    Master node size: **m3.large** (1)  
+    Argo node size: **m3.large** (2)  
+    User node size: **m3.large** (maximum 8) </p>
+ <p>**LARGE** (Recommended if you want to use Argo for a small group)  
     Master node size: **r3.large** (1)  
     Argo node size: **m3.large** (3)  
-    User node size: **m3.large** (maximum 17)
-*   XLARGE (Recommended if you want to deploy Argo for moderate workload for a large group)  
+    User node size: **m3.large** (maximum 17)</p>
+<p>**XLARGE** (Recommended if you want to deploy Argo for moderate workload for a large group)  
     Master node size: **r3.2xlarge** (1)  
     Argo node size: **m3.2xlarge** (2)  
-    User node size: **m3.2xlarge** (maximum 28)
+    User node size: **m3.2xlarge** (maximum 28)</p>
 
-COMPUTE OPTIMIZED
+<h3>COMPUTE OPTIMIZED</h3>
 
-*   SMALL  
+<p>**SMALL**  
     Master node size: **m3.medium** (1)  
-    <span class="UI_element">Argo</span> node size: **m3.large** (2)  
-    User node size: **c3.2xlarge** (maximum 2)
-*   MEDIUM  
+    Argo node size: **m3.large** (2)  
+    User node size: **c3.2xlarge** (maximum 2)</p>
+<p>**MEDIUM**
     Master node size: **m3.large** (1)  
-    <span class="UI_element">Argo</span> node size: **m3.large** (2)  
-    User node size: **c3.2xlarge** (maximum 5)
-*   LARGE  
+    Argo node size: **m3.large** (2)  
+    User node size: **c3.2xlarge** (maximum 5)</p>
+<p>**LARGE**  
     Master node size: **r3.large** (1)  
     <span class="UI_element">Argo</span> node size: **m3.large** (3)  
-    User node size: **c3.2xlarge** (maximum 10)
-*   XLARGE  
+    User node size: **c3.2xlarge** (maximum 10)</p>
+<p>**XLARGE**  
     Master node size: **r3.xlarge** (1)  
     <span class="UI_element">Argo</span> node size: **m3.xlarge** (3)  
     User node size: **c3.2xlarge** (maximum 20)
@@ -336,13 +335,13 @@ Default: "small"
 
 <td>
 
-Currently we only support pre-canned cluster type. Choose from "standard", "compute".
+Currently Argo only supports pre-canned cluster types. Choose from "standard" or "compute".
 
 Choose one from the following types of EC2 instances:
-
-*   Standard ("General Purpose")
-*   Compute Optimized
-
+<ul>
+   <li>Standard ("General Purpose")</li>
+   <li>Compute Optimized</li>
+</ul>
 </td>
 
 <td>
@@ -507,23 +506,23 @@ An AWS bucket name where we upload cluster's system logs. If not provided, we wi
 
 <td>
 
-A list of IPv4 CIDRs, separated by space, to be authorized to access the cluster. If the IP you used to access the cluster is not listed, it will be added to the list when we create the cluster, but removed from cluster's security groups after cluster is installed.
+<p>A list of IPv4 CIDRs, separated by space, to be authorized to access the cluster. If the IP you used to access the cluster is not listed, it will be added to the list when we create the cluster, but removed from cluster's security groups after cluster is installed.</p>
 
-One or more IP ranges that can access the Argo cluster you create. Typically, you add the IP addresses that your company uses.
+<p>One or more IP ranges that can access the Argo cluster you create. Typically, you add the IP addresses that your company uses.</p>
 
-Multiple valid IP addresses in the Classless Inter-Domain Routing (CIDR) scheme. After you enter a CIDR, press `enter` to confirm.
+<p>Multiple valid IP addresses in the Classless Inter-Domain Routing (CIDR) scheme. After you enter a CIDR, press `enter` to confirm.</p>
 
-TIP: Obtain a list of company-approved IP addresses that can be used as valid values for the Trusted CIDR field before you enter any value(s).
+<p>TIP: Obtain a list of company-approved IP addresses that can be used as valid values for the Trusted CIDR field before you enter any value(s).</p>
 
 </td>
 
 <td>
 
-1.1.1.1/32
+1.1.1.1/32<br/>
 
-2.2.2.2/32
+2.2.2.2/32<br/>
 
-3.3.3.0/24
+3.3.3.0/24<br/>
 
 Default: 0.0.0.0/0
 
@@ -541,19 +540,19 @@ Default: 0.0.0.0/0
 
 <td>
 
-A /16 VPC CIDR base  (first 2 digits separated with ".", for example, "172.20") used to create new VPC. If there is a VPC ID provided through "--vpc-id", this flag will be ignored.
+<p>A /16 VPC CIDR base  (first 2 digits separated with ".", for example, "172.20") used to create new VPC. If there is a VPC ID provided through "--vpc-id", this flag will be ignored.</p>
 
-The private subnet IP range for the Argo cluster nodes in your Virtual Public Cloud (VPC).
-
-*   Must be a /16 CIDR block
-
-*   Must be private IP address
-*   Cannot overlap 10.0.0.0/8
-*   You can choose from the following ranges:
-
-*   172.16.0.0/16 ~ 172.31.0.0/16
-*   192.168.0.0/16
-
+<p>The private subnet IP range for the Argo cluster nodes in your Virtual Public Cloud (VPC).</p>
+<ul>
+  <li>Must be a /16 CIDR block</li>
+  <li>Must be private IP address</li>
+  <li>Cannot overlap 10.0.0.0/8</li>
+</ul>
+You can choose from the following ranges:
+<ul>
+  <li>172.16.0.0/16 ~ 172.31.0.0/16</li>
+  <li>192.168.0.0/16</li>
+</ul>
 </td>
 
 <td>
@@ -576,107 +575,12 @@ Example: 172.25.0.0/16
 
 <td>
 
-The VPC you want to install your cluster. Argo highly recommends that you install the cluster in an new VPC for resource isolation / failure isolation purposes. The provided VPC should be consistent with the region you specified. If set to None, a new VPC will be created.
+<p>The VPC you want to install your cluster.</p>
+<p>Argo highly recommends that you install the cluster in an new VPC for resource isolation/failure purposes. The provided VPC should be consistent with the region you specified. If set to None, a new VPC will be created.</p>
 
 </td>
 
 <td>Default: None</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-<table style="margin-left: 0;margin-right: auto;" xmlns=""><colgroup><col> <col> <col> <col></colgroup>
-
-<thead>
-
-<tr>
-
-<th></th>
-
-<th></th>
-
-<th></th>
-
-<th></th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-</tr>
-
-<tr>
-
-<td></td>
-
-<td></td>
-
-<td></td>
-
-<td></td>
 
 </tr>
 

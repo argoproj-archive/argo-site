@@ -2,8 +2,8 @@
 
 Before you start:
 
-*   Make sure you have an [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) with [Minimum resource quota requirements](../d_more_information/faqs.htm#MinResourceType4AWS) for Argo running in AWS.
-*   [Docker client](https://docs.docker.com/engine/installation/) is installed on your client system.
+*   Make sure you have an [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) with [Minimum resource quota requirements](#/docs;doc=%2Fd_more_information%2Ffaqs.md#MinResourceType4AWS) for Argo running in AWS.
+*   [Docker client](https://docs.docker.com/engine/installation/) is installed on your client system. Also make sure that you have 2 GB of free storage in the root directory where you’ll install Argo.
 *   [AWS Command-Line Interface (CLI)](http://docs.aws.amazon.com/cli/latest/userguide/installing.html) is installed on your client system.
 
 ## Install Argo In Your AWS Account from Command Line (Mac and Linux only)
@@ -12,17 +12,15 @@ Before you start:
 
     For Mac
 
-    `curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/latest/darwin_amd64/argo`
+    `curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/darwin_amd64/argo`
 
     For Linux
 
-    `curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/latest/linux_amd64/arg`o
+    `curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/linux_amd64/argo`
 
     `chmod +x argo`
 
     `./argo cluster`
-
-    (ascii art -Argo logo appears)
 
 2.  You'll see Welcome to Argo and the prompt `argo cluster ops >`.
 3.  Enter `argocluster install`.

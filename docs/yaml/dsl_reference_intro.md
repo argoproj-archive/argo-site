@@ -16,11 +16,11 @@ Argo also provides a syntax and consistency checkers to validate the YAML defini
 
 The Argo DSL provides six types of YAML templates:
 
-*   [Container Template](#/docs;doc=container_templates.md) – for running a single container; you can specify its parameters (such as a Java build container, Selenium test container, or MySQL DB container)
-*   [Workflow Template](#/docs;doc=workflow_templates.md) – for specifying the job to run; think of it as a “short-running app” because a job “terminates” when it is completed.(such as Continuous Integration or Continuous Deployment workflows). Can be run manually or triggered by a policy. Each step in a workflow can be a container or another workflow.
-*   [Policy Templates](#/docs;doc=policy_templates.md) – for defining rules that trigger a job or notification. Policies are applied to other templates (such as a policy to automatically trigger jobs for every commit)
-*   [Deployment Template](#/docs;doc=deployment_template.md) – for specifying a long-running service (such as a microservice or application). Can be run manually or triggered by a policy.
-*   [Fixture Template](#/docs;doc=fixture_template.md)– for defining fixture classes that represent resources outside of the Argo. In order for a workflow or application to use these resources with Argo, you must define a fixture class. See [Creating a fixture class for a workflow](ex_create_managed_fixtures.htm#CreateFixture) for an example.
-*   [Project Templates](#/docs;doc=project_templates.md) – for creating apps or workflows that can be accessed in the Argo Catalog
+*   [Container Template](#/docs;doc=yaml%2Fcontainer_templates.md) – for running a single container; you can specify its parameters (such as a Java build container, Selenium test container, or MySQL DB container)
+*   [Workflow Template](#/docs;doc=yaml%2Fworkflow_templates.md) – for specifying the job to run; think of it as a “short-running app” because a job “terminates” when it is completed.(such as Continuous Integration or Continuous Deployment workflows). Can be run manually or triggered by a policy. Each step in a workflow can be a container or another workflow.
+*   [Policy Templates](#/docs;doc=yaml%2Fpolicy_templates.md) – for defining rules that trigger a job or notification. Policies are applied to other templates (such as a policy to automatically trigger jobs for every commit)
+*   [Deployment Template](#/docs;doc=yaml%2Fdeployment_template.md) – for specifying a long-running service (such as a microservice or application). Can be run manually or triggered by a policy.
+*   [Fixture Template](#/docs;doc=yaml%2Ffixture_template.md)– for defining fixture classes that represent resources outside of the Argo. In order for a workflow or application to use these resources with Argo, you must define a fixture class. See [Creating a fixture class for a workflow](ex_create_managed_fixtures.htm#CreateFixture) for an example.
+*   [Project Templates](#/docs;doc=yaml%2Fproject_templates.md) – for creating apps or workflows that can be accessed in the Argo Catalog
 
 Out of the box, Argo provides YAML templates as pre-configured, reusable workflows and applications in [Argo’s public GitHub repository (“repo”)](https://github.com/argoproj "Argo GitHub Repository"). This repo contains YAML templates for core microservices (such as checking out code from a Source Code Management system and an approval workflow) that can be used as "building blocks" for your own workflows and application s. You can clone them and modify the YAML templates to fit your needs.

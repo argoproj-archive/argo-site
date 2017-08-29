@@ -52,7 +52,7 @@ This section describes the two categories of inputs: parameters and artifacts.
 
 ## Examples
 
-#### Container with Input Parameter
+<!--#### Container with Input Parameter
 
 ```
 ---
@@ -73,7 +73,7 @@ where:
 *   `1` represents the version of the Argo YAML DSL that the template is using (the value is a string type).
 *   `alpine:latest` refers to the registry that the latest Docker image is pulled from; this image is used for running the container.
 *   `["sh", "-c"]` are the commands to execute on the container.
-*   `%%inputs.parameters.SLEEP%%` is the fully qualified path to value of the input parameter `SLEEP`.
+*   `%%inputs.parameters.SLEEP%%` is the fully qualified path to value of the input parameter `SLEEP`
 
 #### Container Outputs an Artifact
 
@@ -117,7 +117,7 @@ inputs:
 where:
 
 *   `BIN-INPUT` is the artifact that the container takes as input.
-*   `/root/bin` is the path to store the input artifact.
+*   `/root/bin` is the path to store the input artifact.-->
 
 #### Container Taking Input Artifact and Outputs an Artifact
 

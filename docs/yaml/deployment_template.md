@@ -92,7 +92,7 @@ scale:
 
 #### containers
 
-need example with deployment with inlined container, deployment with container reference------------
+<!--need example with deployment with inlined container, deployment with container reference------------ -->
 
 Containers to be included in the deployment. You can specify either an image for the container or the container template itself.
 
@@ -105,10 +105,10 @@ The container script should ensure it is long running, otherwise the container w
 *   `arguments`; specifies the arguments to pass into the container when it runs
 
 ```
-containers:       #declares a container section of the YAML template
-  userdb:             # name of container
-    image: postgres:9.6.1        # name of image for container
-    command: ["postgresd"].......# command to run on the container
+containers:                    # declares a container section of the YAML template
+  userdb:                      # name of container
+    image: postgres:9.6.1      # name of image for container
+    command: ["postgresd"]     # command to run on the container
 ```
 
 #### termination_policy

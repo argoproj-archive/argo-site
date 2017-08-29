@@ -23,7 +23,7 @@ This tutorial shows how to deploy and scale a stateful microservices based appli
 ### Create your YAML files
 
 1.  Create an .argo folder under your repository
-2.  Copy `sock-shop-with-rds.yaml` from [https://github.com/argoproj/sock-shop-app](https://github.com/argoproj/odoo-app) to your .argo folder. Customize it with your deployment and container specs
+2.  Copy `sock-shop-with-rds.yaml` from [https://github.com/argoproj/sock-shop-app](https://github.com/argoproj/microservices-demo) to your .argo folder. Customize it with your deployment and container specs
 3.  Create volumes through YAML or using the Argo Web UI.
 4.  `odoo-project.yaml` defines how it will show up in your Catalog menu. This is optional only if you want it to show up in your catalog. You can see and run all your yaml based workflows from Templates menu in Argo web UI.
 
