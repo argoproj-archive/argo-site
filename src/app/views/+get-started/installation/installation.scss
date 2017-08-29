@@ -1,18 +1,46 @@
 @import '../../../../assets/styles/config';
 
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .installation {
     position: relative;
 
     &__logo {
         position: absolute;
         top: 0;
-        left: -110px;
+        left: calc(50% - #{$base-width/2} - 84px);
         width: 84px;
+        opacity: 0;
+        animation: show .5s 1s forwards;
     }
 
     &__row {
-        display: inline-block;
         margin-bottom: 20px;
+        opacity: 0;
+        animation-name: show;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+
+        @for $i from 0 through 10 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i}s;
+            }
+        }
+
+        @media screen and (max-width: $screen-sm-max) {
+            font-size: .9em;
+        }
+    }
+
+    &__row-bg {
+        display: inline-block;
         padding: 20px 30px;
         font-size: 1.16em;
         line-height: 2;
@@ -21,10 +49,6 @@
         border-top-right-radius: 30px;
         border-bottom-right-radius: 30px;
         background-color: #f2f2f9;
-
-        @media screen and (max-width: $screen-sm-max) {
-            font-size: .9em;
-        }
     }
 
     pre {

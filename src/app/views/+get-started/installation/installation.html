@@ -3,35 +3,49 @@
         <div class="installation__logo">
             <img src="/assets/images/ArgoPro.svg" alt="Argo">
         </div>
-        <div class="installation__row">
-            Argo is super simple to install and set up! Check these
-            <span class="installation__has-tooltip">prerequisites
-                <span class="installation__tooltip">
-                    <ul>
-                        <li>Make sure you have an AWS account with Minimum resource quota requirements for Argo running in AWS.
-                        <li>Docker client is installed on your client system.</li>
-                        <li>AWS Command-Line Interface (CLI) is installed on your client system.</li>
-                    </ul>
-                </span>
-            </span> before you start the installation.
-        </div><br>
-        <div class="installation__row">
-            For Mac<br>
-            <pre class="first">curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/latest/darwin_amd64/argo</pre><br>
-            For Linux<br>
-            <pre class="first">curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/latest/linux_amd64/argo</pre>
-        </div><br>
-        <div class="installation__row">
-            <pre class="first">chmod +x argo</pre>
-        </div><br>
-        <div class="installation__row">
-            Then <pre>./argo cluster</pre> to open the Argo Command Shell
-        </div><br>
-        <div class="installation__row">
-            Once you get the prompt, <pre>argo cluster ops> argocluster install </pre> to start the installation
-        </div><br>
-        <div class="installation__row">
-            Then enter a name for your cluster and your AWS profile details. Your cluster would be ready in about 20 minutes.
+        <div class="installation__chat">
+            <div class="installation__row">
+                <div class="installation__row-bg">
+                    Argo is super simple to install and set up! Check these
+                    <span class="installation__has-tooltip">prerequisites
+                    <span class="installation__tooltip">
+                        <ul>
+                            <li>Make sure you have an AWS account with Minimum resource quota requirements for Argo running in AWS.
+                            <li>Docker client is installed on your client system.</li>
+                            <li>AWS Command-Line Interface (CLI) is installed on your client system.</li>
+                        </ul>
+                    </span>
+                </span> before you start the installation.
+                </div>
+            </div>
+            <div class="installation__row">
+                <div class="installation__row-bg">
+                    For Mac<br>
+                    <pre class="first">curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/darwin_amd64/argo</pre><br>
+                    For Linux<br>
+                    <pre class="first">curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/linux_amd64/argo</pre>
+                </div>
+            </div>
+            <div class="installation__row">
+                <div class="installation__row-bg">
+                    <pre class="first">chmod +x argo</pre>
+                </div>
+            </div>
+            <div class="installation__row">
+                <div class="installation__row-bg">
+                    Then <pre>./argo cluster</pre> to open the Argo Command Shell
+                </div>
+            </div>
+            <div class="installation__row">
+                <div class="installation__row-bg">
+                    Once you get the prompt, <pre>argo cluster ops> argocluster install </pre> to start the installation
+                </div>
+            </div>
+            <div class="installation__row">
+                <div class="installation__row-bg">
+                    Then enter a name for your cluster and your AWS profile details. Your cluster would be ready in about 20 minutes.
+                </div>
+            </div>
         </div>
     </div>
     <div class="installation__video" (click)="play()">
