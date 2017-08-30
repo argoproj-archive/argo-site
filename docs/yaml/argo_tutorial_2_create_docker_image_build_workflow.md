@@ -18,7 +18,7 @@ To build a Docker container image within our Docker container step, Argo uses th
     ax_ea_docker_enable: '{"graph-storage-size": "10Gi", "cpu_cores":0.1, "mem_mib":200}'
     ```
 
-    For more details these two lines of YAML DSL code, please check the YAML reference at [Container Calling Docker Commands "Docker-in-Docker"](container_templates.htm#ContainerDinDWorkflow).
+    For more details these two lines of YAML DSL code, please check the YAML reference at [Container Calling Docker Commands "Docker-in-Docker"](#/docs;doc=yaml%2Fcontainer_templates.md#ContainerDinDWorkflow).
 
     To make the credentials secure for accessing the container registry, the YAML DSL example uses Argo Secret management to encrypt the user id and password.
 
