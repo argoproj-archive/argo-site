@@ -8,5 +8,5 @@ Beyond the basics of building, running, and deploying containerized applications
 
 Look at these links learn about
 
-*   [Using Fixtures for Accessing External Resources](#/docs;doc=user_guide%2Finfrastructure%2Fusing_fixtures.md)
-*   [Adding a Volume as Storage for Deployment](#/docs;doc=yaml%2Fex_add_volume_deployment.md)
+*   [Using Fixtures for Accessing External Resources](./user_guide/infrastructure/using_fixtures.md)
+*   [Adding a Volume as Storage for Deployment](./yaml/ex_add_volume_deployment.md)

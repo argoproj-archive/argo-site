@@ -2,7 +2,7 @@
 
 Before you start:
 
-*   Make sure you have an [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) with [Minimum resource quota requirements](#/docs;doc=%2Fd_more_information%2Ffaqs.md#MinResourceType4AWS) for Argo running in AWS.
+*   Make sure you have an [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) with [Minimum resource quota requirements](./d_more_information/faqs.md) for Argo running in AWS.
 *   [Docker client](https://docs.docker.com/engine/installation/) is installed on your client system. Also make sure that you have 2 GB of free storage in the root directory where you’ll install Argo.
 *   [AWS Command-Line Interface (CLI)](http://docs.aws.amazon.com/cli/latest/userguide/installing.html) is installed on your client system.
 
@@ -36,4 +36,4 @@ By default, Argo integrates with the public GitHub repo [http://github.com/argop
 
 ## Next Step:
 
-Now that you have set up Argo in AWS, let's go to the [Tutorials](#/docs;doc=%2Fyaml%2Fusing_the_yaml_dsl.md) and run container-native workflows.
+Now that you have set up Argo in AWS, let's go to the [Tutorials](./../yaml/using_the_yaml_dsl.md) and run container-native workflows.

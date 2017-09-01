@@ -35,7 +35,7 @@ This page shows the email address, the name of the user, and the date that the i
 
 *   Go to Configurations > Manage Users and Permissions. (Displays all users of the Cluster and their statuses)
 
-*   Select the row of the user and click ![](../docs/images/clear_3_dots_34x34.png). Then choose one of the options:
+*   Select the row of the user and click ![](../../../images/clear_3_dots_34x34.png). Then choose one of the options:
 
 *   **Edit Profile** - Change a user's name, label, or password.
 *   **Disable** or **Enable** User- Changes status of user to "Disabled" or "Active".
@@ -46,7 +46,7 @@ This page shows the email address, the name of the user, and the date that the i
 
 ### Modify a User's Profile (Developer User Only)
 
-1.  At bottom left, click ![](../docs/images/_c_icon_31x35.png) and select My Profile.
+1.  At bottom left, click ![](../../../images/_c_icon_31x35.png) and select My Profile.
 
     The profile displays.
 

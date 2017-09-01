@@ -12,7 +12,7 @@ The process for creating fixtures for a workflow or application is:
 2.  Go to the Argo Console for your cluster.
 3.  Connect to the repo containing the YAML fixture class definition you created.
 
-4.  Add the fixture class that you need to the repo. For details, see [To add a new fixture class to your repo branch](../user_guide/infrastructure/using_fixtures.htm#AddFixtureClass2Repo)[Using Fixtures for Accessing External Resources](#/docs;doc=%2Fuser_guide%2Finfrastructure%2Fusing_fixtures.md).
+4.  Add the fixture class that you need to the repo. For details, see [To add a new fixture class to your repo branch](../user_guide/infrastructure/using_fixtures.htm#AddFixtureClass2Repo)[Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md).
 5.  Create the instances of the fixture class. For details, see [To create an instance of a fixture class](../user_guide/infrastructure/using_fixtures.htm#CreateInstanceFixtureClass).
 
 ## <a name="CreateFixture"></a>Creating a fixture class for a workflow
@@ -27,7 +27,7 @@ These are the tasks for creating a fixture class:
 
     See [YAML Code for managed fixture](#YAML)for an example of attributes and actions.
 
-You are now ready to use this fixture class. See [Using Fixtures for Accessing External Resources](#/docs;doc=%2Fuser_guide%2Finfrastructure%2Fusing_fixtures.md) for details.
+You are now ready to use this fixture class. See [Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md) for details.
 
 ### About Attributes and Actions for a Fixture
 
@@ -84,7 +84,7 @@ Fixture class attributes and actions are totally configurable. You create the at
 
 <td>`argo_cluster_affinity`</td>
 
-<td>`managed` -. Allows access to the fixture from the Argo cluster. To see the default security settings, go to .[Configuring System Settings](#/docs;doc=%2Fuser_guide%2Fconfigapplatixcluster%2Fmanagesystemsettings.md) under Access settings.  
+<td>`managed` -. Allows access to the fixture from the Argo cluster. To see the default security settings, go to .[Configuring System Settings](./../user_guide/configapplatixcluster/managesystemsettings.md) under Access settings.  
 `accessible` - provides limited access to EC2 instance.  
 `isolated` - no default access to EC2 instance.</td>
 

@@ -11,6 +11,6 @@ After connecting to your source control management system, you'll also connect t
 5.  (Optional) Click **TEST** to check the connection before you integrate Argo to the registry.
 6.  Click **CONNECT**.
 
-To disconnect a registry, click ![](../docs/images/pencil_4_editing_25x22.png)and click **DISCONNECT**.
+To disconnect a registry, click ![](../../../images/pencil_4_editing_25x22.png)and click **DISCONNECT**.
 
 Next step: Run a workflow from Argo Catalog.

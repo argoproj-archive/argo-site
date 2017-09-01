@@ -8,6 +8,6 @@ To access all of the YAML files that the tutorials use for running on Argo, chec
 
 ## Prerequisites
 
-Before you try out the tutorials, you must have installed Argo and configured source repository and container registry as mentioned in the [Install Argo](#/docs;doc=%2Fquickstart%2Fintro_argo_quick_start.md) instructions. By default, your Argo installation is automatically integrated with [https://github.com/argoproj](https://github.com/argoproj) repo and [https://hub.docker.com/argoproj](https://github.com/argoproj) container registry.
+Before you try out the tutorials, you must have installed Argo and configured source repository and container registry as mentioned in the [Install Argo](./../quickstart/intro_argo_quick_start.md) instructions. By default, your Argo installation is automatically integrated with [https://github.com/argoproj](https://github.com/argoproj) repo and [https://hub.docker.com/argoproj](https://github.com/argoproj) container registry.
 
 Additional documentation and additional tools (such as the Argo YAML syntax checker) are also available from the Argo github repo [https://github.com/argoproj](https://github.com/argoproj) repo.

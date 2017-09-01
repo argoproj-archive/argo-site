@@ -17,6 +17,6 @@ To make it easy to file issues against a job, application or deployment, Argo in
 
 After you configure your issue tracking system with Argo, your issue tracking system shows that the webhook is set up to notify Argo of any changes to an issue as this screenshot shows:
 
-![](../docs/images/issue_tracker_jira_admin_webhook_status_1030x436.png)
+![](../../../images/issue_tracker_jira_admin_webhook_status_1030x436.png)
 
 If you want to disconnect the issue tracking system, click Disconnect. When prompted, click YES.

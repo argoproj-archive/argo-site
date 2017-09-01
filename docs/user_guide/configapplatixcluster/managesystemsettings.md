@@ -18,7 +18,7 @@ Argo allows you to securely embed and use encrypted secrets in your YAML templat
 
 ## Encrypting a Secret
 
-1.  Click ![](../docs/images/configurations_manage_system_settings_encryptiontool_icon.png) in the upper right corner.
+1.  Click ![](../../../images/configurations_manage_system_settings_encryptiontool_icon.png) in the upper right corner.
 
 2.  Enter the URL to the SCM repo you want to access.
 

@@ -40,7 +40,7 @@ External Route is the route for deployment to be exposed to the Internet.
 
 *   `dns_prefix`: the DNS name prefix to the domain. The default is `{RouteName}-{DeploymentName}-{ApplicationName}`.]
 
-*   `dns_domain`: the DNS domain. The domain needs to be managed by AWS Route 53\. The cluster domain configuration should be updated before using any domain. For details, see [Install Argo](#/docs;doc=%2Fquickstart%2Fintro_argo_quick_start.md).
+*   `dns_domain`: the DNS domain. The domain needs to be managed by AWS Route 53\. The cluster domain configuration should be updated before using any domain. For details, see [Install Argo](./../quickstart/intro_argo_quick_start.md).
 
 *   `target_port`: the instance port to be exposed.
 

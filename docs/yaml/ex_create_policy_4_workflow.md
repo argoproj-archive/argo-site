@@ -1,8 +1,8 @@
 # Automating Workflows Using Policies
 
-Now that you've seen how to manually start, stop, or terminate jobs as workflows, the next step is to automate when workflows get triggered. Argo uses policies to do this. You can also enable or disable a policy. For details, see [Viewing, Enabling and Disabling Policies](#/docs;doc=%2Fuser_guide%2Fpolicies%2Fenable-disablepolicies_notused.md).
+Now that you've seen how to manually start, stop, or terminate jobs as workflows, the next step is to automate when workflows get triggered. Argo uses policies to do this. You can also enable or disable a policy. For details, see [Viewing, Enabling and Disabling Policies](./../user_guide/policies/enable-disablepolicies_notused.md).
 
-Additionally, you can also write a policy that alerts users as to when certain events happen on the Argo. For details, see [Using Policies to Trigger a Notification Message](../user_guide/configapplatixcluster/setupnotificationmanagement.htm#UsingPolicies2TriggerNotificationMessage).
+Additionally, you can also write a policy that alerts users as to when certain events happen on the Argo. For details, see [Using Policies to Trigger a Notification Message](../user_guide/configapplatixcluster/setupnotificationmanagement.md#UsingPolicies2TriggerNotificationMessage).
 
 ## About Policies
 

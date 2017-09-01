@@ -20,7 +20,7 @@ Link to selenium_all_ax.yaml and axvideo_tools.yaml https://github.com/argoproj/
     *   nested workflow: `axscm-checkout`(checks out the Selenium test code from the repo)
     *   nested workflow: `selenium-test-video-workflow` (This child workflow runs the actual test and converts the output of the test workflow video from .flv format to .mp4 format)
 
-    Every step in the workflow needs to be defined as a container specification and creates a Kubernetes job. For more details on the workflow and container YAML DSL please check the YAML tutorial at [Container Template](#/docs;doc=yaml%2Fcontainer_templates.md)
+    Every step in the workflow needs to be defined as a container specification and creates a Kubernetes job. For more details on the workflow and container YAML DSL please check the YAML tutorial at [Container Template](./../yaml/container_templates.md)
 
 3.  Also review the `axvideo_tools.yaml` file, which defines the containers for the video apps used to record and convert the video of the Selenium test.
 4.  Since your Argo installation is automatically integrated with [https://github.com/argoproj](https://github.com/argoproj) repo, you can view it in your Argo dashboard under Catalog menu item along with other samples

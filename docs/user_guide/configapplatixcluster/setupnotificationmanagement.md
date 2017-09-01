@@ -46,7 +46,7 @@ Administrators can configure the notification rules as to who receives certain t
 11.  (Optional) If you want to send out Notifications through Slack, enter the name of the Slack channels that you want the notifications to be sent.
 12.  Click **SUBMIT** if you are satisfied with your notification settings.
 
-To modify a notification rule, click ![](../docs/images/pencil_4_editing.png)for the rule you want to modify.
+To modify a notification rule, click ![](../../../images/pencil_4_editing.png)for the rule you want to modify.
 
 ## <a name="UsingPolicies2TriggerNotificationMessage"></a>Using Policies to Trigger a Notification Message
 
@@ -54,7 +54,7 @@ You can enable a policy to automatically run workflows. When you create a policy
 
 Just click the name of the policy to see the specific policy details, including **NOTIFICATION** details.
 
-For instructions on how to define a policy, see [Automating Workflows Using Policies](#/docs;doc=%2F..%2Fyaml%2Fex_create_policy_4_workflow.md).
+For instructions on how to define a policy, see [Automating Workflows Using Policies](./../../yaml/ex_create_policy_4_workflow.md).
 
 Additionally, you can also write a policy that alerts users as to when certain events happen on the Argo.
 
@@ -90,7 +90,7 @@ NOTE: Your Slack team administrator must perform these procedure to enable Slack
 
 1.  Go to [https://api.slack.com/](https://api.slack.com/).
 
-    ![](../docs/images/1_start_1099x317.png)
+    ![](../../../images/1_start_1099x317.png)
 
 2.  Click **Start Building**.
 
@@ -105,17 +105,17 @@ NOTE: Your Slack team administrator must perform these procedure to enable Slack
     *   Users - `users:read`
     *   Users - `users:read:email`
 
-    ![](../docs/images/4_oauth-permissions_788x872.png)
+    ![](../../../images/4_oauth-permissions_788x872.png)
 
 7.  Click **Save Changes**.
 
-    ![](../docs/images/5_install-app_815x501.png)
+    ![](../../../images/5_install-app_815x501.png)
 
 8.  Click **Install App to Team**.
 
 9.  Click **Authorize** to complete this process.
 
-    ![](../docs/images/7_oauth-token_919x645.png)
+    ![](../../../images/7_oauth-token_919x645.png)
 
 10.  Copy the generated OAuth token (You use this token in the next step for configuring Argo for Slack.
 11.  (Argo Web UI) Go to Configurations > Setup Alert Notifications, and click Slack icon.

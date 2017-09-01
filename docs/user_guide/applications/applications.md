@@ -14,9 +14,9 @@ To illustrate these concepts, the following diagram shows an application consist
 *   The web server deployment has 2 instances running
 *   The database server deployment has 1 instance running
 
-![](../docs/images/applications_deployments_volume_diagram_argo.png)
+![](../../../images/applications_deployments_volume_diagram_argo.png)
 
-![](../docs/images/applications_deployments_volume_diagram_1000x615.png)
+![](../../../images/applications_deployments_volume_diagram_1000x615.png)
 
 From the Applications tab, you can view all applications that are available for deployment on your Argo.
 
@@ -31,7 +31,7 @@ Here's how you view the status of an active application:
 *   Click the name of the application to view details about the application.
 *   Click SPENDING to view how much has been spent running the application for a specific time period.
 
-In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Creating a Deployment as a Long Running Service](#/docs;doc=%2F..%2Fyaml%2Fex_create_deploy_long_run_service_coretemplate_notused.md).
+In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Creating a Deployment as a Long Running Service](./../../yaml/ex_create_deploy_long_run_service_coretemplate_notused.md).
 
 # Monitoring and Scaling Deployments
 
@@ -52,7 +52,7 @@ From the Endpoints view, you can also see the internal and external routes for a
 
 **INTERNAL ROUTES** allow a deployment to be accessed by other deployments and jobs running within the same Argo. Internal routes are typically used to allow multiple microservices that are a part of the same application to communicate with each other. For example, suppose that you had an application that consists of a web app front end and a database backend. The network connection between these two deployments can be an internal route.
 
-For details about configuring the routes, see [Creating a Deployment as a Long Running Service](#/docs;doc=%2F..%2Fyaml%2Fex_create_deploy_long_run_service_coretemplate_notused.md).
+For details about configuring the routes, see [Creating a Deployment as a Long Running Service](./../../yaml/ex_create_deploy_long_run_service_coretemplate_notused.md).
 
 # Rolling Updates for a Deployed Application
 
@@ -119,8 +119,8 @@ inputs:
 
 2.  Choose one of these options:
 
-    1.  To perform a rolling update to the **latest commit** of your application, click ![](../docs/images/clear_3_dots_23x23.png) for the deployment you want and click Redeploy.
-    2.  To perform a rolling update to roll back to a **specific revision** of your application, click the specific deployment. Then click ![](../docs/images/clear_3_dots_23x23.png) for the revision you want and select Rollback.
+    1.  To perform a rolling update to the **latest commit** of your application, click ![](../../../images/clear_3_dots_23x23.png) for the deployment you want and click Redeploy.
+    2.  To perform a rolling update to roll back to a **specific revision** of your application, click the specific deployment. Then click ![](../../../images/clear_3_dots_23x23.png) for the revision you want and select Rollback.
 3.  Enter the input parameters that your workflow requires and click Submit to launch the rolling update.
 
     The job (aka workflow) is launched to perform the rolling update to either the most recent commit or a past deployment.

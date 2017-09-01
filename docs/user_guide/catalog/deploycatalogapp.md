@@ -4,7 +4,7 @@ Argo provides a Catalog of pre-configured workflows and applications. You can ru
 
 From Catalog, you can directly create and execute jobs for :
 
-*   Workflows (such as Continuous Integration, testing automation, or Continuous Deployment) – These are the building blocks for creating higher-order workflows that perform jobs. You can also run the individually as a workflow. For details about creating a workflow, see [Creating a Workflow](#/docs;doc=%2F..%2Fyaml%2Fex_create_workflow_notused.md).
+*   Workflows (such as Continuous Integration, testing automation, or Continuous Deployment) – These are the building blocks for creating higher-order workflows that perform jobs. You can also run the individually as a workflow. For details about creating a workflow, see [Creating a Workflow](./../../yaml/ex_create_workflow_notused.md).
 
 *   Applications (such as WordPress, Claudia) – These are full-fledged applications that can be used with no additional configuration.
 *   Application Components (such as MySQL and PostgreSQL) – These items can be integrated with other applications and other components to create a more complex application.
