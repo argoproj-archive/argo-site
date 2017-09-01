@@ -29,17 +29,35 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
 
     constructor(private sanitizer: DomSanitizer, private el: ElementRef) {
         let self = this;
+        let extensions = [<any> this.extensions.map(item => ({
+            type: 'lang',
+            regex: item.regex,
+            /* tslint:disable */
+            replace: function() {
+                return item.replace.apply(item, [<any>self.markdownConverter].concat(Array.from(arguments)));
+            },
+            /* tslint:enable */
+        }))];
+        extensions.push({
+            type: 'output',
+            regex: /<img([^>])*src="([^"]*)"/g,
+            replace: (match, beforeSrc, src) => {
+                src = src.replace(/.*\/images/, '../docs/images');
+                return `<img${beforeSrc}src="${src}"`;
+            },
+        });
+        extensions.push({
+            type: 'output',
+            regex: /<a([^>])*href="([^"]*\.md[^"]*)"/g,
+            replace: (match, beforeSrc, url) => {
+                [url] = url.split('#');
+                url = encodeURIComponent(url.split('/').filter(part => part !== '' && part !== '.' && part !== '..').join('/'));
+                return `<a href="#/docs;doc=${url}"`;
+            },
+        });
         this.markdownConverter = new Converter({
             tables: true,
-            extensions: [<any> this.extensions.map(item => ({
-                type: 'lang',
-                regex: item.regex,
-                /* tslint:disable */
-                replace: function() {
-                    return item.replace.apply(item, [<any>self.markdownConverter].concat(Array.from(arguments)));
-                },
-                /* tslint:enable */
-            }))],
+            extensions,
         });
     }
 
