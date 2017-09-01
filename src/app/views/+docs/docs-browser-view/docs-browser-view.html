@@ -1,16 +1,19 @@
 <div class="docs-browser-view">
     <div class="docs-browser-view__top">
-        <div class="docs-browser-view__search-box">
-            <input class="docs-browser-view__search-input" type="text" id="input" (keypress)="$event.code === 'Enter' && search() || true" [(ngModel)]="searchText">
-            <button class="docs-browser-view__search-button" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <div class="main__container">
+            <div class="docs-browser-view__search-box">
+                <input class="docs-browser-view__search-input" type="text" id="input" (keypress)="$event.code === 'Enter' && search() || true" [(ngModel)]="searchText">
+                <button class="docs-browser-view__search-button" (click)="search()"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+            <div class="docs-browser-view__search-text" *ngIf="searchItems">
+                Your search for "{{ searchText }}" returned {{ searchItems?.length }} result(s).</div>
+            <div class="docs-browser-view__nav-toggle" [class.active]="navOpen" (click)="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </div>
         </div>
-        <div class="docs-browser-view__search-text" *ngIf="searchItems">
-            Your search for "{{ searchText }}" returned {{ searchItems?.length }} result(s).</div>
-
-
-        <div class="main__nav" *ngIf="tree">
+        <div class="main__nav" *ngIf="tree" [class.main__nav--hide-sm]="!navOpen">
             <div class="main__container" *ngIf="!searchItems">
-                <a [routerLink]="[{doc: item.path}]" *ngFor="let item of tree.children"
+                <a [routerLink]="[{doc: item.path}]" *ngFor="let item of tree.children" (click)="toggleNav(false)"
                    [class.active]="breadcrumbs[0] && breadcrumbs[0].path === item.path">{{ item.title }}</a>
             </div>
         </div>

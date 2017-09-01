@@ -26,6 +26,7 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
     public selectedDocContent: string;
     public searchText: string;
     public searchItems: { DocSearchItem, summary: SafeHtml }[] = null;
+    public navOpen: boolean;
 
     private versions: DocsVersion[] = [];
     private loadedDocPath: string;
@@ -75,6 +76,10 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
 
     public async search() {
         this.router.navigate([{search: this.searchText || ''}]);
+    }
+
+    public toggleNav(value?: boolean) {
+        this.navOpen = typeof value !== 'undefined' ? value : !this.navOpen;
     }
 
     private getSearchSummary(searchText: string, docText: string): SafeHtml {

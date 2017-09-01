@@ -179,13 +179,20 @@ body {
     &__nav {
         position: relative;
         z-index: 1;
-        padding: 24px 20px 0 120px;
+        padding: 24px 0 0;
         background-color: #fff;
         overflow: hidden;
         border-bottom: 1px solid #dee6eb;
 
+        &--hide-sm {
+            @media screen and (max-width: $screen-sm-max) {
+                display: none;
+            }
+        }
+
         @media screen and (max-width: $screen-sm-max) {
-            display: none;
+            margin: 0 -20px;
+            padding-top: 14px;
         }
 
         a {
@@ -196,17 +203,42 @@ body {
             font-weight: 500;
             transition: color .2s;
 
-            &.active {
-                color: #000;
+            &:first-child {
+                margin-left: 60px;
+            }
 
-                &::after {
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    height: 3px;
-                    background-color: #6778db;
-                    content: '';
+            @media screen and (max-width: $screen-sm-max) {
+                display: block;
+                margin: 0 !important;
+                color: #fff;
+                background-color: #445086;
+                border-bottom: 1px solid #626c99;
+
+                &:active,
+                &:hover,
+                &:focus {
+                    color: #fff;
+                }
+            }
+
+            &.active {
+                @media screen and (min-width: $screen-md-min) {
+                    color: #000;
+
+                    &::after {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        height: 3px;
+                        background-color: #6778db;
+                        content: '';
+                    }
+                }
+
+                @media screen and (max-width: $screen-sm-max) {
+                    font-weight: 500;
+                    background-color: #4477a0;
                 }
             }
 
