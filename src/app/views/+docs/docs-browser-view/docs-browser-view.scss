@@ -33,6 +33,10 @@
             position: relative;
             top: 2px;
         }
+
+        @media screen and (min-width: $screen-md-min) {
+            display: none;
+        }
     }
 
     &__search-box {
