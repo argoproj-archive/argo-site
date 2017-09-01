@@ -114,6 +114,10 @@ body {
                 .github-text {
                     display: none;
                 }
+
+                &.active {
+                    color: #fff;
+                }
             }
 
             @media screen and (max-width: $screen-sm-max) {
