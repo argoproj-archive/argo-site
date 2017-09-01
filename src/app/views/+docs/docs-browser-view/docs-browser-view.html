@@ -6,17 +6,28 @@
         </div>
         <div class="docs-browser-view__search-text" *ngIf="searchItems">
             Your search for "{{ searchText }}" returned {{ searchItems?.length }} result(s).</div>
-    </div>
-    <div class="row" *ngIf="!searchItems">
-        <div class="columns medium-3">
-            <argo-docs-tree *ngIf="tree" [tree]="tree"></argo-docs-tree>
+
+
+        <div class="main__nav" *ngIf="tree">
+            <div class="main__container" *ngIf="!searchItems">
+                <a [routerLink]="[{doc: item.path}]" *ngFor="let item of tree.children"
+                   [class.active]="breadcrumbs[0] && breadcrumbs[0].path === item.path">{{ item.title }}</a>
+            </div>
         </div>
-        <div class="columns medium-9">
+    </div>
+    <div class="main__container">
+        <div *ngIf="!searchItems">
+            <div *ngIf="breadcrumbs.length > 1" class="docs-browser-view__breadcrumbs">
+                <span *ngFor="let item of breadcrumbs; let last = last">
+                    <a *ngIf="item.path && !last" [routerLink]="[{doc: item.path}]">{{ item.title }}</a>
+                    <template [ngIf]="!item.path || last">{{ item.title }}</template>
+                    <span class="docs-browser-view__breadcrumbs-separator" *ngIf="!last">/</span>
+                </span>
+            </div>
             <argo-doc-viewer [doc]="selectedDocContent"></argo-doc-viewer>
+            <argo-docs-subnav [tree]="selectedTree"></argo-docs-subnav>
         </div>
-    </div>
-    <div class="main__container" *ngIf="searchItems">
-        <div class="docs-browser-view__search-results">
+        <div class="docs-browser-view__search-results" *ngIf="searchItems">
             <div *ngFor="let item of searchItems" class="docs-browser-view__search-result">
                 <a [routerLink]="[{doc: item.path}]">{{item.title}}</a>
                 <div class="docs-browser-view__search-summary" [innerHTML]="item.summary"></div>

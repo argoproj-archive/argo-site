@@ -1,0 +1,13 @@
+<template [ngIf]="tree?.children">
+    <template ngFor let-item [ngForOf]="tree.children">
+        <template [ngIf]="item?.children">
+            <div class="docs-subnav__category">{{ item.title }}</div>
+            <template ngFor let-item [ngForOf]="item.children">
+                <argo-nav-button [title]="item.title" [routerLink]="[{ doc: item.path }]"></argo-nav-button>
+            </template>
+        </template>
+        <template [ngIf]="!item?.children">
+            <argo-nav-button [title]="item.title" [routerLink]="[{ doc: item.path }]"></argo-nav-button>
+        </template>
+    </template>
+</template>

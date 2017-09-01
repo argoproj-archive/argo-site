@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
-import { DocsService, DocsVersion } from '../../../services';
+import { DocsService, DocsTree, DocsVersion } from '../../../services';
 import { DocsTreeInfo } from '../view-models';
 import { PageSettings, HasPageSettings } from '../../../common';
 
@@ -18,6 +18,7 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
     public settings = this;
 
     public tree: DocsTreeInfo;
+    public selectedTree: DocsTree;
     public docsVersion: DocsVersion;
 
     public selectedDocPath: string;
@@ -48,6 +49,7 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
                 this.selectedDocContent = await this.docsService.loadDocMarkdown(this.docsVersion, this.selectedDocPath);
                 this.loadedDocPath = this.selectedDocPath;
             }
+            this.selectedTree = this.searchTree(this.tree, this.selectedDocPath);
             this.searchText = params['search'];
             if (this.searchText) {
                 this.searchItems = (await this.docsService.search(this.searchText, this.docsVersion)).map(
@@ -55,7 +57,20 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
             } else {
                 this.searchItems = null;
             }
+
+            document.body.scrollTop = 0;
         });
+    }
+
+    public get breadcrumbs() {
+        let breadcrumbs = [];
+        if (this.selectedTree) {
+            for (let parent = this.selectedTree.parent; parent; parent = parent.parent) {
+                breadcrumbs.unshift(parent);
+            }
+        }
+        breadcrumbs.push(this.selectedTree);
+        return breadcrumbs;
     }
 
     public async search() {
@@ -68,5 +83,18 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
         docText = docText.substring(Math.max(firstIndex - 50, 0));
         let summary = docText.replace(regexp, (match, text) => `<span class="docs-browser-view__highlight">${text}</span>`);
         return this.sanitizer.bypassSecurityTrustHtml(summary);
+    }
+
+    private searchTree(element, matchingPath) {
+        if (element.path === matchingPath) {
+            return element;
+        } else if (element.children) {
+            let result = null;
+            for (let i = 0; result == null && i < element.children.length; i++) {
+                result = this.searchTree(element.children[i], matchingPath);
+            }
+            return result;
+        }
+        return null;
     }
 }

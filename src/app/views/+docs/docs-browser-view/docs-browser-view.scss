@@ -3,9 +3,8 @@
 .docs-browser-view {
     &__top {
         margin-bottom: 30px;
-        padding: 30px 20px;
+        padding: 30px 0 0;
         background-color: #fff;
-        border-bottom: 1px solid #e4ebef;
     }
 
     &__search-box {
@@ -68,5 +67,18 @@
     &__highlight {
         font-weight: bold;
         color: $ax-color-gray-8;
+    }
+
+    &__breadcrumbs {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        font-size: .9em;
+        color: $ax-color-gray-7;
+        border-bottom: 1px solid $ax-color-gray-3;
+    }
+
+    &__breadcrumbs-separator {
+        display: inline-block;
+        margin: 0 6px;
     }
 }
