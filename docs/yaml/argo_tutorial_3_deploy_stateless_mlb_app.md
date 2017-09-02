@@ -44,13 +44,13 @@ To deploy the sample MLB app, go to the Argo Web UI and perform these steps:
  ![MLB_deployment](../../images/mlb.png)
 
 
-## Deploy your custom Stateless App
+## Customizing Your Stateless App
 
 1. In your own repo, create a directory called `.argo`.
 1. Copy the 2 YAML templates you ran in the sample stateless MLB app (`argo_checkout.yaml` and `mlb.yaml`) from the Appstore  [https://github.com/argoproj/appstore/tree/master/.argo](https://github.com/argoproj/appstore/tree/master/.argo) to your `.argo` folder
 2. Customize the `mlb.yaml` file with your deployment and container specifications.
 
-### Running Your Deployment Workflow
+## Running Your Deployment Workflow
 
 When you integrate your repo with Argo, the Argo Web UI displays your source code commits in the **Timeline** menu item.
 
@@ -60,7 +60,7 @@ You have two options for running your customized CI workflow:
 	1. Go to **Timeline** menu, select a commit and click **Create a New Job**.
 	1. Select the CI workflow name, enter values for the input parameters and click **Submit**.  
 
-   (Optional)  If you want your stateless app to display in your Catalog menu, just modify the the `Project` section in the `mlb.yaml` YAML template.
+   (Optional)  If you want your stateless app to display in your Catalog menu, just modify the `Project` section in the `mlb.yaml` YAML template.
 
 
  * **Automatically**

@@ -2,11 +2,15 @@
   "children": [
     {
       "title": "Setup and Install Argo",
+      "summary": "Installation guide for Kubernetes workflow engine on AWS",
+      "details": "Install and configure Argo, Kubernetes workflow engine on AWS from Command Line",
       "path": "quickstart/intro_argo_quick_start.md"
     },
     {
       "title": "Tutorials",
       "path": "yaml/using_the_yaml_dsl.md",
+      "summary": "Tutorials and use cases for container native workflow engine",
+      "details": "Tutorials for workflows on Kubernetes - CI/CD, DinD, deploy microservices, volumes. Create YAML templates for workflows and deployments",
       "children": [
         {
           "title": "Tutorial 1: Create CI Workflow",
@@ -41,6 +45,8 @@
     {
       "title": "User Guide",
       "path": "a_introduction_topics/overview.md",
+      "summary": "User guide for Kubernetes workflow engine",
+      "details": "Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment",
       "children": [
         {
           "title": "Configuring Argo",
@@ -154,6 +160,8 @@
     {
       "title": "YAML DSL",
       "path": "yaml/dsl_reference_intro.md",
+      "summary": "YAML DSL for Kubernetes workflow engine",
+      "details": "Argo’s YAML DSL describes the specification to write Argo container, deployment, workflow templates",
       "children": [
         {
           "title": "Container Templates",
@@ -187,15 +195,21 @@
     },
     {
       "title": "CLI Reference",
-      "path": "cli_reference.md"
+      "path": "cli_reference.md",
+      "summary": "CLI for Argo cluster and workflow engine",
+      "details": "Command line interface for Argo workflow engine and Kubernetes cluster management"
     },
     {
       "title": "FAQs",
-      "path": "d_more_information/faqs.md"
+      "path": "d_more_information/faqs.md",
+      "summary": "FAQs - Answers to Common questions around Kubernetes workflow engine",
+      "details": "FAQs of Argo, container native Kubernetes workflow engine"
     },
     {
       "title": "Release Notes",
-      "path": "releasenotes/release_notes_argo.md"
+      "path": "releasenotes/release_notes_argo.md",
+      "summary": "Release Notes for Container native workflows",
+      "details": "Release Notes of Argo, container native Kubernetes workflow engine"
     }
   ]
 }
