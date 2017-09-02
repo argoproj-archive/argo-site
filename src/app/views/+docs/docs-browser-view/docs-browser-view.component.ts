@@ -6,6 +6,9 @@ import { DocsService, DocsTree, DocsVersion } from '../../../services';
 import { DocsTreeInfo } from '../view-models';
 import { PageSettings, HasPageSettings } from '../../../common';
 
+const PAGE_TITLE = 'Documentation for open source workflow engine on Kubernetes';
+const PAGE_DESCRIPTION = 'Documentation for Argo, open source workflow engine for Kubernetes. Tutorials, User guide, CLI reference, FAQs, release notes.';
+
 @Component({
     selector: 'argo-docs-browser-view',
     templateUrl: './docs-browser-view.html',
@@ -13,8 +16,14 @@ import { PageSettings, HasPageSettings } from '../../../common';
 })
 export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSettings {
 
-    public pageTitle = 'Documentation for open source workflow engine on Kubernetes';
-    public pageDescription = 'Documentation for Argo, open source workflow engine for Kubernetes.  Tutorials, User guide, CLI reference, FAQs, release notes.';
+    public get pageTitle(): string {
+        return this.selectedTree && this.selectedTree.summary || PAGE_TITLE;
+    }
+
+    public get pageDescription(): string {
+        return this.selectedTree && this.selectedTree.details || PAGE_DESCRIPTION;
+    }
+
     public settings = this;
 
     public tree: DocsTreeInfo;
@@ -90,13 +99,19 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
         return this.sanitizer.bypassSecurityTrustHtml(summary);
     }
 
-    private searchTree(element, matchingPath) {
+    private searchTree(element: DocsTree, matchingPath: string) {
         if (element.path === matchingPath) {
             return element;
         } else if (element.children) {
             let result = null;
             for (let i = 0; result == null && i < element.children.length; i++) {
                 result = this.searchTree(element.children[i], matchingPath);
+                if (result) {
+                    result = Object.assign({}, result, {
+                        details: result.details || element.details,
+                        summary: result.summary || element.summary,
+                    });
+                }
             }
             return result;
         }

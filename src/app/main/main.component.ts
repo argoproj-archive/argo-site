@@ -43,7 +43,7 @@ export class MainComponent implements AfterViewChecked {
     }
 
     public ngAfterViewChecked() {
-        document.title = this.pageSettings.pageTitle ? `Argo | ${this.pageSettings.pageTitle}` : 'Argo';
+        document.title = this.pageSettings.pageTitle ? `${this.pageSettings.pageTitle} | Argo` : 'Argo';
         let description = this.pageSettings.pageDescription || '';
         if (this.description !== description) {
             this.description = description;
