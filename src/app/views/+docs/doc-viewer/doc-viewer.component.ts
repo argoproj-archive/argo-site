@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, AfterViewChecked, SimpleChanges, ElementRef } from '@angular/core';
-
+import { LocationStrategy } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Converter } from 'showdown';
 
@@ -27,7 +27,7 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
     private viewInitialized = false;
     private extensions: MarkdownExtension[] = [this.expandableSectionExtension()];
 
-    constructor(private sanitizer: DomSanitizer, private el: ElementRef) {
+    constructor(private sanitizer: DomSanitizer, private el: ElementRef, private locationStrategy: LocationStrategy) {
         let self = this;
         let extensions = [<any> this.extensions.map(item => ({
             type: 'lang',
@@ -42,7 +42,7 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
             type: 'output',
             regex: /<img([^>])*src="([^"]*)"/g,
             replace: (match, beforeSrc, src) => {
-                src = src.replace(/.*\/images/, '../docs/images');
+                src = src.replace(/.*\/images/, 'docs/images');
                 return `<img${beforeSrc}src="${src}"`;
             },
         });
@@ -52,7 +52,8 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
             replace: (match, beforeSrc, url) => {
                 [url] = url.split('#');
                 url = encodeURIComponent(url.split('/').filter(part => part !== '' && part !== '.' && part !== '..').join('/'));
-                return `<a href="#/docs;doc=${url}"`;
+                url = this.locationStrategy.prepareExternalUrl(`/docs;doc=${url}`);
+                return `<a href="${url}"`;
             },
         });
         this.markdownConverter = new Converter({
