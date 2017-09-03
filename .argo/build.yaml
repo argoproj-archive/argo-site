@@ -5,9 +5,13 @@ name: build
 inputs:
   parameters:
     commit:
-        default: "%%session.commit%%"
+      default: "%%session.commit%%"
     repo:
-        default: "%%session.repo%%"
+      default: "%%session.repo%%"
+    href-base:
+      default: "/"
+    tracking-id:
+      default: ""
 steps:
 - checkout-site:
     template: argo-checkout
@@ -19,6 +23,11 @@ steps:
 - build-site:
     image: node:6.3.1
     command: ["bash", "-c"]
+    env:
+      - name: HREF_BASE
+        value: "%%inputs.parameters.href-base%%"
+      - name: TRACKING_ID
+        value: "%%inputs.parameters.tracking-id%%"
     args: ["cd /src && npm install && npm run build:prod"]
     resources:
       mem_mib: 1536

@@ -12,9 +12,10 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 const METADATA = {
-  title: 'Applatix',
-  baseUrl: '/',
-  isDevServer: helpers.isWebpackDevServer()
+  title: 'Argo',
+  hrefBase: process.env.HREF_BASE || '/',
+  trackingId: process.env.TRACKING_ID || '',
+  isDevServer: helpers.isWebpackDevServer(),
 };
 
 module.exports = function () {
@@ -63,6 +64,9 @@ module.exports = function () {
       ],
 
     },
+    output: {
+      publicPath: METADATA.hrefBase
+    },
     plugins: [
       new AssetsPlugin({
         path: helpers.root('dist'),
@@ -101,7 +105,7 @@ module.exports = function () {
         defaultAttribute: 'defer'
       }),
       new HtmlElementsPlugin({
-        headTags: require('./head-config.common')
+        headTags: require('./head-config.common'),
       }),
       new LoaderOptionsPlugin({}),
 

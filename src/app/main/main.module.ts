@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, PathLocationStrategy, LocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,7 +14,7 @@ import { MainComponent } from './main.component';
     ],
     providers: [{
         provide: LocationStrategy,
-        useClass: HashLocationStrategy,
+        useClass: ENV === 'production' ? PathLocationStrategy : HashLocationStrategy,
     }],
     bootstrap: [ MainComponent ],
     imports: [
