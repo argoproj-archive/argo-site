@@ -14,6 +14,7 @@ const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   ENV: ENV,
   HMR: false,
+  TRACKING_ID: process.env.TRACKING_ID || '',
 });
 
 module.exports = function () {
@@ -31,7 +32,7 @@ module.exports = function () {
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
-        'TRACKING_ID': JSON.stringify(METADATA.trackingId),
+        'TRACKING_ID': JSON.stringify(METADATA.TRACKING_ID),
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),

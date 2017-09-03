@@ -17,8 +17,8 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   port: PORT,
   ENV: ENV,
   HMR: HMR,
+  TRACKING_ID: process.env.TRACKING_ID || '',
 });
-
 
 module.exports = function () {
   return webpackMerge(commonConfig({env: ENV}), {
@@ -36,7 +36,7 @@ module.exports = function () {
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
-        'TRACKING_ID': JSON.stringify(METADATA.trackingId),
+        'TRACKING_ID': JSON.stringify(METADATA.TRACKING_ID),
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),

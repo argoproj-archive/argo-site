@@ -14,7 +14,6 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const METADATA = {
   title: 'Argo',
   hrefBase: process.env.HREF_BASE || '/',
-  trackingId: process.env.TRACKING_ID || '',
   isDevServer: helpers.isWebpackDevServer(),
 };
 
