@@ -27,7 +27,7 @@
                     <span class="docs-browser-view__breadcrumbs-separator" *ngIf="!last">/</span>
                 </span>
             </div>
-            <argo-doc-viewer [doc]="selectedDocContent"></argo-doc-viewer>
+            <argo-doc-viewer [docInfo]="{content: selectedDocContent, docPath: selectedTree?.path}"></argo-doc-viewer>
             <argo-docs-subnav [tree]="selectedTree"></argo-docs-subnav>
         </div>
         <div class="docs-browser-view__search-results" *ngIf="searchItems">

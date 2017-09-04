@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, AfterViewChecked, SimpleChanges, ElementRe
 import { LocationStrategy } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Converter } from 'showdown';
+let path = require('path');
 
 interface MarkdownExtension {
     regex: RegExp;
@@ -17,8 +18,10 @@ interface MarkdownExtension {
 export class DocViewerComponent implements OnChanges, AfterViewChecked {
 
     @Input()
-    public set doc(val: string) {
-        this.docHTML = this.sanitizer.bypassSecurityTrustHtml(this.markdownConverter.makeHtml(val || ''));
+    public set docInfo(info: { content?: string, docPath?: string }) {
+        info = info || {};
+        this.docDir = path.dirname(info.docPath || '');
+        this.docHTML = this.sanitizer.bypassSecurityTrustHtml(this.markdownConverter.makeHtml(info.content || ''));
     }
 
     public docHTML: SafeHtml;
@@ -26,6 +29,7 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
     private markdownConverter: Converter = null;
     private viewInitialized = false;
     private extensions: MarkdownExtension[] = [this.expandableSectionExtension()];
+    private docDir = '';
 
     constructor(private sanitizer: DomSanitizer, private el: ElementRef, private locationStrategy: LocationStrategy) {
         let self = this;
@@ -51,8 +55,8 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
             regex: /<a([^>])*href="([^"]*\.md[^"]*)"/g,
             replace: (match, beforeSrc, url) => {
                 [url] = url.split('#');
-                url = encodeURIComponent(url.split('/').filter(part => part !== '' && part !== '.' && part !== '..').join('/'));
-                url = this.locationStrategy.prepareExternalUrl(`/docs;doc=${url}`);
+                url = path.join(this.docDir, url);
+                url = this.locationStrategy.prepareExternalUrl(`/docs;doc=${encodeURIComponent(url)}`);
                 return `<a href="${url}"`;
             },
         });
@@ -70,7 +74,7 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
     }
 
     public ngOnChanges(changes: SimpleChanges) {
-        if (changes['doc'].previousValue !== changes['doc'].currentValue) {
+        if (changes['docInfo'].previousValue.content !== changes['docInfo'].currentValue.content) {
             this.viewInitialized = false;
         }
     }
