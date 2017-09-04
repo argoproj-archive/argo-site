@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import { GuiComponentsModule } from 'argo-ui-lib/src/components';
 import { CommunityLogosComponent } from './community-logos/community-logos.component';
+import { NavButtonComponent } from './nav-button/nav-button.component';
 
 @NgModule({
     declarations: [
         CommunityLogosComponent,
+        NavButtonComponent,
     ],
     exports: [
         FormsModule,
@@ -19,6 +21,7 @@ import { CommunityLogosComponent } from './community-logos/community-logos.compo
         CommonModule,
         GuiComponentsModule,
         CommunityLogosComponent,
+        NavButtonComponent,
     ],
 })
 export class BaseModule {
