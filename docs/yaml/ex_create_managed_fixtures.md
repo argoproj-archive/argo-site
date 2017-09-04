@@ -12,8 +12,8 @@ The process for creating fixtures for a workflow or application is:
 2.  Go to the Argo Console for your cluster.
 3.  Connect to the repo containing the YAML fixture class definition you created.
 
-4.  Add the fixture class that you need to the repo. For details, see [To add a new fixture class to your repo branch](../user_guide/infrastructure/using_fixtures.htm#AddFixtureClass2Repo)[Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md).
-5.  Create the instances of the fixture class. For details, see [To create an instance of a fixture class](../user_guide/infrastructure/using_fixtures.htm#CreateInstanceFixtureClass).
+4.  Add the fixture class that you need to the repo. For details, see [To add a new fixture class to your repo branch](../user_guide/infrastructure/using_fixtures.md#AddFixtureClass2Repo)[Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md).
+5.  Create the instances of the fixture class. For details, see [To create an instance of a fixture class](../user_guide/infrastructure/using_fixtures.md#CreateInstanceFixtureClass).
 
 ## <a name="CreateFixture"></a>Creating a fixture class for a workflow
 

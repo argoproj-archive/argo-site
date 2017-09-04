@@ -233,4 +233,4 @@ where:
 *   `graph-storage-size` refers to the storage that Docker uses
 *   `cpu_cores` and `mem_mib` represents the memory given to Docker daemon; 32MB minimum; no restriction on number of cores.
 
-For a complete example of Docker-in-Docker, see [Tutorial 2: Build Docker Image and Deploy Workflow](./../argo_tutorial_2_create_docker_image_build_workflow.md).
+For a complete example of Docker-in-Docker, see [Tutorial 2: Build Docker Image and Deploy Workflow](./argo_tutorial_2_create_docker_image_build_workflow.md).

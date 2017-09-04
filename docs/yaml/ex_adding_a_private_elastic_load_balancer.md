@@ -79,4 +79,4 @@ type: service_template
 
 At this point, your applications that are outside of the Argo can now communicate with the apps inside the Cluster on the same VPC.
 
-*   For more details about editing the YAML templates, see [Deployment Template](./../deployment_template.md).
+*   For more details about editing the YAML templates, see [Deployment Template](./deployment_template.md).

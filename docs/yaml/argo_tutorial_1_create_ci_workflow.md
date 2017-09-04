@@ -12,7 +12,7 @@ This tutorial shows you how to run a container-native, CI workflow on Kubernetes
 ## Prerequisites
 This tutorial assumes the following:
 
-* You have successfully [installed Argo](https://argoproj.github.io/argo-site/#/get-started/installation).
+* You have successfully [installed Argo](https://argoproj.github.io/argo-site/get-started/installation).
 * You have integrated Argo with the sample CI workflow repo at [https://github.com/argoproj/ci-workflow](https://github.com/argoproj/ci-workflow)
 
 ## About the YAML Files

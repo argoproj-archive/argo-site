@@ -11,7 +11,7 @@ A fixture template contains the following sections.
 
 #### attributes
 
-Note: The `flags`, `tags`, `argo_cluster_affinity`, and `disable_nightly` attributes are special Argo-defined attributes for a fixture. These Argo attributes help you distinguish multiple fixture instances that come from the same fixture class. (See [Attributes](ex_create_managed_fixtures.htm#Attributes) for an example of these Argo attributes and their required mappings.)
+Note: The `flags`, `tags`, `argo_cluster_affinity`, and `disable_nightly` attributes are special Argo-defined attributes for a fixture. These Argo attributes help you distinguish multiple fixture instances that come from the same fixture class. (See [Attributes](ex_create_managed_fixtures.md#Attributes) for an example of these Argo attributes and their required mappings.)
 
 All other attributes you define for a fixture depends on what the fixture requires.
 

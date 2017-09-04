@@ -12,16 +12,16 @@ These are the steps you'll run in this workflow for deploying the containerized,
 ## Prerequisites
 This tutorial assumes the following:
 
-* You have successfully [installed Argo](https://argoproj.github.io/argo-site/#/get-started/installation).
+* You have successfully [installed Argo](https://argoproj.github.io/argo-site/get-started/installation).
 * You have integrated Argo with the sample Odoo repo at [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app).
 
 ## About the YAML files
 
 This stateful app deployment with volumes uses 1 YAML file from the `.argo` folder in the  sample Odoo repo:
 
-* `odoo-with-vol.yaml` - defines a workflow with two steps: "`deploy-postgres`" and "`deploy-odoo`". Each step is specified as a deployment. Argo deployment YAMLs internally map to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see [Argo YAML DSL Reference](#/docs;doc=yaml%2Fdsl_reference_intro.md).
+* `odoo-with-vol.yaml` - defines a workflow with two steps: "`deploy-postgres`" and "`deploy-odoo`". Each step is specified as a deployment. Argo deployment YAMLs internally map to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see [Argo YAML DSL Reference](../yaml/dsl_reference_intro.md).
 
-  Because both deployments need to persist data, you must first create two volumes. In this tutorial, the `odoo-with-vol.yaml` file already specifies two EBS volumes, "`odoo`" and "`postgres`". For further details about specifying volumes for a deployment, see [Adding a Volume as Storage for Deployment](#/docs;doc=yaml%2Fex_add_volume_deployment.md).
+  Because both deployments need to persist data, you must first create two volumes. In this tutorial, the `odoo-with-vol.yaml` file already specifies two EBS volumes, "`odoo`" and "`postgres`". For further details about specifying volumes for a deployment, see [Adding a Volume as Storage for Deployment](../yaml/ex_add_volume_deployment.md).
 
   NOTE: You can also create the volumes using the Argo Web UI. Go to **Navigation Bar** > **Infrastructure** > **Volumes** and create two EBS volumes called "`odoo`" and "`postgres`" of 1 GB size each.
 
@@ -66,4 +66,4 @@ You have two options for running your customized CI workflow:
 
    After you've completed these steps, every time you make a commit in your repo, the CI workflow is automatically triggered.
 
-<!-- [Tutorial 1: Create CI Workflow](#/docs;doc=yaml%2Fargo_tutorial_1_create_ci_workflow.md).-->
+<!-- [Tutorial 1: Create CI Workflow](../yaml/argo_tutorial_1_create_ci_workflow.md).-->

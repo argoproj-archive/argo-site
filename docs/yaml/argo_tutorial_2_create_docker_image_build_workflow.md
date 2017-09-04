@@ -12,7 +12,7 @@ NOTE: Argo uses the Docker-in-Docker (DinD) technique to build a Docker containe
 ## Prerequisites
 This tutorial assumes the following:
 
-* You have successfully [installed Argo](https://argoproj.github.io/argo-site/#/get-started/installation).
+* You have successfully [installed Argo](https://argoproj.github.io/argo-site/get-started/installation).
 * You have integrated Argo with the sample DinD repo at https://github.com/argoproj/example-dind.
 
 ## About the YAML Templates
@@ -25,11 +25,11 @@ The workflow "building Docker images" uses 2 YAML files from the repo at https:/
   annotations:
     ax_ea_docker_enable: '{"graph-storage-size": "10Gi", "cpu_cores":0.1, "mem_mib":200}'
   ```
-For more details about the two lines of YAML code, see [Container Calling Docker Commands "Docker-in-Docker"](#/docs;doc=yaml%2Fcontainer_templates.md#ContainerDinDWorkflow).
+For more details about the two lines of YAML code, see [Container Calling Docker Commands "Docker-in-Docker"](../yaml/container_templates.md#ContainerDinDWorkflow).
 
 * `dind-project.yaml` - specifies the YAML template for launching the workflow from the Catalog and also the assets for publishing the project in the Catalog.
 
-NOTE: To make the credentials secure for accessing the container registry, this YAML DSL example uses [Argo Secret Management](../user_guide/configappllatixcluster/managesystemsettings.md) to encrypt the user id and password.
+NOTE: To make the credentials secure for accessing the container registry, this YAML DSL example uses [Argo Secret Management](../user_guide/configapplatixcluster/managesystemsettings.md) to encrypt the user id and password.
 
 ## Run a DinD Build Workflow
 
