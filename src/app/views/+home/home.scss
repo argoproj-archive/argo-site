@@ -171,7 +171,7 @@
     border-top: 1px solid $ax-color-gray-3;
     border-bottom: 1px solid $ax-color-gray-3;
 
-    @media screen and (min-width: $screen-md-min) {
+    @media screen and (min-width: $screen-lg-min) {
         background-color: #00bccf;
     }
 
@@ -179,10 +179,14 @@
         position: absolute;
         top: 0;
         left: 0;
-        right: calc(50% - #{$base-width/2} + 300px);
+        right: 0;
         bottom: 0;
         background-color: #fff;
         content: '';
+
+        @media screen and (min-width: $screen-lg-min) {
+            right: calc(50% - #{$base-width/2} + 300px);
+        }
     }
 
     .features-bg {
@@ -202,7 +206,7 @@
             position: absolute;
             top: 0;
             left: 40%;
-            right: 0;
+            right: -20px;
             bottom: 0;
             background: url(assets/images/ArgBG.png) no-repeat left top 40%;
             background-size: auto 130%;
@@ -368,13 +372,17 @@
     .box {
         position: relative;
         z-index: 1;
-        width: 60%;
+        width: 80%;
         margin: 0 auto;
         padding: 50px 80px;
         text-align: center;
         background: #fff;
         border-radius: 6px;
         box-shadow: 2px 2px 4px rgba(#000, .1);
+
+        @media screen and (min-width: $screen-lg-min) {
+            width: 60%;
+        }
 
         @media screen and (max-width: $screen-sm-max) {
             width: 100%;
@@ -400,7 +408,7 @@
         margin-top: 60px;
 
         .btn {
-            @media screen and (max-width: $screen-sm-max) {
+            @media screen and (max-width: $screen-md-max) {
                 margin-bottom: 20px;
             }
         }

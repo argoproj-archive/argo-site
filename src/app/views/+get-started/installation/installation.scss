@@ -18,7 +18,7 @@
         left: calc(50% - #{$base-width/2} - 84px);
         width: 84px;
         opacity: 0;
-        animation: show .5s 1s forwards;
+        animation: show .5s forwards;
     }
 
     &__row {
@@ -28,9 +28,9 @@
         animation-duration: .5s;
         animation-fill-mode: forwards;
 
-        @for $i from 0 through 10 {
+        @for $i from 1 through 10 {
             &:nth-child(#{$i}) {
-                animation-delay: #{$i}s;
+                animation-delay: #{$i - 1}s;
             }
         }
 
@@ -61,11 +61,8 @@
         background-color: #fff;
         border-radius: 4px;
         box-shadow: 0 2px 3px rgba(#000, .07);
-
-        @media screen and (max-width: $screen-sm-max) {
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
+        white-space: pre-wrap;
+        word-break: break-all;
 
         &.first {
             margin-left: 0;

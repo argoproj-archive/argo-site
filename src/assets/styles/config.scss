@@ -5,5 +5,7 @@ $base-color: #2c2e51;
 $argo-orange: #f96822;
 $argo-link-color: #2d87cd;
 
+$screen-lg-min: 1024px;
+$screen-md-max: $screen-lg-min - 1;
 $screen-md-min: 768px;
 $screen-sm-max: $screen-md-min - 1;
