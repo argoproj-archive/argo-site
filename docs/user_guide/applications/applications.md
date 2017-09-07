@@ -31,7 +31,7 @@ Here's how you view the status of an active application:
 *   Click the name of the application to view details about the application.
 *   Click SPENDING to view how much has been spent running the application for a specific time period.
 
-In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Creating a Deployment as a Long Running Service](./../../yaml/ex_create_deploy_long_run_service_coretemplate_notused.md).
+In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Creating a Deployment as a Long Running Service](../../yaml/deployment_template.md).
 
 # Monitoring and Scaling Deployments
 

@@ -12,7 +12,6 @@ NOTE: Argo uses the Docker-in-Docker (DinD) technique to build a Docker image wi
 ## Prerequisites
 This tutorial assumes the following:
 
-
 * You have successfully [installed Argo](https://argoproj.github.io/argo-site/get-started/installation).
 * You have integrated Argo with the sample DinD repo at [https://github.com/argoproj/example-dind](https://github.com/argoproj/example-dind).
 
@@ -63,7 +62,7 @@ You have two options for running your customized DinD build workflow:
 	1. Go to **Timeline** menu, select a commit and click **Create a New Job**.
 	1. Select the YAML templates to create a job, click **NEXT**, enter values for the input parameters and click **Submit**.  
 <br/>
-   (Optional) If you want your DinD-build Workflow to show up in your Catalog menu, copy and modify the `dind-project.yaml` file into the `.argo` directory in your repo. 
+   (Optional) If you want your DinD-build Workflow to show up in your Catalog menu, copy and modify the `dind-project.yaml` file into the `.argo` directory in your repo.
 
 
 * **Automatically**

@@ -20,10 +20,6 @@ Here's the procedure:
 
 NOTE: If you have already run a job from a specific commit, you can run the same job again without having to select the commit.
 
-*   [Monitor the progress of your job from the Timeline](./../../jobs_notused.md)
-
-View the available YAML templates for running a job
-
 # View Templates and Create a Job
 
 The Argo Web UI provides multiple ways to view the YAML templates that a job uses. You can simply click Templates and then click a row in the template table to see the details for a specific template. From this view, you can

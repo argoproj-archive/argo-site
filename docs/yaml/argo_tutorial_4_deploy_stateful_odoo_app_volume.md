@@ -21,12 +21,12 @@ This stateful app deployment uses the following YAML file from the `.argo` folde
 
 * `odoo-with-vol.yaml` - defines a workflow with two steps: "`deploy-postgres`" and "`deploy-odoo`". Each step is specified as a deployment. Argo deployment YAMLs internally map to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see [Argo YAML DSL Reference](../yaml/dsl_reference_intro.md).
 
-  In this tutorial, the `odoo-with-vol.yaml` file refers to two named EBS volumes, "`odoo`" and "`postgres`" which needs to be created before deploying the app. For further details about specifying volumes for a deployment, see [Adding a Volume as Storage for Deployment](../yaml/ex_add_volume_deployment.md).
+  In this tutorial, the `odoo-with-vol.yaml` file refers to two named EBS volumes, "`odoo`" and "`postgres`" which need to be created before deploying the app. For further details about specifying volumes for a deployment, see [Adding a Volume as Storage for Deployment](../yaml/ex_add_volume_deployment.md).
 
 ## Deploy and Scale Odoo App
 
 1. Configure the domains for deployment. This allows you to control which applications can access a deployment. From the Argo Web UI, click **Navigation Bar** > **Settings** > **Domain Management**, make your changes, and click **UPDATE DOMAINS**.
-2. Create two named volumes. Go to **Navigation Bar** > **Infrastructure** > **Volumes** and create two EBS volumes called "`odoo`" and "`postgres`" of 1 GB size each. 
+2. Create two named volumes. Go to **Navigation Bar** > **Infrastructure** > **Volumes** and create two EBS volumes called "`odoo`" and "`postgres`" of 1 GB size each.
 2. From **Catalog**, click **>** to select **Odoo App**, and click **Deploy Odoo With Volumes**. Keep the default input parameters. Make sure the volume input parameters are defined as above. Click **Submit**. You will see the workflow running in Argo Web UI.
 3. When the workflow completes, go to **Applications** tab. You'll see a new application named **odoo-with-vols** that has been deployed.
 
@@ -59,8 +59,6 @@ You have two options for deploying your stateful app:
 
  * **Automatically**
 	1. Add `commit` and `repo` as input parameters to your workflow as shown in tutorial 1
-	2. Create and activate a Policy template to trigger this workflow for every commit as shown in tutorial 1
+	2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md)
 
    After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.
-
-
