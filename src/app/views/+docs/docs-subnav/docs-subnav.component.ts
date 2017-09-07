@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { DocsTree } from '../../../services';
+import { Utils } from '../view-models';
 
 @Component({
     selector: 'argo-docs-subnav',
@@ -11,4 +12,8 @@ export class DocsSubnavComponent {
 
     @Input()
     public tree: DocsTree;
+
+    public docRoute(path: string) {
+        return Utils.docRoute(path);
+    }
 }

@@ -56,7 +56,7 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
             replace: (match, beforeSrc, url) => {
                 [url] = url.split('#');
                 url = path.join(this.docDir, url);
-                url = this.locationStrategy.prepareExternalUrl(`/docs;doc=${encodeURIComponent(url)}`);
+                url = this.locationStrategy.prepareExternalUrl(`/docs/${url}`);
                 return `<a href="${url}"`;
             },
         });

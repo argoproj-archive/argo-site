@@ -17,6 +17,7 @@ import { DocsSubnavComponent } from './docs-subnav/docs-subnav.component';
         BaseModule,
         RouterModule.forChild([
             { path: '', component: DocsBrowserViewComponent },
+            { path: '**', component: DocsBrowserViewComponent },
         ]),
     ],
 })
