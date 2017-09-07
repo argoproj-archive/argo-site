@@ -1,12 +1,29 @@
+@import 'node_modules/argo-ui-lib/src/assets/styles/gui-lib';
+@import '../../../../assets/styles/config';
+
 .architecture {
     img {
-        margin-bottom: 20px;
+        display: block;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        margin-top: 50px;
+        padding-bottom: 2px;
+        font-weight: 300;
+        border-bottom: 1px solid $ax-color-gray-3;
     }
 
     h3 {
         font-weight: 500;
-        font-size: 1em;
+        font-size: 1.1em;
         margin: 30px 0 0;
+
+        &.highlight {
+            font-weight: 400;
+            color: $argo-orange;
+        }
     }
 
     ul {
@@ -19,5 +36,6 @@
 
     p {
         margin: 0;
+        color: #758692;
     }
 }
