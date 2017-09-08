@@ -1,11 +1,11 @@
 {
   "main": {
-    "js": "/argo-site/assets/main.636eddc4dcadf39553c7.bundle.js"
+    "js": "/argo-site/assets/main.e8709c3293a779c18898.bundle.js"
   },
   "vendor": {
-    "js": "/argo-site/assets/vendor.0dd64eb7d575ffba6cdc.bundle.js"
+    "js": "/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js"
   },
   "polyfills": {
-    "js": "/argo-site/assets/polyfills.6510837b0b6703897bbe.bundle.js"
+    "js": "/argo-site/assets/polyfills.76325184ac827b8cd6bf.bundle.js"
   }
 }

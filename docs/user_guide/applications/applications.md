@@ -31,7 +31,7 @@ Here's how you view the status of an active application:
 *   Click the name of the application to view details about the application.
 *   Click SPENDING to view how much has been spent running the application for a specific time period.
 
-In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Creating a Deployment as a Long Running Service](../../yaml/deployment_template.md).
+In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Deployment Template](./../../yaml/deployment_template.md).
 
 # Monitoring and Scaling Deployments
 
@@ -52,7 +52,7 @@ From the Endpoints view, you can also see the internal and external routes for a
 
 **INTERNAL ROUTES** allow a deployment to be accessed by other deployments and jobs running within the same Argo. Internal routes are typically used to allow multiple microservices that are a part of the same application to communicate with each other. For example, suppose that you had an application that consists of a web app front end and a database backend. The network connection between these two deployments can be an internal route.
 
-For details about configuring the routes, see [Creating a Deployment as a Long Running Service](./../../yaml/ex_create_deploy_long_run_service_coretemplate_notused.md).
+For details about configuring the routes, see [Deployment Template](./../../yaml/deployment_template.md).
 
 # Rolling Updates for a Deployed Application
 

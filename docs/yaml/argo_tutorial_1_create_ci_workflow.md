@@ -1,6 +1,5 @@
 # Tutorial 1: Run a CI Workflow
 
-
 This tutorial shows you how to run a container-native, CI workflow on Kubernetes using the Argo workflow engine. An Argo Workflow consists of steps and every step runs as a container within a Kubernetes pod. These are the steps you'll run in the sample CI workflow:
 
 * Checkout code
@@ -19,7 +18,7 @@ This tutorial assumes the following:
 
 The CI workflow uses 4 YAML files from the repo at  [https://github.com/argoproj/ci-workflow/.argo](https://github.com/argoproj/ci-workflow/tree/master/.argo):
 
-* `example-workflow-approval.yaml` - defines the CI workflow 
+* `example-workflow-approval.yaml` - defines the CI workflow
 * `argo-checkout.yaml` - defines a container that Argo provides for checking out code from your repo to an AWS S3 bucket that your workflow steps can access.
 * `argoapproval.yaml` - defines a container that Argo provides for sending email for approval.
 * `example-build.yaml` -  specifies a Go container to perform a golang build.
@@ -40,7 +39,7 @@ You can see the workflow status in the Argo Web UI. You can also check the logs 
 1. In your own repo, create a directory called `.argo`. (The Argo Workflow engine uses this directory to look for the YAML files to run for a containerized workflow.)
 1. Copy the YAML templates you ran in the sample CI workflow from [https://github.com/argoproj/ci-workflow/.argo](https://github.com/argoproj/ci-workflow/tree/master/.argo) to the `.argo` folder you just created in your repo.
 1. Customize the `example-workflow-approval.yaml` file by writing your own build, test, and release containers.
-	
+
 	For more details about writing the YAML DSL see [Argo YAML DSL Reference](./../yaml/dsl_reference_intro.md).
 
 ## Run Your Custom CI Workflow
@@ -49,9 +48,9 @@ When you integrate your repo with Argo, the Argo Web UI will display your source
 
 
  You have two options for running your customized CI workflow:
- 
+
  * **Manually**
- 
+
 	1. Go to **Timeline** menu, select a commit and click **Create a New Job**.
 	1. Select the CI workflow name, enter values for the input parameters and click **Submit**.  
 <br/>

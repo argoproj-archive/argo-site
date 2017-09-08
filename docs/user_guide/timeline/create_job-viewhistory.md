@@ -48,7 +48,7 @@ After you have run a job, you can view the Timeline to see a history of all work
 
 # Managing and Monitoring Your Jobs
 
-From Timeline > Jobs, you can kick off a job, monitor its progress, view its history and view logs for each YAML template that runs.
+From **Timeline** > **Jobs**, you can kick off a job, monitor its progress, view its history and view logs for each YAML template that runs.
 
 *   Start a job from a specific commit
 

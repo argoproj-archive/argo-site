@@ -65,8 +65,8 @@ You have two options for running your customized DinD build workflow:
    (Optional) If you want your DinD-build Workflow to show up in your Catalog menu, copy and modify the `dind-project.yaml` file into the `.argo` directory in your repo.
 
 
-* **Automatically**
+ * **Automatically**
+  	1. Add `commit` and `repo` as input parameters to your workflow as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
+  	2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
 
-	1. Copy the `example-policy.yaml` file to the `.argo` directory in your repo and modify it as needed.
-	1. Enable your policy template. (**Templates** > *name_of_policy_template* > and click **Enabled**)  
-   <br/> After you've completed these steps, every time you make a commit in your repo, the DinD workflow is automatically triggered.
+     After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.   

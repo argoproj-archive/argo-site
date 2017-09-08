@@ -58,14 +58,12 @@ You have two options for running your customized CI workflow:
 
  * **Manually**
 	1. Go to **Timeline** menu, select a commit and click **Create a New Job**.
-	1. Select the CI workflow name, enter values for the input parameters and click **Submit**.  
+	2. Select the CI workflow name, enter values for the input parameters and click **Submit**.  
 
    (Optional)  If you want your stateless app to display in your Catalog menu, just modify the `Project` section in the `mlb.yaml` YAML template.
 
+* **Automatically**
+  1. Add `commit` and `repo` as input parameters to your workflow as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
+  2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
 
- * **Automatically**
-	1. Create a Policy template. (TIP: Copy the `example-policy.yaml` file from https://github.com/argoproj/ci-workflow/tree/master/.argo to the `.argo` directory in your repo and modify it as needed.)
-	1. Enable your policy template. (**Templates** > *name_of_policy_template* > and click **Enabled**)  
-   <br/>
-
-   After you've completed these steps, every time you make a commit in your repo, the CI workflow is automatically triggered.
+   After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.   

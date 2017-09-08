@@ -33,8 +33,9 @@ This tutorial shows how to deploy and scale a stateful microservices based appli
 2.  Search by your app name.
 3.  Submit a new job.
 
-### Automatically TRIGGER your workflow
 
-1.  To setup a policy to automatically trigger this workflow, please review the steps for policy creation and the YAML file `example-policy.yaml` from [Tutorial 1: Create CI Workflow](./../yaml/argo_tutorial_1_create_ci_workflow.md).
-2.  In Argo web UI, go to Templates menu and search for that policy and click Enabled.
-3.  For every commit on that repo, based on your policy your workflow will get triggered.
+* **Automatically**
+   1. Add `commit` and `repo` as input parameters to your workflow as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
+   2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
+
+    After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.   

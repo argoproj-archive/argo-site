@@ -5,11 +5,9 @@ When you create an Argo Cluster, Argo automatically:
 *   Sets up an External Elastic load balancer (External ELB) that sits outside of Cluster but within the AWS VPC. The External ELB routes all traffic from the Internet to the apps inside your Argo Cluster (which are running as containers on EC2 instances).
 *   Applies the Trusted CIDR IP addresses you entered in the Argo SaaS portal as inbound rules to the External ELB's security group.
 
-To access applications running on the cluster using private IPs without traversing the Internet, you can create an Internal Elastic Load Balancer (Internal ELB). An internal ELB works just like an external ELB except that it can only be accessed internally using private IPs and not from the Internet.
+To access applications running on the cluster using private IPs without traversing the Internet, you can create an Internal Elastic Load Balancer (Internal ELB). An internal ELB works just like an external ELB except that it can only be accessed internally using private IPs and not from the Internet. The Internal ELB sits inside the Cluster and sends any requests from the same VPC or subnet to the Cluster.
 
-As the following diagram shows, the Internal ELB sits inside the Cluster and sends any requests from the same VPC or subnet to the Cluster.
-
-![](docs/images/internal_load_balancer.png)
+<!--![](docs/images/internal_load_balancer.png)-->
 
 By default all apps deployed in Argo cluster will be accessed through External ELB.
 
@@ -20,7 +18,7 @@ Here's the procedure to create an Internal ELB that is accessible to your deploy
 1.  (AWS) Under **EC2**, check that the "Trusted CIDR" addresses in your Security Groups are correct for accessing your Argo Cluster.
 2.  (AWS) Under Load Balancer, select a pre-configured internal load balancer that has the tags KubernetesCluster and InternalELB.
 
-    ![ec2_load_balancer_settings](/images/ec2_load_balancer_clustername-id_ilb_tag.png)
+    ![ec2_load_balancer_settings](./../../images/ec2_load_balancer_clustername-id_ilb_tag.png)
 
 3.  (AWS) Under Load Balancer > Tags, check that the Internal ELB field is set to `false`(which is the default).
 4.  (Argo) From Templates, run the `ax_private_elb_creator_workflow` template. When the workflow completes, it creates an Internal ELB.
@@ -31,7 +29,7 @@ Here's the procedure to create an Internal ELB that is accessible to your deploy
 
     Also check that the security group is the same as the Argo's security group.
 
-    ![](docs/images/aws_ec2_security_groups_internal_elb_setting_743x502.png)
+    ![](./../../images/aws_ec2_security_groups_internal_elb_setting_743x502.png)
 
 6.  (Argo) In the deployment YAML template go to the `external_routes` section and make these changes:
 
@@ -79,4 +77,4 @@ type: service_template
 
 At this point, your applications that are outside of the Argo can now communicate with the apps inside the Cluster on the same VPC.
 
-*   For more details about editing the YAML templates, see [Deployment Template](./deployment_template.md).
+For more details about editing the YAML templates, see [Deployment Template](./deployment_template.md).
