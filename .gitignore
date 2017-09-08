@@ -6,3 +6,4 @@
 npm-debug.log
 phantomjsdriver.log
 dist
+dist_rendered

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
@@ -40,7 +41,8 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
     private versions: DocsVersion[] = [];
     private loadedDocPath: string;
 
-    constructor(private docsService: DocsService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) {
+    constructor(
+        private docsService: DocsService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platformId) {
     }
 
     public async ngOnInit() {
@@ -54,7 +56,9 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
                 this.searchItems = null;
             }
 
-            document.body.scrollTop = 0;
+            if (isPlatformBrowser(this.platformId)) {
+                document.body.scrollTop = 0;
+            }
         });
         this.route.url.subscribe(async segements => {
             let version = this.versions[0].version;
