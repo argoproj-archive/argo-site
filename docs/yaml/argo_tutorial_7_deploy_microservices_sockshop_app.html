@@ -12,7 +12,7 @@
     <meta name="description" content="Tutorials for workflows on Kubernetes - CI/CD, DinD, deploy microservices, volumes. Create YAML templates for workflows and deployments">
 
     
-<script src="/argo-site/assets/polyfills.bc19365af1996e96cb99.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.e8709c3293a779c18898.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.5c2a081c1463df8ce4be.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.e8709c3293a779c18898.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5375,8 +5375,8 @@ body[_ngcontent-c0] {
 <ol>
 <li>From your AWS console, create an AWS RDS database instance of type PostgreSQL taking all default parameters. Make sure the database endpoint can be accessed from Argo.</li>
 <li>Go to <a href=&quot;https://github.com/argoproj/microservices-demo&quot;>https://github.com/argoproj/microservices-demo</a> repository.</li>
-<li>Review the <code>sock-shop-workflow.yaml</code> under <code>.argo</code> folder in that repo. This file defines a workflow that has fourteen deployments for deploying sock shop and three deployments to deploy Zipkin. Argo deployment YAMLs internally maps to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see <a href=&quot;/argo-site/docs/yaml/dsl_reference_intro.md&quot;>Argo YAML DSL Reference</a>.</li>
-<li>Because the Sock shop deployment needs to persist the data, you must first create six EBS volumes. Go to Argo web UI-&amp;gt;Infrastructure→Volumes and create six EBS volumes of 1 GB each. Name the volumes as <code>sock-shop-order-db</code>, <code>sock-shop-cart</code>, <code>sock-shop-cart-db</code>, <code>sock-shop-shipping</code>, <code>sock-shop-user-db</code>, and <code>sock-shop-order</code>. You can do this automatically in the YAML template. For an example, see <a href=&quot;/argo-site/docs/yaml/ex_add_volume_deployment.md&quot;>Adding a Volume as Storage for Deployment</a>.</li>
+<li>Review the <code>sock-shop-workflow.yaml</code> under <code>.argo</code> folder in that repo. This file defines a workflow that has fourteen deployments for deploying sock shop and three deployments to deploy Zipkin. Argo deployment YAMLs internally maps to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see <a href=&quot;/argo-site/docs/yaml/dsl_reference_intro.html&quot;>Argo YAML DSL Reference</a>.</li>
+<li>Because the Sock shop deployment needs to persist the data, you must first create six EBS volumes. Go to Argo web UI-&amp;gt;Infrastructure→Volumes and create six EBS volumes of 1 GB each. Name the volumes as <code>sock-shop-order-db</code>, <code>sock-shop-cart</code>, <code>sock-shop-cart-db</code>, <code>sock-shop-shipping</code>, <code>sock-shop-user-db</code>, and <code>sock-shop-order</code>. You can do this automatically in the YAML template. For an example, see <a href=&quot;/argo-site/docs/yaml/ex_add_volume_deployment.html&quot;>Adding a Volume as Storage for Deployment</a>.</li>
 <li>Configure the domains for deployment. This allows you to control which applications can access a deployment. From the Argo Web UI, go to Navigation Bar &amp;gt; Settings &amp;gt; Domain Management, make your changes, and click UPDATE DOMAINS.</li>
 <li>Since your Argo installation is automatically integrated with <a href=&quot;https://github.com/argoproj&quot;>https://github.com/argoproj</a> repo, you can view The &quot;Sock Shop App&quot; workflow in your Argo Web UI at Catalog &amp;gt; Demo.</li>
 <li>From your Catalog, select &quot;Sock Shop App&quot; and click &quot;Deploy Sock Shop with RDS&quot;, taking the default input parameters. Make sure the volume names are input parameter as defined above. Provide your RDS endpoint as the <code>DBHost</code> parameter. You do not have to provide the port <code>5432</code> for PostgreSQL. Click Submit.</li>
@@ -5405,8 +5405,8 @@ body[_ngcontent-c0] {
 <li><strong>Automatically</strong></li>
 </ul>
 <ol>
-<li><p>Add <code>commit</code> and <code>repo</code> as input parameters to your workflow as shown in <a href=&quot;/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.md&quot;>Tutorial 1</a>.</p></li>
-<li><p>Create and activate a Policy template to trigger this workflow for every commit as shown in <a href=&quot;/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.md&quot;>Tutorial 1</a>.</p>
+<li><p>Add <code>commit</code> and <code>repo</code> as input parameters to your workflow as shown in <a href=&quot;/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.html&quot;>Tutorial 1</a>.</p></li>
+<li><p>Create and activate a Policy template to trigger this workflow for every commit as shown in <a href=&quot;/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.html&quot;>Tutorial 1</a>.</p>
 <p>After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.   </p></li>
 </ol>"><h1 id="tutorial7deploymicroservicesbasedapp">Tutorial 7: Deploy Microservices-based App</h1>
 <p>This tutorial shows how to deploy and scale a stateful microservices based application ("Sock shop") using a workflow. Sock shop is an open source e-commerce app with fourteen microservices. (<a href="https://microservices-demo.github.io/">https://microservices-demo.github.io/</a>). Six of the services are stateful services that require a persistent volume. To persist the stateful services, this example uses an AWS EBS volume. This example also deploys Zipkin for tracing the application end-to-end.</p>
@@ -5414,8 +5414,8 @@ body[_ngcontent-c0] {
 <ol>
 <li>From your AWS console, create an AWS RDS database instance of type PostgreSQL taking all default parameters. Make sure the database endpoint can be accessed from Argo.</li>
 <li>Go to <a href="https://github.com/argoproj/microservices-demo">https://github.com/argoproj/microservices-demo</a> repository.</li>
-<li>Review the <code>sock-shop-workflow.yaml</code> under <code>.argo</code> folder in that repo. This file defines a workflow that has fourteen deployments for deploying sock shop and three deployments to deploy Zipkin. Argo deployment YAMLs internally maps to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see <a href="/argo-site/docs/yaml/dsl_reference_intro.md">Argo YAML DSL Reference</a>.</li>
-<li>Because the Sock shop deployment needs to persist the data, you must first create six EBS volumes. Go to Argo web UI-&gt;Infrastructure→Volumes and create six EBS volumes of 1 GB each. Name the volumes as <code>sock-shop-order-db</code>, <code>sock-shop-cart</code>, <code>sock-shop-cart-db</code>, <code>sock-shop-shipping</code>, <code>sock-shop-user-db</code>, and <code>sock-shop-order</code>. You can do this automatically in the YAML template. For an example, see <a href="/argo-site/docs/yaml/ex_add_volume_deployment.md">Adding a Volume as Storage for Deployment</a>.</li>
+<li>Review the <code>sock-shop-workflow.yaml</code> under <code>.argo</code> folder in that repo. This file defines a workflow that has fourteen deployments for deploying sock shop and three deployments to deploy Zipkin. Argo deployment YAMLs internally maps to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see <a href="/argo-site/docs/yaml/dsl_reference_intro.html">Argo YAML DSL Reference</a>.</li>
+<li>Because the Sock shop deployment needs to persist the data, you must first create six EBS volumes. Go to Argo web UI-&gt;Infrastructure→Volumes and create six EBS volumes of 1 GB each. Name the volumes as <code>sock-shop-order-db</code>, <code>sock-shop-cart</code>, <code>sock-shop-cart-db</code>, <code>sock-shop-shipping</code>, <code>sock-shop-user-db</code>, and <code>sock-shop-order</code>. You can do this automatically in the YAML template. For an example, see <a href="/argo-site/docs/yaml/ex_add_volume_deployment.html">Adding a Volume as Storage for Deployment</a>.</li>
 <li>Configure the domains for deployment. This allows you to control which applications can access a deployment. From the Argo Web UI, go to Navigation Bar &gt; Settings &gt; Domain Management, make your changes, and click UPDATE DOMAINS.</li>
 <li>Since your Argo installation is automatically integrated with <a href="https://github.com/argoproj">https://github.com/argoproj</a> repo, you can view The "Sock Shop App" workflow in your Argo Web UI at Catalog &gt; Demo.</li>
 <li>From your Catalog, select "Sock Shop App" and click "Deploy Sock Shop with RDS", taking the default input parameters. Make sure the volume names are input parameter as defined above. Provide your RDS endpoint as the <code>DBHost</code> parameter. You do not have to provide the port <code>5432</code> for PostgreSQL. Click Submit.</li>
@@ -5444,8 +5444,8 @@ body[_ngcontent-c0] {
 <li><strong>Automatically</strong></li>
 </ul>
 <ol>
-<li><p>Add <code>commit</code> and <code>repo</code> as input parameters to your workflow as shown in <a href="/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.md">Tutorial 1</a>.</p></li>
-<li><p>Create and activate a Policy template to trigger this workflow for every commit as shown in <a href="/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.md">Tutorial 1</a>.</p>
+<li><p>Add <code>commit</code> and <code>repo</code> as input parameters to your workflow as shown in <a href="/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.html">Tutorial 1</a>.</p></li>
+<li><p>Create and activate a Policy template to trigger this workflow for every commit as shown in <a href="/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.html">Tutorial 1</a>.</p>
 <p>After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.   </p></li>
 </ol></div></argo-doc-viewer>
             <argo-docs-subnav _ngcontent-c10="" _nghost-c12=""><!---->

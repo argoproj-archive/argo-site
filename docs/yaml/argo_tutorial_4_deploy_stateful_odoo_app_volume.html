@@ -12,7 +12,7 @@
     <meta name="description" content="Tutorials for workflows on Kubernetes - CI/CD, DinD, deploy microservices, volumes. Create YAML templates for workflows and deployments">
 
     
-<script src="/argo-site/assets/polyfills.bc19365af1996e96cb99.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.e8709c3293a779c18898.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.5c2a081c1463df8ce4be.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.e8709c3293a779c18898.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5386,8 +5386,8 @@ body[_ngcontent-c0] {
 <h2 id=&quot;abouttheyamlfiles&quot;>About the YAML files</h2>
 <p>This stateful app deployment uses the following YAML file from the <code>.argo</code> folder in the  sample Odoo repo:</p>
 <ul>
-<li><p><code>odoo-with-vol.yaml</code> - defines a workflow with two steps: &quot;<code>deploy-postgres</code>&quot; and &quot;<code>deploy-odoo</code>&quot;. Each step is specified as a deployment. Argo deployment YAMLs internally map to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see <a href=&quot;/argo-site/docs/yaml/dsl_reference_intro.md&quot;>Argo YAML DSL Reference</a>.</p>
-<p>In this tutorial, the <code>odoo-with-vol.yaml</code> file refers to two named EBS volumes, &quot;<code>odoo</code>&quot; and &quot;<code>postgres</code>&quot; which need to be created before deploying the app. For further details about specifying volumes for a deployment, see <a href=&quot;/argo-site/docs/yaml/ex_add_volume_deployment.md&quot;>Adding a Volume as Storage for Deployment</a>.</p></li>
+<li><p><code>odoo-with-vol.yaml</code> - defines a workflow with two steps: &quot;<code>deploy-postgres</code>&quot; and &quot;<code>deploy-odoo</code>&quot;. Each step is specified as a deployment. Argo deployment YAMLs internally map to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see <a href=&quot;/argo-site/docs/yaml/dsl_reference_intro.html&quot;>Argo YAML DSL Reference</a>.</p>
+<p>In this tutorial, the <code>odoo-with-vol.yaml</code> file refers to two named EBS volumes, &quot;<code>odoo</code>&quot; and &quot;<code>postgres</code>&quot; which need to be created before deploying the app. For further details about specifying volumes for a deployment, see <a href=&quot;/argo-site/docs/yaml/ex_add_volume_deployment.html&quot;>Adding a Volume as Storage for Deployment</a>.</p></li>
 </ul>
 <h2 id=&quot;deployandscaleodooapp&quot;>Deploy and Scale Odoo App</h2>
 <ol>
@@ -5405,7 +5405,7 @@ If you start or stop the application, you can see that the data is persisted.</p
 <li><p>In your own repo, create a directory called <code>.argo</code>. (The Argo Workflow engine uses this directory to look for the YAML files to run for a containerized workflow.)</p></li>
 <li><p>Copy the <code>odoo-with-vol.yaml</code> YAML file you ran in the above workflow from <a href=&quot;https://github.com/argoproj/odoo-app/,argo&quot;>https://github.com/argoproj/odoo-app/,argo</a> to the <code>.argo</code> folder you just created in your repo.</p></li>
 <li><p>Customize the <code>odoo-with-vol.yaml</code> file by writing your own deployment specification or adding more steps.</p>
-<p>For more details about writing the YAML DSL, see <a href=&quot;/argo-site/docs/yaml/dsl_reference_intro.md&quot;>Argo YAML DSL Reference</a>.</p></li>
+<p>For more details about writing the YAML DSL, see <a href=&quot;/argo-site/docs/yaml/dsl_reference_intro.html&quot;>Argo YAML DSL Reference</a>.</p></li>
 <li><p>(Optional) Modify the <code>odoo-project.yaml</code> file to give users the option to run the app from the Catalog menu. If you do not want to provide this option, then users can run the workflow against your YAML template from the <strong>Templates</strong> menu.</p></li>
 </ol>
 <h2 id=&quot;runningyourdeploymentworkflow&quot;>Running Your Deployment Workflow</h2>
@@ -5419,7 +5419,7 @@ If you start or stop the application, you can see that the data is persisted.</p
 <li><p><strong>Automatically</strong></p>
 <ol>
 <li>Add <code>commit</code> and <code>repo</code> as input parameters to your workflow as shown in tutorial 1</li>
-<li>Create and activate a Policy template to trigger this workflow for every commit as shown in <a href=&quot;/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.md&quot;>Tutorial 1</a></li></ol>
+<li>Create and activate a Policy template to trigger this workflow for every commit as shown in <a href=&quot;/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.html&quot;>Tutorial 1</a></li></ol>
 <p>After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.</p></li>
 </ul>"><h1 id="tutorial4deployastatefulapp">Tutorial 4: Deploy a Stateful App</h1>
 <p>This tutorial shows how to deploy and scale a stateful, containerized application named Odoo (<a href="https://www.odoo.com/">https://www.odoo.com</a>) using persistent volumes. Odoo is an open source, two-tiered, ERP and CRM app that has an app server and a PostgreSQL database.</p>
@@ -5438,8 +5438,8 @@ If you start or stop the application, you can see that the data is persisted.</p
 <h2 id="abouttheyamlfiles">About the YAML files</h2>
 <p>This stateful app deployment uses the following YAML file from the <code>.argo</code> folder in the  sample Odoo repo:</p>
 <ul>
-<li><p><code>odoo-with-vol.yaml</code> - defines a workflow with two steps: "<code>deploy-postgres</code>" and "<code>deploy-odoo</code>". Each step is specified as a deployment. Argo deployment YAMLs internally map to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see <a href="/argo-site/docs/yaml/dsl_reference_intro.md">Argo YAML DSL Reference</a>.</p>
-<p>In this tutorial, the <code>odoo-with-vol.yaml</code> file refers to two named EBS volumes, "<code>odoo</code>" and "<code>postgres</code>" which need to be created before deploying the app. For further details about specifying volumes for a deployment, see <a href="/argo-site/docs/yaml/ex_add_volume_deployment.md">Adding a Volume as Storage for Deployment</a>.</p></li>
+<li><p><code>odoo-with-vol.yaml</code> - defines a workflow with two steps: "<code>deploy-postgres</code>" and "<code>deploy-odoo</code>". Each step is specified as a deployment. Argo deployment YAMLs internally map to Kubernetes deployment and service YAMLs. For more details on the Argo YAML DSL, see <a href="/argo-site/docs/yaml/dsl_reference_intro.html">Argo YAML DSL Reference</a>.</p>
+<p>In this tutorial, the <code>odoo-with-vol.yaml</code> file refers to two named EBS volumes, "<code>odoo</code>" and "<code>postgres</code>" which need to be created before deploying the app. For further details about specifying volumes for a deployment, see <a href="/argo-site/docs/yaml/ex_add_volume_deployment.html">Adding a Volume as Storage for Deployment</a>.</p></li>
 </ul>
 <h2 id="deployandscaleodooapp">Deploy and Scale Odoo App</h2>
 <ol>
@@ -5457,7 +5457,7 @@ If you start or stop the application, you can see that the data is persisted.</p
 <li><p>In your own repo, create a directory called <code>.argo</code>. (The Argo Workflow engine uses this directory to look for the YAML files to run for a containerized workflow.)</p></li>
 <li><p>Copy the <code>odoo-with-vol.yaml</code> YAML file you ran in the above workflow from <a href="https://github.com/argoproj/odoo-app/,argo">https://github.com/argoproj/odoo-app/,argo</a> to the <code>.argo</code> folder you just created in your repo.</p></li>
 <li><p>Customize the <code>odoo-with-vol.yaml</code> file by writing your own deployment specification or adding more steps.</p>
-<p>For more details about writing the YAML DSL, see <a href="/argo-site/docs/yaml/dsl_reference_intro.md">Argo YAML DSL Reference</a>.</p></li>
+<p>For more details about writing the YAML DSL, see <a href="/argo-site/docs/yaml/dsl_reference_intro.html">Argo YAML DSL Reference</a>.</p></li>
 <li><p>(Optional) Modify the <code>odoo-project.yaml</code> file to give users the option to run the app from the Catalog menu. If you do not want to provide this option, then users can run the workflow against your YAML template from the <strong>Templates</strong> menu.</p></li>
 </ol>
 <h2 id="runningyourdeploymentworkflow">Running Your Deployment Workflow</h2>
@@ -5471,7 +5471,7 @@ If you start or stop the application, you can see that the data is persisted.</p
 <li><p><strong>Automatically</strong></p>
 <ol>
 <li>Add <code>commit</code> and <code>repo</code> as input parameters to your workflow as shown in tutorial 1</li>
-<li>Create and activate a Policy template to trigger this workflow for every commit as shown in <a href="/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.md">Tutorial 1</a></li></ol>
+<li>Create and activate a Policy template to trigger this workflow for every commit as shown in <a href="/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.html">Tutorial 1</a></li></ol>
 <p>After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.</p></li>
 </ul></div></argo-doc-viewer>
             <argo-docs-subnav _ngcontent-c10="" _nghost-c12=""><!---->
