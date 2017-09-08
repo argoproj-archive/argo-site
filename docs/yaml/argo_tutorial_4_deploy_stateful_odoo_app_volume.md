@@ -54,11 +54,11 @@ You have two options for deploying your stateful app:
  * **Manually**
 	1. Go to **Templates** menu, select your YAML template and click **Create a New Job**.
 
-   (Optional)  If you want your stateless app to display in your Catalog menu, just modify the `Project` section in the `odoo-project.yaml` YAML template.
+   (Optional)  If you want your app to display in your Catalog menu, just modify the `Project` section in the `odoo-project.yaml` YAML template.
 
 
  * **Automatically**
-	1. Add `commit` and `repo` as input parameters to your workflow as shown in tutorial 1
+	1. Add `commit` and `repo` as input parameters to your workflow as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md)
 	2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md)
 
    After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.
