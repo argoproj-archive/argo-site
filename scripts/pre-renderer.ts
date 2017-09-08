@@ -4,6 +4,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 import { NgModule, CompilerFactory, Compiler, enableProdMode, Injector } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 import { Router, Route } from '@angular/router';
 import { ServerModule, platformDynamicServer, INITIAL_CONFIG, renderModuleFactory } from '@angular/platform-server';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,7 +32,9 @@ export class AppServerModule {
 }
 
 const compilerFactory: CompilerFactory = platformDynamicServer().injector.get(CompilerFactory);
-const compiler: Compiler = compilerFactory.createCompiler();
+const compiler: Compiler = compilerFactory.createCompiler([{
+    defaultEncapsulation: ViewEncapsulation.None,
+}]);
 let indexHtml = fs.readFileSync('./dist_rendered/index.html').toString();
 
 async function savePreRendered(filePath: string, content: string) {
