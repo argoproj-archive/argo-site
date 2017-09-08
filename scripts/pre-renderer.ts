@@ -87,5 +87,5 @@ compiler.compileModuleAsync(AppServerModule).then(async factory => {
     }
 
     fs.writeFileSync(`./dist_rendered/sitemap.txt`,
-        renderedUrls.filter(url => url !== '.').map(url => path.join(process.env.BASE_URL || '', process.env.HREF_BASE || '', url)).join('\n'));
+        renderedUrls.filter(url => url !== '.').map(url => (process.env.BASE_URL || '') + path.join(process.env.HREF_BASE || '', url)).join('\n'));
 });
