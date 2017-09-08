@@ -2,50 +2,65 @@
   "name": "argo-site",
   "version": "1.0.0",
   "dependencies": {
+    "@angular/animations": {
+      "version": "4.3.0",
+      "from": "@angular/animations@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/animations/-/animations-4.3.0.tgz"
+    },
     "@angular/common": {
-      "version": "2.4.9",
-      "from": "@angular/common@2.4.9",
-      "resolved": "https://registry.npmjs.org/@angular/common/-/common-2.4.9.tgz"
+      "version": "4.3.0",
+      "from": "@angular/common@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/common/-/common-4.3.0.tgz"
     },
     "@angular/compiler": {
-      "version": "2.4.9",
-      "from": "@angular/compiler@2.4.9",
-      "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-2.4.9.tgz"
+      "version": "4.3.0",
+      "from": "@angular/compiler@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-4.3.0.tgz"
     },
     "@angular/core": {
-      "version": "2.4.9",
-      "from": "@angular/core@2.4.9",
-      "resolved": "https://registry.npmjs.org/@angular/core/-/core-2.4.9.tgz"
+      "version": "4.3.0",
+      "from": "@angular/core@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/core/-/core-4.3.0.tgz"
     },
     "@angular/forms": {
-      "version": "2.4.9",
-      "from": "@angular/forms@2.4.9",
-      "resolved": "https://registry.npmjs.org/@angular/forms/-/forms-2.4.9.tgz"
+      "version": "4.3.0",
+      "from": "@angular/forms@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/forms/-/forms-4.3.0.tgz"
     },
     "@angular/http": {
-      "version": "2.4.9",
-      "from": "@angular/http@2.4.9",
-      "resolved": "https://registry.npmjs.org/@angular/http/-/http-2.4.9.tgz"
+      "version": "4.3.0",
+      "from": "@angular/http@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/http/-/http-4.3.0.tgz"
     },
     "@angular/platform-browser": {
-      "version": "2.4.9",
-      "from": "@angular/platform-browser@2.4.9",
-      "resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-2.4.9.tgz"
+      "version": "4.3.0",
+      "from": "@angular/platform-browser@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-4.3.0.tgz"
     },
     "@angular/platform-browser-dynamic": {
-      "version": "2.4.9",
-      "from": "@angular/platform-browser-dynamic@2.4.9",
-      "resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.4.9.tgz"
+      "version": "4.3.0",
+      "from": "@angular/platform-browser-dynamic@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.3.0.tgz"
+    },
+    "@angular/platform-server": {
+      "version": "4.3.0",
+      "from": "@angular/platform-server@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/platform-server/-/platform-server-4.3.0.tgz"
     },
     "@angular/router": {
-      "version": "3.4.9",
-      "from": "@angular/router@3.4.9",
-      "resolved": "https://registry.npmjs.org/@angular/router/-/router-3.4.9.tgz"
+      "version": "4.3.0",
+      "from": "@angular/router@4.3.0",
+      "resolved": "https://registry.npmjs.org/@angular/router/-/router-4.3.0.tgz"
     },
     "@angularclass/conventions-loader": {
       "version": "1.0.2",
       "from": "@angularclass/conventions-loader@1.0.2",
       "resolved": "https://registry.npmjs.org/@angularclass/conventions-loader/-/conventions-loader-1.0.2.tgz"
+    },
+    "@ngx-meta/core": {
+      "version": "4.0.1",
+      "from": "@ngx-meta/core@latest",
+      "resolved": "https://registry.npmjs.org/@ngx-meta/core/-/core-4.0.1.tgz"
     },
     "@types/clipboard": {
       "version": "1.5.31",
@@ -233,9 +248,9 @@
       "resolved": "https://registry.npmjs.org/@types/jquery/-/jquery-2.0.34.tgz"
     },
     "@types/lodash": {
-      "version": "4.14.70",
+      "version": "4.14.74",
       "from": "@types/lodash@>=4.14.44 <5.0.0",
-      "resolved": "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.70.tgz"
+      "resolved": "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.74.tgz"
     },
     "@types/moment": {
       "version": "2.13.0",
@@ -275,9 +290,9 @@
       "resolved": "https://registry.npmjs.org/@types/showdown/-/showdown-1.4.32.tgz"
     },
     "@types/source-map": {
-      "version": "0.5.0",
+      "version": "0.5.1",
       "from": "@types/source-map@*",
-      "resolved": "https://registry.npmjs.org/@types/source-map/-/source-map-0.5.0.tgz"
+      "resolved": "https://registry.npmjs.org/@types/source-map/-/source-map-0.5.1.tgz"
     },
     "@types/uglify-js": {
       "version": "2.6.29",
@@ -385,11 +400,6 @@
       "from": "angular2-template-loader@latest",
       "resolved": "https://registry.npmjs.org/angular2-template-loader/-/angular2-template-loader-0.6.2.tgz"
     },
-    "angular2-toaster": {
-      "version": "2.0.0",
-      "from": "angular2-toaster@2.0.0",
-      "resolved": "https://registry.npmjs.org/angular2-toaster/-/angular2-toaster-2.0.0.tgz"
-    },
     "ansi-align": {
       "version": "1.1.0",
       "from": "ansi-align@>=1.1.0 <2.0.0",
@@ -441,14 +451,59 @@
       "resolved": "https://registry.npmjs.org/are-we-there-yet/-/are-we-there-yet-1.1.2.tgz"
     },
     "argo-ui-lib": {
-      "version": "1.0.4",
-      "from": "git+https://github.com/argoproj/ui-lib.git#v1.0.4",
-      "resolved": "git+https://github.com/argoproj/ui-lib.git#7a490a4f2c8db0eca0dc6fd9e4dd0a113bc51018",
+      "version": "1.0.7",
+      "from": "git+https://github.com/argoproj/ui-lib.git#v1.0.7",
+      "resolved": "git+https://github.com/argoproj/ui-lib.git#96dbb8123827ca84538be5001486f1f5374eb2df",
       "dependencies": {
+        "@angular/common": {
+          "version": "2.4.10",
+          "from": "@angular/common@>=2.4.9 <3.0.0",
+          "resolved": "https://registry.npmjs.org/@angular/common/-/common-2.4.10.tgz"
+        },
+        "@angular/compiler": {
+          "version": "2.4.10",
+          "from": "@angular/compiler@>=2.4.9 <3.0.0",
+          "resolved": "https://registry.npmjs.org/@angular/compiler/-/compiler-2.4.10.tgz"
+        },
+        "@angular/core": {
+          "version": "2.4.10",
+          "from": "@angular/core@>=2.4.9 <3.0.0",
+          "resolved": "https://registry.npmjs.org/@angular/core/-/core-2.4.10.tgz"
+        },
+        "@angular/forms": {
+          "version": "2.4.10",
+          "from": "@angular/forms@>=2.4.9 <3.0.0",
+          "resolved": "https://registry.npmjs.org/@angular/forms/-/forms-2.4.10.tgz"
+        },
+        "@angular/http": {
+          "version": "2.4.10",
+          "from": "@angular/http@>=2.4.9 <3.0.0",
+          "resolved": "https://registry.npmjs.org/@angular/http/-/http-2.4.10.tgz"
+        },
+        "@angular/platform-browser": {
+          "version": "2.4.10",
+          "from": "@angular/platform-browser@>=2.4.9 <3.0.0",
+          "resolved": "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-2.4.10.tgz"
+        },
+        "@angular/platform-browser-dynamic": {
+          "version": "2.4.10",
+          "from": "@angular/platform-browser-dynamic@>=2.4.9 <3.0.0",
+          "resolved": "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-2.4.10.tgz"
+        },
+        "@angular/router": {
+          "version": "3.4.10",
+          "from": "@angular/router@>=3.4.9 <4.0.0",
+          "resolved": "https://registry.npmjs.org/@angular/router/-/router-3.4.10.tgz"
+        },
         "@types/node": {
           "version": "6.0.52",
           "from": "https://registry.npmjs.org/@types/node/-/node-6.0.52.tgz",
           "resolved": "https://registry.npmjs.org/@types/node/-/node-6.0.52.tgz"
+        },
+        "zone.js": {
+          "version": "0.7.8",
+          "from": "zone.js@>=0.7.2 <0.8.0",
+          "resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.7.8.tgz"
         }
       }
     },
@@ -1508,11 +1563,6 @@
       "version": "0.1.1",
       "from": "d@>=0.1.1 <0.2.0",
       "resolved": "https://registry.npmjs.org/d/-/d-0.1.1.tgz"
-    },
-    "d3": {
-      "version": "3.5.17",
-      "from": "d3@>=3.5.15 <4.0.0",
-      "resolved": "https://registry.npmjs.org/d3/-/d3-3.5.17.tgz"
     },
     "dashdash": {
       "version": "1.14.1",
@@ -4434,7 +4484,7 @@
     },
     "mkdirp": {
       "version": "0.5.1",
-      "from": "mkdirp@>=0.5.0 <0.6.0",
+      "from": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz",
       "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz",
       "dependencies": {
         "minimist": {
@@ -4515,16 +4565,6 @@
       "version": "0.6.1",
       "from": "negotiator@0.6.1",
       "resolved": "https://registry.npmjs.org/negotiator/-/negotiator-0.6.1.tgz"
-    },
-    "ng2-nvd3": {
-      "version": "1.1.3",
-      "from": "ng2-nvd3@>=1.1.3 <2.0.0",
-      "resolved": "https://registry.npmjs.org/ng2-nvd3/-/ng2-nvd3-1.1.3.tgz"
-    },
-    "ng2-translate": {
-      "version": "4.2.0",
-      "from": "ng2-translate@>=4.0.0 <5.0.0",
-      "resolved": "https://registry.npmjs.org/ng2-translate/-/ng2-translate-4.2.0.tgz"
     },
     "no-case": {
       "version": "2.3.0",
@@ -4687,11 +4727,6 @@
       "version": "1.0.1",
       "from": "number-is-nan@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz"
-    },
-    "nvd3": {
-      "version": "1.8.5",
-      "from": "nvd3@>=1.8.4 <2.0.0",
-      "resolved": "https://registry.npmjs.org/nvd3/-/nvd3-1.8.5.tgz"
     },
     "nwmatcher": {
       "version": "1.4.1",
@@ -6687,7 +6722,7 @@
       "dependencies": {
         "strip-bom": {
           "version": "3.0.0",
-          "from": "strip-bom@^3.0.0",
+          "from": "strip-bom@>=3.0.0 <4.0.0",
           "resolved": "https://registry.npmjs.org/strip-bom/-/strip-bom-3.0.0.tgz",
           "dev": true
         },
@@ -6698,6 +6733,11 @@
           "dev": true
         }
       }
+    },
+    "tslib": {
+      "version": "1.7.1",
+      "from": "tslib@>=1.7.1 <2.0.0",
+      "resolved": "https://registry.npmjs.org/tslib/-/tslib-1.7.1.tgz"
     },
     "tslint": {
       "version": "4.5.1",
@@ -7081,9 +7121,9 @@
       "resolved": "https://registry.npmjs.org/v8-lazy-parse-webpack-plugin/-/v8-lazy-parse-webpack-plugin-0.3.0.tgz"
     },
     "v8flags": {
-      "version": "2.0.11",
+      "version": "2.1.1",
       "from": "v8flags@>=2.0.11 <3.0.0",
-      "resolved": "https://registry.npmjs.org/v8flags/-/v8flags-2.0.11.tgz",
+      "resolved": "https://registry.npmjs.org/v8flags/-/v8flags-2.1.1.tgz",
       "dev": true
     },
     "validate-npm-package-license": {
@@ -7502,6 +7542,11 @@
       "from": "xdg-basedir@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/xdg-basedir/-/xdg-basedir-2.0.0.tgz"
     },
+    "xhr2": {
+      "version": "0.1.4",
+      "from": "xhr2@>=0.1.4 <0.2.0",
+      "resolved": "https://registry.npmjs.org/xhr2/-/xhr2-0.1.4.tgz"
+    },
     "xml-char-classes": {
       "version": "1.0.0",
       "from": "xml-char-classes@>=1.0.0 <2.0.0",
@@ -7590,10 +7635,18 @@
       "resolved": "https://registry.npmjs.org/yeast/-/yeast-0.1.2.tgz"
     },
     "yn": {
-      "version": "1.2.0",
+      "version": "1.3.0",
       "from": "yn@>=1.2.0 <2.0.0",
-      "resolved": "https://registry.npmjs.org/yn/-/yn-1.2.0.tgz",
-      "dev": true
+      "resolved": "https://registry.npmjs.org/yn/-/yn-1.3.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "object-assign": {
+          "version": "4.1.1",
+          "from": "object-assign@>=4.1.1 <5.0.0",
+          "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
+          "dev": true
+        }
+      }
     },
     "zip-object": {
       "version": "0.1.0",
@@ -7601,9 +7654,9 @@
       "resolved": "https://registry.npmjs.org/zip-object/-/zip-object-0.1.0.tgz"
     },
     "zone.js": {
-      "version": "0.7.2",
-      "from": "zone.js@0.7.2",
-      "resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.7.2.tgz"
+      "version": "0.8.16",
+      "from": "zone.js@0.8.16",
+      "resolved": "https://registry.npmjs.org/zone.js/-/zone.js-0.8.16.tgz"
     }
   }
 }

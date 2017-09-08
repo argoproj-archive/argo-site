@@ -13,7 +13,7 @@
         </div>
         <div class="main__nav" *ngIf="tree" [class.main__nav--hide-sm]="!navOpen">
             <div class="main__container" *ngIf="!searchItems">
-                <a [routerLink]="[{doc: item.path}]" *ngFor="let item of tree.children" (click)="toggleNav(false)"
+                <a [routerLink]="docRoute(item.path)" *ngFor="let item of tree.children" (click)="toggleNav(false)"
                    [class.active]="breadcrumbs[0] && breadcrumbs[0].path === item.path">{{ item.title }}</a>
             </div>
         </div>
@@ -22,7 +22,7 @@
         <div *ngIf="!searchItems">
             <div *ngIf="breadcrumbs.length > 1" class="docs-browser-view__breadcrumbs">
                 <span *ngFor="let item of breadcrumbs; let last = last">
-                    <a *ngIf="item.path && !last" [routerLink]="[{doc: item.path}]">{{ item.title }}</a>
+                    <a *ngIf="item.path && !last" [routerLink]="docRoute(item.path)">{{ item.title }}</a>
                     <template [ngIf]="!item.path || last">{{ item.title }}</template>
                     <span class="docs-browser-view__breadcrumbs-separator" *ngIf="!last">/</span>
                 </span>
@@ -32,7 +32,7 @@
         </div>
         <div class="docs-browser-view__search-results" *ngIf="searchItems">
             <div *ngFor="let item of searchItems" class="docs-browser-view__search-result">
-                <a [routerLink]="[{doc: item.path}]">{{item.title}}</a>
+                <a [routerLink]="docRoute(item.path)">{{item.title}}</a>
                 <div class="docs-browser-view__search-summary" [innerHTML]="item.summary"></div>
                 {{ item.path }}
             </div>

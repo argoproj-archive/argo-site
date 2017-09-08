@@ -115,7 +115,8 @@ module.exports = function () {
       process: true,
       module: false,
       clearImmediate: false,
-      setImmediate: false
+      setImmediate: false,
+      fs: 'empty'
     }
   };
 };

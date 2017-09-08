@@ -1,5 +1,9 @@
-import { Component, AfterViewChecked, ViewChild } from '@angular/core';
+import { Component, AfterViewChecked, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+
+import { MetaService } from '@ngx-meta/core';
+
 import { PageSettings } from '../common';
 
 @Component({
@@ -15,9 +19,10 @@ export class MainComponent implements AfterViewChecked {
     @ViewChild(RouterOutlet)
     public routerOutlet: RouterOutlet;
 
-    private description = '';
-
-    constructor(private router: Router) {
+    constructor(
+        private router: Router,
+        private metaService: MetaService,
+        @Inject(PLATFORM_ID) private platformId) {
         router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 this.showNav = false;
@@ -26,7 +31,9 @@ export class MainComponent implements AfterViewChecked {
     }
 
     public onDeactivate() {
-        document.body.scrollTop = 0;
+        if (isPlatformBrowser(this.platformId)) {
+            document.body.scrollTop = 0;
+        }
     }
 
     public toggleNav() {
@@ -43,11 +50,9 @@ export class MainComponent implements AfterViewChecked {
     }
 
     public ngAfterViewChecked() {
-        document.title = this.pageSettings.pageTitle ? `${this.pageSettings.pageTitle} | Argo` : 'Argo';
-        let description = this.pageSettings.pageDescription || '';
-        if (this.description !== description) {
-            this.description = description;
-            document.querySelector('meta[name=description]').setAttribute('content', description);
-        }
+        this.metaService.setTitle(
+            this.pageSettings.pageTitle ? `${this.pageSettings.pageTitle} | Argo` : 'Argo',
+            true);
+        this.metaService.setTag('description', this.pageSettings.pageDescription || '');
     }
 }

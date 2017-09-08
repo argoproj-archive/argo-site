@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-
 import { HashLocationStrategy, PathLocationStrategy, LocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { MetaModule } from '@ngx-meta/core';
 
 import { BaseModule } from '../common';
 import { ServicesModule, TrackingService } from '../services';
@@ -18,9 +19,10 @@ import { MainComponent } from './main.component';
     }],
     bootstrap: [ MainComponent ],
     imports: [
+        MetaModule.forRoot(),
         ServicesModule,
         BaseModule,
-        BrowserModule,
+        BrowserModule.withServerTransition({appId: 'argo-main'}),
         RouterModule.forRoot([
             { path: '', loadChildren: () => System.import('../views/+home').then((comp: any) => comp.default) },
             { path: 'get-started', loadChildren: () => System.import('../views/+get-started').then((comp: any) => comp.default) },

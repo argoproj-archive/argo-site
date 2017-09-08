@@ -4,7 +4,6 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { GuiComponentsModule } from 'argo-ui-lib/src/components';
 import { CommunityLogosComponent } from './community-logos/community-logos.component';
 import { NavButtonComponent } from './nav-button/nav-button.component';
 
@@ -19,7 +18,6 @@ import { NavButtonComponent } from './nav-button/nav-button.component';
         HttpModule,
         RouterModule,
         CommonModule,
-        GuiComponentsModule,
         CommunityLogosComponent,
         NavButtonComponent,
     ],

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
 import { DocsService, DocsTree, DocsVersion } from '../../../services';
-import { DocsTreeInfo } from '../view-models';
+import { DocsTreeInfo, Utils } from '../view-models';
 import { PageSettings, HasPageSettings } from '../../../common';
 
 const PAGE_TITLE = 'Documentation for open source workflow engine on Kubernetes';
@@ -40,26 +41,13 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
     private versions: DocsVersion[] = [];
     private loadedDocPath: string;
 
-    constructor(private docsService: DocsService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer) {
+    constructor(
+        private docsService: DocsService, private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platformId) {
     }
 
     public async ngOnInit() {
         this.versions = await this.docsService.getVersions();
         this.route.params.subscribe(async params => {
-            let version = params['version'] || this.versions[0].version;
-            if (this.selectedVersion !== version) {
-                this.selectedVersion = version;
-                this.docsVersion = this.versions.find(info => info.version === this.selectedVersion);
-                this.tree = new DocsTreeInfo(await this.docsService.loadDocsTree(this.docsVersion));
-                this.loadedDocPath = null;
-            }
-
-            this.selectedDocPath = params['doc'] || this.tree.children[0].path;
-            if (this.loadedDocPath !== this.selectedDocPath) {
-                this.selectedDocContent = await this.docsService.loadDocMarkdown(this.docsVersion, this.selectedDocPath);
-                this.loadedDocPath = this.selectedDocPath;
-            }
-            this.selectedTree = this.searchTree(this.tree, this.selectedDocPath);
             this.searchText = params['search'];
             if (this.searchText) {
                 this.searchItems = (await this.docsService.search(this.searchText, this.docsVersion)).map(
@@ -68,7 +56,25 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
                 this.searchItems = null;
             }
 
-            document.body.scrollTop = 0;
+            if (isPlatformBrowser(this.platformId)) {
+                document.body.scrollTop = 0;
+            }
+        });
+        this.route.url.subscribe(async segements => {
+            let version = this.versions[0].version;
+            if (this.selectedVersion !== version) {
+                this.selectedVersion = version;
+                this.docsVersion = this.versions.find(info => info.version === this.selectedVersion);
+                this.tree = new DocsTreeInfo(await this.docsService.loadDocsTree(this.docsVersion));
+                this.loadedDocPath = null;
+            }
+
+            this.selectedDocPath = Utils.docPath(segements.map(item => item.path)) || this.tree.children[0].path;
+            if (this.loadedDocPath !== this.selectedDocPath) {
+                this.selectedDocContent = await this.docsService.loadDocMarkdown(this.docsVersion, this.selectedDocPath);
+                this.loadedDocPath = this.selectedDocPath;
+            }
+            this.selectedTree = this.searchTree(this.tree, this.selectedDocPath);
         });
     }
 
@@ -89,6 +95,10 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
 
     public toggleNav(value?: boolean) {
         this.navOpen = typeof value !== 'undefined' ? value : !this.navOpen;
+    }
+
+    public docRoute(path: string) {
+        return Utils.docRoute(path);
     }
 
     private getSearchSummary(searchText: string, docText: string): SafeHtml {

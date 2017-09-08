@@ -3,11 +3,11 @@
         <template [ngIf]="item?.children">
             <div class="docs-subnav__category">{{ item.title }}</div>
             <template ngFor let-item [ngForOf]="item.children">
-                <argo-nav-button [title]="item.title" [routerLink]="[{ doc: item.path }]"></argo-nav-button>
+                <argo-nav-button [title]="item.title" [routerLink]="docRoute(item.path)"></argo-nav-button>
             </template>
         </template>
         <template [ngIf]="!item?.children">
-            <argo-nav-button [title]="item.title" [routerLink]="[{ doc: item.path }]"></argo-nav-button>
+            <argo-nav-button [title]="item.title" [routerLink]="docRoute(item.path)"></argo-nav-button>
         </template>
     </template>
 </template>

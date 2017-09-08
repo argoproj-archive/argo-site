@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, AfterViewChecked, SimpleChanges, ElementRef } from '@angular/core';
-import { LocationStrategy } from '@angular/common';
+import { Component, Input, OnChanges, AfterViewChecked, SimpleChanges, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
+import { LocationStrategy, isPlatformBrowser } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Converter } from 'showdown';
 let path = require('path');
@@ -31,7 +31,7 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
     private extensions: MarkdownExtension[] = [this.expandableSectionExtension()];
     private docDir = '';
 
-    constructor(private sanitizer: DomSanitizer, private el: ElementRef, private locationStrategy: LocationStrategy) {
+    constructor(private sanitizer: DomSanitizer, private el: ElementRef, private locationStrategy: LocationStrategy, @Inject(PLATFORM_ID) private platformId) {
         let self = this;
         let extensions = [<any> this.extensions.map(item => ({
             type: 'lang',
@@ -56,7 +56,7 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
             replace: (match, beforeSrc, url) => {
                 [url] = url.split('#');
                 url = path.join(this.docDir, url);
-                url = this.locationStrategy.prepareExternalUrl(`/docs;doc=${encodeURIComponent(url)}`);
+                url = this.locationStrategy.prepareExternalUrl(`/docs/${url}`);
                 return `<a href="${url}"`;
             },
         });
@@ -68,13 +68,15 @@ export class DocViewerComponent implements OnChanges, AfterViewChecked {
 
     public ngAfterViewChecked() {
         if (!this.viewInitialized) {
-            this.extensions.forEach(item => item.initClientSide(this.el.nativeElement));
+            if (isPlatformBrowser(this.platformId)) {
+                this.extensions.forEach(item => item.initClientSide(this.el.nativeElement));
+            }
             this.viewInitialized = true;
         }
     }
 
     public ngOnChanges(changes: SimpleChanges) {
-        if (changes['docInfo'].previousValue.content !== changes['docInfo'].currentValue.content) {
+        if (!changes['docInfo'].previousValue || changes['docInfo'].previousValue.content !== changes['docInfo'].currentValue.content) {
             this.viewInitialized = false;
         }
     }

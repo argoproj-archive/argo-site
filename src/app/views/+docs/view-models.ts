@@ -1,4 +1,5 @@
 import { DocsTree } from '../../services';
+import * as path from 'path';
 
 export class DocsTreeInfo implements DocsTree {
     public children: DocsTree[];
@@ -31,3 +32,18 @@ export class DocsTreeInfo implements DocsTree {
         }
     }
 }
+
+export const Utils = {
+    docRoute(docPath: string) {
+        let fileName = path.basename(docPath, path.extname(docPath)) + '.html';
+        return ['/docs'].concat(decodeURIComponent(path.join(path.dirname(docPath), fileName)).split('/'));
+    },
+    docPath(route: string[]) {
+        if (route.length === 0) {
+            return '';
+        }
+        let url = route.join('/');
+        let fileName = path.basename(url, path.extname(url)) + '.md';
+        return path.join(path.dirname(url), fileName);
+    },
+};
