@@ -12,6 +12,8 @@ inputs:
       default: "UA-105170809-1"
     href-base:
       default: "/argo-site/"
+    base-url:
+      default: "https://argoproj.github.io"
     git-user:
     git-password:
 steps:

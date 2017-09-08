@@ -85,4 +85,7 @@ compiler.compileModuleAsync(AppServerModule).then(async factory => {
     for (let route of router.config) {
         await renderRoute('', route);
     }
+
+    fs.writeFileSync(`./dist_rendered/sitemap.txt`,
+        renderedUrls.filter(url => url !== '.').map(url => path.join(process.env.BASE_URL || '', process.env.HREF_BASE || '', url)).join('\n'));
 });

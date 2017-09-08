@@ -10,6 +10,8 @@ inputs:
       default: "%%session.repo%%"
     href-base:
       default: "/"
+    base-url:
+      default: ""
     tracking-id:
       default: ""
 steps:
@@ -28,6 +30,8 @@ steps:
         value: "%%inputs.parameters.href-base%%"
       - name: TRACKING_ID
         value: "%%inputs.parameters.tracking-id%%"
+      - name: BASE_URL
+        value: "%%inputs.parameters.base-url%%"
     args: ["cd /src && npm install && npm run build:prod"]
     resources:
       mem_mib: 1536
@@ -50,6 +54,8 @@ steps:
         value: "%%inputs.parameters.href-base%%"
       - name: TRACKING_ID
         value: "%%inputs.parameters.tracking-id%%"
+      - name: BASE_URL
+        value: "%%inputs.parameters.base-url%%"
     resources:
       mem_mib: 1536
       cpu_cores: 0.2
