@@ -55,10 +55,6 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
             } else {
                 this.searchItems = null;
             }
-
-            if (isPlatformBrowser(this.platformId)) {
-                document.body.scrollTop = 0;
-            }
         });
         this.route.url.subscribe(async segements => {
             let version = this.versions[0].version;
@@ -75,6 +71,9 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
                 this.loadedDocPath = this.selectedDocPath;
             }
             this.selectedTree = this.searchTree(this.tree, this.selectedDocPath);
+            if (isPlatformBrowser(this.platformId)) {
+                document.body.scrollTop = 0;
+            }
         });
     }
 
