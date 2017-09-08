@@ -29,7 +29,7 @@ import { MainComponent } from './main.component';
             { path: 'docs', loadChildren: () => System.import('../views/+docs').then((comp: any) => comp.default) },
             { path: 'community', loadChildren: () => System.import('../views/+community').then((comp: any) => comp.default) },
             { path: '**', redirectTo: '' },
-        ]),
+        ], { initialNavigation: 'enabled' }),
     ],
 })
 export class MainModule {
