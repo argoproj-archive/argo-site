@@ -14,6 +14,8 @@ inputs:
       default: "/argo-site/"
     base-url:
       default: "https://argoproj.github.io"
+    docs-branch:
+      default: "production"
     git-user:
     git-password:
 steps:
@@ -22,6 +24,7 @@ steps:
     arguments:
       parameters.href-base: "%%inputs.parameters.href-base%%"
       parameters.tracking-id: "%%inputs.parameters.tracking-id%%"
+      parameters.docs-branch: "%%inputs.parameters.docs-branch%%"
 - publish:
     image: argoproj/argoscm:v2.0
     command: ["sh", "-c"]

@@ -8,6 +8,8 @@ inputs:
       default: "%%session.commit%%"
     repo:
       default: "%%session.repo%%"
+    docs-branch:
+      default: "master"
     href-base:
       default: "/"
     base-url:
@@ -21,7 +23,7 @@ steps:
     template: argo-checkout
     arguments:
       parameters.repo: https://github.com/argoproj/docs.git
-      parameters.commit: master
+      parameters.commit: "%%inputs.parameters.docs-branch%%"
 - build-site:
     image: node:6.3.1
     command: ["bash", "-c"]
