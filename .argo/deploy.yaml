@@ -8,7 +8,7 @@ scale:
 external_routes:
 - dns_prefix: "%%inputs.parameters.dns-prefix%%"
   dns_domain: "%%inputs.parameters.domain-name%%"
-  target_port: 3000
+  target_port: 8080
   ip_white_list:
   - 0.0.0.0/0
 containers:
