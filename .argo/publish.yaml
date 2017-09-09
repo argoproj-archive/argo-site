@@ -16,8 +16,6 @@ inputs:
       default: "https://argoproj.github.io"
     docs-branch:
       default: "production"
-    git-user:
-    git-password:
 steps:
 - build:
     template: build
@@ -28,12 +26,12 @@ steps:
 - publish:
     image: argoproj/argoscm:v2.0
     command: ["sh", "-c"]
-    env:
-    - name: USER
-      value: "%%inputs.parameters.git-user%%"
-    - name: PASSWORD
-      value: "%%inputs.parameters.git-password%%"
-    args: ["git clone \"https://$USER:$PASSWORD@github.com/argoproj/argo-site.git\" -b gh-pages /src && cd /src && rm -rf ./assets && rm -rf ./docs && rm -rf ./index.html rm -rf ./webpack-assets.json && cp -r /argo-site/dist_rendered/* . && cp ./index.html ./404.html && rm ./docs/.gitignore && git add . && git commit -m \"Build on `date`\" && git push"]
+    args: [
+      axscm clone %%inputs.parameters.repo%% --commit gh-pages /src &&
+      cd /src && rm -rf ./assets && rm -rf ./docs && rm ./index.html && rm ./webpack-assets.json &&
+      cp -r /argo-site/dist_rendered/* . && cp ./index.html ./404.html && rm ./docs/.gitignore &&
+      git add . && git commit -m "Build on `date`" &&
+      axscm clone %%inputs.parameters.repo%% /src --commit gh-pages --merge=gh-pages --push]
     resources:
       mem_mib: 500
       cpu_cores: 0.1
