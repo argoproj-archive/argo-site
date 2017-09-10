@@ -40,3 +40,17 @@ steps:
         code:
           from: "%%steps.build.outputs.artifacts.code%%"
           path: /argo-site
+
+---
+type: policy
+version: 1
+name: build-publish-policy
+template: build-publish
+notifications:
+- when:
+  - on_failure
+  whom:
+  - committer
+  - author
+when:
+- event: on_push
