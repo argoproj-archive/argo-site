@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 let initializationPromise: Promise<any> = null;
 
 @Injectable()
 export class TrackingService {
+
+    private installEvent = new EventEmitter();
 
     constructor(private router: Router) {
     }
@@ -14,6 +16,10 @@ export class TrackingService {
             initializationPromise = this.doInitialize(gaId);
         }
         return initializationPromise;
+    }
+
+    public trackInstallCopied() {
+        this.installEvent.emit({});
     }
 
     private loadGa(): Promise<any> {
@@ -29,6 +35,7 @@ export class TrackingService {
         return this.loadGa().then(ga => {
             ga('create', gaId, 'auto');
             ga('send', 'pageview', this.router.routerState.snapshot.url);
+            this.installEvent.subscribe(() => { ga('send', 'event', 'goal', 'install-copied'); });
             this.router.events.subscribe(event => {
                 if (event instanceof NavigationEnd) {
                     ga('send', 'pageview', event.url);
