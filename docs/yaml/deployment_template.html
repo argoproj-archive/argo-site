@@ -12,7 +12,7 @@
     <meta name="description" content="Argo’s YAML DSL describes the specification to write Argo container, deployment, workflow templates">
 
     
-<script src="/argo-site/assets/polyfills.c0a0fe110d0e34e0a8ce.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.371e82c37a6a2ff1123b.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.781c2116559609243163.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.371e82c37a6a2ff1123b.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/quickstart/intro_argo_quick_start.html">Setup and Install Argo</a><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
             </div>
         </div>
     </div>
@@ -5769,7 +5769,7 @@ description: apache deployment example
 <ul>
 <li><p><code>name</code>: the unique name of the external network object within an application.</p></li>
 <li><p><code>dns_prefix</code>: the DNS name prefix to the domain. The default is <code>{RouteName}-{DeploymentName}-{ApplicationName}</code>.]</p></li>
-<li><p><code>dns_domain</code>: the DNS domain. The domain needs to be managed by AWS Route 53. The cluster domain configuration should be updated before using any domain. For details, see <a href=&quot;/argo-site/docs/quickstart/intro_argo_quick_start.html&quot;>Install Argo</a>.</p></li>
+<li><p><code>dns_domain</code>: the DNS domain that a deployment is allowed to access. This domain must managed by AWS Route 53. To make sure Argo is configured to allow access to a domain, see details at <a href=&quot;/argo-site/docs/user_guide/configapplatixcluster/managedomains.html&quot;>Configure Domains for App Access</a>.</p></li>
 <li><p><code>target_port</code>: the instance port to be exposed.</p></li>
 <li><p><code>redirect_http_to_https</code>: indicates whether to redirect all the <code>http</code> traffic to <code>https</code>. Default is <code>true</code>.</p></li>
 <li><p><code>ip_white_list</code>: the whitelisted CIDR addresses for security control.</p></li>
@@ -5901,7 +5901,7 @@ description: apache deployment example
 <ul>
 <li><p><code>name</code>: the unique name of the external network object within an application.</p></li>
 <li><p><code>dns_prefix</code>: the DNS name prefix to the domain. The default is <code>{RouteName}-{DeploymentName}-{ApplicationName}</code>.]</p></li>
-<li><p><code>dns_domain</code>: the DNS domain. The domain needs to be managed by AWS Route 53. The cluster domain configuration should be updated before using any domain. For details, see <a href="/argo-site/docs/quickstart/intro_argo_quick_start.html">Install Argo</a>.</p></li>
+<li><p><code>dns_domain</code>: the DNS domain that a deployment is allowed to access. This domain must managed by AWS Route 53. To make sure Argo is configured to allow access to a domain, see details at <a href="/argo-site/docs/user_guide/configapplatixcluster/managedomains.html">Configure Domains for App Access</a>.</p></li>
 <li><p><code>target_port</code>: the instance port to be exposed.</p></li>
 <li><p><code>redirect_http_to_https</code>: indicates whether to redirect all the <code>http</code> traffic to <code>https</code>. Default is <code>true</code>.</p></li>
 <li><p><code>ip_white_list</code>: the whitelisted CIDR addresses for security control.</p></li>

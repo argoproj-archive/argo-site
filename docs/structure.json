@@ -1,12 +1,6 @@
 {
   "children": [
     {
-      "title": "Setup and Install Argo",
-      "summary": "Installation guide for Kubernetes workflow engine on AWS",
-      "details": "Install and configure Argo, Kubernetes workflow engine on AWS from Command Line",
-      "path": "quickstart/intro_argo_quick_start.md"
-    },
-    {
       "title": "Tutorials",
       "path": "yaml/using_the_yaml_dsl.md",
       "summary": "Tutorials and use cases for container native workflow engine",

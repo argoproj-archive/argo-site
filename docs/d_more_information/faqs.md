@@ -1,10 +1,10 @@
 # FAQs
 
-Q. When my test fails, I can't don't see any failure messages in my logs .
+Q. When my test fails, I can't don't see any failure messages in my logs.
 
 A. You need to identify where in the process of running a job the failure occurred. From the Jobs view in the Timeline of the Argo Web UI, look for the left-most container or workflow that has a red circle. This indicates the part of the process that failed. For example, if the deployment step shows a red circle and there are no error messages in that log, this means the failure occurred earlier in the process. In this case, you could check an earlier step, such as the workflow logs to see what part of the YAML code failed.
 
-Q. My YAML code failed on one of the parameters.....
+Q. My YAML code failed on one of the parameters.
 
 A. Your YAML code was grabbing something that wasn't created. Argo has YAML checker to verify that the YAML code is valid.
 
@@ -28,30 +28,224 @@ A. For this type of message, Argo recommends that you increase the `mem_mib` set
 
 A. You must have a Virtual Private Cloud (VPC) with a subnet that can access a NAT gateway. (The creator instance will need to download the software to install.) Along with the VPC, you must provision the resource types listed in the following table:
 
-*   NOTE: For EC2 Instance Type, choose either STANDARD or COMPUTE OPTIMIZED.
+NOTE: For EC2 Instance Type, choose either **STANDARD** or **COMPUTE OPTIMIZED**.
 
-| Resource Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Count |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------|
-| Elastic IP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 1     |
-| Virtual Private Cloud (VPC)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 1     |
-| S3 Buckets                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 2     |
-| EC2 Instance Type: STANDARD Cluster Size: SMALL \*\*Master\*\* node size: m3.medium \*\*Argo System\*\* node size: m3.large \*\*User\*\* node size: m3.large                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 1 2 1 |
-| EC2 Instance Type: STANDARD Cluster Size: MEDIUM \*\*Master\*\* node size: m3.large \*\*Argo System\*\* node size: m3.large \*\*User\*\* node size: m3.large                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 1 2 1 |
-| EC2 Instance Type: STANDARD Cluster Size: LARGE \*\*Master\*\* node size: r3.large \*\*Argo System\*\* node size: m3.large \*\*User\*\* node size: m3.large                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | 1 3 1 |
-| EC2 Instance Type: STANDARD Cluster Size: XLARGE \*\*Master\*\* node size: r3.2xlarge \*\*Argo System\*\* node size: m3.2xlarge \*\*User\*\* node size: m3.2xlarge                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1 2 1 |
-| EC2 Instance Type: COMPUTE OPTIMIZED Cluster Size: SMALL \*\*Master\*\* node size: m3.medium \*\*Argo System\*\* node size: m3.large \*\*User\*\* node size: c3.2xlarge                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1 2 1 |
-| EC2 Instance Type: COMPUTE OPTIMIZED Cluster Size: MEDIUM \*\*Master\*\* node size: m3.large \*\*Argo System\*\* node size: m3.large \*\*User\*\* node size: c3.2xlarge                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1 2 1 |
-| EC2 Instance Type: COMPUTE OPTIMIZED Cluster Size: LARGE \*\*Master\*\*node size: r3.large \*\*Argo System\*\* node size: m3.large \*\*User\*\* node size: c3.2xlarge                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 1 3 1 |
-| EC2 Instance Type: COMPUTE OPTIMIZED Cluster Size: XLARGE \*\*Master\*\* node size: r3.xlarge \*\*Argo System\*\* node size: m3.xlarge \*\*User\*\* node size: c3.2xlarge                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 1 3 1 |
-| Auto Scaling Group                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 3     |
-| Launch Configuration                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 3     |
-| Elastic Load Balancer\*\*\*\*\*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 2     |
-| Server certificates stored in an AWS account\*\*\*\*\*\*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | 1     |
-| \*\*\*\*\* If you are using webhooks, add 1 more Elastic Load Balancer. \*\*\*\*\*\* To check the number of server certificates you are currently using on AWS, you can use the AWS Command-Line Interface (CLI) to access this information. For instructions, see the \[AWS CLI documenation\](https://aws.amazon.com/documentation/cli/). The default AWS maximum quota for server certificates is 20\\. If you have reached the limit for this entity, you can submit a request to AWS to increase your quota or you can remove any existing server certificates. For instructions on increasing your quota, see \[AWS Service Limits\](http://docs.aws.amazon.com/general/latest/gr/aws\_service\_limits.html). |       |
+<table>
+     <col style="width: 412px;" />
+     <col />
+     <thead>
+         <tr>
+             <th>
+                 <p>Resource Type</p>
+             </th>
+             <th>
+                 <p>Count</p>
+             </th>
+         </tr>
+     </thead>
+     <tbody>
+         <tr>
+             <td>
+                 <p>Elastic IP</p>
+             </td>
+             <td>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>Virtual Private Cloud (VPC)</p>
+             </td>
+             <td>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>S3 Buckets</p>
+             </td>
+             <td>
+                 <p>2</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>EC2 Instance Type: STANDARD</p>
+                 <p>Cluster Size: SMALL<br /><b>Master</b> node size: m3.medium</p>
+                 <p><b>System</b> node size: m3.large</p>
+                 <p><b>User</b> node size: m3.large</p>
+             </td>
+             <td>
+                 <p>&#160;</p>
+                 <p>&#160;</p>
+                 <p>1</p>
+                 <p>2</p>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>EC2 Instance Type: STANDARD</p>
+                 <p>Cluster Size:  MEDIUM<br /></p>
+                 <p><b>Master</b> node size: m3.large </p>
+                 <p><b> System</b> node size: m3.large</p>
+                 <p><b>User</b> node size: m3.large</p>
+             </td>
+             <td>
+                 <p>&#160;</p>
+                 <p>&#160;</p>
+                 <p>1</p>
+                 <p>2</p>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>EC2 Instance Type: STANDARD</p>
+                 <p>Cluster Size: LARGE</p>
+                 <p><b>Master</b> node size: r3.large</p>
+                 <p><b> System</b> node size: m3.large</p>
+                 <p><b>User</b> node size: m3.large </p>
+             </td>
+             <td>
+                 <p>&#160;</p>
+                 <p>&#160;</p>
+                 <p>1</p>
+                 <p>3</p>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>EC2 Instance Type: STANDARD</p>
+                 <p>Cluster Size: XLARGE</p>
+                 <p><b>Master</b> node size: r3.2xlarge</p>
+                 <p><b> System</b> node size: m3.2xlarge</p>
+                 <p><b>User</b> node size: m3.2xlarge</p>
+             </td>
+             <td>
+                 <p>&#160;</p>
+                 <p>&#160;</p>
+                 <p>1</p>
+                 <p>2</p>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr MadCap:conditions="General.Version224">
+             <td>
+                 <p>EC2 Instance Type: COMPUTE OPTIMIZED</p>
+                 <p>
+Cluster Size: SMALL </p>
+                 <p><b>Master</b> node size: m3.medium
+</p>
+                 <p><b> System</b> node size: m3.large</p>
+                 <p><b>User</b> node size: c3.2xlarge </p>
+             </td>
+             <td>
+                 <p>&#160;</p>
+                 <p>&#160;</p>
+                 <p>1</p>
+                 <p> 2</p>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr MadCap:conditions="General.Version224">
+             <td>
+                 <p>
 
+EC2 Instance Type:  COMPUTE OPTIMIZED</p>
+                 <p>Cluster Size: MEDIUM </p>
+                 <p><b>Master</b> node size: m3.large
+</p>
+                 <p><b> System</b> node size: m3.large </p>
+                 <p><b>User</b> node size: c3.2xlarge
+</p>
+             </td>
+             <td>
+                 <p>&#160;</p>
+                 <p>&#160;</p>
+                 <p>1</p>
+                 <p>2</p>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr MadCap:conditions="General.Version224">
+             <td>
+                 <p>EC2 Instance Type:  COMPUTE OPTIMIZED
+</p>
+                 <p>Cluster Size: LARGE</p>
+                 <p><b>Master</b>node size: r3.large</p>
+                 <p><b> System</b> node size: m3.large</p>
+                 <p><b>User</b> node size: c3.2xlarge</p>
+             </td>
+             <td>
+                 <p>&#160;</p>
+                 <p>&#160;</p>
+                 <p> 1</p>
+                 <p> 3</p>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr MadCap:conditions="General.Version224">
+             <td>
+                 <p>EC2 Instance Type: COMPUTE OPTIMIZED</p>
+                 <p>Cluster Size:  
 
-Argo will autoscale the Cluster with additional instances to meet an increased workload.
+XLARGE</p>
+                 <p><b>Master</b> node size: r3.xlarge</p>
+                 <p><b> System</b> node size: m3.xlarge</p>
+                 <p><b>User</b> node size: c3.2xlarge </p>
+             </td>
+             <td>
+                 <p>&#160;</p>
+                 <p>&#160;</p>
+                 <p> 1</p>
+                 <p> 3
+</p>
+                 <p>1</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>Auto Scaling Group</p>
+             </td>
+             <td>
+                 <p>3</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>Launch Configuration</p>
+             </td>
+             <td>
+                 <p>3</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>Elastic Load Balancer<b>\*</b><br /></p>
+             </td>
+             <td>
+                 <p>2</p>
+             </td>
+         </tr>
+         <tr>
+             <td>
+                 <p>Server certificates stored in an AWS account<b>\*\*</b></p>
+             </td>
+             <td>1</td>
+         </tr>
+         <tr>
+             <td colspan="2">
+                 <p><b>\*</b> If you are using webhooks, add 1 more Elastic Load Balancer.</p>
+                 <p><b>\*\*</b> To check the number of server certificates you are currently using on AWS, you can use the AWS Command-Line Interface (CLI) to access this information. For instructions, see the <a href="https://aws.amazon.com/documentation/cli/">AWS CLI documenation</a>. The default AWS maximum quota for server certificates is 20. If you have reached the limit for this entity, you can submit a request to AWS to increase your quota or you can remove any existing server certificates. For instructions on increasing your quota, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a>.</p>
+             </td>
+         </tr>
+     </tbody>
+ </table>
 
-To view your resource limits, click the Limits tab on your AWS EC2 page.
+ Argo will autoscale the Cluster with additional instances to meet an increased workload.
 
-![](docs/images/check_your_amazon_resources_380x232.png)
+ To view your resource limits, click the **Limits** tab on your AWS EC2 page.
+
+ ![AWS_Limits_page](./../../images/check_your_amazon_resources_380x232.png)

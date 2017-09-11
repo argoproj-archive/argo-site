@@ -14,22 +14,21 @@ To illustrate these concepts, the following diagram shows an application consist
 *   The web server deployment has 2 instances running
 *   The database server deployment has 1 instance running
 
-![](../../../images/applications_deployments_volume_diagram_argo.png)
+![](../../../images/applications_deployments_volume_diagram_argo2.png)
 
-![](../../../images/applications_deployments_volume_diagram_1000x615.png)
 
-From the Applications tab, you can view all applications that are available for deployment on your Argo.
+From the **Applications** tab, you can view all applications that are available for deployment on your Argo.
 
 Here's how you view the status of an active application:
 
-*   Go to Applications.
+*   Go to **Applications**.
 
     This view displays the status of the application, whether it is running, stopped, terminated, or has generated an error.
 
     This view also displays information about the last time the application was deployed or restarted.
 
 *   Click the name of the application to view details about the application.
-*   Click SPENDING to view how much has been spent running the application for a specific time period.
+*   Click **SPENDING** to view how much has been spent running the application for a specific time period.
 
 In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Deployment Template](./../../yaml/deployment_template.md).
 

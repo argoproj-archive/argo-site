@@ -1,6 +1,6 @@
 # Creating a Managed Fixture for Workflows and Apps
 
-When you run a workflow or deploy an app, you might need to access a resource that is external to your Argo, such as a pool of virtual machines (VMs), databases, other REST-based services, etc. To manage and access these external resources, Argo provides “managed fixtures”. A managed fixture allows Argo to perform life-cycle management of these external resources like creating and deleting instances, loading data, or any other custom action.
+When you run a workflow or deploy an app, you might need to access a resource that is external to your Argo cluster, such as a pool of virtual machines (VMs), databases, other REST-based services, etc. To manage and access these external resources, Argo provides “managed fixtures”. A managed fixture allows Argo to perform life-cycle management of these external resources like creating and deleting instances, loading data, or any other custom action.
 
 Managed fixtures have attributes and actions. **Attributes** are used to distinguish instances that come from different managed fixture classes. **Actions** are workflows that you can perform on a managed fixture, (such as creating a managed fixture for an external database)
 
@@ -12,7 +12,7 @@ The process for creating fixtures for a workflow or application is:
 2.  Go to the Argo Console for your cluster.
 3.  Connect to the repo containing the YAML fixture class definition you created.
 
-4.  Add the fixture class that you need to the repo. For details, see [To add a new fixture class to your repo branch](../user_guide/infrastructure/using_fixtures.md#AddFixtureClass2Repo)[Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md).
+4.  Add the fixture class you need to the repo. For details, see [To add a new fixture class to your repo branch](../user_guide/infrastructure/using_fixtures.md#AddFixtureClass2Repo)[Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md).
 5.  Create the instances of the fixture class. For details, see [To create an instance of a fixture class](../user_guide/infrastructure/using_fixtures.md#CreateInstanceFixtureClass).
 
 ## <a name="CreateFixture"></a>Creating a fixture class for a workflow
@@ -141,7 +141,7 @@ create:
   template: test-fixture-action
   parameters:
     INSTANCE_TYPE: "%%fixture.instance_type%%"
-    ACTION: create 
+    ACTION: create
 ```
 
 </td>
@@ -186,8 +186,6 @@ The following sample code shows
 
 *   a fixture template that declares the fixture class's attributes and actions for an EC2 instance.
 *   a container template that creates a container for running an EC2 instance of the fixture class.
-
-<div xmlns="">
 
 ```
 ---
@@ -288,7 +286,7 @@ resources:
 image: "get.argoproj.io/managed-fixture/mfctl:latest"
 # axmfctl is the argo command for creating a fixture
 # This command creates an EC2 instance of the fixture class
-# by passing in the cross-account role and arguements for 
+# by passing in the cross-account role and arguements for
 # the instance of the fixture class
 command: ["axmfctl"]
 args: ["ec2 %%ACTION%% --management-role %%MANAGEMENT_ROLE%% %%EXTRA_ARGS%%"]
@@ -303,5 +301,3 @@ outputs:
       path: /tmp/fix_attrs.json
 
 ```
-
-</div>

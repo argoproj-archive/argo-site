@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-    <title>Installation guide for Kubernetes workflow engine on AWS | Argo</title>
+    <title>Tutorials and use cases for container native workflow engine | Argo</title>
     <base href="/argo-site/">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
@@ -9,10 +9,10 @@
     <meta name="theme-color" content="#363c4a">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700" rel="stylesheet">
-    <meta name="description" content="Install and configure Argo, Kubernetes workflow engine on AWS from Command Line">
+    <meta name="description" content="Tutorials for workflows on Kubernetes - CI/CD, DinD, deploy microservices, volumes. Create YAML templates for workflows and deployments">
 
     
-<script src="/argo-site/assets/polyfills.c0a0fe110d0e34e0a8ce.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.371e82c37a6a2ff1123b.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.781c2116559609243163.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.371e82c37a6a2ff1123b.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5476,7 +5476,7 @@ body {
     display: block;
     width: 120px;
     padding: 0 20px; }
-</style><meta property="og:title" content="Installation guide for Kubernetes workflow engine on AWS | Argo"><meta property="og:description" content="Install and configure Argo, Kubernetes workflow engine on AWS from Command Line"><style ng-transition="argo-main">.docs-browser-view {
+</style><meta property="og:title" content="Tutorials and use cases for container native workflow engine | Argo"><meta property="og:description" content="Tutorials for workflows on Kubernetes - CI/CD, DinD, deploy microservices, volumes. Create YAML templates for workflows and deployments"><style ng-transition="argo-main">.docs-browser-view {
   position: relative; }
   .docs-browser-view__top {
     margin-bottom: 30px;
@@ -5669,6 +5669,28 @@ body {
   margin: 30px 0 0;
   font-weight: 500;
   color: #5c606d; }
+</style><style ng-transition="argo-main">.nav-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 1em 0;
+  padding: 1.2em 1.4em;
+  text-align: left;
+  color: #4a90e2;
+  background-color: #fff;
+  border-radius: 4px;
+  border-left: 3px solid #f96822;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer; }
+  .nav-button:hover {
+    color: #4a90e2; }
+  .nav-button__ico {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    color: #aeaeae;
+    font-size: 1.4em;
+    transform: translateY(-50%); }
 </style></head>
 
 <body style="margin: 0; padding: 0;">
@@ -5725,71 +5747,106 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a class="active" href="/argo-site/docs/quickstart/intro_argo_quick_start.html">Setup and Install Argo</a><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a class="active" href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
             </div>
         </div>
     </div>
     <div class="main__container">
         <!----><div>
             <!---->
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;installargo&quot;>Install Argo</h1>
-<p>Before you start:</p>
-<ul>
-<li>Make sure you have an <a href=&quot;https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/&quot;>AWS account</a> with <a href=&quot;/argo-site/docs/d_more_information/faqs.html&quot;>Minimum resource quota requirements</a> for Argo running in AWS.</li>
-<li><a href=&quot;https://docs.docker.com/engine/installation/&quot;>Docker client</a> is installed on your client system. Also make sure that you have 2 GB of free storage in the root directory where you’ll install Argo.</li>
-<li><a href=&quot;http://docs.aws.amazon.com/cli/latest/userguide/installing.html&quot;>AWS Command-Line Interface (CLI)</a> is installed on your client system.</li>
-</ul>
-<h2 id=&quot;installargoinyourawsaccountfromcommandlinemacandlinuxonly&quot;>Install Argo In Your AWS Account from Command Line (Mac and Linux only)</h2>
-<ol>
-<li><p>Run the following commands:</p>
-<p>For Mac</p>
-<p><code>curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/darwin_amd64/argo</code></p>
-<p>For Linux</p>
-<p><code>curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/linux_amd64/argo</code></p>
-<p><code>chmod +x argo</code></p>
-<p><code>./argo cluster</code></p></li>
-<li><p>You'll see Welcome to Argo and the prompt <code>argo cluster ops &amp;gt;</code>.</p></li>
-<li><p>Enter <code>argocluster install</code>.</p></li>
-<li><p>Please enter a name for your cluster and your AWS profile.(Required) For the remaining configuration options, you can use the defaults .</p></li>
-<li><p>Here's a link to the successful installation. Argo installation could take up to 20 minutes as it is installing Kubernetes and configuring AWS.</p></li>
-</ol>
-<h2 id=&quot;configureargotorunworkflows&quot;>Configure Argo to Run Workflows</h2>
-<ul>
-<li>Integrate with your SCM repo from the Argo Web UI &amp;gt;Integrations &amp;gt; Source Control Management Systems.</li>
-<li>Integrate with your Docker registry (which stores the container images you'll run as workflows) from the Argo Web UI &amp;gt; Integrations &amp;gt; Docker Registries.</li>
-</ul>
-<p>By default, Argo integrates with the public GitHub repo <a href=&quot;http://github.com/argoproj&quot;>http://github.com/argoproj</a> and the public Docker registry <a href=&quot;https://hub.docker.com/&quot;>https://hub.docker.com</a> so you can easily run the examples and tutorials.</p>
-<h2 id=&quot;nextstep&quot;>Next Step:</h2>
-<p>Now that you have set up Argo in AWS, let's go to the <a href=&quot;/argo-site/docs/yaml/using_the_yaml_dsl.html&quot;>Tutorials</a> and run container-native workflows.</p>"><h1 id="installargo">Install Argo</h1>
-<p>Before you start:</p>
-<ul>
-<li>Make sure you have an <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">AWS account</a> with <a href="/argo-site/docs/d_more_information/faqs.html">Minimum resource quota requirements</a> for Argo running in AWS.</li>
-<li><a href="https://docs.docker.com/engine/installation/">Docker client</a> is installed on your client system. Also make sure that you have 2 GB of free storage in the root directory where you’ll install Argo.</li>
-<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/installing.html">AWS Command-Line Interface (CLI)</a> is installed on your client system.</li>
-</ul>
-<h2 id="installargoinyourawsaccountfromcommandlinemacandlinuxonly">Install Argo In Your AWS Account from Command Line (Mac and Linux only)</h2>
-<ol>
-<li><p>Run the following commands:</p>
-<p>For Mac</p>
-<p><code>curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/darwin_amd64/argo</code></p>
-<p>For Linux</p>
-<p><code>curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/linux_amd64/argo</code></p>
-<p><code>chmod +x argo</code></p>
-<p><code>./argo cluster</code></p></li>
-<li><p>You'll see Welcome to Argo and the prompt <code>argo cluster ops &gt;</code>.</p></li>
-<li><p>Enter <code>argocluster install</code>.</p></li>
-<li><p>Please enter a name for your cluster and your AWS profile.(Required) For the remaining configuration options, you can use the defaults .</p></li>
-<li><p>Here's a link to the successful installation. Argo installation could take up to 20 minutes as it is installing Kubernetes and configuring AWS.</p></li>
-</ol>
-<h2 id="configureargotorunworkflows">Configure Argo to Run Workflows</h2>
-<ul>
-<li>Integrate with your SCM repo from the Argo Web UI &gt;Integrations &gt; Source Control Management Systems.</li>
-<li>Integrate with your Docker registry (which stores the container images you'll run as workflows) from the Argo Web UI &gt; Integrations &gt; Docker Registries.</li>
-</ul>
-<p>By default, Argo integrates with the public GitHub repo <a href="http://github.com/argoproj">http://github.com/argoproj</a> and the public Docker registry <a href="https://hub.docker.com/">https://hub.docker.com</a> so you can easily run the examples and tutorials.</p>
-<h2 id="nextstep">Next Step:</h2>
-<p>Now that you have set up Argo in AWS, let's go to the <a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a> and run container-native workflows.</p></div></argo-doc-viewer>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;tutorials&quot;>Tutorials</h1>
+<p>The Argo tutorials take you through the creation of YAML templates for workflows and deployments of containerized apps running at scale in Argo. The following examples show how to run CI/CD workflows, deploy stateful and stateless applications, and also use external, non-containerized resources (fixtures) in your workflows.</p>
+<p>NOTE: All examples in these tutorials are available on the Argo GitHub account at <a href=&quot;https://github.com/argoproj&quot;>https://github.com/argoproj</a> repo.</p>
+<p>To access all of the YAML files that the tutorials use for running on Argo, check the <code>.argo</code> directory of this repo.</p>
+<h2 id=&quot;prerequisites&quot;>Prerequisites</h2>
+<p>Before you try out the tutorials, you must have installed Argo and configured source repository and tainer registry as mentioned in the [Install Argo]ur Argo installation is automatically integrated with <a href=&quot;https://github.com/argoproj&quot;>https://github.com/argoproj</a> repo and <a href=&quot;https://github.com/argoproj&quot;>https://hub.docker.com/argoproj</a> container registry.</p>
+<p>Additional documentation and additional tools (such as the Argo YAML syntax checker) are also available from the Argo github repo <a href=&quot;https://github.com/argoproj&quot;>https://github.com/argoproj</a> repo.</p>"><h1 id="tutorials">Tutorials</h1>
+<p>The Argo tutorials take you through the creation of YAML templates for workflows and deployments of containerized apps running at scale in Argo. The following examples show how to run CI/CD workflows, deploy stateful and stateless applications, and also use external, non-containerized resources (fixtures) in your workflows.</p>
+<p>NOTE: All examples in these tutorials are available on the Argo GitHub account at <a href="https://github.com/argoproj">https://github.com/argoproj</a> repo.</p>
+<p>To access all of the YAML files that the tutorials use for running on Argo, check the <code>.argo</code> directory of this repo.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you try out the tutorials, you must have installed Argo and configured source repository and tainer registry as mentioned in the [Install Argo]ur Argo installation is automatically integrated with <a href="https://github.com/argoproj">https://github.com/argoproj</a> repo and <a href="https://github.com/argoproj">https://hub.docker.com/argoproj</a> container registry.</p>
+<p>Additional documentation and additional tools (such as the Argo YAML syntax checker) are also available from the Argo github repo <a href="https://github.com/argoproj">https://github.com/argoproj</a> repo.</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
+    <!---->
+        <!---->
+        <!---->
+            <argo-nav-button tabindex="0"><button class="nav-button">
+    Tutorial 1: Create CI Workflow
+    <div class="nav-button__ico">
+        <i class="fa fa-angle-right"></i>
+    </div>
+</button>
+</argo-nav-button>
+        
+    
+        <!---->
+        <!---->
+            <argo-nav-button tabindex="0"><button class="nav-button">
+    Tutorial 2: Build and Deploy Docker Image using DinD
+    <div class="nav-button__ico">
+        <i class="fa fa-angle-right"></i>
+    </div>
+</button>
+</argo-nav-button>
+        
+    
+        <!---->
+        <!---->
+            <argo-nav-button tabindex="0"><button class="nav-button">
+    Tutorial 3: Deploy a Stateless App
+    <div class="nav-button__ico">
+        <i class="fa fa-angle-right"></i>
+    </div>
+</button>
+</argo-nav-button>
+        
+    
+        <!---->
+        <!---->
+            <argo-nav-button tabindex="0"><button class="nav-button">
+    Tutorial 4: Deploy a Stateful App
+    <div class="nav-button__ico">
+        <i class="fa fa-angle-right"></i>
+    </div>
+</button>
+</argo-nav-button>
+        
+    
+        <!---->
+        <!---->
+            <argo-nav-button tabindex="0"><button class="nav-button">
+    Tutorial 5: Deploy Stateful App with AWS RDS
+    <div class="nav-button__ico">
+        <i class="fa fa-angle-right"></i>
+    </div>
+</button>
+</argo-nav-button>
+        
+    
+        <!---->
+        <!---->
+            <argo-nav-button tabindex="0"><button class="nav-button">
+    Tutorial 6: Running Nested Workflows
+    <div class="nav-button__ico">
+        <i class="fa fa-angle-right"></i>
+    </div>
+</button>
+</argo-nav-button>
+        
+    
+        <!---->
+        <!---->
+            <argo-nav-button tabindex="0"><button class="nav-button">
+    Tutorial 7: Deploy Microservices-based App
+    <div class="nav-button__ico">
+        <i class="fa fa-angle-right"></i>
+    </div>
+</button>
+</argo-nav-button>
+        
+    
+
 </argo-docs-subnav>
         </div>
         <!---->

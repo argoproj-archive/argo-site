@@ -12,7 +12,7 @@
     <meta name="description" content="Tutorials for workflows on Kubernetes - CI/CD, DinD, deploy microservices, volumes. Create YAML templates for workflows and deployments">
 
     
-<script src="/argo-site/assets/polyfills.c0a0fe110d0e34e0a8ce.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.371e82c37a6a2ff1123b.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.781c2116559609243163.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.371e82c37a6a2ff1123b.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/quickstart/intro_argo_quick_start.html">Setup and Install Argo</a><a class="active" href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a class="active" href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
             </div>
         </div>
     </div>
@@ -5746,26 +5746,52 @@ body {
 <p>This tutorial shows how to use nested workflows to:</p>
 <ul>
 <li>run a Selenium test against a web application (&quot;Hello World&quot;) that runs in two web browsers (Chrome and Firefox)</li>
-<li>record and output a video of screenshots taken during the test.</li>
+<li>record and output a video of screenshots taken during the test</li>
 </ul>
-<p>To run the test, you need a Selenium server, the web app to test, and the test code.</p>
-<p>In this example, the first YAML file (<strong>selenium<em>all</em>ax.yaml</strong>) contains the information to run the test code and the second YAML file (<strong>axvideo_tools.yaml</strong>) has the information for converting the video output from a Flash format to an MPEG4 format.</p>
-<p>Link to selenium<em>all</em>ax.yaml and axvideo_tools.yaml https://github.com/argoproj/example-selenium/tree/master/.argo</p>
-<h2 id=&quot;runseleniumtestworkflow&quot;>Run Selenium test workflow</h2>
-<ol>
-<li><p>Go to <a href=&quot;https://github.com/argoproj/example-selenium&quot;>https://github.com/argoproj/example-selenium</a>, which has the sample repository for the Selenium test.</p></li>
-<li><p>Review the <code>selenium_all_ax.yaml</code> file under the<code>.argo</code> folder in that repo. It has a top-level workflow, which is supported by several nested workflows to execute the job :</p>
+<p>In this tutorial, you'll run multiple steps, which are grouped into multiple, nested workflows as follows:</p>
+<p>The <strong>parent</strong> workflow &quot;<strong>Selenium Demo</strong>&quot; runs these steps:</p>
+<ul>
+<li><p>Checks out code for Selenium app (&quot;argo-checkout&quot;)</p></li>
+<li><p>Calls the workflow for the Selenium test and video conversion (&quot;selenium-with-video-converter&quot;)</p>
+<p>The <strong>first</strong> nested workflow &quot;selenium-with-video-converter&quot; runs these steps:</p></li>
+<li><p>Calls the workflow for the end-to-end test (&quot;selenium-test-workflow&quot;)</p></li>
+<li><p>Runs the container that performs the video conversion (&quot;video-converter&quot;)</p>
+<p>The <strong>second</strong> nested workflow &quot;selenium-test-workflow&quot; runs this step:</p></li>
+<li><p>Runs the end-to-end test</p>
+<p>NOTE: This step creates a container that runs the test, declares <a href=&quot;/argo-site/docs/user_guide/infrastructure/using_fixtures.html&quot;>fixtures</a> for the Selenium server, the web app to test, and video recorder, and issues the commands to run the test.</p></li>
+</ul>
+<h2 id=&quot;prerequisites&quot;>Prerequisites</h2>
+<p>This tutorial assumes the following:</p>
+<ul>
+<li>You have successfully <a href=&quot;https://argoproj.github.io/argo-site/get-started/installation&quot;>installed Argo</a>.</li>
+<li>You have integrated Argo with the sample odoo repo at <a href=&quot;https://github.com/argoproj/ci-workflow&quot;>https://github.com/argoproj/ci-workflow</a></li>
+<li>You have <a href=&quot;http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html&quot;>created an AWS RDS database instance of type &quot;PostgreSQL&quot;</a>. Make sure you've taken all default parameters and that Argo can access the database endpoint.</li>
+</ul>
+<h2 id=&quot;abouttheyamlfiles&quot;>About the YAML Files</h2>
+<p>The Selenium test workflow uses 3 YAML files from the <code>`.argo</code> directory of the repo at  <a href=&quot;https://github.com/argoproj/appstore/&quot;>https://github.com/argoproj/appstore/</a>:</p>
+<ul>
+<li><p><code>argo-checkout.yaml</code></p></li>
+<li>`selenium_all_ax.yaml` -  has a top-level workflow, which is supported by several nested workflows to execute the job :
+
 <ul>
 <li>top level workflow: <code>selenium-example-workflow</code> (Calls the nested workflows, which checks out code from the repo, and runs the Selenium test with video recording)</li>
 <li>nested workflow: <code>axscm-checkout</code>(checks out the Selenium test code from the repo)</li>
 <li>nested workflow: <code>selenium-test-video-workflow</code> (This child workflow runs the actual test and converts the output of the test workflow video from .flv format to .mp4 format)</li></ul>
+
+</li>
+<li><p><code>selenium_video_tools.yaml</code> - defines the containers for the video apps used to record and convert the video of the Selenium test.</p>
 <p>Every step in the workflow needs to be defined as a container specification and creates a Kubernetes job. For more details on the workflow and container YAML DSL please check the YAML tutorial at <a href=&quot;/argo-site/docs/yaml/container_templates.html&quot;>Container Template</a></p></li>
-<li><p>Also review the <code>axvideo_tools.yaml</code> file, which defines the containers for the video apps used to record and convert the video of the Selenium test.</p></li>
+</ul>
+<h2 id=&quot;runseleniumtestworkflow&quot;>Run Selenium test workflow</h2>
+<ol>
 <li><p>Since your Argo installation is automatically integrated with <a href=&quot;https://github.com/argoproj&quot;>https://github.com/argoproj</a> repo, you can view it in your Argo dashboard under Catalog menu item along with other samples</p></li>
-<li><p>Select Selenium Testing in the Catalog item and click Run to start the test with the nested workflows</p></li>
+<li><p>Select <strong>Selenium Testing</strong> in the Catalog item and click Run to start the test with the nested workflows</p></li>
 <li><p>You will see the workflow running in Argo Web UI where every step is a container. You can check the log and artifact generated by clicking on each step.</p></li>
-<li><p>Once the workflow completes you will see a &quot;Sampleapp&quot; application deployed under Applications tab in Argo Web UI.</p></li>
+<li><p>Once the workflow completes you will see a &quot;Sampleapp&quot; application deployed under Applications tab in Argo Web UI.</p>
+<p><img src=&quot;docs/images/Selenium_test_workflow_successful.png&quot; alt=&quot;Screenshot_Selenium_Test_Workflow&quot; /></p></li>
 </ol>
+<h2 id=&quot;customizeyouryamlfiles&quot;>Customize Your YAML Files</h2>
+<p>TBD</p>
 <h2 id=&quot;viewingthetestoutputsandartifacts&quot;>Viewing the Test Outputs and Artifacts</h2>
 <p>You can view the video output of the Selenium test by going to the specific Job from the Timeline, clicking a container and selecting the icon for &quot;<strong>Download artifact video</strong>&quot;:</p>
 <p>To view a report, go to the E2E_TEST container and click &quot;<strong>Download artifact report</strong>&quot;:</p>
@@ -5774,31 +5800,56 @@ body {
 <p>The dialog opens displaying the results and highlighting the lines that failed:</p>
 <h2 id=&quot;accessingtheyamlfilesforthisexample&quot;>Accessing the YAML Files for this Example</h2>
 <p>To see the YAML files for the Selenium test from the Argo Web UI, click <strong>Catalog</strong> &amp;gt; <strong>DevOps</strong> &amp;gt; <strong>Selenium Testing.</strong></p>
-<p>Or if you prefer to access the YAML templates from GitHub, go to <a href=&quot;https://github.com/Argoproj/appstore&quot;>https://github.com/Argoproj/appstore</a> and click the .<code>argo</code> directory.</p>
-<p>.</p>"><h1 id="tutorial6runningnestedworkflows">Tutorial 6: Running Nested Workflows</h1>
+<p>Or if you prefer to access the YAML templates from GitHub, go to <a href=&quot;https://github.com/Argoproj/appstore&quot;>https://github.com/Argoproj/appstore</a> and click the .<code>argo</code> directory.</p>"><h1 id="tutorial6runningnestedworkflows">Tutorial 6: Running Nested Workflows</h1>
 <p>This tutorial shows how to use nested workflows to:</p>
 <ul>
 <li>run a Selenium test against a web application ("Hello World") that runs in two web browsers (Chrome and Firefox)</li>
-<li>record and output a video of screenshots taken during the test.</li>
+<li>record and output a video of screenshots taken during the test</li>
 </ul>
-<p>To run the test, you need a Selenium server, the web app to test, and the test code.</p>
-<p>In this example, the first YAML file (<strong>selenium<em>all</em>ax.yaml</strong>) contains the information to run the test code and the second YAML file (<strong>axvideo_tools.yaml</strong>) has the information for converting the video output from a Flash format to an MPEG4 format.</p>
-<p>Link to selenium<em>all</em>ax.yaml and axvideo_tools.yaml https://github.com/argoproj/example-selenium/tree/master/.argo</p>
-<h2 id="runseleniumtestworkflow">Run Selenium test workflow</h2>
-<ol>
-<li><p>Go to <a href="https://github.com/argoproj/example-selenium">https://github.com/argoproj/example-selenium</a>, which has the sample repository for the Selenium test.</p></li>
-<li><p>Review the <code>selenium_all_ax.yaml</code> file under the<code>.argo</code> folder in that repo. It has a top-level workflow, which is supported by several nested workflows to execute the job :</p>
+<p>In this tutorial, you'll run multiple steps, which are grouped into multiple, nested workflows as follows:</p>
+<p>The <strong>parent</strong> workflow "<strong>Selenium Demo</strong>" runs these steps:</p>
+<ul>
+<li><p>Checks out code for Selenium app ("argo-checkout")</p></li>
+<li><p>Calls the workflow for the Selenium test and video conversion ("selenium-with-video-converter")</p>
+<p>The <strong>first</strong> nested workflow "selenium-with-video-converter" runs these steps:</p></li>
+<li><p>Calls the workflow for the end-to-end test ("selenium-test-workflow")</p></li>
+<li><p>Runs the container that performs the video conversion ("video-converter")</p>
+<p>The <strong>second</strong> nested workflow "selenium-test-workflow" runs this step:</p></li>
+<li><p>Runs the end-to-end test</p>
+<p>NOTE: This step creates a container that runs the test, declares <a href="/argo-site/docs/user_guide/infrastructure/using_fixtures.html">fixtures</a> for the Selenium server, the web app to test, and video recorder, and issues the commands to run the test.</p></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This tutorial assumes the following:</p>
+<ul>
+<li>You have successfully <a href="https://argoproj.github.io/argo-site/get-started/installation">installed Argo</a>.</li>
+<li>You have integrated Argo with the sample odoo repo at <a href="https://github.com/argoproj/ci-workflow">https://github.com/argoproj/ci-workflow</a></li>
+<li>You have <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html">created an AWS RDS database instance of type "PostgreSQL"</a>. Make sure you've taken all default parameters and that Argo can access the database endpoint.</li>
+</ul>
+<h2 id="abouttheyamlfiles">About the YAML Files</h2>
+<p>The Selenium test workflow uses 3 YAML files from the <code>`.argo</code> directory of the repo at  <a href="https://github.com/argoproj/appstore/">https://github.com/argoproj/appstore/</a>:</p>
+<ul>
+<li><p><code>argo-checkout.yaml</code></p></li>
+<li>`selenium_all_ax.yaml` -  has a top-level workflow, which is supported by several nested workflows to execute the job :
+
 <ul>
 <li>top level workflow: <code>selenium-example-workflow</code> (Calls the nested workflows, which checks out code from the repo, and runs the Selenium test with video recording)</li>
 <li>nested workflow: <code>axscm-checkout</code>(checks out the Selenium test code from the repo)</li>
 <li>nested workflow: <code>selenium-test-video-workflow</code> (This child workflow runs the actual test and converts the output of the test workflow video from .flv format to .mp4 format)</li></ul>
+
+</li>
+<li><p><code>selenium_video_tools.yaml</code> - defines the containers for the video apps used to record and convert the video of the Selenium test.</p>
 <p>Every step in the workflow needs to be defined as a container specification and creates a Kubernetes job. For more details on the workflow and container YAML DSL please check the YAML tutorial at <a href="/argo-site/docs/yaml/container_templates.html">Container Template</a></p></li>
-<li><p>Also review the <code>axvideo_tools.yaml</code> file, which defines the containers for the video apps used to record and convert the video of the Selenium test.</p></li>
+</ul>
+<h2 id="runseleniumtestworkflow">Run Selenium test workflow</h2>
+<ol>
 <li><p>Since your Argo installation is automatically integrated with <a href="https://github.com/argoproj">https://github.com/argoproj</a> repo, you can view it in your Argo dashboard under Catalog menu item along with other samples</p></li>
-<li><p>Select Selenium Testing in the Catalog item and click Run to start the test with the nested workflows</p></li>
+<li><p>Select <strong>Selenium Testing</strong> in the Catalog item and click Run to start the test with the nested workflows</p></li>
 <li><p>You will see the workflow running in Argo Web UI where every step is a container. You can check the log and artifact generated by clicking on each step.</p></li>
-<li><p>Once the workflow completes you will see a "Sampleapp" application deployed under Applications tab in Argo Web UI.</p></li>
+<li><p>Once the workflow completes you will see a "Sampleapp" application deployed under Applications tab in Argo Web UI.</p>
+<p><img src="docs/images/Selenium_test_workflow_successful.png" alt="Screenshot_Selenium_Test_Workflow"></p></li>
 </ol>
+<h2 id="customizeyouryamlfiles">Customize Your YAML Files</h2>
+<p>TBD</p>
 <h2 id="viewingthetestoutputsandartifacts">Viewing the Test Outputs and Artifacts</h2>
 <p>You can view the video output of the Selenium test by going to the specific Job from the Timeline, clicking a container and selecting the icon for "<strong>Download artifact video</strong>":</p>
 <p>To view a report, go to the E2E_TEST container and click "<strong>Download artifact report</strong>":</p>
@@ -5807,8 +5858,7 @@ body {
 <p>The dialog opens displaying the results and highlighting the lines that failed:</p>
 <h2 id="accessingtheyamlfilesforthisexample">Accessing the YAML Files for this Example</h2>
 <p>To see the YAML files for the Selenium test from the Argo Web UI, click <strong>Catalog</strong> &gt; <strong>DevOps</strong> &gt; <strong>Selenium Testing.</strong></p>
-<p>Or if you prefer to access the YAML templates from GitHub, go to <a href="https://github.com/Argoproj/appstore">https://github.com/Argoproj/appstore</a> and click the .<code>argo</code> directory.</p>
-<p>.</p></div></argo-doc-viewer>
+<p>Or if you prefer to access the YAML templates from GitHub, go to <a href="https://github.com/Argoproj/appstore">https://github.com/Argoproj/appstore</a> and click the .<code>argo</code> directory.</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

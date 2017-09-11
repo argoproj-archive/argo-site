@@ -33,58 +33,33 @@ You'll need to use two types of YAML templates to implement volumes:
 The following pseudo-code shows the specific lines to add to support for named and anonymous volumes in the two templates (Deployment and Container) and it uses a "referenced"container to mount a volume:
 
 ### Deployment Template
-
 ```
 # section name
-```
-
-```
 volumes:
-```
-
-```
 # Reference a named volume for deployment with the "name" reserved word
-```
-
-<pre xml:space="preserve" xmlns="">  <reference_to_named_volume>:</pre>
-
-<pre xml:space="preserve" xmlns="">    name: <user_created_name_for_the_volume></pre>
-
-```
+  &lt;reference_to_named_volume&gt;:
+    name: &lt;user_created_name_for_the_volume&gt;
 # Reference to an anonymous volume for deployment
-```
-
-<pre xml:space="preserve" xmlns="">  <reference_to_volume1>:
+  &lt;reference_to_volume1&gt;:
     # Storage_class is an Argo keyword that refers to pre-configured
-    # storage provider and its required parameters that Argo supports</pre>
-
-<pre xml:space="preserve" xmlns="">    **Storage_class:** <Argo_reserved_name_4_class></pre>
-
-```
+    # storage provider and its required parameters that Argo supports
+    Storage_class: &lt;Argo_reserved_name_4_class&gt;
     Size: xx GB
 ```
-
 ### Container Template
 
 ```
 # Name of image for container
-```
-
-<pre xml:space="preserve" xmlns="">image: <database_type or server_type such as MySQL or HTTP server></pre>
-
-<pre xml:space="preserve" xmlns="">resources:
-  cpu_cores: <number_of_cpu_cores>
-..mem_mib: <size_of_memory></pre>
-
-```
+image: &lt;database_type or server_type such as MySQL or HTTP server&gt;
+resources:
+  cpu_cores: &lt;number_of_cpu_cores&gt;
+..mem_mib: &lt;size_of_memory&gt;
 # inputs section that has the mount path for a volume (such as /var/log)
-```
-
-<pre xml:space="preserve" xmlns="">inputs:
+inputs:
   volumes:
-    <reference_to_volume>
-      mount_path: <path_to_volume>
-</pre>
+    &lt;reference_to_volume&gt;
+      mount_path: &lt;path_to_volume&gt;
+```
 
 ## Code Example for Named Volume
 

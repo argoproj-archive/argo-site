@@ -16,7 +16,7 @@ This tutorial assumes the following:
 
 ## About the YAML Files
 
-The CI workflow uses 4 YAML files from the repo at  [https://github.com/argoproj/ci-workflow/.argo](https://github.com/argoproj/ci-workflow/tree/master/.argo):
+The CI workflow uses 4 YAML files from the repo at  [https://github.com/argoproj/ci-workflow/.argo](https://github.com/argoproj/ci-workflow):
 
 * `example-workflow-approval.yaml` - defines the CI workflow
 * `argo-checkout.yaml` - defines a container that Argo provides for checking out code from your repo to an AWS S3 bucket that your workflow steps can access.
