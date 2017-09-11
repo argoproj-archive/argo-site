@@ -34,8 +34,7 @@ import { MainComponent } from './main.component';
 })
 export class MainModule {
     constructor(trackingService: TrackingService) {
-        if (TRACKING_ID) {
-            trackingService.initialize(TRACKING_ID);
-        }
+        let [id, label] = (AD_CONVERSION_CONFIG || '').split('|');
+        trackingService.initialize(TRACKING_ID, {id, label});
     }
 }

@@ -49,6 +49,7 @@ module.exports = {
     new DefinePlugin({
         'ENV': JSON.stringify('production'),
         'TRACKING_ID': JSON.stringify(process.env.TRACKING_ID || ''),
+        'AD_CONVERSION_CONFIG': JSON.stringify(process.env.AD_CONVERSION_CONFIG || ''),
       }),
   ],
   target: 'node'

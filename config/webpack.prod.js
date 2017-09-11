@@ -15,6 +15,7 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   ENV: ENV,
   HMR: false,
   TRACKING_ID: process.env.TRACKING_ID || '',
+  AD_CONVERSION_CONFIG: process.env.AD_CONVERSION_CONFIG || '',
 });
 
 module.exports = function () {
@@ -33,6 +34,7 @@ module.exports = function () {
         'ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
         'TRACKING_ID': JSON.stringify(METADATA.TRACKING_ID),
+        'AD_CONVERSION_CONFIG': JSON.stringify(METADATA.AD_CONVERSION_CONFIG),
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),

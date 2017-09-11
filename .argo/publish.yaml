@@ -16,6 +16,8 @@ inputs:
       default: "https://argoproj.github.io"
     docs-branch:
       default: "production"
+    ad-conversion-config:
+      default: "843665096|Pi8UCIqchXUQyJ2lkgM"
 steps:
 - build:
     template: build

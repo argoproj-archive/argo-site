@@ -16,6 +16,8 @@ inputs:
       default: ""
     tracking-id:
       default: ""
+    ad-conversion-config:
+      default: ""
 steps:
 - checkout-site:
     template: argo-checkout
@@ -34,6 +36,8 @@ steps:
         value: "%%inputs.parameters.tracking-id%%"
       - name: BASE_URL
         value: "%%inputs.parameters.base-url%%"
+      - name: AD_CONVERSION_CONFIG
+        value: "%%inputs.parameters.ad-conversion-config%%"
     args: ["cd /src && npm install && npm run build:prod"]
     resources:
       mem_mib: 1536
@@ -58,6 +62,8 @@ steps:
         value: "%%inputs.parameters.tracking-id%%"
       - name: BASE_URL
         value: "%%inputs.parameters.base-url%%"
+      - name: AD_CONVERSION_CONFIG
+        value: "%%inputs.parameters.ad-conversion-config%%"
     resources:
       mem_mib: 1536
       cpu_cores: 0.2
