@@ -11,6 +11,6 @@ After connecting to your source control management system, you'll also connect t
 5.  (Optional) Click **TEST** to check the connection before you integrate Argo to the registry.
 6.  Click **CONNECT**.
 
-To disconnect a registry, click ![](../../../images/pencil_4_editing_25x22.png)and click **DISCONNECT**.
+At this point, you can now run a workflow from a commit. 
 
-Next step: Run a workflow from Argo Catalog.
+To disconnect a registry, click ![](../../../images/pencil_4_editing_25x22.png)and click **DISCONNECT**.

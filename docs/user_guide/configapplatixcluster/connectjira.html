@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-    <title>User guide for Kubernetes workflow engine | Argo</title>
+    <title>Connect Argo to Issue Tracking System | JIRA | Argo</title>
     <base href="/argo-site/">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
@@ -9,10 +9,10 @@
     <meta name="theme-color" content="#363c4a">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700" rel="stylesheet">
-    <meta name="description" content="Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment">
+    <meta name="description" content="Integrate Argo with issue tracking systems, create issues from Argo, configure webhooks for Argo, updates to a JIRA issue are forwarded to Argo">
 
     
-<script src="/argo-site/assets/polyfills.837bd25fe1af41f567ad.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.365102fede2412d2244c.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5476,7 +5476,7 @@ body {
     display: block;
     width: 120px;
     padding: 0 20px; }
-</style><meta property="og:title" content="User guide for Kubernetes workflow engine | Argo"><meta property="og:description" content="Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment"><style ng-transition="argo-main">.docs-browser-view {
+</style><meta property="og:title" content="Connect Argo to Issue Tracking System | JIRA | Argo"><meta property="og:description" content="Integrate Argo with issue tracking systems, create issues from Argo, configure webhooks for Argo, updates to a JIRA issue are forwarded to Argo"><style ng-transition="argo-main">.docs-browser-view {
   position: relative; }
   .docs-browser-view__top {
     margin-bottom: 30px;
@@ -5749,36 +5749,36 @@ body {
             <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;connecttoissuetrackingsystem&quot;>Connect to Issue Tracking System</h1>
 <p>To make it easy to file issues against a job, application or deployment, Argo integrates with issue tracking systems such as JIRA so you can create issues from Argo. You can also set up webhooks for Argo so any updates to the already integrated JIRA issue are automatically forwarded to Argo. Here's the procedure to integrate with an issue tracking system:</p>
 <ol>
-<li><p>Click Configurations&amp;gt; Connect Issue Tracking System.</p></li>
+<li><p>Click <strong>Configurations</strong> &amp;gt; <strong>Connect Issue Tracking System</strong>.</p></li>
 <li><p>Click the logo for your issue tracking system.</p></li>
 <li><p>Enter the URL for accessing your issue tracking system</p></li>
 <li><p>(Optional) Enter the host name of webhook server</p></li>
 <li><p>Enter Username for issue tracking system</p></li>
 <li><p>Enter Password or app password for issue tracking system</p></li>
-<li><p>Click Test to ping the connection.</p></li>
-<li><p>Under Add Projects, select the projects you want to add issues to.</p></li>
-<li><p>Click Connect.</p></li>
-<li><p>If satisfied with changes, click DONE.</p></li>
+<li><p>Click <strong>Test</strong> to ping the connection.</p></li>
+<li><p>Under <strong>Add Projects</strong>, select the projects you want to add issues to.</p></li>
+<li><p>Click <strong>Connect</strong>.</p></li>
+<li><p>If satisfied with changes, click <strong>DONE</strong>.</p></li>
 </ol>
 <p>After you configure your issue tracking system with Argo, your issue tracking system shows that the webhook is set up to notify Argo of any changes to an issue as this screenshot shows:</p>
 <p><img src=&quot;docs/images/issue_tracker_jira_admin_webhook_status_1030x436.png&quot; alt=&quot;&quot; /></p>
-<p>If you want to disconnect the issue tracking system, click Disconnect. When prompted, click YES.</p>"><h1 id="connecttoissuetrackingsystem">Connect to Issue Tracking System</h1>
+<p>If you want to disconnect the issue tracking system, click <strong>Disconnect</strong>. When prompted, click <strong>YES</strong>.</p>"><h1 id="connecttoissuetrackingsystem">Connect to Issue Tracking System</h1>
 <p>To make it easy to file issues against a job, application or deployment, Argo integrates with issue tracking systems such as JIRA so you can create issues from Argo. You can also set up webhooks for Argo so any updates to the already integrated JIRA issue are automatically forwarded to Argo. Here's the procedure to integrate with an issue tracking system:</p>
 <ol>
-<li><p>Click Configurations&gt; Connect Issue Tracking System.</p></li>
+<li><p>Click <strong>Configurations</strong> &gt; <strong>Connect Issue Tracking System</strong>.</p></li>
 <li><p>Click the logo for your issue tracking system.</p></li>
 <li><p>Enter the URL for accessing your issue tracking system</p></li>
 <li><p>(Optional) Enter the host name of webhook server</p></li>
 <li><p>Enter Username for issue tracking system</p></li>
 <li><p>Enter Password or app password for issue tracking system</p></li>
-<li><p>Click Test to ping the connection.</p></li>
-<li><p>Under Add Projects, select the projects you want to add issues to.</p></li>
-<li><p>Click Connect.</p></li>
-<li><p>If satisfied with changes, click DONE.</p></li>
+<li><p>Click <strong>Test</strong> to ping the connection.</p></li>
+<li><p>Under <strong>Add Projects</strong>, select the projects you want to add issues to.</p></li>
+<li><p>Click <strong>Connect</strong>.</p></li>
+<li><p>If satisfied with changes, click <strong>DONE</strong>.</p></li>
 </ol>
 <p>After you configure your issue tracking system with Argo, your issue tracking system shows that the webhook is set up to notify Argo of any changes to an issue as this screenshot shows:</p>
 <p><img src="docs/images/issue_tracker_jira_admin_webhook_status_1030x436.png" alt=""></p>
-<p>If you want to disconnect the issue tracking system, click Disconnect. When prompted, click YES.</p></div></argo-doc-viewer>
+<p>If you want to disconnect the issue tracking system, click <strong>Disconnect</strong>. When prompted, click <strong>YES</strong>.</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

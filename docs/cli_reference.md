@@ -110,11 +110,11 @@ Installs an Argo cluster based on given configurations. After the cluster is ins
 
 This is the basic command for installing Argo:
 
-<pre xml:space="preserve" xmlns="">argocluster install --cluster-name <CLUSTER_NAME></pre>
+`argocluster install --cluster-name <CLUSTER_NAME>`
 
 ### Options
 
-<table xmlns=""><colgroup><col style="width: 248pt;"> <col style="width: 353pt;"> <col style="width: 148pt;"></colgroup>
+<table><colgroup><col style="width: 248pt;"> <col style="width: 353pt;"> <col style="width: 148pt;"></colgroup>
 
 <tbody>
 
@@ -470,7 +470,7 @@ A pre-canned spot instance option. Choose from "none", "partial", "all".
 
 <td>
 
-A subnet mask size specified for the cluster's subnet. Subnet mask size cannot be greater than 25\.
+A subnet mask size specified for the cluster's subnet. Subnet mask size cannot be greater than 25.
 
 </td>
 
@@ -594,7 +594,7 @@ Uninstalls a cluster and cleans up all cluster-related resources in the cloud pr
 
 This is the basic command for uninstalling Argo:
 
-<pre style="font-weight: normal;" xml:space="preserve" xmlns=""> **$ argocluster uninstall --force-uninstall --cluster-name <_yourClusterName_>**</pre>
+ `$ argocluster uninstall --force-uninstall --cluster-name <_yourClusterName_>`
 
 ### Options
 
@@ -760,11 +760,11 @@ Upgrades a cluster to a target version of Argo. Currently some important softwa
 
 This is the basic command for upgrading your cluster:
 
-<pre xml:space="preserve" xmlns="">**$ argocluster upgrade --cluster-name <_yourClusterName_>**</pre>
+`$ argocluster upgrade --cluster-name <_yourClusterName_>`
 
 ### Options
 
-<table xmlns=""><colgroup><col style="width: 190px;"> <col></colgroup>
+<table><colgroup><col style="width: 190px;"> <col></colgroup>
 
 <thead>
 
@@ -942,11 +942,11 @@ Tears down unnecessary resources from cloud provider, while making sure your clu
 
 This is the basic command for pausing a cluster:
 
-<pre xmlns="">**$ argocluster pause --cluster-name <_yourClusterName_>**</pre>
+`$ argocluster pause --cluster-name <_yourClusterName_>`
 
 ### Options
 
-<table xmlns=""><colgroup><col style="width: 205px;"> <col></colgroup>
+<table><colgroup><col style="width: 205px;"> <col></colgroup>
 
 <thead>
 
@@ -1076,19 +1076,17 @@ Restores a paused cluster to its previous state before pausing. After resuming, 
 
 This is the basic command for resuming a cluster:
 
-<pre xml:space="preserve" xmlns="">**$ argocluster resume --cluster-name <_yourClusterName_>**</pre>
+`$ argocluster resume --cluster-name <_yourClusterName_>`
 
 ## Restart
 
 This is the basic command to restart Argo:
 
-```
-**argocluster restart [-h] [--cluster-name CLUSTER_NAME]**
-```
+`$ argocluster restart [-h] [--cluster-name CLUSTER_NAME]`
 
 ### Options
 
-<table xmlns=""><colgroup><col style="width: 166px;"> <col></colgroup>
+<table><colgroup><col style="width: 166px;"> <col></colgroup>
 
 <thead>
 

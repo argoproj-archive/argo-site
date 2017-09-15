@@ -8,30 +8,44 @@
       "children": [
         {
           "title": "Tutorial 1: Create CI Workflow",
+          "summary": "Create CI workflow using Kubernetes workflow | Argo",
+          "details": "Tutorial for creating CI workflow using Argoproj, container-native workflow engine on Kubernetes",
           "path": "yaml/argo_tutorial_1_create_ci_workflow.md"
         },
         {
           "title": "Tutorial 2: Build and Deploy Docker Image using DinD",
+          "summary": "Build a Docker image using Docker-in-Docker technique | Argo",
+          "details": "Tutorial for building Docker images using Docker-in-Docker technique and Argoproj, container-native workflow engine on Kubernetes | Argo",
           "path": "yaml/argo_tutorial_2_create_docker_image_build_workflow.md"
         },
         {
           "title": "Tutorial 3: Deploy a Stateless App",
+          "summary": "Deploy a stateless, containerized app with Argo on Kubernetes",
+          "details": "Tutorial for deploying and scaling a stateless, containerized application (node.js and mongodb) using Argoproj, container-native workflow engine on Kubernetes",
           "path": "yaml/argo_tutorial_3_deploy_stateless_mlb_app.md"
         },
         {
           "title": "Tutorial 4: Deploy a Stateful App",
+          "summary": "Deploy a stateful, containerized app with Argo on Kubernetes",
+          "details": "Tutorial for deploying and scaling a stateful, containerized app using Argoproj, container-native workflow engine on Kubernetes, persistent volumes, PostgreSQL",
           "path": "yaml/argo_tutorial_4_deploy_stateful_odoo_app_volume.md"
         },
         {
           "title": "Tutorial 5: Deploy Stateful App with AWS RDS",
+          "summary": "Deploy a stateful, containerized app with Argo and AWS RDS",
+          "details": "Tutorial for deploying and scaling a stateful, containerized app, Odoo, using Argoproj, AWS RDS for PostgreSQL database, and AWS EBS volume for app server files",
           "path": "yaml/argo_tutorial_5_deploy_stateful_odoo_app_rds.md"
         },
         {
           "title": "Tutorial 6: Running Nested Workflows",
+          "summary": "Run Selenium tests using nested Argo workflows",
+          "details": "Tutorial for using nested Argo workflows to run a Selenium test against a web app running in Chrome and Firefox browsers, and records a video of the test",
           "path": "yaml/argo_tutorial_6_execute_selenium_tests.md"
         },
         {
           "title": "Tutorial 7: Deploy Microservices-based App",
+          "summary": "Deploy and scale a stateful, microservices-based app | Argo",
+          "details": "Tutorial for deploying and scaling a stateful, microservices-based application (Sock shop) using an Argo workflow on Kubernetes, AWS EBS volume, Zipkin",
           "path": "yaml/argo_tutorial_7_deploy_microservices_sockshop_app.md"
         }
       ]
@@ -44,41 +58,61 @@
       "children": [
         {
           "title": "Configuring Argo",
+          "summary": "Configure Argo to run workflows, deploy apps on Kubernetes",
+          "details": "Configure Argo to run workflows, deploy container-native apps on Kubernetes, monitor cost usage and hosts",
           "children": [
             {
               "title": "Source Control",
+              "summary": "Configure Argo for source control management",
+              "details": "Connect Argo with an source control management system, BitBucket, GitHub, Git, CodeCommit, webhooks",
               "path": "user_guide/configapplatixcluster/connectscm.md"
             },
             {
               "title": "Docker Registry",
+              "summary": "Connect public Docker registries to Argo",
+              "details": "Connect Argo to your public Docker registries (such as DockerHub or your own private Docker registry)",
               "path": "user_guide/configapplatixcluster/connectdockerhub-registry.md"
             },
             {
               "title": "Domains",
+              "summary": "Configure Domains for App Access on Argo",
+              "details": "Configure the domains that applications can access for deployment on argo, using AWS Route 53 service",
               "path": "user_guide/configapplatixcluster/managedomains.md"
             },
             {
               "title": "Single Sign-On",
+              "summary": "Configuring Single Sign-On for Argo with Identity Provider",
+              "details": "Securely connect Argo with an Identity Provider (IdP) and enable single sign-on (SSO)",
               "path": "user_guide/configapplatixcluster/setupsso.md"
             },
             {
               "title": "System Settings",
+              "summary": "Encrypt Secret, Configure Signed Certificates, spot instance",
+              "details": "Configure system settings to encrypt secrets, configure signed certificates, enable spot instances, obtaining secret key pair from Argo, copy encryption key",
               "path": "user_guide/configapplatixcluster/managesystemsettings.md"
             },
             {
               "title": "Users and Permissions",
+              "summary": "Managing Users and Permissions for Argo",
+              "details": "Configuring levels of access privileges for modifying an Argo user's permissions and profiles, adding users, sending invitations",
               "path": "user_guide/configapplatixcluster/manageuserpermissions.md"
             },
             {
               "title": "Artifact Repository",
+              "summary": "Connecting an Artifact Repository to Argo",
+              "details": "Integrate external artifact repositories, types of artifacts Argo handles, configure policy for length of time to retain artifacts",
               "path": "user_guide/configapplatixcluster/connectartifactrepo.md"
             },
             {
               "title": "Issue Tracking",
+              "summary": "Connect Argo to Issue Tracking System | JIRA",
+              "details": "Integrate Argo with issue tracking systems, create issues from Argo, configure webhooks for Argo, updates to a JIRA issue are forwarded to Argo",
               "path": "user_guide/configapplatixcluster/connectjira.md"
             },
             {
               "title": "Notifications",
+              "summary": "Notification messages with severity levels about Argo events",
+              "details": "Configure notification messages, severity levels about Argo events, configure notification rules for users, configure Slack, SMTP to send notification messages",
               "path": "user_guide/configapplatixcluster/setupnotificationmanagement.md"
             }
           ]
@@ -88,14 +122,20 @@
           "children": [
             {
               "title": "Creating a Job",
+              "summary": "Create a job from a code commit and selecting a template",
+              "details": "Create jobs from code commits and selecting YAML templates, viewing Job History from Timeline, managing and monitoring jobs",
               "path": "user_guide/timeline/create_job-viewhistory.md"
             },
             {
               "title": "Creating a Policy that Triggers a Workflow",
+              "summary": "Automating Argo Workflows Using Policies",
+              "details": "Using policies to automate Argo workflows on Kubernetes, enabling and disabling policies",
               "path": "yaml/ex_create_policy_4_workflow.md"
             },
             {
               "title": "Running Workflows/Apps in Catalog",
+              "summary": "Running pre-configured Argo workflows and apps from Catalog",
+              "details": "Running pre-configured Argo workflows and apps from Catalog, customizing an Argo workflow",
               "path": "user_guide/catalog/deploycatalogapp.md"
             }
           ]
@@ -105,26 +145,38 @@
           "children": [
             {
               "title": "Running Applications and Deployments",
+              "summary": "Building and Deploying Container-Native Applications | Argo",
+              "details": "Build and Deploy Container-Native Applications as long-running microservices on Kubernetes, Monitor and Scale Deployments, Configure Rolling Updates | Argo",
               "path": "user_guide/applications/applications.md"
             },
             {
               "title": "Running Stateful Applications",
+              "summary": "Running Stateful Apps Using Volumes or External Services",
+              "details": "Using Volumes or Fixtures to maintain state or access External Services, creating managed fixtures, using managed fixtures",
               "path": "intro-run_stateful_apps_volumes_fixtures.md",
               "children": [
                 {
                   "title": "Create Managed Fixtures",
+                  "summary": "Create Managed Fixtures for resources external to Argo",
+                  "details": "Creating a Managed Fixture for Workflows and Apps to access a resource external to your Argo cluster, attributes, actions, YAML Code for managed fixture",
                   "path": "yaml/ex_create_managed_fixtures.md"
                 },
                 {
                   "title": "Using Managed Fixtures",
+                  "summary": "Using Fixtures for Accessing External Resources",
+                  "details": "Using Fixtures in workflows or apps to access a resource that is external to Argo, add a fixture class to a repo branch, create an instance of a fixture class",
                   "path": "user_guide/infrastructure/using_fixtures.md"
                 },
                 {
                   "title": "Adding Volumes for Deployment",
+                  "summary": "Adding a Volume as Storage for Deployment",
+                  "details": "Using volumes as storage for persisting data in a long-running deployment, Storage Classes for Volumes, named, anonymous, container and deployment templates",
                   "path": "yaml/ex_add_volume_deployment.md"
                 },
                 {
                   "title": "Adding an Internal Elastic Load Balancer",
+                  "summary": "Access apps running on Argo using private IP addresses",
+                  "details": "Access applications running on Argo cluster on Kubernetes using private IP addresses, Internal Elastic load balancer (Internal ELB), AWS VPC",
                   "path": "yaml/ex_adding_a_private_elastic_load_balancer.md"
                 }
               ]
@@ -133,18 +185,26 @@
         },
         {
           "title": "Monitoring",
+          "summary": "View total cost of cluster, health of hosts, job summary",
+          "details": "View total cost of cluster spending, real-time data about containers, instances running on hosts, job summary",
           "path": "intro-monitor_gov_spend.md",
           "children": [
             {
               "title": "Cashboard",
+              "summary": "View total cost of running Argo cluster using Kubernetes",
+              "details": "Cashboard displays how much you are charged for the instances that are currently running, and the actual utilization of those instances",
               "path": "user_guide/dashboards/cashboard.md"
             },
             {
               "title": "Hosts",
+              "summary": "Real-time data for instances and hosts running jobs on Argo",
+              "details": "Real-time details about the instances /hosts with running jobs in the Argo cluster, memory allocated to the instance and the percentage of utilization",
               "path": "user_guide/dashboards/hosts.md"
             },
             {
               "title": "Metrics",
+              "summary": "Summary of jobs that succeeded, failed, queued, in-progress",
+              "details": "Summary of jobs that succeeded, failed, scheduled to run, in-progress, queued to run, and total spending within a specified time range",
               "path": "user_guide/dashboards/metrics.md"
             }
           ]
@@ -155,34 +215,48 @@
       "title": "YAML DSL",
       "path": "yaml/dsl_reference_intro.md",
       "summary": "YAML DSL for Kubernetes workflow engine",
-      "details": "Argo’s YAML DSL describes the specification to write Argo container, deployment, workflow templates",
+      "details": "Argo’s YAML DSL describes the specification to write Argo container, workflow, deployment, policy, fixture, and policy templates",
       "children": [
         {
           "title": "Container Templates",
+          "summary": "The YAML template that Argo specifies for running a container",
+          "details": "The Argo YAML DSL specification for running containers and details about the container template sections (common name and type, inputs, outputs)",
           "path": "yaml/container_templates.md"
         },
         {
           "title": "Workflow Template",
+          "summary": "The YAML template that Argo specifies for running workflows",
+          "details": "The Argo YAML DSL specification for running workflows and details about the workflow template sections (common name and type, inputs, outputs, steps)",
           "path": "yaml/workflow_templates.md"
         },
         {
           "title": "Policy Templates",
+          "summary": "YAML template that defines rules for triggering workflows",
+          "details": "The Argo YAML DSL specification for defining rules that trigger a job or notification. Policies are applied to other templates (Workflow, Container, Deployment)",
           "path": "yaml/policy_templates.md"
         },
         {
           "title": "Deployment Template",
+          "summary": "The Argo YAML template for specifying a long-running service",
+          "details": "The Argo YAML DSL template for specifying a long-running service (such as a microservice or application)",
           "path": "yaml/deployment_template.md"
         },
         {
           "title": "Fixture Template",
+          "summary": "The YAML template that defines fixtures for external resources",
+          "details": "The Argo YAML DSL template for defining fixture classes that represent resources outside of Argo",
           "path": "yaml/fixture_template.md"
         },
         {
           "title": "Project Templates",
+          "summary": "YAML template that specifies apps or workflows in Catalog",
+          "details": "The Argo YAML DSL template for defining apps or workflows that can be accessed in the Argo Catalog",
           "path": "yaml/project_templates.md"
         },
         {
           "title": "Using Special Values for Parameters",
+          "summary": "Special values that refer to session-specific data",
+          "details": "The Argo DSL language defines special values as Argo variables that refer to session-specific data; YAML templates use this data to populate the variables",
           "path": "yaml/special_parameters_values.md"
         }
       ]

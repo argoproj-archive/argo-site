@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-    <title>User guide for Kubernetes workflow engine | Argo</title>
+    <title>Managing Users and Permissions for Argo | Argo</title>
     <base href="/argo-site/">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
@@ -9,10 +9,10 @@
     <meta name="theme-color" content="#363c4a">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700" rel="stylesheet">
-    <meta name="description" content="Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment">
+    <meta name="description" content="Configuring levels of access privileges for modifying an Argo user's permissions and profiles, adding users, sending invitations">
 
     
-<script src="/argo-site/assets/polyfills.837bd25fe1af41f567ad.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.365102fede2412d2244c.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5476,7 +5476,7 @@ body {
     display: block;
     width: 120px;
     padding: 0 20px; }
-</style><meta property="og:title" content="User guide for Kubernetes workflow engine | Argo"><meta property="og:description" content="Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment"><style ng-transition="argo-main">.docs-browser-view {
+</style><meta property="og:title" content="Managing Users and Permissions for Argo | Argo"><meta property="og:description" content="Configuring levels of access privileges for modifying an Argo user's permissions and profiles, adding users, sending invitations"><style ng-transition="argo-main">.docs-browser-view {
   position: relative; }
   .docs-browser-view__top {
     margin-bottom: 30px;
@@ -5746,7 +5746,7 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;managingusersandpermissionsfortheargo&quot;>Managing Users and Permissions for the Argo</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;managingusersandpermissionsforargo&quot;>Managing Users and Permissions for Argo</h1>
 <p>Argo provides two levels of access privileges for modifying a user's permissions and profiles:</p>
 <ul>
 <li><p>Administrator - Full access to modify Configurations tab including the following:</p>
@@ -5761,36 +5761,36 @@ body {
 </ul>
 <h3 id=&quot;inviteusersandsettheirpermissionsadministrativeuseronly&quot;>Invite Users and Set Their Permissions (Administrative User Only)</h3>
 <ol>
-<li><p>Click Configurations &amp;gt; Manage Users and Permissions.</p></li>
+<li><p>Click <strong>Configurations</strong> &amp;gt; <strong>Manage Users and Permissions</strong>.</p></li>
 <li><p>Click <strong>+</strong>.</p></li>
 <li><p>Enter the email address of the user you want to add.</p>
-<p>NOTE: If the email address is a distribution list, check MAILING GROUP.</p></li>
-<li><p>Click GROUPS and select <strong>admin</strong> or <strong>developer</strong> to set the level of access privileges for the user.</p></li>
+<p>NOTE: If the email address is a distribution list, check <strong>MAILING GROUP</strong>.</p></li>
+<li><p>Click <strong>GROUPS</strong> and select <strong>admin</strong> or <strong>developer</strong> to set the level of access privileges for the user.</p></li>
 <li><p>Enter <strong>FIRST NAME</strong> and <strong>LAST NAME</strong> for the user.</p></li>
-<li><p>Click INVITE.</p></li>
+<li><p>Click <strong>INVITE</strong>.</p></li>
 </ol>
 <p>To view the invitations that have been sent out and have not received a response, click <strong>INVITATIONS</strong>.</p>
 <p>This page shows the email address, the name of the user, and the date that the invitation expires.</p>
 <h3 id=&quot;modifyausersinformationoraccessprivilegesadministrativeuseronly&quot;>Modify a User's Information or Access Privileges (Administrative User Only)</h3>
 <ul>
-<li><p>Go to Configurations &amp;gt; Manage Users and Permissions. (Displays all users of the Cluster and their statuses)</p></li>
+<li><p>Go to <strong>Configurations</strong> &amp;gt; <strong>Manage Users and Permissions</strong>. (Displays all users of the Cluster and their statuses)</p></li>
 <li><p>Select the row of the user and click <img src=&quot;docs/images/clear_3_dots_34x34.png&quot; alt=&quot;&quot; />. Then choose one of the options:</p></li>
 <li><p><strong>Edit Profile</strong> - Change a user's name, label, or password.</p></li>
 <li><p><strong>Disable</strong> or <strong>Enable</strong> User- Changes status of user to &quot;Disabled&quot; or &quot;Active&quot;.</p></li>
 <li><p><strong>Delete User</strong> - Removes the user from accessing the Argo system.</p></li>
 <li><p><strong>Grant Admin Access</strong> - Grants administrative privileges for a user.</p></li>
-<li><p>Follow the prompts to execute the option or click Cancel to back out of your changes.</p></li>
+<li><p>Follow the prompts to execute the option or click <strong>Cancel</strong> to back out of your changes.</p></li>
 </ul>
 <h3 id=&quot;modifyausersprofiledeveloperuseronly&quot;>Modify a User's Profile (Developer User Only)</h3>
 <ol>
-<li><p>At bottom left, click <img src=&quot;docs/images/_c_icon_31x35.png&quot; alt=&quot;&quot; /> and select My Profile.</p>
+<li><p>At bottom left, click <img src=&quot;docs/images/_c_icon_31x35.png&quot; alt=&quot;&quot; /> and select <strong>My Profile</strong>.</p>
 <p>The profile displays.</p></li>
 <li><p>Modify the following fields for your profile by clicking</p>
-<p>Name - the name you want to appear for your profile</p>
-<p>Password - the password for your profile.</p></li>
-<li><p>Click Done when satisfied with your entries.</p></li>
-<li><p>(Optional) Under Manage your labels, enter a name for your label and click Add.</p></li>
-</ol>"><h1 id="managingusersandpermissionsfortheargo">Managing Users and Permissions for the Argo</h1>
+<p><strong>Name</strong> - the name you want to appear for your profile</p>
+<p><strong>Password</strong> - the password for your profile.</p></li>
+<li><p>Click <strong>Done</strong> when satisfied with your entries.</p></li>
+<li><p>(Optional) Under <strong>Manage your labels</strong>, enter a name for your label and click <strong>Add</strong>.</p></li>
+</ol>"><h1 id="managingusersandpermissionsforargo">Managing Users and Permissions for Argo</h1>
 <p>Argo provides two levels of access privileges for modifying a user's permissions and profiles:</p>
 <ul>
 <li><p>Administrator - Full access to modify Configurations tab including the following:</p>
@@ -5805,35 +5805,35 @@ body {
 </ul>
 <h3 id="inviteusersandsettheirpermissionsadministrativeuseronly">Invite Users and Set Their Permissions (Administrative User Only)</h3>
 <ol>
-<li><p>Click Configurations &gt; Manage Users and Permissions.</p></li>
+<li><p>Click <strong>Configurations</strong> &gt; <strong>Manage Users and Permissions</strong>.</p></li>
 <li><p>Click <strong>+</strong>.</p></li>
 <li><p>Enter the email address of the user you want to add.</p>
-<p>NOTE: If the email address is a distribution list, check MAILING GROUP.</p></li>
-<li><p>Click GROUPS and select <strong>admin</strong> or <strong>developer</strong> to set the level of access privileges for the user.</p></li>
+<p>NOTE: If the email address is a distribution list, check <strong>MAILING GROUP</strong>.</p></li>
+<li><p>Click <strong>GROUPS</strong> and select <strong>admin</strong> or <strong>developer</strong> to set the level of access privileges for the user.</p></li>
 <li><p>Enter <strong>FIRST NAME</strong> and <strong>LAST NAME</strong> for the user.</p></li>
-<li><p>Click INVITE.</p></li>
+<li><p>Click <strong>INVITE</strong>.</p></li>
 </ol>
 <p>To view the invitations that have been sent out and have not received a response, click <strong>INVITATIONS</strong>.</p>
 <p>This page shows the email address, the name of the user, and the date that the invitation expires.</p>
 <h3 id="modifyausersinformationoraccessprivilegesadministrativeuseronly">Modify a User's Information or Access Privileges (Administrative User Only)</h3>
 <ul>
-<li><p>Go to Configurations &gt; Manage Users and Permissions. (Displays all users of the Cluster and their statuses)</p></li>
+<li><p>Go to <strong>Configurations</strong> &gt; <strong>Manage Users and Permissions</strong>. (Displays all users of the Cluster and their statuses)</p></li>
 <li><p>Select the row of the user and click <img src="docs/images/clear_3_dots_34x34.png" alt="">. Then choose one of the options:</p></li>
 <li><p><strong>Edit Profile</strong> - Change a user's name, label, or password.</p></li>
 <li><p><strong>Disable</strong> or <strong>Enable</strong> User- Changes status of user to "Disabled" or "Active".</p></li>
 <li><p><strong>Delete User</strong> - Removes the user from accessing the Argo system.</p></li>
 <li><p><strong>Grant Admin Access</strong> - Grants administrative privileges for a user.</p></li>
-<li><p>Follow the prompts to execute the option or click Cancel to back out of your changes.</p></li>
+<li><p>Follow the prompts to execute the option or click <strong>Cancel</strong> to back out of your changes.</p></li>
 </ul>
 <h3 id="modifyausersprofiledeveloperuseronly">Modify a User's Profile (Developer User Only)</h3>
 <ol>
-<li><p>At bottom left, click <img src="docs/images/_c_icon_31x35.png" alt=""> and select My Profile.</p>
+<li><p>At bottom left, click <img src="docs/images/_c_icon_31x35.png" alt=""> and select <strong>My Profile</strong>.</p>
 <p>The profile displays.</p></li>
 <li><p>Modify the following fields for your profile by clicking</p>
-<p>Name - the name you want to appear for your profile</p>
-<p>Password - the password for your profile.</p></li>
-<li><p>Click Done when satisfied with your entries.</p></li>
-<li><p>(Optional) Under Manage your labels, enter a name for your label and click Add.</p></li>
+<p><strong>Name</strong> - the name you want to appear for your profile</p>
+<p><strong>Password</strong> - the password for your profile.</p></li>
+<li><p>Click <strong>Done</strong> when satisfied with your entries.</p></li>
+<li><p>(Optional) Under <strong>Manage your labels</strong>, enter a name for your label and click <strong>Add</strong>.</p></li>
 </ol></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>

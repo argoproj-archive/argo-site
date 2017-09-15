@@ -12,6 +12,15 @@ This tutorial assumes the following:
 
 * You have successfully [installed Argo](https://argoproj.github.io/argo-site/get-started/installation).
 * You have integrated Argo with the sample MLB repo at [https://github.com/argoproj/appstore](https://github.com/argoproj/appstore).
+* (CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:
+
+  * ```$ ~/argo login```
+  * Press enter for "Enter a configuration name (default):" (this takes the default value)
+  * *your_Argo_cluster_URL* for "Enter cluster URL:"
+  * *your_email_address* for "Enter cluster username:"
+  * *your_Argo_cluster_password* for "Enter cluster password:"
+<!--Config written to: /Users/<your_name>/.argo/default-->
+
 
 ## About the YAML files
 
@@ -35,7 +44,19 @@ For more details on writing a deployment file using Argo YAML DSL, see [Deployme
 
 ## Deploy the Sample Stateless MLB App
 
-To deploy the sample MLB app, go to the Argo Web UI and perform these steps:
+### From Argo CLI:
+
+```$ ~/argo job submit Deploy MLB --argument "parameters.COMMIT=4714410fd6a47db3022c9722aebc0fe1efed69e9" --argument "parameters.REPO=https://github.com/argoproj/appstore.git" --argument "parameters.APPNAME=mlb-app"  --argument "parameters.YEAR=2016" --repo https://github.com/argoproj/appstore.git```
+
+Get the job ID of the running job:
+
+```$ ~/argo job list```
+
+Get the status of a job:
+
+```$ ~/argo job show <job_ID>```
+
+### From Argo Web UI
 
 1.  Configure the domain for your deployment (Navigation Bar > **Settings** > **Domain Management**, *<add-your-domain>*, and click **UPDATE DOMAINS**.
 2.  Go to **Catalog** and select **MLB** and click **Run**. You will see the workflow running in Argo Web UI. You can check logs by clicking on each step. When the workflow completes you will see a `mlb-app` application deployed under Applications tab in the Argo Web UI. You can see it has two deployments `mongo-deploy` and `mlb-deploy` with each deployment running one pod. You can view the app by clicking the `endpoint` in the `mlb-deploy`.
@@ -49,12 +70,12 @@ To deploy the sample MLB app, go to the Argo Web UI and perform these steps:
 1. In your own repo, create a directory called `.argo`.
 1. Copy the 2 YAML templates you ran in the sample stateless MLB app (`argo_checkout.yaml` and `mlb.yaml`) from the Appstore  [https://github.com/argoproj/appstore/tree/master/.argo](https://github.com/argoproj/appstore/tree/master/.argo) to your `.argo` folder
 2. Customize the `mlb.yaml` file with your deployment and container specifications.
+3. 	Integrate your repo with Argo. In Argo Web UI, select **Administration->Integrations->SCM**. Once integrated, the Argo Web UI will display your source code commits in the **Timeline** menu item.
 
 ## Running Your Deployment Workflow
 
-When you integrate your repo with Argo, the Argo Web UI displays your source code commits in the **Timeline** menu item.
 
-You have two options for running your customized CI workflow:
+You have two options for running your customized deployment workflow:
 
  * **Manually**
 	1. Go to **Timeline** menu, select a commit and click **Create a New Job**.
@@ -63,7 +84,7 @@ You have two options for running your customized CI workflow:
    (Optional)  If you want your stateless app to display in your Catalog menu, just modify the `Project` section in the `mlb.yaml` YAML template.
 
 * **Automatically**
-  1. Add `commit` and `repo` as input parameters to your workflow as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
+
   2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
 
    After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.   

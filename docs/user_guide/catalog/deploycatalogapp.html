@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-    <title>User guide for Kubernetes workflow engine | Argo</title>
+    <title>Running pre-configured Argo workflows and apps from Catalog | Argo</title>
     <base href="/argo-site/">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
@@ -9,10 +9,10 @@
     <meta name="theme-color" content="#363c4a">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700" rel="stylesheet">
-    <meta name="description" content="Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment">
+    <meta name="description" content="Running pre-configured Argo workflows and apps from Catalog, customizing an Argo workflow">
 
     
-<script src="/argo-site/assets/polyfills.837bd25fe1af41f567ad.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.365102fede2412d2244c.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5476,7 +5476,7 @@ body {
     display: block;
     width: 120px;
     padding: 0 20px; }
-</style><meta property="og:title" content="User guide for Kubernetes workflow engine | Argo"><meta property="og:description" content="Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment"><style ng-transition="argo-main">.docs-browser-view {
+</style><meta property="og:title" content="Running pre-configured Argo workflows and apps from Catalog | Argo"><meta property="og:description" content="Running pre-configured Argo workflows and apps from Catalog, customizing an Argo workflow"><style ng-transition="argo-main">.docs-browser-view {
   position: relative; }
   .docs-browser-view__top {
     margin-bottom: 30px;
@@ -5755,20 +5755,18 @@ body {
 <li><p>Application Components (such as MySQL and PostgreSQL) – These items can be integrated with other applications and other components to create a more complex application.</p></li>
 </ul>
 <p>Here's the procedure for running a workflow or application from Catalog:</p>
-<p>NOTE: This procedure also includes an extra step for an approval workflow that requires a response from the intended recipient. You'll run a workflow using the Argo Catalog, which is a visual interface for launching workflows and apps. Here are the steps for using Catalog to run a workflow that uses email approval:</p>
 <ol>
 <li><p>Click <strong>Catalog</strong>.</p></li>
 <li><p>For the workflows on the <strong>top</strong> row, click the workflow or app you want to execute.</p></li>
 <li><p>For the workflows on the <strong>bottom</strong> row, click the category name and then click the workflow or app you want to execute.</p></li>
-<li><p>Click the green button and choose RUN, TEST, or BUILD. (NOTE: The options vary by workflow and application.)</p></li>
+<li><p>Click the green button and choose <strong>RUN</strong>, <strong>TEST</strong>, or <strong>BUILD</strong>. (NOTE: The options vary by workflow and application.)</p></li>
 <li><p>Check the values for the workflow parameters to ensure the inputs are correct.</p></li>
-<li><p>(Optional) Click TEMPLATE to see a visual representation of the workflow steps and the source YAML code for the workflow.</p></li>
+<li><p>(Optional) Click <strong>TEMPLATE</strong> to see a visual representation of the workflow steps and the source YAML code for the workflow.</p></li>
 <li><p>Click <strong>SUBMIT</strong> to execute the job.</p>
 <p>The Console displays &quot;Successfully created a job for a Commit&quot;.</p></li>
-<li><p>(Optional) Depending on the workflow, you may be asked to perform a step to complete the workflow (such as an email approval)</p>
-<p>When a job successfully completes, the Workflow screen displays a green circle for the last container that was run:</p>
-<p>The Argo also notifies you that the Job was successful:</p></li>
+<li><p>(Optional) Depending on the workflow, you may be asked to perform a step to complete the workflow (such as an email approval)</p></li>
 </ol>
+<p>When a job successfully completes, the Workflow screen displays a green circle for the last container that was run.</p>
 <h2 id=&quot;customizingtheworkflows&quot;>Customizing the Workflows</h2>
 <p>All workflows in the Catalog can be modified. To obtain the code in the YAML templates, go to the <a href=&quot;https://github.com/argoproj/appstore&quot;>Argo App Store repo</a> on GitHub.</p>
 <p>Under the <code>.argo</code> directory, clone the YAML templates to create your custom workflows and applications. Make sure the cloned YAML templates are located in the <code>.argo</code> directory of your repo — that is where Argo looks for the YAML templates to run.</p>"><h1 id="usingcatalogtorunworkflowsandapplications">Using Catalog to Run Workflows and Applications</h1>
@@ -5780,20 +5778,18 @@ body {
 <li><p>Application Components (such as MySQL and PostgreSQL) – These items can be integrated with other applications and other components to create a more complex application.</p></li>
 </ul>
 <p>Here's the procedure for running a workflow or application from Catalog:</p>
-<p>NOTE: This procedure also includes an extra step for an approval workflow that requires a response from the intended recipient. You'll run a workflow using the Argo Catalog, which is a visual interface for launching workflows and apps. Here are the steps for using Catalog to run a workflow that uses email approval:</p>
 <ol>
 <li><p>Click <strong>Catalog</strong>.</p></li>
 <li><p>For the workflows on the <strong>top</strong> row, click the workflow or app you want to execute.</p></li>
 <li><p>For the workflows on the <strong>bottom</strong> row, click the category name and then click the workflow or app you want to execute.</p></li>
-<li><p>Click the green button and choose RUN, TEST, or BUILD. (NOTE: The options vary by workflow and application.)</p></li>
+<li><p>Click the green button and choose <strong>RUN</strong>, <strong>TEST</strong>, or <strong>BUILD</strong>. (NOTE: The options vary by workflow and application.)</p></li>
 <li><p>Check the values for the workflow parameters to ensure the inputs are correct.</p></li>
-<li><p>(Optional) Click TEMPLATE to see a visual representation of the workflow steps and the source YAML code for the workflow.</p></li>
+<li><p>(Optional) Click <strong>TEMPLATE</strong> to see a visual representation of the workflow steps and the source YAML code for the workflow.</p></li>
 <li><p>Click <strong>SUBMIT</strong> to execute the job.</p>
 <p>The Console displays "Successfully created a job for a Commit".</p></li>
-<li><p>(Optional) Depending on the workflow, you may be asked to perform a step to complete the workflow (such as an email approval)</p>
-<p>When a job successfully completes, the Workflow screen displays a green circle for the last container that was run:</p>
-<p>The Argo also notifies you that the Job was successful:</p></li>
+<li><p>(Optional) Depending on the workflow, you may be asked to perform a step to complete the workflow (such as an email approval)</p></li>
 </ol>
+<p>When a job successfully completes, the Workflow screen displays a green circle for the last container that was run.</p>
 <h2 id="customizingtheworkflows">Customizing the Workflows</h2>
 <p>All workflows in the Catalog can be modified. To obtain the code in the YAML templates, go to the <a href="https://github.com/argoproj/appstore">Argo App Store repo</a> on GitHub.</p>
 <p>Under the <code>.argo</code> directory, clone the YAML templates to create your custom workflows and applications. Make sure the cloned YAML templates are located in the <code>.argo</code> directory of your repo — that is where Argo looks for the YAML templates to run.</p></div></argo-doc-viewer>

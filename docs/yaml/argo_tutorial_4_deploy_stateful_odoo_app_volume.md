@@ -14,6 +14,15 @@ This tutorial assumes the following:
 
 * You have successfully [installed Argo](https://argoproj.github.io/argo-site/get-started/installation).
 * You have integrated Argo with the sample Odoo repo at [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app).
+* (CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:
+
+  * ```$ ~/argo login```
+  * Press enter for "Enter a configuration name (default):" (this takes the default value)
+  * *your_Argo_cluster_URL* for "Enter cluster URL:"
+  * *your_email_address* for "Enter cluster username:"
+  * *your_Argo_cluster_password* for "Enter cluster password:"
+<!--Config written to: /Users/<your_name>/.argo/default-->
+
 
 ## About the YAML files
 
@@ -24,6 +33,20 @@ This stateful app deployment uses the following YAML file from the `.argo` folde
   In this tutorial, the `odoo-with-vol.yaml` file refers to two named EBS volumes, "`odoo`" and "`postgres`" which need to be created before deploying the app. For further details about specifying volumes for a deployment, see [Adding a Volume as Storage for Deployment](../yaml/ex_add_volume_deployment.md).
 
 ## Deploy and Scale Odoo App
+
+### From Argo CLI:
+
+```~/argo job submit ??????????????? --argument "parameters.COMMIT=<commit_ID>" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git```
+
+Get the job ID of the running job:
+
+```$ ~/argo job list```
+
+Get the status of a job:
+
+```$ ~/argo job show <job_ID>```
+
+### From Argo Web UI
 
 1. Configure the domains for deployment. This allows you to control which applications can access a deployment. From the Argo Web UI, click **Navigation Bar** > **Settings** > **Domain Management**, make your changes, and click **UPDATE DOMAINS**.
 2. Create two named volumes. Go to **Navigation Bar** > **Infrastructure** > **Volumes** and create two EBS volumes called "`odoo`" and "`postgres`" of 1 GB size each.
@@ -43,11 +66,10 @@ If you start or stop the application, you can see that the data is persisted.
 
 	For more details about writing the YAML DSL, see [Argo YAML DSL Reference](./../yaml/dsl_reference_intro.md).
 
-4.  (Optional) Modify the `odoo-project.yaml` file to give users the option to run the app from the Catalog menu. If you do not want to provide this option, then users can run the workflow against your YAML template from the **Templates** menu.
+4. Integrate your repo with Argo. In Argo Web UI, select **Administration->Integrations->SCM**. Once integrated, the Argo Web UI will display your source code commits in the **Timeline** menu item.
 
 ## Running Your Deployment Workflow
 
-When you integrate your repo with Argo, the Argo Web UI displays your source code commits in the **Timeline** menu item.
 
 You have two options for deploying your stateful app:
 

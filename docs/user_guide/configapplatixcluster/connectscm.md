@@ -9,7 +9,7 @@ Out of the box, Argo supports the following source code management (SCM) systems
 
 Here's how you connect Argo with an SCM system.
 
-1.  Click Configurations > Integrations > Connect Source Control Management System.
+1.  Click **Configurations** > **Integrations** > **Connect Source Control Management System**.
 
 2.  Click the SCM system you want to integrate.
 3.  Click **+**.

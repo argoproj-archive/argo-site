@@ -25,7 +25,7 @@ These are the tasks for creating a fixture class:
 
 *   **Add** the desired attributes and actions to the fixture class.
 
-    See [YAML Code for managed fixture](#YAML)for an example of attributes and actions.
+    See below for an example of attributes and actions.
 
 You are now ready to use this fixture class. See [Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md) for details.
 

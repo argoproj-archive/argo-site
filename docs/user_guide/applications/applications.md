@@ -137,6 +137,6 @@ There are two ways you can view the logs for a deployment:
 
 There are restrictions on when you can perform a rolling update:
 
-*   -You cannot change external routes while performing a rolling update
-*   -You cannot do a rolling update if a volume is attached to a deployment
-*   -You cannot do a rolling update to change the types of fixtures that are used
+*   You cannot change external routes while performing a rolling update
+*   You cannot do a rolling update if a volume is attached to a deployment
+*   You cannot do a rolling update to change the types of fixtures that are used

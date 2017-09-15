@@ -1,19 +1,19 @@
 # Creating a Job
 
-When you want to start a job, you must choose which code commit (from a repo branch) to use for the job. If this is the first time you are creating a job for a specific commit, you must select the commit from the Argo Web UI.
+When you want to start a job, you must choose which code commit (from a repo branch) to use for the job. <!--If this is the first time you are creating a job for a specific commit, you must select the commit from the Argo Web UI.-->
 
 Here's the procedure:
 
-1.  Click Timeline > Commits.
+1.  Click **Timeline** > **Commits**.
 
     You can filter the commits by date range or by "My commits".
 
 2.  Click the down arrow at the right margin of the row for the commit you are selecting.
 
-3.  Click CREATE NEW JOB.
+3.  Click **CREATE NEW JOB**.
 
-4.  Under TEMPLATES, select the YAML templates to use for running the job.
-5.  Click NEXT.
+4.  Under **TEMPLATES**, select the YAML templates to use for running the job.
+5.  Click **NEXT**.
 
 6.  Under **Review workflow parameters**, enter the appropriate values for each parameter displayed.
 7.  Click **SUBMIT** to start the job.

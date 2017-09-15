@@ -24,7 +24,7 @@ Administrators can configure the notification rules as to who receives certain t
 
 ## To configure a new notification rule for users:
 
-1.  Click Configurations > Notification Management.
+1.  Click **Configurations** > **Notification Management**.
 
 2.  Click **+**.
 
@@ -62,8 +62,8 @@ Additionally, you can also write a policy that alerts users as to when certain e
 
 Choose the system for sending out notification messages to your users:
 
-*   SMTP - Enter the configuration information for your server.
-*   Slack - To enable Slack with Argo, you must configure both systems to communicate with each other.
+*   **SMTP** - Enter the configuration information for your server.
+*   **Slack** - To enable Slack with Argo, you must configure both systems to communicate with each other.
 
 ## SMTP
 
@@ -118,9 +118,9 @@ NOTE: Your Slack team administrator must perform these procedure to enable Slack
     ![](../../../images/7_oauth-token_919x645.png)
 
 10.  Copy the generated OAuth token (You use this token in the next step for configuring Argo for Slack.
-11.  (Argo Web UI) Go to Configurations > Setup Alert Notifications, and click Slack icon.
+11.  (Argo Web UI) Go to **Configurations** > **Setup Alert Notifications**, and click Slack icon.
 
-12.  (Argo Web UI) Under ENTER OAUTH TOKEN, paste the OAuth token that Slack generated.
+12.  (Argo Web UI) Under **ENTER OAUTH TOKEN**, paste the OAuth token that Slack generated.
 
 13.  (Optional) Click **TEST** if you want to test the connection to the server before activating it.
 14.  Click **CONNECT**.

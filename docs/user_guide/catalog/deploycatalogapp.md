@@ -11,16 +11,14 @@ From Catalog, you can directly create and execute jobs for :
 
 Here's the procedure for running a workflow or application from Catalog:
 
-NOTE: This procedure also includes an extra step for an approval workflow that requires a response from the intended recipient. You'll run a workflow using the Argo Catalog, which is a visual interface for launching workflows and apps. Here are the steps for using Catalog to run a workflow that uses email approval:
-
 1.  Click **Catalog**.
 
 2.  For the workflows on the **top** row, click the workflow or app you want to execute.
 3.  For the workflows on the **bottom** row, click the category name and then click the workflow or app you want to execute.
-4.  Click the green button and choose RUN, TEST, or BUILD. (NOTE: The options vary by workflow and application.)
+4.  Click the green button and choose **RUN**, **TEST**, or **BUILD**. (NOTE: The options vary by workflow and application.)
 
 5.  Check the values for the workflow parameters to ensure the inputs are correct.
-6.  (Optional) Click TEMPLATE to see a visual representation of the workflow steps and the source YAML code for the workflow.
+6.  (Optional) Click **TEMPLATE** to see a visual representation of the workflow steps and the source YAML code for the workflow.
 
 7.  Click **SUBMIT** to execute the job.
 
@@ -28,9 +26,7 @@ NOTE: This procedure also includes an extra step for an approval workflow that r
 
 8.  (Optional) Depending on the workflow, you may be asked to perform a step to complete the workflow (such as an email approval)
 
-    When a job successfully completes, the Workflow screen displays a green circle for the last container that was run:
-
-    The Argo also notifies you that the Job was successful:
+When a job successfully completes, the Workflow screen displays a green circle for the last container that was run.
 
 ## Customizing the Workflows
 

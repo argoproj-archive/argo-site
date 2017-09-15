@@ -1,4 +1,4 @@
-# Managing Users and Permissions for the Argo
+# Managing Users and Permissions for Argo
 
 Argo provides two levels of access privileges for modifying a user's permissions and profiles:
 
@@ -15,17 +15,17 @@ Argo provides two levels of access privileges for modifying a user's permissions
 
 ### Invite Users and Set Their Permissions (Administrative User Only)
 
-1.  Click Configurations > Manage Users and Permissions.
+1.  Click **Configurations** > **Manage Users and Permissions**.
 
 2.  Click **+**.
 
 3.  Enter the email address of the user you want to add.
 
-    NOTE: If the email address is a distribution list, check MAILING GROUP.
+    NOTE: If the email address is a distribution list, check **MAILING GROUP**.
 
-4.  Click GROUPS and select **admin** or **developer** to set the level of access privileges for the user.
+4.  Click **GROUPS** and select **admin** or **developer** to set the level of access privileges for the user.
 5.  Enter **FIRST NAME** and **LAST NAME** for the user.
-6.  Click INVITE.
+6.  Click **INVITE**.
 
 To view the invitations that have been sent out and have not received a response, click **INVITATIONS**.
 
@@ -33,7 +33,7 @@ This page shows the email address, the name of the user, and the date that the i
 
 ### Modify a User's Information or Access Privileges (Administrative User Only)
 
-*   Go to Configurations > Manage Users and Permissions. (Displays all users of the Cluster and their statuses)
+*   Go to **Configurations** > **Manage Users and Permissions**. (Displays all users of the Cluster and their statuses)
 
 *   Select the row of the user and click ![](../../../images/clear_3_dots_34x34.png). Then choose one of the options:
 
@@ -42,19 +42,19 @@ This page shows the email address, the name of the user, and the date that the i
 *   **Delete User** - Removes the user from accessing the Argo system.
 *   **Grant Admin Access** - Grants administrative privileges for a user.
 
-*   Follow the prompts to execute the option or click Cancel to back out of your changes.
+*   Follow the prompts to execute the option or click **Cancel** to back out of your changes.
 
 ### Modify a User's Profile (Developer User Only)
 
-1.  At bottom left, click ![](../../../images/_c_icon_31x35.png) and select My Profile.
+1.  At bottom left, click ![](../../../images/_c_icon_31x35.png) and select **My Profile**.
 
     The profile displays.
 
 2.  Modify the following fields for your profile by clicking
 
-    Name - the name you want to appear for your profile
+    **Name** - the name you want to appear for your profile
 
-    Password - the password for your profile.
+    **Password** - the password for your profile.
 
-3.  Click Done when satisfied with your entries.
-4.  (Optional) Under Manage your labels, enter a name for your label and click Add.
+3.  Click **Done** when satisfied with your entries.
+4.  (Optional) Under **Manage your labels**, enter a name for your label and click **Add**.

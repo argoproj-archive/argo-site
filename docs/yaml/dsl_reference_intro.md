@@ -21,6 +21,6 @@ The Argo DSL provides six types of YAML templates:
 *   [Policy Templates](./../yaml/policy_templates.md) – for defining rules that trigger a job or notification. Policies are applied to other templates (such as a policy to automatically trigger jobs for every commit)
 *   [Deployment Template](./../yaml/deployment_template.md) – for specifying a long-running service (such as a microservice or application). Can be run manually or triggered by a policy.
 *   [Fixture Template](./../yaml/fixture_template.md)– for defining fixture classes that represent resources outside of the Argo. In order for a workflow or application to use these resources with Argo, you must define a fixture class. See [Creating a fixture class for a workflow](ex_create_managed_fixtures.md#CreateFixture) for an example.
-*   [Project Templates](./../yaml/project_templates.md) – for creating apps or workflows that can be accessed in the Argo Catalog
+*   [Project Templates](./../yaml/project_templates.md) – for defining apps or workflows that can be accessed in the Argo Catalog
 
 Out of the box, Argo provides YAML templates as pre-configured, reusable workflows and applications in [Argo’s public GitHub repository (“repo”)](https://github.com/argoproj "Argo GitHub Repository"). This repo contains YAML templates for core microservices (such as checking out code from a Source Code Management system and an approval workflow) that can be used as "building blocks" for your own workflows and application s. You can clone them and modify the YAML templates to fit your needs.

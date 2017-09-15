@@ -11,6 +11,15 @@ This tutorial assumes the following:
 * You have successfully [installed Argo](https://argoproj.github.io/argo-site/get-started/installation).
 * You have integrated Argo with the sample odoo repo at [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app)
 * You have [created an AWS RDS database instance of type "PostgreSQL"](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.PostgreSQL.html). Make sure you've taken all default parameters and that Argo can access the database endpoint.
+* (CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:
+
+  * ```$ ~/argo login```
+  * Press enter for "Enter a configuration name (default):" (this takes the default value)
+  * *your_Argo_cluster_URL* for "Enter cluster URL:"
+  * *your_email_address* for "Enter cluster username:"
+  * *your_Argo_cluster_password* for "Enter cluster password:"
+<!--Config written to: /Users/<your_name>/.argo/default-->
+
 
 ## About the YAML Files
 
@@ -21,6 +30,20 @@ This stateful app deployment with AWS RDS uses the following YAML file in the `.
 In this tutorial, ` odoo-with-rds.yaml` file refers to a named volume `odoo-rds` which needs to be created before deploying the app. For further details about specifying volumes for a deployment, see [Adding a Volume as Storage for Deployment](./ex_add_volume_deployment.md).
 
 ## Deploy and Scale Sample Odoo App with AWS RDS
+
+### From Argo CLI:
+
+```~/argo job submit ??????????????? --argument "parameters.COMMIT=<commit_ID>" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git```
+
+Get the job ID of the running job:
+
+```$ ~/argo job list```
+
+Get the status of a job:
+
+```$ ~/argo job show <job_ID>```
+
+### From Argo Web UI
 
 1. Configure the domains for deployment. This allows you to control which applications can access a deployment. From the Argo Web UI, click **Navigation Bar** > **Settings** > **Domain Management**, make your changes, and click **UPDATE DOMAINS**.
 2. Create a named volume. Go to **Navigation Bar** > **Infrastructure** > **Volumes** and create an EBS volume named `odoo-rds` of 1 GB size.
@@ -39,11 +62,10 @@ In this tutorial, ` odoo-with-rds.yaml` file refers to a named volume `odoo-rds`
 1.  Create a `.argo` folder under your repository.
 2.  Copy `odoo-with-rds.yaml` from [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app) to your `.argo` folder. Customize it with your deployment and container specs.
 3.  Create an EBS volume called "`odoo`" using the [YAML templates for Volumes](./ex_add_volume_deployment.md) or the Argo Web UI (**Navigation Bar** > **Infrastructure** > **Volumes** > **+** and select a type of  named volume.
-4.  (Optional) Modify the `odoo-project.yaml` file to give users the option to run the app from the Catalog menu. If you do not want to provide this option, then users can run the workflow against your YAML template from the **Templates** menu.
+4.  	Integrate your repo with Argo. In Argo Web UI, select **Administration->Integrations->SCM**. Once integrated, the Argo Web UI will display your source code commits in the **Timeline** menu item.
 
 ## Running Your Deployment Workflow
 
-When you integrate your repo with Argo, the Argo Web UI displays your source code commits in the **Timeline** menu.
 
 You have two options for running your customized CI workflow:
 

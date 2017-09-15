@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-    <title>Tutorials and use cases for container native workflow engine | Argo</title>
+    <title>Build a Docker image using Docker-in-Docker technique | Argo | Argo</title>
     <base href="/argo-site/">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
@@ -9,10 +9,10 @@
     <meta name="theme-color" content="#363c4a">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700" rel="stylesheet">
-    <meta name="description" content="Tutorials for workflows on Kubernetes - CI/CD, DinD, deploy microservices, volumes. Create YAML templates for workflows and deployments">
+    <meta name="description" content="Tutorial for building Docker images using Docker-in-Docker technique and Argoproj, container-native workflow engine on Kubernetes | Argo">
 
     
-<script src="/argo-site/assets/polyfills.837bd25fe1af41f567ad.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.365102fede2412d2244c.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5476,7 +5476,7 @@ body {
     display: block;
     width: 120px;
     padding: 0 20px; }
-</style><meta property="og:title" content="Tutorials and use cases for container native workflow engine | Argo"><meta property="og:description" content="Tutorials for workflows on Kubernetes - CI/CD, DinD, deploy microservices, volumes. Create YAML templates for workflows and deployments"><style ng-transition="argo-main">.docs-browser-view {
+</style><meta property="og:title" content="Build a Docker image using Docker-in-Docker technique | Argo | Argo"><meta property="og:description" content="Tutorial for building Docker images using Docker-in-Docker technique and Argoproj, container-native workflow engine on Kubernetes | Argo"><style ng-transition="argo-main">.docs-browser-view {
   position: relative; }
   .docs-browser-view__top {
     margin-bottom: 30px;
@@ -5753,9 +5753,16 @@ body {
 <h2 id=&quot;prerequisites&quot;>Prerequisites</h2>
 <p>This tutorial assumes the following:</p>
 <ul>
-<li>You have successfully <a href=&quot;https://argoproj.github.io/argo-site/get-started/installation&quot;>installed Argo</a>.</li>
-<li>You have integrated Argo with the sample DinD repo at <a href=&quot;https://github.com/argoproj/example-dind&quot;>https://github.com/argoproj/example-dind</a>.</li>
+<li><p>You have successfully <a href=&quot;https://argoproj.github.io/argo-site/get-started/installation&quot;>installed Argo</a>.</p></li>
+<li><p>You have integrated Argo with the sample DinD repo at <a href=&quot;https://github.com/argoproj/example-dind&quot;>https://github.com/argoproj/example-dind</a>.</p></li>
+<li><p>(CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:</p></li>
+<li><p><code>$ ~/argo login</code></p></li>
+<li><p>Press enter for &quot;Enter a configuration name (default):&quot; (this takes the default value)</p></li>
+<li><p><em>your<em>Argo</em>cluster_URL</em> for &quot;Enter cluster URL:&quot;</p></li>
+<li><p><em>your<em>email</em>address</em> for &quot;Enter cluster username:&quot;</p></li>
+<li><p><em>your<em>Argo</em>cluster_password</em> for &quot;Enter cluster password:&quot;</p></li>
 </ul>
+<!--Config written to: /Users/<your_name>/.argo/default-->
 <h2 id=&quot;abouttheyamltemplates&quot;>About the YAML Templates</h2>
 <p>The DinD workflow uses 2 YAML files from the repo at <a href=&quot;https://github.com/argoproj/example-dind/tree/master/.argo&quot;>https://github.com/argoproj/example-dind/tree/master/.argo</a>:</p>
 <ul>
@@ -5768,6 +5775,13 @@ ax_ea_docker_enable: '{&quot;graph-storage-size&quot;: &quot;10Gi&quot;, &quot;c
 </ul>
 <p>NOTE: To make the credentials secure for accessing the container registry, this YAML DSL example uses <a href=&quot;/argo-site/docs/user_guide/configapplatixcluster/managesystemsettings.html&quot;>Argo Secret Management</a> to encrypt the user id and password.</p>
 <h2 id=&quot;runadindbuildworkflow&quot;>Run a DinD Build Workflow</h2>
+<h3 id=&quot;fromargocli&quot;>From Argo CLI:</h3>
+<pre><code class=&quot;~/argo job submit example-build-using-dind --argument &quot;parameters.COMMIT=6f8efcd7bcbec32bbf672e78a7527724867fa391&quot; --argument &quot;parameters.REPO=https://github.com/argoproj/example-dind.git&quot;  --repo https://github.com/argoproj/example-dind.git``` language-~/argo job submit example-build-using-dind --argument &quot;parameters.COMMIT=6f8efcd7bcbec32bbf672e78a7527724867fa391&quot; --argument &quot;parameters.REPO=https://github.com/argoproj/example-dind.git&quot;  --repo https://github.com/argoproj/example-dind.git```&quot;>Get the job ID of the running job:
+</code></pre>
+<p>$ ~/argo job list```</p>
+<p>Get the status of a job:</p>
+<p><code>$ ~/argo job show &amp;lt;job_ID&amp;gt;</code></p>
+<h3 id=&quot;fromargowebui&quot;>From Argo Web UI</h3>
 <ol>
 <li>In the Argo Web UI, select <strong>Catalog</strong> &amp;gt; <strong>Demo</strong> &amp;gt; <strong>Docker in Docker</strong> and click <strong>Build using DinD</strong>.</li>
 <li>Click <strong>Submit</strong> to start the DinD build workflow.</li>
@@ -5780,18 +5794,19 @@ ax_ea_docker_enable: '{&quot;graph-storage-size&quot;: &quot;10Gi&quot;, &quot;c
 <li><p>Copy the YAML templates you ran in the sample workflow from <a href=&quot;https://github.com/argoproj/example-dind/tree/master/.argo&quot;>https://github.com/argoproj/example-dind/tree/master/.argo</a> to the <code>.argo</code> folder you just created in your repo.</p></li>
 <li><p>Customize the <code>dind-workflow.yaml</code> file by writing your own build container or adding more steps.</p>
 <p>For more details about writing the YAML DSL, see <a href=&quot;/argo-site/docs/yaml/dsl_reference_intro.html&quot;>Argo YAML DSL Reference</a>.</p></li>
-<li><p>(Optional) Modify the <code>dind-project.yaml</code> file to give users the option to run the project from the Catalog menu. If you do not want to provide this option, then users can run the workflow against your commits displayed in the <strong>Timelines</strong> menu. You can also run all your YAML templates from the <strong>Templates</strong> menu.</p></li>
+<li><p>Integrate your repo with Argo. In Argo Web UI, select <strong>Administration->Integrations->SCM</strong>. Once integrated, the Argo Web UI will display your source code commits in the <strong>Timeline</strong> menu item.</p></li>
 </ol>
-<p>When you integrate your repo with Argo, the Argo Web UI will display your source code commits in the <strong>Timeline</strong> menu item.</p>
 <h2 id=&quot;runningyourcustomizeddindbuildworkflow&quot;>Running Your Customized DinD Build Workflow</h2>
 <p>You have two options for running your customized DinD build workflow:</p>
 <ul>
 <li><p><strong>Manually</strong></p>
 <ol>
 <li>Go to <strong>Timeline</strong> menu, select a commit and click <strong>Create a New Job</strong>.</li>
-<li>Select the YAML templates to create a job, click <strong>NEXT</strong>, enter values for the input parameters and click <strong>Submit</strong>.<br />
-<br/>
-(Optional) If you want your DinD-build Workflow to show up in your Catalog menu, copy and modify the <code>dind-project.yaml</code> file into the <code>.argo</code> directory in your repo.</li></ol></li>
+<li>Select the YAML templates to create a job, click <strong>NEXT</strong>, enter values for the input parameters and click <strong>Submit</strong>. You can also run all your YAML templates from the <strong>Templates</strong> menu.</li></ol></li>
+</ul>
+<p><br/>
+   (Optional) If you want your DinD-build Workflow to show up in your Catalog menu, copy and modify the <code>dind-project.yaml</code> file into the <code>.argo</code> directory in your repo.</p>
+<ul>
 <li><p><strong>Automatically</strong></p>
 <ol>
 <li><p>Add <code>commit</code> and <code>repo</code> as input parameters to your workflow as shown in <a href=&quot;/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.html&quot;>Tutorial 1</a>.</p></li>
@@ -5808,9 +5823,16 @@ ax_ea_docker_enable: '{&quot;graph-storage-size&quot;: &quot;10Gi&quot;, &quot;c
 <h2 id="prerequisites">Prerequisites</h2>
 <p>This tutorial assumes the following:</p>
 <ul>
-<li>You have successfully <a href="https://argoproj.github.io/argo-site/get-started/installation">installed Argo</a>.</li>
-<li>You have integrated Argo with the sample DinD repo at <a href="https://github.com/argoproj/example-dind">https://github.com/argoproj/example-dind</a>.</li>
+<li><p>You have successfully <a href="https://argoproj.github.io/argo-site/get-started/installation">installed Argo</a>.</p></li>
+<li><p>You have integrated Argo with the sample DinD repo at <a href="https://github.com/argoproj/example-dind">https://github.com/argoproj/example-dind</a>.</p></li>
+<li><p>(CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:</p></li>
+<li><p><code>$ ~/argo login</code></p></li>
+<li><p>Press enter for "Enter a configuration name (default):" (this takes the default value)</p></li>
+<li><p><em>your<em>Argo</em>cluster_URL</em> for "Enter cluster URL:"</p></li>
+<li><p><em>your<em>email</em>address</em> for "Enter cluster username:"</p></li>
+<li><p><em>your<em>Argo</em>cluster_password</em> for "Enter cluster password:"</p></li>
 </ul>
+<!--Config written to: /Users/<your_name>/.argo/default-->
 <h2 id="abouttheyamltemplates">About the YAML Templates</h2>
 <p>The DinD workflow uses 2 YAML files from the repo at <a href="https://github.com/argoproj/example-dind/tree/master/.argo">https://github.com/argoproj/example-dind/tree/master/.argo</a>:</p>
 <ul>
@@ -5823,6 +5845,13 @@ ax_ea_docker_enable: '{"graph-storage-size": "10Gi", "cpu_cores":0.1, "mem_mib":
 </ul>
 <p>NOTE: To make the credentials secure for accessing the container registry, this YAML DSL example uses <a href="/argo-site/docs/user_guide/configapplatixcluster/managesystemsettings.html">Argo Secret Management</a> to encrypt the user id and password.</p>
 <h2 id="runadindbuildworkflow">Run a DinD Build Workflow</h2>
+<h3 id="fromargocli">From Argo CLI:</h3>
+<pre><code class="~/argo job submit example-build-using-dind --argument " parameters.commit="6f8efcd7bcbec32bbf672e78a7527724867fa391&quot;" --argument="" "parameters.repo="https://github.com/argoproj/example-dind.git&quot;" --repo="" https:="" github.com="" argoproj="" example-dind.git```="" language-~="" argo="" job="" submit="" example-build-using-dind="" "parameters.commit="6f8efcd7bcbec32bbf672e78a7527724867fa391&quot;" example-dind.git```"="">Get the job ID of the running job:
+</code></pre>
+<p>$ ~/argo job list```</p>
+<p>Get the status of a job:</p>
+<p><code>$ ~/argo job show &lt;job_ID&gt;</code></p>
+<h3 id="fromargowebui">From Argo Web UI</h3>
 <ol>
 <li>In the Argo Web UI, select <strong>Catalog</strong> &gt; <strong>Demo</strong> &gt; <strong>Docker in Docker</strong> and click <strong>Build using DinD</strong>.</li>
 <li>Click <strong>Submit</strong> to start the DinD build workflow.</li>
@@ -5835,18 +5864,19 @@ ax_ea_docker_enable: '{"graph-storage-size": "10Gi", "cpu_cores":0.1, "mem_mib":
 <li><p>Copy the YAML templates you ran in the sample workflow from <a href="https://github.com/argoproj/example-dind/tree/master/.argo">https://github.com/argoproj/example-dind/tree/master/.argo</a> to the <code>.argo</code> folder you just created in your repo.</p></li>
 <li><p>Customize the <code>dind-workflow.yaml</code> file by writing your own build container or adding more steps.</p>
 <p>For more details about writing the YAML DSL, see <a href="/argo-site/docs/yaml/dsl_reference_intro.html">Argo YAML DSL Reference</a>.</p></li>
-<li><p>(Optional) Modify the <code>dind-project.yaml</code> file to give users the option to run the project from the Catalog menu. If you do not want to provide this option, then users can run the workflow against your commits displayed in the <strong>Timelines</strong> menu. You can also run all your YAML templates from the <strong>Templates</strong> menu.</p></li>
+<li><p>Integrate your repo with Argo. In Argo Web UI, select <strong>Administration-&gt;Integrations-&gt;SCM</strong>. Once integrated, the Argo Web UI will display your source code commits in the <strong>Timeline</strong> menu item.</p></li>
 </ol>
-<p>When you integrate your repo with Argo, the Argo Web UI will display your source code commits in the <strong>Timeline</strong> menu item.</p>
 <h2 id="runningyourcustomizeddindbuildworkflow">Running Your Customized DinD Build Workflow</h2>
 <p>You have two options for running your customized DinD build workflow:</p>
 <ul>
 <li><p><strong>Manually</strong></p>
 <ol>
 <li>Go to <strong>Timeline</strong> menu, select a commit and click <strong>Create a New Job</strong>.</li>
-<li>Select the YAML templates to create a job, click <strong>NEXT</strong>, enter values for the input parameters and click <strong>Submit</strong>.<br>
-<br>
-(Optional) If you want your DinD-build Workflow to show up in your Catalog menu, copy and modify the <code>dind-project.yaml</code> file into the <code>.argo</code> directory in your repo.</li></ol></li>
+<li>Select the YAML templates to create a job, click <strong>NEXT</strong>, enter values for the input parameters and click <strong>Submit</strong>. You can also run all your YAML templates from the <strong>Templates</strong> menu.</li></ol></li>
+</ul>
+<p><br>
+   (Optional) If you want your DinD-build Workflow to show up in your Catalog menu, copy and modify the <code>dind-project.yaml</code> file into the <code>.argo</code> directory in your repo.</p>
+<ul>
 <li><p><strong>Automatically</strong></p>
 <ol>
 <li><p>Add <code>commit</code> and <code>repo</code> as input parameters to your workflow as shown in <a href="/argo-site/docs/yaml/argo_tutorial_1_create_ci_workflow.html">Tutorial 1</a>.</p></li>

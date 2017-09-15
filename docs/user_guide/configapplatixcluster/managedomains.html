@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-    <title>User guide for Kubernetes workflow engine | Argo</title>
+    <title>Configure Domains for App Access on Argo | Argo</title>
     <base href="/argo-site/">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
@@ -9,10 +9,10 @@
     <meta name="theme-color" content="#363c4a">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700" rel="stylesheet">
-    <meta name="description" content="Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment">
+    <meta name="description" content="Configure the domains that applications can access for deployment on argo, using AWS Route 53 service">
 
     
-<script src="/argo-site/assets/polyfills.837bd25fe1af41f567ad.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.365102fede2412d2244c.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5476,7 +5476,7 @@ body {
     display: block;
     width: 120px;
     padding: 0 20px; }
-</style><meta property="og:title" content="User guide for Kubernetes workflow engine | Argo"><meta property="og:description" content="Instructions for configuring and using container native workflows for Kubernetes- Administration, infrastructure management, CI/CD, app deployment"><style ng-transition="argo-main">.docs-browser-view {
+</style><meta property="og:title" content="Configure Domains for App Access on Argo | Argo"><meta property="og:description" content="Configure the domains that applications can access for deployment on argo, using AWS Route 53 service"><style ng-transition="argo-main">.docs-browser-view {
   position: relative; }
   .docs-browser-view__top {
     margin-bottom: 30px;
@@ -5747,11 +5747,11 @@ body {
                 </span>
             </div>
             <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;configuredomainsforappaccess&quot;>Configure Domains for App Access</h1>
-<p>Argo allows you to control the domains that applications can access for deployment. The Argo Web UI displays the domain values that you configured on AWS for its Route 53 service. If you want to add or delete any domains that Argo can access, go to Configuration &amp;gt; Manage Domains, make your changes, and click UPDATE DOMAINS.</p>
+<p>Argo allows you to control the domains that applications can access for deployment. The Argo Web UI displays the domain values that you configured on AWS for its Route 53 service. If you want to add or delete any domains that Argo can access, go to <strong>Configuration</strong> &amp;gt; <strong>Manage Domains</strong>, make your changes, and click UPDATE DOMAINS.</p>
 <h2 id=&quot;viewingthednsnameofargo&quot;>Viewing the DNS name of Argo</h2>
 <p>To view the Domain Name Server (DNS) for Argo, go to <strong>Configurations</strong> &amp;gt; <strong>Manage System Settings</strong>. The Argo Web UI displays the DNS name, which is automatically obtained from AWS.</p>
 <p>If you wish to assign another DNS name to Argo, enter the new name and click <strong>SAVE</strong>.</p>"><h1 id="configuredomainsforappaccess">Configure Domains for App Access</h1>
-<p>Argo allows you to control the domains that applications can access for deployment. The Argo Web UI displays the domain values that you configured on AWS for its Route 53 service. If you want to add or delete any domains that Argo can access, go to Configuration &gt; Manage Domains, make your changes, and click UPDATE DOMAINS.</p>
+<p>Argo allows you to control the domains that applications can access for deployment. The Argo Web UI displays the domain values that you configured on AWS for its Route 53 service. If you want to add or delete any domains that Argo can access, go to <strong>Configuration</strong> &gt; <strong>Manage Domains</strong>, make your changes, and click UPDATE DOMAINS.</p>
 <h2 id="viewingthednsnameofargo">Viewing the DNS name of Argo</h2>
 <p>To view the Domain Name Server (DNS) for Argo, go to <strong>Configurations</strong> &gt; <strong>Manage System Settings</strong>. The Argo Web UI displays the DNS name, which is automatically obtained from AWS.</p>
 <p>If you wish to assign another DNS name to Argo, enter the new name and click <strong>SAVE</strong>.</p></div></argo-doc-viewer>
