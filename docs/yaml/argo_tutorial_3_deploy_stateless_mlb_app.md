@@ -46,15 +46,21 @@ For more details on writing a deployment file using Argo YAML DSL, see [Deployme
 
 ### From Argo CLI:
 
-```$ ~/argo job submit Deploy MLB --argument "parameters.COMMIT=4714410fd6a47db3022c9722aebc0fe1efed69e9" --argument "parameters.REPO=https://github.com/argoproj/appstore.git" --argument "parameters.APPNAME=mlb-app"  --argument "parameters.YEAR=2016" --repo https://github.com/argoproj/appstore.git```
+```$ argo job submit "Deploy MLB" --argument "parameters.APPNAME=mlb-app"  --argument "parameters.YEAR=2016"```
 
+NOTE: This code example does not include the parameter arguments, `commit` and `repo`. These are optional because they are specified as special parameters (%%) Argo CLI automatically checks for the repo and the commit associated with the job. 
+
+<!-- complete command line that includes commit and repo arguments-->
+<!--
+$ argo job submit "Deploy MLB" --argument "parameters.COMMIT=4714410fd6a47db3022c9722aebc0fe1efed69e9" --argument "parameters.REPO=https://github.com/argoproj/appstore.git" --argument "parameters.APPNAME=mlb-app"  --argument "parameters.YEAR=2016"
+-->
 Get the job ID of the running job:
 
-```$ ~/argo job list```
+```$ argo job list```
 
 Get the status of a job:
 
-```$ ~/argo job show <job_ID>```
+```$ argo job show <job_ID>```
 
 ### From Argo Web UI
 

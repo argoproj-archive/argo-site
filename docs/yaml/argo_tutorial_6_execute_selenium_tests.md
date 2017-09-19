@@ -2,7 +2,7 @@
 
 This tutorial shows how to use nested workflows to:
 
-*   run a Selenium test against a web application ("Hello World") that runs in two web browsers (Chrome and Firefox)
+*   run a Selenium test against a web application ("Hello World") that runs in a web browser (Chrome)
 *   record and output a video of screenshots taken during the test
 
 In this tutorial, you'll run multiple steps, which are grouped into nested workflows.
@@ -45,7 +45,7 @@ NOTE: For more details on the workflow and container YAML DSL please check the Y
 
 ### From Argo CLI:
 
-```~/argo job submit ??????????????? --argument "parameters.COMMIT=<commit_ID>" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git```
+```argo job submit "Selenium Demo" --argument "parameters.BROWSER=chrome" --argument "parameters.TEST_FAILURE=false" --repo https://github.com/argoproj/appstore.git```
 
 Get the job ID of the running job:
 

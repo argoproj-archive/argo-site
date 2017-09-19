@@ -33,7 +33,7 @@ In this tutorial, ` odoo-with-rds.yaml` file refers to a named volume `odoo-rds`
 
 ### From Argo CLI:
 
-```~/argo job submit ??????????????? --argument "parameters.COMMIT=<commit_ID>" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git```
+```argo job submit odoo-workflow-with-rds --argument "parameters.APP_NAME=odoo-rds-with-vols" --argument "parameters.APP_VOL_NAME=odoo-rds" --argument "parameters.DBHOST=odoo.ccxcovx73umg.us-west-2.rds.amazonaws.com" --argument "parameters.PASSWORD= password" --argument "parameters.USER=odoo" --repo https://github.com/argoproj/odoo-app.git```
 
 Get the job ID of the running job:
 

@@ -12,7 +12,7 @@
     <meta name="description" content="Tutorial for creating CI workflow using Argoproj, container-native workflow engine on Kubernetes">
 
     
-<script src="/argo-site/assets/polyfills.93dd0b6aae30834fbf6d.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.6e552c97945f7bae41ea.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5775,11 +5775,11 @@ body {
 <h2 id=&quot;runargosampleciworkflow&quot;>Run Argo Sample CI Workflow</h2>
 <h3 id=&quot;fromargocli&quot;>From Argo CLI:</h3>
 <p>Run the CI workflow:</p>
-<pre><code class=&quot;$ ~/argo job submit example-workflow-approval --argument &quot;parameters.COMMIT=7748dc80185d35347ba879ae61363d41c6edac95&quot; --argument &quot;parameters.REPO=https://github.com/argoproj/ci-workflow.git&quot; --argument &quot;parameters.REQUIRED_APPROVALS=<your_email_address>&quot; --repo https://github.com/argoproj/ci-workflow.git``` language-$ ~/argo job submit example-workflow-approval --argument &quot;parameters.COMMIT=7748dc80185d35347ba879ae61363d41c6edac95&quot; --argument &quot;parameters.REPO=https://github.com/argoproj/ci-workflow.git&quot; --argument &quot;parameters.REQUIRED_APPROVALS=<your_email_address>&quot; --repo https://github.com/argoproj/ci-workflow.git```&quot;>Get the job ID of the running job:
+<pre><code class=&quot;$ argo job submit example-workflow-approval --argument &quot;parameters.COMMIT=7748dc80185d35347ba879ae61363d41c6edac95&quot; --argument &quot;parameters.REPO=https://github.com/argoproj/ci-workflow.git&quot; --argument &quot;parameters.REQUIRED_APPROVALS=<your_email_address>&quot; --repo https://github.com/argoproj/ci-workflow.git``` language-$ argo job submit example-workflow-approval --argument &quot;parameters.COMMIT=7748dc80185d35347ba879ae61363d41c6edac95&quot; --argument &quot;parameters.REPO=https://github.com/argoproj/ci-workflow.git&quot; --argument &quot;parameters.REQUIRED_APPROVALS=<your_email_address>&quot; --repo https://github.com/argoproj/ci-workflow.git```&quot;>Get the job ID of the running job:
 </code></pre>
-<p>$ ~/argo job list```</p>
+<p>$ argo job list```</p>
 <p>Get the status of a job:</p>
-<p><code>$ ~/argo job show &amp;lt;job_ID&amp;gt;</code></p>
+<p><code>$ argo job show &amp;lt;job_ID&amp;gt;</code></p>
 <h3 id=&quot;fromargowebui&quot;>From Argo Web UI</h3>
 <ol>
 <li>Go to the <strong>Catalog</strong> menu in the Argo Web UI, select <strong>CI Workflow</strong>  and click <strong>Run</strong>.</li>
@@ -5801,26 +5801,20 @@ For more details about writing the YAML DSL see <a href=&quot;/argo-site/docs/ya
 <p>You have two options for running your customized CI workflow:</p>
 <ul>
 <li><p><strong>Manually</strong></p>
-<p>From Argo CLI</p></li>
-</ul>
-<ol>
-<li><p>Go to <strong>Timeline</strong> menu, select a commit and click <strong>Create a New Job</strong>.</p></li>
-<li><p>Select the CI workflow name, enter values for the input parameters and click <strong>Submit</strong>.<br />
-<br/>
-(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory in your repo. This YAML file defines how to add a CI workflow item in your Catalog.</p>
+<p>From Argo CLI
+<code>$ argo job submit &amp;lt;name_of_workflow_template&amp;gt; --arguments &amp;lt;arg_1&amp;gt; --arguments &amp;lt;arg_2&amp;gt;</code></p>
+<p>(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory in your repo. This YAML file defines how to add a CI workflow item in your Catalog.</p>
 <p>From Argo Web UI</p>
 <ol>
 <li>Go to <strong>Timeline</strong> menu, select a commit and click <strong>Create a New Job</strong>.</li>
 <li>Select the CI workflow name, enter values for the input parameters and click <strong>Submit</strong>.<br />
 <br/>
-(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory in your repo. This YAML file defines how to add a CI workflow item in your Catalog.</li></ol></li>
-</ol>
-<ul>
+(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory of your repo. This YAML file defines how to add a CI workflow item in your Catalog.</li></ol></li>
 <li><p><strong>Automatically</strong></p>
 <ol>
 <li>Copy the <code>example-policy.yaml</code> file to the <code>.argo</code> directory in your repo and modify it as needed.</li>
 <li>Enable your policy template. (<strong>Templates</strong> &amp;gt; <em>name<em>of</em>policy_template</em> &amp;gt; and click <strong>Enabled</strong>)</li></ol>
-<p>NOTE: The automatic feature is only available in the Argo Web UI.</p>
+<p>NOTE: The automatic feature is only available through the Argo Web UI.</p>
 <p>After you've completed these steps, every time you make a commit in your repo, the CI workflow is automatically triggered.</p></li>
 </ul>"><h1 id="tutorial1runaciworkflow">Tutorial 1: Run a CI Workflow</h1>
 <p>This tutorial shows you how to run a container-native, CI workflow on Kubernetes using the Argo workflow engine. An Argo Workflow consists of steps and every step runs as a container within a Kubernetes pod. These are the steps you'll run in the sample CI workflow:</p>
@@ -5855,11 +5849,11 @@ For more details about writing the YAML DSL see <a href=&quot;/argo-site/docs/ya
 <h2 id="runargosampleciworkflow">Run Argo Sample CI Workflow</h2>
 <h3 id="fromargocli">From Argo CLI:</h3>
 <p>Run the CI workflow:</p>
-<pre><code class="$ ~/argo job submit example-workflow-approval --argument " parameters.commit="7748dc80185d35347ba879ae61363d41c6edac95&quot;" --argument="" "parameters.repo="https://github.com/argoproj/ci-workflow.git&quot;" "parameters.required_approvals="<your_email_address">" --repo https://github.com/argoproj/ci-workflow.git``` language-$ ~/argo job submit example-workflow-approval --argument "parameters.COMMIT=7748dc80185d35347ba879ae61363d41c6edac95" --argument "parameters.REPO=https://github.com/argoproj/ci-workflow.git" --argument "parameters.REQUIRED_APPROVALS=<your_email_address>" --repo https://github.com/argoproj/ci-workflow.git```"&gt;Get the job ID of the running job:
+<pre><code class="$ argo job submit example-workflow-approval --argument " parameters.commit="7748dc80185d35347ba879ae61363d41c6edac95&quot;" --argument="" "parameters.repo="https://github.com/argoproj/ci-workflow.git&quot;" "parameters.required_approvals="<your_email_address">" --repo https://github.com/argoproj/ci-workflow.git``` language-$ argo job submit example-workflow-approval --argument "parameters.COMMIT=7748dc80185d35347ba879ae61363d41c6edac95" --argument "parameters.REPO=https://github.com/argoproj/ci-workflow.git" --argument "parameters.REQUIRED_APPROVALS=<your_email_address>" --repo https://github.com/argoproj/ci-workflow.git```"&gt;Get the job ID of the running job:
 </your_email_address></code></pre>
-<p>$ ~/argo job list```</p>
+<p>$ argo job list```</p>
 <p>Get the status of a job:</p>
-<p><code>$ ~/argo job show &lt;job_ID&gt;</code></p>
+<p><code>$ argo job show &lt;job_ID&gt;</code></p>
 <h3 id="fromargowebui">From Argo Web UI</h3>
 <ol>
 <li>Go to the <strong>Catalog</strong> menu in the Argo Web UI, select <strong>CI Workflow</strong>  and click <strong>Run</strong>.</li>
@@ -5881,26 +5875,20 @@ For more details about writing the YAML DSL see <a href="/argo-site/docs/yaml/ds
 <p>You have two options for running your customized CI workflow:</p>
 <ul>
 <li><p><strong>Manually</strong></p>
-<p>From Argo CLI</p></li>
-</ul>
-<ol>
-<li><p>Go to <strong>Timeline</strong> menu, select a commit and click <strong>Create a New Job</strong>.</p></li>
-<li><p>Select the CI workflow name, enter values for the input parameters and click <strong>Submit</strong>.<br>
-<br>
-(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory in your repo. This YAML file defines how to add a CI workflow item in your Catalog.</p>
+<p>From Argo CLI
+<code>$ argo job submit &lt;name_of_workflow_template&gt; --arguments &lt;arg_1&gt; --arguments &lt;arg_2&gt;</code></p>
+<p>(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory in your repo. This YAML file defines how to add a CI workflow item in your Catalog.</p>
 <p>From Argo Web UI</p>
 <ol>
 <li>Go to <strong>Timeline</strong> menu, select a commit and click <strong>Create a New Job</strong>.</li>
 <li>Select the CI workflow name, enter values for the input parameters and click <strong>Submit</strong>.<br>
 <br>
-(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory in your repo. This YAML file defines how to add a CI workflow item in your Catalog.</li></ol></li>
-</ol>
-<ul>
+(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory of your repo. This YAML file defines how to add a CI workflow item in your Catalog.</li></ol></li>
 <li><p><strong>Automatically</strong></p>
 <ol>
 <li>Copy the <code>example-policy.yaml</code> file to the <code>.argo</code> directory in your repo and modify it as needed.</li>
 <li>Enable your policy template. (<strong>Templates</strong> &gt; <em>name<em>of</em>policy_template</em> &gt; and click <strong>Enabled</strong>)</li></ol>
-<p>NOTE: The automatic feature is only available in the Argo Web UI.</p>
+<p>NOTE: The automatic feature is only available through the Argo Web UI.</p>
 <p>After you've completed these steps, every time you make a commit in your repo, the CI workflow is automatically triggered.</p></li>
 </ul></div></argo-doc-viewer>
             <argo-docs-subnav><!---->

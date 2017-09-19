@@ -36,7 +36,7 @@ This stateful app deployment uses the following YAML file from the `.argo` folde
 
 ### From Argo CLI:
 
-```~/argo job submit ??????????????? --argument "parameters.COMMIT=<commit_ID>" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git```
+```$ argo job submit odoo-workflow-with-volumes --argument "parameters.APP_NAME=odoo-with-vols" --argument "parameters.APP_VOL_NAME=odoo" --argument "parameters.DATA_VOL_NAME=postgres" --argument "parameters.PASSWORD=odoo" --argument "parameters.USER=odoo" --repo https://github.com/argoproj/odoo-app.git```
 
 Get the job ID of the running job:
 

@@ -12,7 +12,7 @@
     <meta name="description" content="Tutorial for deploying and scaling a stateful, containerized app, Odoo, using Argoproj, AWS RDS for PostgreSQL database, and AWS EBS volume for app server files">
 
     
-<script src="/argo-site/assets/polyfills.93dd0b6aae30834fbf6d.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.6e552c97945f7bae41ea.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5767,7 +5767,7 @@ body {
 <p>In this tutorial, <code>odoo-with-rds.yaml</code> file refers to a named volume <code>odoo-rds</code> which needs to be created before deploying the app. For further details about specifying volumes for a deployment, see <a href=&quot;/argo-site/docs/yaml/ex_add_volume_deployment.html&quot;>Adding a Volume as Storage for Deployment</a>.</p>
 <h2 id=&quot;deployandscalesampleodooappwithawsrds&quot;>Deploy and Scale Sample Odoo App with AWS RDS</h2>
 <h3 id=&quot;fromargocli&quot;>From Argo CLI:</h3>
-<pre><code class=&quot;~/argo job submit ??????????????? --argument &quot;parameters.COMMIT=<commit_ID>&quot; --argument &quot;parameters.REPO=https://github.com/argoproj/example-dind.git&quot;  --repo https://github.com/argoproj/example-dind.git``` language-~/argo job submit ??????????????? --argument &quot;parameters.COMMIT=<commit_ID>&quot; --argument &quot;parameters.REPO=https://github.com/argoproj/example-dind.git&quot;  --repo https://github.com/argoproj/example-dind.git```&quot;>Get the job ID of the running job:
+<pre><code class=&quot;argo job submit odoo-workflow-with-rds --argument &quot;parameters.APP_NAME=odoo-rds-with-vols&quot; --argument &quot;parameters.APP_VOL_NAME=odoo-rds&quot; --argument &quot;parameters.DBHOST=odoo.ccxcovx73umg.us-west-2.rds.amazonaws.com&quot; --argument &quot;parameters.PASSWORD= password&quot; --argument &quot;parameters.USER=odoo&quot; --repo https://github.com/argoproj/odoo-app.git``` language-argo job submit odoo-workflow-with-rds --argument &quot;parameters.APP_NAME=odoo-rds-with-vols&quot; --argument &quot;parameters.APP_VOL_NAME=odoo-rds&quot; --argument &quot;parameters.DBHOST=odoo.ccxcovx73umg.us-west-2.rds.amazonaws.com&quot; --argument &quot;parameters.PASSWORD= password&quot; --argument &quot;parameters.USER=odoo&quot; --repo https://github.com/argoproj/odoo-app.git```&quot;>Get the job ID of the running job:
 </code></pre>
 <p>$ ~/argo job list```</p>
 <p>Get the status of a job:</p>
@@ -5828,8 +5828,8 @@ body {
 <p>In this tutorial, <code>odoo-with-rds.yaml</code> file refers to a named volume <code>odoo-rds</code> which needs to be created before deploying the app. For further details about specifying volumes for a deployment, see <a href="/argo-site/docs/yaml/ex_add_volume_deployment.html">Adding a Volume as Storage for Deployment</a>.</p>
 <h2 id="deployandscalesampleodooappwithawsrds">Deploy and Scale Sample Odoo App with AWS RDS</h2>
 <h3 id="fromargocli">From Argo CLI:</h3>
-<pre><code class="~/argo job submit ??????????????? --argument " parameters.commit="<commit_ID">" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git``` language-~/argo job submit ??????????????? --argument "parameters.COMMIT=<commit_id>" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git```"&gt;Get the job ID of the running job:
-</commit_id></code></pre>
+<pre><code class="argo job submit odoo-workflow-with-rds --argument " parameters.app_name="odoo-rds-with-vols&quot;" --argument="" "parameters.app_vol_name="odoo-rds&quot;" "parameters.dbhost="odoo.ccxcovx73umg.us-west-2.rds.amazonaws.com&quot;" "parameters.password="password&quot;" "parameters.user="odoo&quot;" --repo="" https:="" github.com="" argoproj="" odoo-app.git```="" language-argo="" job="" submit="" odoo-workflow-with-rds="" "parameters.app_name="odoo-rds-with-vols&quot;" odoo-app.git```"="">Get the job ID of the running job:
+</code></pre>
 <p>$ ~/argo job list```</p>
 <p>Get the status of a job:</p>
 <p><code>$ ~/argo job show &lt;job_ID&gt;</code></p>

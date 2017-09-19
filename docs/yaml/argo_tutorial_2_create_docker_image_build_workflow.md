@@ -43,15 +43,15 @@ NOTE: To make the credentials secure for accessing the container registry, this 
 
 ### From Argo CLI:
 
-```~/argo job submit example-build-using-dind --argument "parameters.COMMIT=6f8efcd7bcbec32bbf672e78a7527724867fa391" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git```
+```$ argo job submit example-build-using-dind --argument "parameters.COMMIT=6f8efcd7bcbec32bbf672e78a7527724867fa391" --argument "parameters.REPO=https://github.com/argoproj/example-dind.git"  --repo https://github.com/argoproj/example-dind.git```
 
 Get the job ID of the running job:
 
-```$ ~/argo job list```
+```$ argo job list```
 
 Get the status of a job:
 
-```$ ~/argo job show <job_ID>```
+```$ argo job show <job_ID>```
 
 ### From Argo Web UI
 
