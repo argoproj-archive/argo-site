@@ -12,7 +12,7 @@
     <meta name="description" content="Build and Deploy Container-Native Applications as long-running microservices on Kubernetes, Monitor and Scale Deployments, Configure Rolling Updates | Argo">
 
     
-<script src="/argo-site/assets/polyfills.6e552c97945f7bae41ea.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.5130c981544886b684c1.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a><a href="/argo-site/docs/a_introduction_topics/Min_Req_AWS_Resources_4_Argo.html">Minimum AWS Resource Requirements for Argo</a>
             </div>
         </div>
     </div>
@@ -5756,11 +5756,11 @@ body {
 </ul>
 <p>To illustrate these concepts, the following diagram shows an application consisting of</p>
 <ul>
-<li>Two deployments: a web server deployment and a database deployment.</li>
-<li>The web server deployment has 2 instances running</li>
-<li>The database server deployment has 1 instance running</li>
+<li><p>Two deployments: a web server deployment and a database deployment.</p></li>
+<li><p>The web server deployment has 2 instances running</p></li>
+<li><p>The database server deployment has 1 instance running</p>
+<p><img src=&quot;docs/images/applications_deployments_volume_diagram_argo2.png&quot; alt=&quot;&quot; /></p></li>
 </ul>
-<p><img src=&quot;docs/images/applications_deployments_volume_diagram_argo2.png&quot; alt=&quot;&quot; /></p>
 <p>From the <strong>Applications</strong> tab, you can view all applications that are available for deployment on your Argo.</p>
 <p>Here's how you view the status of an active application:</p>
 <ul>
@@ -5768,20 +5768,18 @@ body {
 <p>This view displays the status of the application, whether it is running, stopped, terminated, or has generated an error.</p>
 <p>This view also displays information about the last time the application was deployed or restarted.</p></li>
 <li><p>Click the name of the application to view details about the application.</p></li>
-<li><p>Click <strong>SPENDING</strong> to view how much has been spent running the application for a specific time period.</p></li>
+<li><p>Click <img src=&quot;docs/images/3_vertical_dots_25x26_GREEN.png&quot; alt=&quot;&quot; /> on the name of the app and select <strong>View Spending</strong> to see the current cost of running the application for a specific time period.</p></li>
 </ul>
 <p>In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see <a href=&quot;/argo-site/docs/yaml/deployment_template.html&quot;>Deployment Template</a>.</p>
 <h1 id=&quot;monitoringandscalingdeployments&quot;>Monitoring and Scaling Deployments</h1>
 <ul>
-<li><p>From APPLICATIONS view, click <strong>DEPLOYMENTS</strong> to view whether a deployment is active or not and how many instances of a deployment are running.</p></li>
-<li><p>From DEPLOYMENTS, you can start, stop, and scale your deployments easily. You can also terminate or stop an instance from the dropdown menu.</p></li>
-<li><p>Click the name of the deployment to get a summary of details, including the spending details for the deployment.</p></li>
-<li><p>To scale the number of instances for a deployment, click <strong>EDIT SCALE</strong> and select a new number. Click <strong>CONFIRM</strong> to accept the change. Or click <strong>CANCEL</strong> to back out of the change.</p></li>
+<li><p>From APPLICATIONS, click the name of the app you want to monitor, and then click the deployment that is attached to the app to view whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.</p></li>
+<li><p>To scale the number of instances for a deployment, click the &quot;plus&quot; or &quot;minus&quot; sign under <strong>INSTANCES</strong> or enter a new number. Click <strong>CONFIRM</strong> to accept the change. Or click <strong>CANCEL</strong> to back out of the change.</p></li>
 </ul>
-<p>While viewing the deployment details, click Instances to see the unique identifier for each instance of the deployment and whether the instance is still running or is terminated. For each instance displayed, you can</p>
+<p>To access the logs or console for an instance, click <img src=&quot;docs/images/3_vertical_dots_25x26_GREEN.png&quot; alt=&quot;&quot; /> and select:</p>
 <ul>
-<li>Click <strong>LOGS</strong> to view the logs for the instance.</li>
-<li>Click <strong>CONSOLE</strong> to access the instance and enter custom commands for managing the instance. Click <strong>EXECUTE</strong> to perform the commands.</li>
+<li><strong>LOGS</strong> to view the logs for the instance.</li>
+<li><strong>CONSOLE</strong> to access the instance and enter custom commands for managing the instance. Click <strong>EXECUTE</strong> to perform the commands.</li>
 </ul>
 <p>From the Endpoints view, you can also see the internal and external routes for a deployment template.</p>
 <p><strong>EXTERNAL ROUTES</strong> allow a deployment to be accessed outside of the Argo.</p>
@@ -5870,11 +5868,11 @@ inputs:
 </ul>
 <p>To illustrate these concepts, the following diagram shows an application consisting of</p>
 <ul>
-<li>Two deployments: a web server deployment and a database deployment.</li>
-<li>The web server deployment has 2 instances running</li>
-<li>The database server deployment has 1 instance running</li>
+<li><p>Two deployments: a web server deployment and a database deployment.</p></li>
+<li><p>The web server deployment has 2 instances running</p></li>
+<li><p>The database server deployment has 1 instance running</p>
+<p><img src="docs/images/applications_deployments_volume_diagram_argo2.png" alt=""></p></li>
 </ul>
-<p><img src="docs/images/applications_deployments_volume_diagram_argo2.png" alt=""></p>
 <p>From the <strong>Applications</strong> tab, you can view all applications that are available for deployment on your Argo.</p>
 <p>Here's how you view the status of an active application:</p>
 <ul>
@@ -5882,20 +5880,18 @@ inputs:
 <p>This view displays the status of the application, whether it is running, stopped, terminated, or has generated an error.</p>
 <p>This view also displays information about the last time the application was deployed or restarted.</p></li>
 <li><p>Click the name of the application to view details about the application.</p></li>
-<li><p>Click <strong>SPENDING</strong> to view how much has been spent running the application for a specific time period.</p></li>
+<li><p>Click <img src="docs/images/3_vertical_dots_25x26_GREEN.png" alt=""> on the name of the app and select <strong>View Spending</strong> to see the current cost of running the application for a specific time period.</p></li>
 </ul>
 <p>In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see <a href="/argo-site/docs/yaml/deployment_template.html">Deployment Template</a>.</p>
 <h1 id="monitoringandscalingdeployments">Monitoring and Scaling Deployments</h1>
 <ul>
-<li><p>From APPLICATIONS view, click <strong>DEPLOYMENTS</strong> to view whether a deployment is active or not and how many instances of a deployment are running.</p></li>
-<li><p>From DEPLOYMENTS, you can start, stop, and scale your deployments easily. You can also terminate or stop an instance from the dropdown menu.</p></li>
-<li><p>Click the name of the deployment to get a summary of details, including the spending details for the deployment.</p></li>
-<li><p>To scale the number of instances for a deployment, click <strong>EDIT SCALE</strong> and select a new number. Click <strong>CONFIRM</strong> to accept the change. Or click <strong>CANCEL</strong> to back out of the change.</p></li>
+<li><p>From APPLICATIONS, click the name of the app you want to monitor, and then click the deployment that is attached to the app to view whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.</p></li>
+<li><p>To scale the number of instances for a deployment, click the "plus" or "minus" sign under <strong>INSTANCES</strong> or enter a new number. Click <strong>CONFIRM</strong> to accept the change. Or click <strong>CANCEL</strong> to back out of the change.</p></li>
 </ul>
-<p>While viewing the deployment details, click Instances to see the unique identifier for each instance of the deployment and whether the instance is still running or is terminated. For each instance displayed, you can</p>
+<p>To access the logs or console for an instance, click <img src="docs/images/3_vertical_dots_25x26_GREEN.png" alt=""> and select:</p>
 <ul>
-<li>Click <strong>LOGS</strong> to view the logs for the instance.</li>
-<li>Click <strong>CONSOLE</strong> to access the instance and enter custom commands for managing the instance. Click <strong>EXECUTE</strong> to perform the commands.</li>
+<li><strong>LOGS</strong> to view the logs for the instance.</li>
+<li><strong>CONSOLE</strong> to access the instance and enter custom commands for managing the instance. Click <strong>EXECUTE</strong> to perform the commands.</li>
 </ul>
 <p>From the Endpoints view, you can also see the internal and external routes for a deployment template.</p>
 <p><strong>EXTERNAL ROUTES</strong> allow a deployment to be accessed outside of the Argo.</p>

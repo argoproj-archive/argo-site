@@ -16,7 +16,7 @@ This tutorial assumes the following:
 * You have integrated Argo with the sample Odoo repo at [https://github.com/argoproj/odoo-app](https://github.com/argoproj/odoo-app).
 * (CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:
 
-  * ```$ ~/argo login```
+  * `$ argo login`
   * Press enter for "Enter a configuration name (default):" (this takes the default value)
   * *your_Argo_cluster_URL* for "Enter cluster URL:"
   * *your_email_address* for "Enter cluster username:"
@@ -36,15 +36,27 @@ This stateful app deployment uses the following YAML file from the `.argo` folde
 
 ### From Argo CLI:
 
-```$ argo job submit odoo-workflow-with-volumes --argument "parameters.APP_NAME=odoo-with-vols" --argument "parameters.APP_VOL_NAME=odoo" --argument "parameters.DATA_VOL_NAME=postgres" --argument "parameters.PASSWORD=odoo" --argument "parameters.USER=odoo" --repo https://github.com/argoproj/odoo-app.git```
+```
+
+$ argo job submit odoo-workflow-with-volumes --argument "parameters.APP_NAME=odoo-with-vols" --argument "parameters.APP_VOL_NAME=odoo" --argument "parameters.DATA_VOL_NAME=postgres" --argument "parameters.PASSWORD=odoo" --argument "parameters.USER=odoo" --repo https://github.com/argoproj/odoo-app.git
+
+```
 
 Get the job ID of the running job:
 
-```$ ~/argo job list```
+```
+
+$ argo job list
+
+```
 
 Get the status of a job:
 
-```$ ~/argo job show <job_ID>```
+```
+
+$ argo job show <job_ID>
+
+```
 
 ### From Argo Web UI
 
@@ -66,7 +78,7 @@ If you start or stop the application, you can see that the data is persisted.
 
 	For more details about writing the YAML DSL, see [Argo YAML DSL Reference](./../yaml/dsl_reference_intro.md).
 
-4. Integrate your repo with Argo. In Argo Web UI, select **Administration->Integrations->SCM**. Once integrated, the Argo Web UI will display your source code commits in the **Timeline** menu item.
+4. Integrate your repo with Argo. In Argo Web UI, select **Administration** > **Integrations** > **SCM**. Once integrated, the Argo Web UI will display your source code commits in the **Timeline** menu item.
 
 ## Running Your Deployment Workflow
 
@@ -74,13 +86,14 @@ If you start or stop the application, you can see that the data is persisted.
 You have two options for deploying your stateful app:
 
  * **Manually**
-	1. Go to **Templates** menu, select your YAML template and click **Create a New Job**.
+
+  Go to **Templates** menu, select your YAML template and click **Create a New Job**.
 
    (Optional)  If you want your app to display in your Catalog menu, just modify the `Project` section in the `odoo-project.yaml` YAML template.
 
 
  * **Automatically**
-	1. Add `commit` and `repo` as input parameters to your workflow as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md)
-	2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md)
+	1. Add `commit` and `repo` as input parameters to your workflow as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
+	2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
 
    After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.

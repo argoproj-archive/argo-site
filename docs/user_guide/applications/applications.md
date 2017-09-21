@@ -14,7 +14,7 @@ To illustrate these concepts, the following diagram shows an application consist
 *   The web server deployment has 2 instances running
 *   The database server deployment has 1 instance running
 
-![](../../../images/applications_deployments_volume_diagram_argo2.png)
+ ![](../../../images/applications_deployments_volume_diagram_argo2.png)
 
 
 From the **Applications** tab, you can view all applications that are available for deployment on your Argo.
@@ -28,22 +28,20 @@ Here's how you view the status of an active application:
     This view also displays information about the last time the application was deployed or restarted.
 
 *   Click the name of the application to view details about the application.
-*   Click **SPENDING** to view how much has been spent running the application for a specific time period.
+*   Click ![](../../../images/3_vertical_dots_25x26_GREEN.png) on the name of the app and select **View Spending** to see the current cost of running the application for a specific time period.
 
 In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Deployment Template](./../../yaml/deployment_template.md).
 
 # Monitoring and Scaling Deployments
 
-*   From APPLICATIONS view, click **DEPLOYMENTS** to view whether a deployment is active or not and how many instances of a deployment are running.
-*   From DEPLOYMENTS, you can start, stop, and scale your deployments easily. You can also terminate or stop an instance from the dropdown menu.
+*   From APPLICATIONS, click the name of the app you want to monitor, and then click the deployment that is attached to the app to view whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.
 
-*   Click the name of the deployment to get a summary of details, including the spending details for the deployment.
-*   To scale the number of instances for a deployment, click **EDIT SCALE** and select a new number. Click **CONFIRM** to accept the change. Or click **CANCEL** to back out of the change.
+*   To scale the number of instances for a deployment, click the "plus" or "minus" sign under **INSTANCES** or enter a new number. Click **CONFIRM** to accept the change. Or click **CANCEL** to back out of the change.
 
-While viewing the deployment details, click Instances to see the unique identifier for each instance of the deployment and whether the instance is still running or is terminated. For each instance displayed, you can
+To access the logs or console for an instance, click ![](../../../images/3_vertical_dots_25x26_GREEN.png) and select:
 
-*   Click **LOGS** to view the logs for the instance.
-*   Click **CONSOLE** to access the instance and enter custom commands for managing the instance. Click **EXECUTE** to perform the commands.
+*   **LOGS** to view the logs for the instance.
+*   **CONSOLE** to access the instance and enter custom commands for managing the instance. Click **EXECUTE** to perform the commands.
 
 From the Endpoints view, you can also see the internal and external routes for a deployment template.
 

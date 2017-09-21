@@ -60,7 +60,7 @@ ARGO_DIST_REGISTRY_SECRETS
 
 Base64-encoded docker config file which contains login secrets to the specified registry. If you docker config contains such credentials, you can just do something such as "
 
-export ARGO_DIST_REGISTRY_SECRETS=$(base64 -i ~/.docker/config)
+`export ARGO_DIST_REGISTRY_SECRETS=$(base64 -i ~/.docker/config)`
 
 "
 
@@ -279,11 +279,10 @@ This is the size of the Argo cluster that you want.</p>
 <h3>STANDARD</h3>
 
 <p>**SMALL** (Recommended for running proof-of-concept (POC) workloads).  
-    Master node size: **m3.medium** (1)  
-    Argo node size: **m3.large** (2)  
+    Master node size: **m3.medium** (1)    Argo node size: **m3.large** (2)  
     User node size: **m3.large** (maximum 3)  </p>
 
-<p>**MEDIUM** (Recommended if you only want to try out the Argo solution).  
+<p>**MEDIUM** (Recommended if you only want to try out the Argo solution).<br/>  
     Master node size: **m3.large** (1)  
     Argo node size: **m3.large** (2)  
     User node size: **m3.large** (maximum 8) </p>

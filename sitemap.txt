@@ -5,7 +5,9 @@ https://argoproj.github.io/argo-site/get-started/features
 https://argoproj.github.io/argo-site/get-started/tutorials
 https://argoproj.github.io/argo-site/get-started/installation
 https://argoproj.github.io/argo-site/docs
+https://argoproj.github.io/argo-site/docs/a_introduction_topics/Min_Req_AWS_Resources_4_Argo.html
 https://argoproj.github.io/argo-site/docs/a_introduction_topics/overview.html
+https://argoproj.github.io/argo-site/docs/a_introduction_topics/setup_AWS_for_Argo.html
 https://argoproj.github.io/argo-site/docs/cli_reference.html
 https://argoproj.github.io/argo-site/docs/d_more_information/faqs.html
 https://argoproj.github.io/argo-site/docs/intro-monitor_gov_spend.html

@@ -14,7 +14,7 @@ This tutorial assumes the following:
 * You have integrated Argo with the sample MLB repo at [https://github.com/argoproj/appstore](https://github.com/argoproj/appstore).
 * (CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:
 
-  * ```$ ~/argo login```
+  * `$ argo login`
   * Press enter for "Enter a configuration name (default):" (this takes the default value)
   * *your_Argo_cluster_URL* for "Enter cluster URL:"
   * *your_email_address* for "Enter cluster username:"
@@ -46,21 +46,38 @@ For more details on writing a deployment file using Argo YAML DSL, see [Deployme
 
 ### From Argo CLI:
 
-```$ argo job submit "Deploy MLB" --argument "parameters.APPNAME=mlb-app"  --argument "parameters.YEAR=2016"```
+```
 
-NOTE: This code example does not include the parameter arguments, `commit` and `repo`. These are optional because they are specified as special parameters (%%) Argo CLI automatically checks for the repo and the commit associated with the job. 
+$ argo job submit "Deploy MLB" --argument "parameters.APPNAME=mlb-app"  --argument "parameters.YEAR=2016"
+
+```
+
+NOTE: This code example does not include the parameter arguments, `commit` and `repo`. These are optional because they are specified in the YAML workflow file as special parameters (enclosed with `%%` signs), which Argo automatically checks for the repo and the commit associated with the job.
 
 <!-- complete command line that includes commit and repo arguments-->
 <!--
 $ argo job submit "Deploy MLB" --argument "parameters.COMMIT=4714410fd6a47db3022c9722aebc0fe1efed69e9" --argument "parameters.REPO=https://github.com/argoproj/appstore.git" --argument "parameters.APPNAME=mlb-app"  --argument "parameters.YEAR=2016"
 -->
+
 Get the job ID of the running job:
 
-```$ argo job list```
+
+```
+
+$ argo job list
+
+
+```
 
 Get the status of a job:
 
-```$ argo job show <job_ID>```
+
+```
+
+$ argo job show <job_ID>
+
+
+```
 
 ### From Argo Web UI
 
@@ -76,10 +93,9 @@ Get the status of a job:
 1. In your own repo, create a directory called `.argo`.
 1. Copy the 2 YAML templates you ran in the sample stateless MLB app (`argo_checkout.yaml` and `mlb.yaml`) from the Appstore  [https://github.com/argoproj/appstore/tree/master/.argo](https://github.com/argoproj/appstore/tree/master/.argo) to your `.argo` folder
 2. Customize the `mlb.yaml` file with your deployment and container specifications.
-3. 	Integrate your repo with Argo. In Argo Web UI, select **Administration->Integrations->SCM**. Once integrated, the Argo Web UI will display your source code commits in the **Timeline** menu item.
+3. 	Integrate your repo with Argo. In Argo Web UI, select **Administration** > **Integrations** > **SCM**. Once integrated, the Argo Web UI will display your source code commits in the **Timeline** menu item.
 
 ## Running Your Deployment Workflow
-
 
 You have two options for running your customized deployment workflow:
 
@@ -91,6 +107,6 @@ You have two options for running your customized deployment workflow:
 
 * **Automatically**
 
-  2. Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
+  Create and activate a Policy template to trigger this workflow for every commit as shown in [Tutorial 1](./argo_tutorial_1_create_ci_workflow.md).
 
-   After you've completed these steps, every time you make a commit in your repo, the deployment workflow is automatically triggered.   
+   After you've completed this step, every time you make a commit in your repo, the deployment workflow is automatically triggered.   

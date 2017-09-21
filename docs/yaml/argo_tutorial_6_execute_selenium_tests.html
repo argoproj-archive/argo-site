@@ -12,7 +12,7 @@
     <meta name="description" content="Tutorial for using nested Argo workflows to run a Selenium test against a web app running in Chrome and Firefox browsers, and records a video of the test">
 
     
-<script src="/argo-site/assets/polyfills.6e552c97945f7bae41ea.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.5130c981544886b684c1.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a class="active" href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a class="active" href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a><a href="/argo-site/docs/a_introduction_topics/Min_Req_AWS_Resources_4_Argo.html">Minimum AWS Resource Requirements for Argo</a>
             </div>
         </div>
     </div>
@@ -5756,7 +5756,7 @@ body {
 <li><p>You have integrated Argo with Appstore containing sample selenium test <a href=&quot;https://github.com/argoproj/appstore/&quot;>https://github.com/argoproj/appstore/</a>.</p></li>
 <li><p>(CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:</p>
 <ul>
-<li><code>$ ~/argo login</code></li>
+<li><code>$ argo login</code></li>
 <li>Press enter for &quot;Enter a configuration name (default):&quot; (this takes the default value)</li>
 <li><em>your<em>Argo</em>cluster_URL</em> for &quot;Enter cluster URL:&quot;</li>
 <li><em>your<em>email</em>address</em> for &quot;Enter cluster username:&quot;</li>
@@ -5764,7 +5764,7 @@ body {
 </ul>
   <!--Config written to: /Users/<your_name>/.argo/default-->
 <h2 id=&quot;abouttheyamlfiles&quot;>About the YAML Files</h2>
-<p>The Selenium test workflow uses 3 YAML files from the <code>`.argo</code> directory of the repo at  <a href=&quot;https://github.com/argoproj/appstore/&quot;>https://github.com/argoproj/appstore/</a>:</p>
+<p>The Selenium test workflow uses 3 YAML files from the <code>.argo</code> directory of the repo at  <a href=&quot;https://github.com/argoproj/appstore/&quot;>https://github.com/argoproj/appstore/</a>:</p>
 <ul>
 <li><p><code>argo-checkout.yaml</code> - creates a container for checking out source code from the repo.</p></li>
 <li><p><code>selenium_all_ax.yaml</code> - has several workflows that are nested in this order:</p>
@@ -5775,17 +5775,20 @@ body {
 <li><p>1st nested workflow: <code>selenium-with-video-converter-workflow</code>, which has these steps:</p></li>
 <li><p>Runs the nested workflow (<code>selenium-test-workflow</code>) that performs the Selenium test of the app.</p></li>
 <li><p>Runs the container (<code>video-converter</code>) that performs the video conversion</p>
-<p>NOTE: The <code>selenium-test-workflow</code> declares <a href=&quot;/argo-site/docs/user_guide/infrastructure/using_fixtures.html&quot;>managed fixtures</a> for the Selenium server, the web app to test in the browsers, and video recorder (<code>selenium-server</code>, <code>selenium-test-app</code>, and <code>vnc-recorder</code>) and creates a container (<code>selenium-e2e-test</code>) to run the test .</p></li></ul></li>
+<p>NOTE: The <code>selenium-test-workflow</code> declares <a href=&quot;/argo-site/docs/user_guide/infrastructure/using_fixtures.html&quot;>managed fixtures</a> for the Selenium server, the web app to test in the browsers, and video recorder (<code>selenium-server</code>, <code>selenium-test-app</code>, and <code>vnc-recorder</code>) and creates a container (<code>selenium-e2e-test</code>) to run the test.</p></li></ul></li>
 <li><p><code>selenium_video_tool.yaml</code> - defines the containers for recording and converting the video of the Selenium test from <code>.flv</code> format to <code>.mp4</code> format (<code>vnc-recorder</code> and <code>video-converter</code>).</p></li>
 </ul>
 <p>NOTE: For more details on the workflow and container YAML DSL please check the YAML tutorial at <a href=&quot;/argo-site/docs/yaml/container_templates.html&quot;>Container Template</a>.</p>
 <h2 id=&quot;runsampleseleniumtestworkflow&quot;>Run Sample Selenium Test Workflow</h2>
 <h3 id=&quot;fromargocli&quot;>From Argo CLI:</h3>
-<pre><code class=&quot;argo job submit &quot;Selenium Demo&quot; --argument &quot;parameters.BROWSER=chrome&quot; --argument &quot;parameters.TEST_FAILURE=false&quot; --repo https://github.com/argoproj/appstore.git``` language-argo job submit &quot;Selenium Demo&quot; --argument &quot;parameters.BROWSER=chrome&quot; --argument &quot;parameters.TEST_FAILURE=false&quot; --repo https://github.com/argoproj/appstore.git```&quot;>Get the job ID of the running job:
+<pre><code>argo job submit &quot;Selenium Demo&quot; --argument &quot;parameters.BROWSER=chrome&quot; --argument &quot;parameters.TEST_FAILURE=false&quot; --repo https://github.com/argoproj/appstore.git
 </code></pre>
-<p>$ ~/argo job list```</p>
+<p>Get the job ID of the running job:</p>
+<pre><code>$ argo job list
+</code></pre>
 <p>Get the status of a job:</p>
-<p><code>$ ~/argo job show &amp;lt;job_ID&amp;gt;</code></p>
+<pre><code>$ argo job show &amp;lt;job_ID&amp;gt;
+</code></pre>
 <h3 id=&quot;fromargowebui&quot;>From Argo Web UI</h3>
 <ol>
 <li><p>In the Argo Web UI, select <strong>Catalog</strong> &amp;gt; <strong>Demo</strong> &amp;gt; <strong>Selenium testing</strong> and click <strong>TEST</strong>.</p></li>
@@ -5832,7 +5835,7 @@ body {
 <li><p>You have integrated Argo with Appstore containing sample selenium test <a href="https://github.com/argoproj/appstore/">https://github.com/argoproj/appstore/</a>.</p></li>
 <li><p>(CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:</p>
 <ul>
-<li><code>$ ~/argo login</code></li>
+<li><code>$ argo login</code></li>
 <li>Press enter for "Enter a configuration name (default):" (this takes the default value)</li>
 <li><em>your<em>Argo</em>cluster_URL</em> for "Enter cluster URL:"</li>
 <li><em>your<em>email</em>address</em> for "Enter cluster username:"</li>
@@ -5840,7 +5843,7 @@ body {
 </ul>
   <!--Config written to: /Users/<your_name>/.argo/default-->
 <h2 id="abouttheyamlfiles">About the YAML Files</h2>
-<p>The Selenium test workflow uses 3 YAML files from the <code>`.argo</code> directory of the repo at  <a href="https://github.com/argoproj/appstore/">https://github.com/argoproj/appstore/</a>:</p>
+<p>The Selenium test workflow uses 3 YAML files from the <code>.argo</code> directory of the repo at  <a href="https://github.com/argoproj/appstore/">https://github.com/argoproj/appstore/</a>:</p>
 <ul>
 <li><p><code>argo-checkout.yaml</code> - creates a container for checking out source code from the repo.</p></li>
 <li><p><code>selenium_all_ax.yaml</code> - has several workflows that are nested in this order:</p>
@@ -5851,17 +5854,20 @@ body {
 <li><p>1st nested workflow: <code>selenium-with-video-converter-workflow</code>, which has these steps:</p></li>
 <li><p>Runs the nested workflow (<code>selenium-test-workflow</code>) that performs the Selenium test of the app.</p></li>
 <li><p>Runs the container (<code>video-converter</code>) that performs the video conversion</p>
-<p>NOTE: The <code>selenium-test-workflow</code> declares <a href="/argo-site/docs/user_guide/infrastructure/using_fixtures.html">managed fixtures</a> for the Selenium server, the web app to test in the browsers, and video recorder (<code>selenium-server</code>, <code>selenium-test-app</code>, and <code>vnc-recorder</code>) and creates a container (<code>selenium-e2e-test</code>) to run the test .</p></li></ul></li>
+<p>NOTE: The <code>selenium-test-workflow</code> declares <a href="/argo-site/docs/user_guide/infrastructure/using_fixtures.html">managed fixtures</a> for the Selenium server, the web app to test in the browsers, and video recorder (<code>selenium-server</code>, <code>selenium-test-app</code>, and <code>vnc-recorder</code>) and creates a container (<code>selenium-e2e-test</code>) to run the test.</p></li></ul></li>
 <li><p><code>selenium_video_tool.yaml</code> - defines the containers for recording and converting the video of the Selenium test from <code>.flv</code> format to <code>.mp4</code> format (<code>vnc-recorder</code> and <code>video-converter</code>).</p></li>
 </ul>
 <p>NOTE: For more details on the workflow and container YAML DSL please check the YAML tutorial at <a href="/argo-site/docs/yaml/container_templates.html">Container Template</a>.</p>
 <h2 id="runsampleseleniumtestworkflow">Run Sample Selenium Test Workflow</h2>
 <h3 id="fromargocli">From Argo CLI:</h3>
-<pre><code class="argo job submit " selenium="" demo"="" --argument="" "parameters.browser="chrome&quot;" "parameters.test_failure="false&quot;" --repo="" https:="" github.com="" argoproj="" appstore.git```="" language-argo="" job="" submit="" "selenium="" appstore.git```"="">Get the job ID of the running job:
+<pre><code>argo job submit "Selenium Demo" --argument "parameters.BROWSER=chrome" --argument "parameters.TEST_FAILURE=false" --repo https://github.com/argoproj/appstore.git
 </code></pre>
-<p>$ ~/argo job list```</p>
+<p>Get the job ID of the running job:</p>
+<pre><code>$ argo job list
+</code></pre>
 <p>Get the status of a job:</p>
-<p><code>$ ~/argo job show &lt;job_ID&gt;</code></p>
+<pre><code>$ argo job show &lt;job_ID&gt;
+</code></pre>
 <h3 id="fromargowebui">From Argo Web UI</h3>
 <ol>
 <li><p>In the Argo Web UI, select <strong>Catalog</strong> &gt; <strong>Demo</strong> &gt; <strong>Selenium testing</strong> and click <strong>TEST</strong>.</p></li>

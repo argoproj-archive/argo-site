@@ -15,7 +15,7 @@ In this tutorial, you'll run multiple steps, which are grouped into nested workf
   * You have integrated Argo with Appstore containing sample selenium test [https://github.com/argoproj/appstore/](https://github.com/argoproj/appstore/).
   * (CLI only) You have logged into the Argo command line. To do this, go to your terminal, cd to the directory for the Argo install, and enter the following information at the command-line prompt:
 
-    * ```$ ~/argo login```
+    * `$ argo login`
     * Press enter for "Enter a configuration name (default):" (this takes the default value)
     * *your_Argo_cluster_URL* for "Enter cluster URL:"
     * *your_email_address* for "Enter cluster username:"
@@ -24,7 +24,7 @@ In this tutorial, you'll run multiple steps, which are grouped into nested workf
 
 ## About the YAML Files
 
-The Selenium test workflow uses 3 YAML files from the ``.argo` directory of the repo at  [https://github.com/argoproj/appstore/](https://github.com/argoproj/appstore/):
+The Selenium test workflow uses 3 YAML files from the `.argo` directory of the repo at  [https://github.com/argoproj/appstore/](https://github.com/argoproj/appstore/):
 
 * `argo-checkout.yaml` - creates a container for checking out source code from the repo.
 * `selenium_all_ax.yaml` - has several workflows that are nested in this order:
@@ -35,8 +35,7 @@ The Selenium test workflow uses 3 YAML files from the ``.argo` directory of the 
      * Runs the nested workflow (`selenium-test-workflow`) that performs the Selenium test of the app.
      * Runs the container (`video-converter`) that performs the video conversion
 
-
-       NOTE: The `selenium-test-workflow` declares [managed fixtures](./../user_guide/infrastructure/using_fixtures.md) for the Selenium server, the web app to test in the browsers, and video recorder (`selenium-server`, `selenium-test-app`, and `vnc-recorder`) and creates a container (`selenium-e2e-test`) to run the test .
+       NOTE: The `selenium-test-workflow` declares [managed fixtures](./../user_guide/infrastructure/using_fixtures.md) for the Selenium server, the web app to test in the browsers, and video recorder (`selenium-server`, `selenium-test-app`, and `vnc-recorder`) and creates a container (`selenium-e2e-test`) to run the test.
 * `selenium_video_tool.yaml` - defines the containers for recording and converting the video of the Selenium test from `.flv` format to `.mp4` format (`vnc-recorder` and `video-converter`).
 
 NOTE: For more details on the workflow and container YAML DSL please check the YAML tutorial at [Container Template](./../yaml/container_templates.md).
@@ -45,15 +44,33 @@ NOTE: For more details on the workflow and container YAML DSL please check the Y
 
 ### From Argo CLI:
 
-```argo job submit "Selenium Demo" --argument "parameters.BROWSER=chrome" --argument "parameters.TEST_FAILURE=false" --repo https://github.com/argoproj/appstore.git```
+```
+
+argo job submit "Selenium Demo" --argument "parameters.BROWSER=chrome" --argument "parameters.TEST_FAILURE=false" --repo https://github.com/argoproj/appstore.git
+
+
+```
 
 Get the job ID of the running job:
 
-```$ ~/argo job list```
+
+```
+
+$ argo job list
+
+
+```
 
 Get the status of a job:
 
-```$ ~/argo job show <job_ID>```
+
+```
+
+$ argo job show <job_ID>
+
+
+```
+
 
 ### From Argo Web UI
 
