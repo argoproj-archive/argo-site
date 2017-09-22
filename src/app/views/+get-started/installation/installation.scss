@@ -69,34 +69,6 @@
         }
     }
 
-    &__has-tooltip {
-        position: relative;
-        display: inline-block;
-        color: #4884cd;
-
-        &:hover {
-            .installation__tooltip {
-                display: block !important;
-            }
-        }
-    }
-
-    &__tooltip {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 300px;
-        padding: 8px;
-        color: #ddd;
-        font-size: .6em;
-        background: #333;
-
-        ul {
-            margin-bottom: 0;
-        }
-    }
-
     &__video {
         position: relative;
         overflow: hidden;
