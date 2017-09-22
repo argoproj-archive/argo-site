@@ -114,6 +114,12 @@
               "summary": "Notification messages with severity levels about Argo events",
               "details": "Configure notification messages, severity levels about Argo events, configure notification rules for users, configure Slack, SMTP to send notification messages",
               "path": "user_guide/configapplatixcluster/setupnotificationmanagement.md"
+            },
+            {
+                "title": "Minimum AWS Resource Requirements for Argo",
+                "path": "a_introduction_topics/Min_Req_AWS_Resources_4_Argo.md",
+                "summary": "Minimum AWS Resource Requirements for Argo",
+                "details": "Minimum AWS Resource Requirements that the Argo cluster needs to run in AWS"
             }
           ]
         },
@@ -278,12 +284,6 @@
       "path": "releasenotes/release_notes_argo.md",
       "summary": "Release Notes for Container native workflows",
       "details": "Release Notes of Argo, container native Kubernetes workflow engine"
-    },
-    {
-      "title": "Minimum AWS Resource Requirements for Argo",
-      "path": "a_introduction_topics/Min_Req_AWS_Resources_4_Argo.md",
-      "summary": "Minimum AWS Resource Requirements for Argo",
-      "details": "Minimum AWS Resource Requirements that the Argo cluster needs to run in AWS"
     }
   ]
 }
