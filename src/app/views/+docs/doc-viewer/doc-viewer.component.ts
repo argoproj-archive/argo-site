@@ -1,8 +1,10 @@
 import { Component, Input, OnChanges, AfterViewChecked, SimpleChanges, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
 import { LocationStrategy, isPlatformBrowser } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Converter } from 'showdown';
+import { Converter, setFlavor } from 'showdown';
 let path = require('path');
+
+setFlavor('github');
 
 interface MarkdownExtension {
     regex: RegExp;
