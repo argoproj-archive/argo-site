@@ -12,7 +12,7 @@
     <meta name="description" content="Using volumes as storage for persisting data in a long-running deployment, Storage Classes for Volumes, named, anonymous, container and deployment templates">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5750,7 +5750,7 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;addingavolumeasstoragefordeployment&quot;>Adding a Volume as Storage for Deployment</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;adding-a-volume-as-storage-for-deployment&quot;>Adding a Volume as Storage for Deployment</h1>
 <p>When a long-running deployment executes, it may need storage for persisting data. Argo provides volumes to enable the storage of data. There are two types of volumes that Argo supports:</p>
 <ul>
 <li><p>NAMED volumes persist independently of an application. The volume and its data persist even after an application terminates. NAMED volumes must be declared from the Argo Web UI before they can be referenced in a YAML template. Follow these steps to declare a NAMED volume</p>
@@ -5760,24 +5760,24 @@ body {
 <li><p>Enter a name for the volume and the size of the volume (in Gibibytes).</p></li>
 <li><p>Click <strong>SAVE</strong>.</p>
 <p>The newly-created volume is now visible on the main volumes page (Infrastructure &amp;gt; Volumes)</p></li></ol></li>
-<li><p>ANONYMOUS volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are <strong>only</strong> declared in the YAML template and you must specify a <code>storage_class</code> for it and its required parameters. For details about the storage class, see <a href=&quot;#AboutStorageClass4Volumes&quot;>About Storage Classes for Volumes</a>.For details about declaring an anonymous volume, see <a href=&quot;#Code4DeclaringAnonymousVolume&quot;>Code Example for An Anonymous Volume</a>.</p></li>
+<li><p>ANONYMOUS volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are <strong>only</strong> declared in the YAML template and you must specify a <code>storage_class</code> for it and its required parameters. For details about the storage class, see <a href=&quot;#AboutStorageClass4Volumes&quot;>About Storage Classes for Volumes</a>. For details about declaring an anonymous volume, see <a href=&quot;#Code4DeclaringAnonymousVolume&quot;>Code Example for An Anonymous Volume</a>.</p></li>
 </ul>
 <p>When creating a new volume, you must decide whether the volume is &quot;named&quot; or &quot;anonymous&quot;.</p>
-<h2 id=&quot;anameaboutstorageclass4volumesaaboutstorageclassesforvolumes&quot;><a name=&quot;AboutStorageClass4Volumes&quot;></a>About Storage Classes for Volumes</h2>
+<h2 id=&quot;a-nameaboutstorageclass4volumesaabout-storage-classes-for-volumes&quot;><a name=&quot;AboutStorageClass4Volumes&quot;></a>About Storage Classes for Volumes</h2>
 <p>Argo provides pre-configured storage classes for volumes. A storage class is composed of specific characteristics:</p>
 <ul>
 <li><strong>STORAGE PROVIDER NAME</strong> - This is the name of the storage provider used for the volume, such as &quot;<code>ebs</code>&quot; or Elastic Block Storage (EBS) if you are using AWS.</li>
 <li><strong>VOLUME TYPE</strong> - The type of volume that the storage provider has, such as &quot;gp2&quot; for EBS. This is an example of a required parameter the for &quot;ebs&quot; storage provider.</li>
 <li><strong>FILE SYSTEM</strong> - The type of file system that the storage provider uses, such as &quot;ext4&quot; for EBS. This is an example of a required parameter for &quot;ebs&quot; storage provider.</li>
 </ul>
-<h2 id=&quot;requiredyamltemplatesforvolumes&quot;>Required YAML Templates for Volumes</h2>
+<h2 id=&quot;required-yaml-templates-for-volumes&quot;>Required YAML Templates for Volumes</h2>
 <p>You'll need to use two types of YAML templates to implement volumes:</p>
 <ul>
 <li><strong>Deployment</strong> - specifies a section named &quot;<code>volumes</code>&quot;, the name of the volume, the Storage class, and the size of the volume.</li>
 <li><strong>Container</strong> - specifies the name of the container image used in a deployment (such as a database, web server) and references the name of the volume that is to be mounted on the Argo Cluster</li>
 </ul>
 <p>The following pseudo-code shows the specific lines to add to support for named and anonymous volumes in the two templates (Deployment and Container) and it uses a &quot;referenced&quot;container to mount a volume:</p>
-<h3 id=&quot;deploymenttemplate&quot;>Deployment Template</h3>
+<h3 id=&quot;deployment-template&quot;>Deployment Template</h3>
 <pre><code># section name
 volumes:
 # Reference a named volume for deployment with the &quot;name&quot; reserved word
@@ -5788,9 +5788,8 @@ volumes:
     # Storage_class is an Argo keyword that refers to pre-configured
     # storage provider and its required parameters that Argo supports
     Storage_class: &amp;amp;lt;Argo_reserved_name_4_class&amp;amp;gt;
-    Size: xx GB
-</code></pre>
-<h3 id=&quot;containertemplate&quot;>Container Template</h3>
+    Size: xx GB</code></pre>
+<h3 id=&quot;container-template&quot;>Container Template</h3>
 <pre><code># Name of image for container
 image: &amp;amp;lt;database_type or server_type such as MySQL or HTTP server&amp;amp;gt;
 resources:
@@ -5800,9 +5799,8 @@ resources:
 inputs:
   volumes:
     &amp;amp;lt;reference_to_volume&amp;amp;gt;
-      mount_path: &amp;amp;lt;path_to_volume&amp;amp;gt;
-</code></pre>
-<h2 id=&quot;codeexamplefornamedvolume&quot;>Code Example for Named Volume</h2>
+      mount_path: &amp;amp;lt;path_to_volume&amp;amp;gt;</code></pre>
+<h2 id=&quot;code-example-for-named-volume&quot;>Code Example for Named Volume</h2>
 <p>The following code example shows the following:</p>
 <ul>
 <li>references a named volume (<code>data</code>) to store persistent data.</li>
@@ -5847,21 +5845,19 @@ resources:
   mem_mib: 32
 inputs: **volumes:
     DATA:
-      mount_path: /data
-</code></pre>
-<h2 id=&quot;anamecode4declaringanonymousvolumeacodeexampleforananonymousvolume&quot;><a name=&quot;Code4DeclaringAnonymousVolume&quot;></a>Code Example for An Anonymous Volume</h2>
+      mount_path: /data</code></pre>
+<h2 id=&quot;a-namecode4declaringanonymousvolumeacode-example-for-an-anonymous-volume&quot;><a name=&quot;Code4DeclaringAnonymousVolume&quot;></a>Code Example for An Anonymous Volume</h2>
 <p>The YAML code for declaring an anonymous volume for a deployment is exactly the same as for a named volume except for a couple of lines in the <code>volumes</code> section of the deployment template:</p>
 <pre><code>volumes:
   data: **storage_class: ssd
-    size_gb: 1**
-</code></pre>
+    size_gb: 1**</code></pre>
 <p>Notice that the value for the data volume is not a name, but a mapping to a <code>storage_class: ssd</code> and any of its required parameters (such as <code>size_gb</code>).</p>
-<h3 id=&quot;toviewdetailsaboutavolume&quot;>To view details about a volume:</h3>
+<h3 id=&quot;to-view-details-about-a-volume&quot;>To view details about a volume:</h3>
 <p>NOTE: Usage refers the current utilization of the volume.</p>
 <ol>
-<li><p>Click <strong>Infrastructure</strong> &amp;gt; <strong>Volumes</strong> &amp;gt; <em>name</em>of<em>the</em>volume_ to view details about the volume (STORAGE PROVIDER NAME, VOLUME TYPE, FILE SYSTEM)</p></li>
+<li><p>Click <strong>Infrastructure</strong> &amp;gt; <strong>Volumes</strong> &amp;gt; <em>name_of_the_volume</em> to view details about the volume (STORAGE PROVIDER NAME, VOLUME TYPE, FILE SYSTEM)</p></li>
 <li><p>Click the name of the <strong>VOLUME USERS</strong> to view details about the deployment(s) that an application uses.</p></li>
-</ol>"><h1 id="addingavolumeasstoragefordeployment">Adding a Volume as Storage for Deployment</h1>
+</ol>"><h1 id="adding-a-volume-as-storage-for-deployment">Adding a Volume as Storage for Deployment</h1>
 <p>When a long-running deployment executes, it may need storage for persisting data. Argo provides volumes to enable the storage of data. There are two types of volumes that Argo supports:</p>
 <ul>
 <li><p>NAMED volumes persist independently of an application. The volume and its data persist even after an application terminates. NAMED volumes must be declared from the Argo Web UI before they can be referenced in a YAML template. Follow these steps to declare a NAMED volume</p>
@@ -5871,24 +5867,24 @@ inputs: **volumes:
 <li><p>Enter a name for the volume and the size of the volume (in Gibibytes).</p></li>
 <li><p>Click <strong>SAVE</strong>.</p>
 <p>The newly-created volume is now visible on the main volumes page (Infrastructure &gt; Volumes)</p></li></ol></li>
-<li><p>ANONYMOUS volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are <strong>only</strong> declared in the YAML template and you must specify a <code>storage_class</code> for it and its required parameters. For details about the storage class, see <a href="#AboutStorageClass4Volumes">About Storage Classes for Volumes</a>.For details about declaring an anonymous volume, see <a href="#Code4DeclaringAnonymousVolume">Code Example for An Anonymous Volume</a>.</p></li>
+<li><p>ANONYMOUS volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are <strong>only</strong> declared in the YAML template and you must specify a <code>storage_class</code> for it and its required parameters. For details about the storage class, see <a href="#AboutStorageClass4Volumes">About Storage Classes for Volumes</a>. For details about declaring an anonymous volume, see <a href="#Code4DeclaringAnonymousVolume">Code Example for An Anonymous Volume</a>.</p></li>
 </ul>
 <p>When creating a new volume, you must decide whether the volume is "named" or "anonymous".</p>
-<h2 id="anameaboutstorageclass4volumesaaboutstorageclassesforvolumes"><a name="AboutStorageClass4Volumes"></a>About Storage Classes for Volumes</h2>
+<h2 id="a-nameaboutstorageclass4volumesaabout-storage-classes-for-volumes"><a name="AboutStorageClass4Volumes"></a>About Storage Classes for Volumes</h2>
 <p>Argo provides pre-configured storage classes for volumes. A storage class is composed of specific characteristics:</p>
 <ul>
 <li><strong>STORAGE PROVIDER NAME</strong> - This is the name of the storage provider used for the volume, such as "<code>ebs</code>" or Elastic Block Storage (EBS) if you are using AWS.</li>
 <li><strong>VOLUME TYPE</strong> - The type of volume that the storage provider has, such as "gp2" for EBS. This is an example of a required parameter the for "ebs" storage provider.</li>
 <li><strong>FILE SYSTEM</strong> - The type of file system that the storage provider uses, such as "ext4" for EBS. This is an example of a required parameter for "ebs" storage provider.</li>
 </ul>
-<h2 id="requiredyamltemplatesforvolumes">Required YAML Templates for Volumes</h2>
+<h2 id="required-yaml-templates-for-volumes">Required YAML Templates for Volumes</h2>
 <p>You'll need to use two types of YAML templates to implement volumes:</p>
 <ul>
 <li><strong>Deployment</strong> - specifies a section named "<code>volumes</code>", the name of the volume, the Storage class, and the size of the volume.</li>
 <li><strong>Container</strong> - specifies the name of the container image used in a deployment (such as a database, web server) and references the name of the volume that is to be mounted on the Argo Cluster</li>
 </ul>
 <p>The following pseudo-code shows the specific lines to add to support for named and anonymous volumes in the two templates (Deployment and Container) and it uses a "referenced"container to mount a volume:</p>
-<h3 id="deploymenttemplate">Deployment Template</h3>
+<h3 id="deployment-template">Deployment Template</h3>
 <pre><code># section name
 volumes:
 # Reference a named volume for deployment with the "name" reserved word
@@ -5899,9 +5895,8 @@ volumes:
     # Storage_class is an Argo keyword that refers to pre-configured
     # storage provider and its required parameters that Argo supports
     Storage_class: &amp;lt;Argo_reserved_name_4_class&amp;gt;
-    Size: xx GB
-</code></pre>
-<h3 id="containertemplate">Container Template</h3>
+    Size: xx GB</code></pre>
+<h3 id="container-template">Container Template</h3>
 <pre><code># Name of image for container
 image: &amp;lt;database_type or server_type such as MySQL or HTTP server&amp;gt;
 resources:
@@ -5911,9 +5906,8 @@ resources:
 inputs:
   volumes:
     &amp;lt;reference_to_volume&amp;gt;
-      mount_path: &amp;lt;path_to_volume&amp;gt;
-</code></pre>
-<h2 id="codeexamplefornamedvolume">Code Example for Named Volume</h2>
+      mount_path: &amp;lt;path_to_volume&amp;gt;</code></pre>
+<h2 id="code-example-for-named-volume">Code Example for Named Volume</h2>
 <p>The following code example shows the following:</p>
 <ul>
 <li>references a named volume (<code>data</code>) to store persistent data.</li>
@@ -5958,19 +5952,17 @@ resources:
   mem_mib: 32
 inputs: **volumes:
     DATA:
-      mount_path: /data
-</code></pre>
-<h2 id="anamecode4declaringanonymousvolumeacodeexampleforananonymousvolume"><a name="Code4DeclaringAnonymousVolume"></a>Code Example for An Anonymous Volume</h2>
+      mount_path: /data</code></pre>
+<h2 id="a-namecode4declaringanonymousvolumeacode-example-for-an-anonymous-volume"><a name="Code4DeclaringAnonymousVolume"></a>Code Example for An Anonymous Volume</h2>
 <p>The YAML code for declaring an anonymous volume for a deployment is exactly the same as for a named volume except for a couple of lines in the <code>volumes</code> section of the deployment template:</p>
 <pre><code>volumes:
   data: **storage_class: ssd
-    size_gb: 1**
-</code></pre>
+    size_gb: 1**</code></pre>
 <p>Notice that the value for the data volume is not a name, but a mapping to a <code>storage_class: ssd</code> and any of its required parameters (such as <code>size_gb</code>).</p>
-<h3 id="toviewdetailsaboutavolume">To view details about a volume:</h3>
+<h3 id="to-view-details-about-a-volume">To view details about a volume:</h3>
 <p>NOTE: Usage refers the current utilization of the volume.</p>
 <ol>
-<li><p>Click <strong>Infrastructure</strong> &gt; <strong>Volumes</strong> &gt; <em>name</em>of<em>the</em>volume_ to view details about the volume (STORAGE PROVIDER NAME, VOLUME TYPE, FILE SYSTEM)</p></li>
+<li><p>Click <strong>Infrastructure</strong> &gt; <strong>Volumes</strong> &gt; <em>name_of_the_volume</em> to view details about the volume (STORAGE PROVIDER NAME, VOLUME TYPE, FILE SYSTEM)</p></li>
 <li><p>Click the name of the <strong>VOLUME USERS</strong> to view details about the deployment(s) that an application uses.</p></li>
 </ol></div></argo-doc-viewer>
             <argo-docs-subnav><!---->

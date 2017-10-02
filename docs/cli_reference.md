@@ -1,4 +1,6 @@
-# CLI Reference
+# Cluster CLI Reference
+
+<!-- Remove all content about “environmental variables” --- this is already documented in the command-line help for the argocluster install options (version, registry)
 
 ## <a name="EnvVars-CLIInstall"></a>Critical Environment Variables For Cluster Manager Container
 
@@ -103,16 +105,21 @@ Image version for all Argo micro services
 </tbody>
 
 </table>
+-->
 
 ## <a name="InstallCmdOptions"></a>Install
 
-Installs an Argo cluster based on given configurations. After the cluster is installed, Argo generates an initial access credential and creates an Argo CLI configuration file, which is named as "<cluster-name>-<cluster-id>". Currently some important software, i.e. Kubernetes binaries, Kubernetes salt come with the cluster manager container from where user runs the install. User are free to set Argo service software namespace / version through exporting environment variables.
-
+Installs an Argo cluster based on given configurations.
+<!--from Harry; After the cluster is installed, Argo generates an initial access credential and creates an Argo CLI configuration file, which is named as "<cluster-name>-<cluster-id>".-->
 This is the basic command for installing Argo:
 
-`argocluster install --cluster-name <CLUSTER_NAME>`
+```
 
-### Options
+$ argocluster install --cluster-name <CLUSTER_NAME>
+
+```
+
+<!--from Harry; ### Options
 
 <table><colgroup><col style="width: 248pt;"> <col style="width: 353pt;"> <col style="width: 148pt;"></colgroup>
 
@@ -587,14 +594,33 @@ Example: 172.25.0.0/16
 
 </table>
 
+-->
+
 # <a name="UninstallCmdOptions"></a>Uninstall
 
-Uninstalls a cluster and cleans up all cluster-related resources in the cloud provider based on the options you provide. Note that you may need to manually delete the S3 bucket as it is shared by all clusters in the account.
+Uninstalls a cluster and cleans up all cluster-related resources in your cloud provider based on the options you provide.
+
+NOTE: You may need to manually delete the S3 bucket as it is shared by all clusters in your cloud provider account.
 
 This is the basic command for uninstalling Argo:
 
- `$ argocluster uninstall --force-uninstall --cluster-name <_yourClusterName_>`
+copied from install command
+```
 
+$ argocluster uninstall --force-uninstall --cluster-name <yourClusterName>
+
+```
+
+
+removed leading space at beginning of each line
+
+```
+
+$ argocluster uninstall --force-uninstall --cluster-name <_yourClusterName_>
+
+```
+
+<!--from Harry;
 ### Options
 
 <table xmlns=""><colgroup><col style="width: 209px;"> <col></colgroup>
@@ -753,14 +779,23 @@ Placement of the cluster to uninstall
 
 </table>
 
+-->
+
 # <a name="UpgradeCmdOptions"></a>Upgrade
 
-Upgrades a cluster to a target version of Argo. Currently some important software, i.e. Kubernetes binaries, Kubernetes salt come with the cluster manager container from where you runs the install. You can set the Argo service software namespace / version through exporting environment variables.
+Upgrades a cluster to a target version of Argo. 
+
+<!--from Harry; Currently some important software, i.e. Kubernetes binaries, Kubernetes salt come with the cluster manager container from where you runs the install. You can set the Argo service software namespace / version through exporting environment variables.-->
 
 This is the basic command for upgrading your cluster:
 
-`$ argocluster upgrade --cluster-name <_yourClusterName_>`
+```
 
+$ argocluster upgrade --cluster-name <_yourClusterName_>
+
+```
+
+<!--from Harry;
 ### Options
 
 <table><colgroup><col style="width: 190px;"> <col></colgroup>
@@ -934,6 +969,7 @@ By default, we upgrade cluster if either cluster install version / kubernetes ve
 </tbody>
 
 </table>
+-->
 
 # <a name="PauseCmdOptions"></a>Pause
 
@@ -941,8 +977,12 @@ Tears down unnecessary resources from cloud provider, while making sure your clu
 
 This is the basic command for pausing a cluster:
 
-`$ argocluster pause --cluster-name <_yourClusterName_>`
+```
 
+$ argocluster pause --cluster-name <_yourClusterName_>
+
+```
+<!--
 ### Options
 
 <table><colgroup><col style="width: 205px;"> <col></colgroup>
@@ -1068,22 +1108,30 @@ Perform operation in silent mode. By default, you will be prompted with the conf
 </tbody>
 
 </table>
-
+-->
 # <a name="ResumeCmdOptions"></a>Resume
 
 Restores a paused cluster to its previous state before pausing. After resuming, the cluster has the same software version, node / network / security configurations, and all applications / jobs that were paused are restarted.
 
 This is the basic command for resuming a cluster:
 
-`$ argocluster resume --cluster-name <_yourClusterName_>`
+```
+
+$ argocluster resume --cluster-name <_yourClusterName_>
+
+```
 
 ## Restart
 
 This is the basic command to restart Argo:
 
-`$ argocluster restart [-h] [--cluster-name CLUSTER_NAME]`
+```
 
-### Options
+$ argocluster restart [-h] [--cluster-name CLUSTER_NAME]
+
+```
+
+<!--### Options
 
 <table><colgroup><col style="width: 166px;"> <col></colgroup>
 
@@ -1208,3 +1256,4 @@ Perform operation in silent mode. By default, you will be prompted with the conf
 </tbody>
 
 </table>
+-->

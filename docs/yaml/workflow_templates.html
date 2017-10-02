@@ -12,7 +12,7 @@
     <meta name="description" content="The Argo YAML DSL specification for running workflows and details about the workflow template sections (common name and type, inputs, outputs, steps)">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5742,9 +5742,9 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;workflowtemplate&quot;>Workflow Template</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;workflow-template&quot;>Workflow Template</h1>
 <p>A workflow template contains the following sections.</p>
-<h4 id=&quot;commonnameandtype&quot;>Common Name and Type</h4>
+<h4 id=&quot;common-name-and-type&quot;>Common Name and Type</h4>
 <ul>
 <li><p><code>type</code>: workflow</p></li>
 <li><p><code>version</code>: the version of the Argo YAML DSL used in this template</p></li>
@@ -5793,7 +5793,7 @@ body {
 <li><code>cpu_cores</code> - the percentage of a CPU core that Argo allows the container to use. 0.1 means 10% of a single core. Argo allows the container to use a maximum of 4 times of the specified amount. Argo does not kill the container for exceeding the CPU limit.</li>
 <li><code>env</code> - specifies the environment options for a Docker container. . Argo only supports the &quot;-e&quot;, &quot;-p&quot; options, although the use of &quot;-p&quot; option is strongly discouraged, because it limits the ability to migrate the Docker container.</li></ul></li>
 </ul>
-<h4 id=&quot;flagsforexceptionhandling&quot;>Flags for exception handling</h4>
+<h4 id=&quot;flags-for-exception-handling&quot;>Flags for exception handling</h4>
 <p>In many cases, you will want to specially handle errors and exceptions that occur during workflows. Two special flags are provided for this purpose:</p>
 <ul>
 <li><p><code>ignore_error</code> - Ignore any errors/failures for the specified step. The step always succeeds.</p></li>
@@ -5809,9 +5809,8 @@ body {
     template: mycleanup
     flags:
         always_run: true
-        ignore_error: true
-</code></pre>
-<h4 id=&quot;stepsexecutedsequentially&quot;>Steps executed sequentially</h4>
+        ignore_error: true</code></pre>
+<h4 id=&quot;steps-executed-sequentially&quot;>Steps executed sequentially</h4>
 <pre><code>---
 type: workflow
 version: 1
@@ -5831,14 +5830,13 @@ steps:
 - STEP2:
     image: alpine:latest
     command: [&quot;sh&quot;, &quot;-c&quot;]
-    args: [&quot;echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'&quot;]
-</code></pre>
+    args: [&quot;echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'&quot;]</code></pre>
 <p>where:</p>
 <p><code>- STEP1</code> is the name of the first step. The leading hyphen and space indicates this is part of a list.</p>
 <p><code>alpine:latest</code> is the name of the container image that is run in this step.</p>
 <p><code>[&quot;sh&quot;, &quot;-c&quot;]</code> are the commands that Argo runs on this container.</p>
 <p><code>[&quot;echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'&quot;]</code> are the arguments for the command to be executed.</p>
-<h4 id=&quot;stepsexecutedinparallel&quot;>Steps executed in parallel</h4>
+<h4 id=&quot;steps-executed-in-parallel&quot;>Steps executed in parallel</h4>
 <p>If you want steps to execute in parallel (instead of sequentially), just omit the leading hyphen and space (&quot;- &quot;) that precedes the subsequent step:</p>
 <pre><code>steps:
 - STEP1:
@@ -5849,9 +5847,8 @@ steps:
   STEP2:
     image: alpine:latest
     command: [&quot;sh&quot;, &quot;-c&quot;]
-    args: [&quot;echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'&quot;]
-</code></pre>
-<h4 id=&quot;passingoutputfromoneworkflowasinputtoanotherworkflow&quot;>Passing Output from one workflow as input to another workflow</h4>
+    args: [&quot;echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'&quot;]</code></pre>
+<h4 id=&quot;passing-output-from-one-workflow-as-input-to-another-workflow&quot;>Passing Output from one workflow as input to another workflow</h4>
 <p>In this example, Step 1 of the parent workflow called <code>test-workflow-nested-artifacts</code> creates an output artifact from the nested workflow called <code>test-workflow-with-output-artifact</code>. Step 2 of the parent workflow takes the output from Step 1 and uses it as input for the <code>test-workflow-with-input-artifact</code> workflow.</p>
 <pre><code>---
 type: workflow
@@ -5895,10 +5892,9 @@ steps:
 - STEP2:
     template: test-workflow-with-input-artifact
     arguments:
-      artifacts.BIN-INPUT: &quot;%%steps.STEP1.outputs.artifacts.BIN-OUTPUT%%&quot;
-</code></pre>"><h1 id="workflowtemplate">Workflow Template</h1>
+      artifacts.BIN-INPUT: &quot;%%steps.STEP1.outputs.artifacts.BIN-OUTPUT%%&quot;</code></pre>"><h1 id="workflow-template">Workflow Template</h1>
 <p>A workflow template contains the following sections.</p>
-<h4 id="commonnameandtype">Common Name and Type</h4>
+<h4 id="common-name-and-type">Common Name and Type</h4>
 <ul>
 <li><p><code>type</code>: workflow</p></li>
 <li><p><code>version</code>: the version of the Argo YAML DSL used in this template</p></li>
@@ -5947,7 +5943,7 @@ steps:
 <li><code>cpu_cores</code> - the percentage of a CPU core that Argo allows the container to use. 0.1 means 10% of a single core. Argo allows the container to use a maximum of 4 times of the specified amount. Argo does not kill the container for exceeding the CPU limit.</li>
 <li><code>env</code> - specifies the environment options for a Docker container. . Argo only supports the "-e", "-p" options, although the use of "-p" option is strongly discouraged, because it limits the ability to migrate the Docker container.</li></ul></li>
 </ul>
-<h4 id="flagsforexceptionhandling">Flags for exception handling</h4>
+<h4 id="flags-for-exception-handling">Flags for exception handling</h4>
 <p>In many cases, you will want to specially handle errors and exceptions that occur during workflows. Two special flags are provided for this purpose:</p>
 <ul>
 <li><p><code>ignore_error</code> - Ignore any errors/failures for the specified step. The step always succeeds.</p></li>
@@ -5963,9 +5959,8 @@ steps:
     template: mycleanup
     flags:
         always_run: true
-        ignore_error: true
-</code></pre>
-<h4 id="stepsexecutedsequentially">Steps executed sequentially</h4>
+        ignore_error: true</code></pre>
+<h4 id="steps-executed-sequentially">Steps executed sequentially</h4>
 <pre><code>---
 type: workflow
 version: 1
@@ -5985,14 +5980,13 @@ steps:
 - STEP2:
     image: alpine:latest
     command: ["sh", "-c"]
-    args: ["echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'"]
-</code></pre>
+    args: ["echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'"]</code></pre>
 <p>where:</p>
 <p><code>- STEP1</code> is the name of the first step. The leading hyphen and space indicates this is part of a list.</p>
 <p><code>alpine:latest</code> is the name of the container image that is run in this step.</p>
 <p><code>["sh", "-c"]</code> are the commands that Argo runs on this container.</p>
 <p><code>["echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'"]</code> are the arguments for the command to be executed.</p>
-<h4 id="stepsexecutedinparallel">Steps executed in parallel</h4>
+<h4 id="steps-executed-in-parallel">Steps executed in parallel</h4>
 <p>If you want steps to execute in parallel (instead of sequentially), just omit the leading hyphen and space ("- ") that precedes the subsequent step:</p>
 <pre><code>steps:
 - STEP1:
@@ -6003,9 +5997,8 @@ steps:
   STEP2:
     image: alpine:latest
     command: ["sh", "-c"]
-    args: ["echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'"]
-</code></pre>
-<h4 id="passingoutputfromoneworkflowasinputtoanotherworkflow">Passing Output from one workflow as input to another workflow</h4>
+    args: ["echo 'sleeping for 2 minutes' ; sleep 120; echo 'done'"]</code></pre>
+<h4 id="passing-output-from-one-workflow-as-input-to-another-workflow">Passing Output from one workflow as input to another workflow</h4>
 <p>In this example, Step 1 of the parent workflow called <code>test-workflow-nested-artifacts</code> creates an output artifact from the nested workflow called <code>test-workflow-with-output-artifact</code>. Step 2 of the parent workflow takes the output from Step 1 and uses it as input for the <code>test-workflow-with-input-artifact</code> workflow.</p>
 <pre><code>---
 type: workflow
@@ -6049,8 +6042,7 @@ steps:
 - STEP2:
     template: test-workflow-with-input-artifact
     arguments:
-      artifacts.BIN-INPUT: "%%steps.STEP1.outputs.artifacts.BIN-OUTPUT%%"
-</code></pre></div></argo-doc-viewer>
+      artifacts.BIN-INPUT: "%%steps.STEP1.outputs.artifacts.BIN-OUTPUT%%"</code></pre></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

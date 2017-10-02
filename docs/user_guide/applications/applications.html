@@ -12,7 +12,7 @@
     <meta name="description" content="Build and Deploy Container-Native Applications as long-running microservices on Kubernetes, Monitor and Scale Deployments, Configure Rolling Updates | Argo">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5746,7 +5746,7 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;buildinganddeployingapplications&quot;>Building and Deploying Applications</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;building-and-deploying-applications&quot;>Building and Deploying Applications</h1>
 <p>Besides building code and running workflows, the real power of the Argo lies in building a containerized application and deploying it as a set of long-running microservices.</p>
 <p>Before jumping into how applications and deployments work, let's define what they mean:</p>
 <ul>
@@ -5761,37 +5761,38 @@ body {
 <li><p>The database server deployment has 1 instance running</p>
 <p><img src=&quot;docs/images/applications_deployments_volume_diagram_argo2.png&quot; alt=&quot;&quot; /></p></li>
 </ul>
-<p>From the <strong>Applications</strong> tab, you can view all applications that are available for deployment on your Argo.</p>
-<p>Here's how you view the status of an active application:</p>
+<p>You can view all applications that are available for deployment and their statuses on Argo:</p>
 <ul>
-<li><p>Go to <strong>Applications</strong>.</p>
+<li><p>Go to <strong>Navigation bar</strong> &amp;gt; <strong>Applications</strong>.</p>
 <p>This view displays the status of the application, whether it is running, stopped, terminated, or has generated an error.</p>
 <p>This view also displays information about the last time the application was deployed or restarted.</p></li>
-<li><p>Click the name of the application to view details about the application.</p></li>
+<li><p>Click the name of the application to view details about the application (such as the number of deployments for an app, the number of instances for a deployment that are running).</p></li>
 <li><p>Click <img src=&quot;docs/images/3_vertical_dots_25x26_GREEN.png&quot; alt=&quot;&quot; /> on the name of the app and select <strong>View Spending</strong> to see the current cost of running the application for a specific time period.</p></li>
 </ul>
 <p>In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see <a href=&quot;/argo-site/docs/yaml/deployment_template.html&quot;>Deployment Template</a>.</p>
-<h1 id=&quot;monitoringandscalingdeployments&quot;>Monitoring and Scaling Deployments</h1>
+<h1 id=&quot;monitoring-and-scaling-deployments&quot;>Monitoring and Scaling Deployments</h1>
 <ul>
-<li><p>From APPLICATIONS, click the name of the app you want to monitor, and then click the deployment that is attached to the app to view whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.</p></li>
+<li><p>To monitor the deployment of an app, click <strong>APPLICATIONS</strong>, click the name of the app you want to monitor, and then click the name of the deployment that is attached to the app.</p>
+<p>This view shows whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.</p>
+<p>From this view, you can also see the configured internal and external routes for a deployment template under the <strong>END POINTS</strong> section.</p>
+<ul>
+<li><p><strong>EXTERNAL ROUTES</strong> allow a deployment to be accessed outside of the Argo.</p></li>
+<li><p><strong>INTERNAL ROUTES</strong> allow a deployment to be accessed by other deployments and jobs running within the same Argo. Internal routes are typically used to allow multiple microservices that are a part of the same application to communicate with each other. For example, suppose that you had an application that consists of a web app front end and a database backend. The network connection between these two deployments can be an internal route.</p></li></ul>
+<p>If you want to change the value of the routes, edit the YAML file for your deployment template. For details, see <a href=&quot;/argo-site/docs/yaml/deployment_template.html&quot;>Deployment Template</a>.</p></li>
 <li><p>To scale the number of instances for a deployment, click the &quot;plus&quot; or &quot;minus&quot; sign under <strong>INSTANCES</strong> or enter a new number. Click <strong>CONFIRM</strong> to accept the change. Or click <strong>CANCEL</strong> to back out of the change.</p></li>
 </ul>
-<p>To access the logs or console for an instance, click <img src=&quot;docs/images/3_vertical_dots_25x26_GREEN.png&quot; alt=&quot;&quot; /> and select:</p>
+<p>To access the logs or console for an instance, click <img src=&quot;docs/images/3_vertical_dots_25x26_GREEN.png&quot; alt=&quot;&quot; /> for the instance, and select:</p>
 <ul>
 <li><strong>LOGS</strong> to view the logs for the instance.</li>
 <li><strong>CONSOLE</strong> to access the instance and enter custom commands for managing the instance. Click <strong>EXECUTE</strong> to perform the commands.</li>
 </ul>
-<p>From the Endpoints view, you can also see the internal and external routes for a deployment template.</p>
-<p><strong>EXTERNAL ROUTES</strong> allow a deployment to be accessed outside of the Argo.</p>
-<p><strong>INTERNAL ROUTES</strong> allow a deployment to be accessed by other deployments and jobs running within the same Argo. Internal routes are typically used to allow multiple microservices that are a part of the same application to communicate with each other. For example, suppose that you had an application that consists of a web app front end and a database backend. The network connection between these two deployments can be an internal route.</p>
-<p>For details about configuring the routes, see <a href=&quot;/argo-site/docs/yaml/deployment_template.html&quot;>Deployment Template</a>.</p>
-<h1 id=&quot;rollingupdatesforadeployedapplication&quot;>Rolling Updates for a Deployed Application</h1>
+<h1 id=&quot;rolling-updates-for-a-deployed-application&quot;>Rolling Updates for a Deployed Application</h1>
 <p>To avoid downtime of a running application, Argo allows you to update or rollback your application one pod at a time. To use this feature, you'll need to perform two tasks:</p>
 <ul>
 <li><p>Configure your deployment YAML template to add a new section named &quot;<code>strategy</code>&quot; and two fields (<code>max_surge</code> and <code>max_unavailable</code>).</p></li>
 <li><p>Use the Argo Web UI to initiate the rolling update on a specified deployment.</p></li>
 </ul>
-<h2 id=&quot;configuringadeploymenttemplateforarollingupdate&quot;>Configuring a Deployment Template for a Rolling Update</h2>
+<h2 id=&quot;configuring-a-deployment-template-for-a-rolling-update&quot;>Configuring a Deployment Template for a Rolling Update</h2>
 <p>In the Deployment YAML template, you'll need to add the following configuration information:</p>
 <ul>
 <li>A new section named &quot;<code>strategy</code>&quot; with the keys &quot;<code>type</code>&quot; and &quot;<code>rolling_update</code>&quot;.</li>
@@ -5833,32 +5834,32 @@ inputs:
   parameters:
     version:
     dns_prefix:
-    dns_domain:
-</code></pre>
-<h2 id=&quot;performingarollingupdate&quot;>Performing a Rolling Update</h2>
+    dns_domain:</code></pre>
+<h2 id=&quot;performing-a-rolling-update&quot;>Performing a Rolling Update</h2>
 <ol>
-<li><p>Go to Applications and click an individual application.</p></li>
+<li><p>Go to <strong>Applications</strong> and click the application you want to perform a rolling update. (You'll see the view of the app with its deployments and instances of those deployments.)</p></li>
 <li><p>Choose one of these options:</p>
 <ol>
-<li>To perform a rolling update to the <strong>latest commit</strong> of your application, click <img src=&quot;docs/images/clear_3_dots_23x23.png&quot; alt=&quot;&quot; /> for the deployment you want and click Redeploy.</li>
-<li>To perform a rolling update to roll back to a <strong>specific revision</strong> of your application, click the specific deployment. Then click <img src=&quot;docs/images/clear_3_dots_23x23.png&quot; alt=&quot;&quot; /> for the revision you want and select Rollback.</li></ol></li>
-<li><p>Enter the input parameters that your workflow requires and click Submit to launch the rolling update.</p>
-<p>The job (aka workflow) is launched to perform the rolling update to either the most recent commit or a past deployment.</p></li>
+<li>To perform a rolling update to the <strong>latest commit</strong> of your application, click <img src=&quot;docs/images/clear_3_dots_23x23.png&quot; alt=&quot;&quot; /> for the deployment you want and click <strong>Redeploy</strong>.</li>
+<li>To perform a rolling update to roll back to a <strong>specific revision</strong> of your application, click the icon for the specific deployment. (You'll see the deployment details pane.)<br />
+Under <strong>RECENT REVISION</strong>, click <img src=&quot;docs/images/clear_3_dots_23x23.png&quot; alt=&quot;&quot; /> for the revision you want and select <strong>Redeploy</strong>.</li></ol></li>
+<li><p>Enter the input parameters that your workflow requires and click <strong>Submit</strong> to launch the rolling update.</p>
+<p>The job (aka workflow) launches to perform the rolling update to either the most recent commit or a recent revision of a deployment.</p></li>
 </ol>
-<p>The rolling update executes and has a status of SUCCESS when completed successfully.</p>
-<h2 id=&quot;viewingthelogsforadeployment&quot;>Viewing the Logs for a Deployment</h2>
-<p>There are two ways you can view the logs for a deployment:</p>
+<p>The rolling update executes and has a status of &quot;SUCCESS&quot; when it completed successfully.</p>
+<h2 id=&quot;viewing-the-logs-for-a-deployment&quot;>Viewing the Logs for a Deployment</h2>
+<p>There are two ways you can view or download the logs for a deployment:</p>
 <ul>
-<li>For a current deployment, click an instance for the deployment and select Logs.</li>
-<li>For a past deployment, click a deployment and select a revision or View Revision History. Click Artifacts and select the logs you want to view before clicking the download icon.</li>
+<li>For a current deployment, click an instance for the deployment and select <strong>Logs</strong>.</li>
+<li>For a past deployment, click a deployment and select <strong>VIEW REVISION HISTORY</strong>. Click the revision you want and click <strong>ARTIFACTS</strong> to select the logs you want to view before clicking the download icon.</li>
 </ul>
-<h2 id=&quot;conditionsforperformingrollingupdates&quot;>Conditions for Performing Rolling Updates</h2>
+<h2 id=&quot;conditions-for-performing-rolling-updates&quot;>Conditions for Performing Rolling Updates</h2>
 <p>There are restrictions on when you can perform a rolling update:</p>
 <ul>
-<li>You cannot change external routes while performing a rolling update</li>
-<li>You cannot do a rolling update if a volume is attached to a deployment</li>
-<li>You cannot do a rolling update to change the types of fixtures that are used</li>
-</ul>"><h1 id="buildinganddeployingapplications">Building and Deploying Applications</h1>
+<li>You cannot change external routes while performing a rolling update.</li>
+<li>You cannot do a rolling update if a volume is attached to a deployment.</li>
+<li>You cannot do a rolling update to change the types of fixtures that are used.</li>
+</ul>"><h1 id="building-and-deploying-applications">Building and Deploying Applications</h1>
 <p>Besides building code and running workflows, the real power of the Argo lies in building a containerized application and deploying it as a set of long-running microservices.</p>
 <p>Before jumping into how applications and deployments work, let's define what they mean:</p>
 <ul>
@@ -5873,37 +5874,38 @@ inputs:
 <li><p>The database server deployment has 1 instance running</p>
 <p><img src="docs/images/applications_deployments_volume_diagram_argo2.png" alt=""></p></li>
 </ul>
-<p>From the <strong>Applications</strong> tab, you can view all applications that are available for deployment on your Argo.</p>
-<p>Here's how you view the status of an active application:</p>
+<p>You can view all applications that are available for deployment and their statuses on Argo:</p>
 <ul>
-<li><p>Go to <strong>Applications</strong>.</p>
+<li><p>Go to <strong>Navigation bar</strong> &gt; <strong>Applications</strong>.</p>
 <p>This view displays the status of the application, whether it is running, stopped, terminated, or has generated an error.</p>
 <p>This view also displays information about the last time the application was deployed or restarted.</p></li>
-<li><p>Click the name of the application to view details about the application.</p></li>
+<li><p>Click the name of the application to view details about the application (such as the number of deployments for an app, the number of instances for a deployment that are running).</p></li>
 <li><p>Click <img src="docs/images/3_vertical_dots_25x26_GREEN.png" alt=""> on the name of the app and select <strong>View Spending</strong> to see the current cost of running the application for a specific time period.</p></li>
 </ul>
 <p>In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see <a href="/argo-site/docs/yaml/deployment_template.html">Deployment Template</a>.</p>
-<h1 id="monitoringandscalingdeployments">Monitoring and Scaling Deployments</h1>
+<h1 id="monitoring-and-scaling-deployments">Monitoring and Scaling Deployments</h1>
 <ul>
-<li><p>From APPLICATIONS, click the name of the app you want to monitor, and then click the deployment that is attached to the app to view whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.</p></li>
+<li><p>To monitor the deployment of an app, click <strong>APPLICATIONS</strong>, click the name of the app you want to monitor, and then click the name of the deployment that is attached to the app.</p>
+<p>This view shows whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.</p>
+<p>From this view, you can also see the configured internal and external routes for a deployment template under the <strong>END POINTS</strong> section.</p>
+<ul>
+<li><p><strong>EXTERNAL ROUTES</strong> allow a deployment to be accessed outside of the Argo.</p></li>
+<li><p><strong>INTERNAL ROUTES</strong> allow a deployment to be accessed by other deployments and jobs running within the same Argo. Internal routes are typically used to allow multiple microservices that are a part of the same application to communicate with each other. For example, suppose that you had an application that consists of a web app front end and a database backend. The network connection between these two deployments can be an internal route.</p></li></ul>
+<p>If you want to change the value of the routes, edit the YAML file for your deployment template. For details, see <a href="/argo-site/docs/yaml/deployment_template.html">Deployment Template</a>.</p></li>
 <li><p>To scale the number of instances for a deployment, click the "plus" or "minus" sign under <strong>INSTANCES</strong> or enter a new number. Click <strong>CONFIRM</strong> to accept the change. Or click <strong>CANCEL</strong> to back out of the change.</p></li>
 </ul>
-<p>To access the logs or console for an instance, click <img src="docs/images/3_vertical_dots_25x26_GREEN.png" alt=""> and select:</p>
+<p>To access the logs or console for an instance, click <img src="docs/images/3_vertical_dots_25x26_GREEN.png" alt=""> for the instance, and select:</p>
 <ul>
 <li><strong>LOGS</strong> to view the logs for the instance.</li>
 <li><strong>CONSOLE</strong> to access the instance and enter custom commands for managing the instance. Click <strong>EXECUTE</strong> to perform the commands.</li>
 </ul>
-<p>From the Endpoints view, you can also see the internal and external routes for a deployment template.</p>
-<p><strong>EXTERNAL ROUTES</strong> allow a deployment to be accessed outside of the Argo.</p>
-<p><strong>INTERNAL ROUTES</strong> allow a deployment to be accessed by other deployments and jobs running within the same Argo. Internal routes are typically used to allow multiple microservices that are a part of the same application to communicate with each other. For example, suppose that you had an application that consists of a web app front end and a database backend. The network connection between these two deployments can be an internal route.</p>
-<p>For details about configuring the routes, see <a href="/argo-site/docs/yaml/deployment_template.html">Deployment Template</a>.</p>
-<h1 id="rollingupdatesforadeployedapplication">Rolling Updates for a Deployed Application</h1>
+<h1 id="rolling-updates-for-a-deployed-application">Rolling Updates for a Deployed Application</h1>
 <p>To avoid downtime of a running application, Argo allows you to update or rollback your application one pod at a time. To use this feature, you'll need to perform two tasks:</p>
 <ul>
 <li><p>Configure your deployment YAML template to add a new section named "<code>strategy</code>" and two fields (<code>max_surge</code> and <code>max_unavailable</code>).</p></li>
 <li><p>Use the Argo Web UI to initiate the rolling update on a specified deployment.</p></li>
 </ul>
-<h2 id="configuringadeploymenttemplateforarollingupdate">Configuring a Deployment Template for a Rolling Update</h2>
+<h2 id="configuring-a-deployment-template-for-a-rolling-update">Configuring a Deployment Template for a Rolling Update</h2>
 <p>In the Deployment YAML template, you'll need to add the following configuration information:</p>
 <ul>
 <li>A new section named "<code>strategy</code>" with the keys "<code>type</code>" and "<code>rolling_update</code>".</li>
@@ -5945,31 +5947,31 @@ inputs:
   parameters:
     version:
     dns_prefix:
-    dns_domain:
-</code></pre>
-<h2 id="performingarollingupdate">Performing a Rolling Update</h2>
+    dns_domain:</code></pre>
+<h2 id="performing-a-rolling-update">Performing a Rolling Update</h2>
 <ol>
-<li><p>Go to Applications and click an individual application.</p></li>
+<li><p>Go to <strong>Applications</strong> and click the application you want to perform a rolling update. (You'll see the view of the app with its deployments and instances of those deployments.)</p></li>
 <li><p>Choose one of these options:</p>
 <ol>
-<li>To perform a rolling update to the <strong>latest commit</strong> of your application, click <img src="docs/images/clear_3_dots_23x23.png" alt=""> for the deployment you want and click Redeploy.</li>
-<li>To perform a rolling update to roll back to a <strong>specific revision</strong> of your application, click the specific deployment. Then click <img src="docs/images/clear_3_dots_23x23.png" alt=""> for the revision you want and select Rollback.</li></ol></li>
-<li><p>Enter the input parameters that your workflow requires and click Submit to launch the rolling update.</p>
-<p>The job (aka workflow) is launched to perform the rolling update to either the most recent commit or a past deployment.</p></li>
+<li>To perform a rolling update to the <strong>latest commit</strong> of your application, click <img src="docs/images/clear_3_dots_23x23.png" alt=""> for the deployment you want and click <strong>Redeploy</strong>.</li>
+<li>To perform a rolling update to roll back to a <strong>specific revision</strong> of your application, click the icon for the specific deployment. (You'll see the deployment details pane.)<br>
+Under <strong>RECENT REVISION</strong>, click <img src="docs/images/clear_3_dots_23x23.png" alt=""> for the revision you want and select <strong>Redeploy</strong>.</li></ol></li>
+<li><p>Enter the input parameters that your workflow requires and click <strong>Submit</strong> to launch the rolling update.</p>
+<p>The job (aka workflow) launches to perform the rolling update to either the most recent commit or a recent revision of a deployment.</p></li>
 </ol>
-<p>The rolling update executes and has a status of SUCCESS when completed successfully.</p>
-<h2 id="viewingthelogsforadeployment">Viewing the Logs for a Deployment</h2>
-<p>There are two ways you can view the logs for a deployment:</p>
+<p>The rolling update executes and has a status of "SUCCESS" when it completed successfully.</p>
+<h2 id="viewing-the-logs-for-a-deployment">Viewing the Logs for a Deployment</h2>
+<p>There are two ways you can view or download the logs for a deployment:</p>
 <ul>
-<li>For a current deployment, click an instance for the deployment and select Logs.</li>
-<li>For a past deployment, click a deployment and select a revision or View Revision History. Click Artifacts and select the logs you want to view before clicking the download icon.</li>
+<li>For a current deployment, click an instance for the deployment and select <strong>Logs</strong>.</li>
+<li>For a past deployment, click a deployment and select <strong>VIEW REVISION HISTORY</strong>. Click the revision you want and click <strong>ARTIFACTS</strong> to select the logs you want to view before clicking the download icon.</li>
 </ul>
-<h2 id="conditionsforperformingrollingupdates">Conditions for Performing Rolling Updates</h2>
+<h2 id="conditions-for-performing-rolling-updates">Conditions for Performing Rolling Updates</h2>
 <p>There are restrictions on when you can perform a rolling update:</p>
 <ul>
-<li>You cannot change external routes while performing a rolling update</li>
-<li>You cannot do a rolling update if a volume is attached to a deployment</li>
-<li>You cannot do a rolling update to change the types of fixtures that are used</li>
+<li>You cannot change external routes while performing a rolling update.</li>
+<li>You cannot do a rolling update if a volume is attached to a deployment.</li>
+<li>You cannot do a rolling update to change the types of fixtures that are used.</li>
 </ul></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>

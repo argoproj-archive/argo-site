@@ -79,7 +79,7 @@ $ argo job show <job_ID>
 ## Running Your Deployment Workflow
 
 
-You have two options for running your customized CI workflow:
+You have two options for running your customized Deployment workflow:
 
  * **Manually**
 	1. Go to **Templates** menu, select your YAML template and click **Create a New Job**.

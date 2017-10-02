@@ -1,33 +1,26 @@
 # Creating a Managed Fixture for Workflows and Apps
 
-When you run a workflow or deploy an app, you might need to access a resource that is external to your Argo cluster, such as a pool of virtual machines (VMs), databases, other REST-based services, etc. To manage and access these external resources, Argo provides “managed fixtures”. A managed fixture allows Argo to perform life-cycle management of these external resources like creating and deleting instances, loading data, or any other custom action.
+When you run a workflow or deploy an app, you may need to access a resource that is external to Argo, such as a pool of virtual machines (VMs), databases, EC2 instances, other REST-based services, etc. To handle these external resources, Argo provides the concept of “managed fixtures”.
 
-Managed fixtures have attributes and actions. **Attributes** are used to distinguish instances that come from different managed fixture classes. **Actions** are workflows that you can perform on a managed fixture, (such as creating a managed fixture for an external database)
+A managed fixture allows Argo to perform life-cycle management of an external resource such as creating and deleting instances, loading data, or any other custom action. Managed fixtures are comprised of two elements:
 
-Fixtures also allow you to use policies to automatically manage resources such as auto-suspension or termination based on various metrics and conditions.
+* `attributes` - used to distinguish instances that come from different managed fixture classes.
+* `actions`- represents workflows you can perform on a managed fixture (such as creating a managed fixture for an external database).
 
-The process for creating fixtures for a workflow or application is:
+You can also use policies with fixtures to automatically manage resources such as auto-suspension or termination based on various metrics and conditions.
 
-1.  In the YAML template, define a fixture class for each distinct type of resource that you need. See [Creating a fixture class for a workflow](#CreateFixture) for an example.
-2.  Go to the Argo Console for your cluster.
-3.  Connect to the repo containing the YAML fixture class definition you created.
+## How to Create a Managed Fixture
 
-4.  Add the fixture class you need to the repo. For details, see [To add a new fixture class to your repo branch](../user_guide/infrastructure/using_fixtures.md#AddFixtureClass2Repo)[Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md).
-5.  Create the instances of the fixture class. For details, see [To create an instance of a fixture class](../user_guide/infrastructure/using_fixtures.md#CreateInstanceFixtureClass).
+Before you can use a managed fixture in a workflow or app, you must create a class for the managed fixture. Here are the steps:
 
-## <a name="CreateFixture"></a>Creating a fixture class for a workflow
+1. **Create** a YAML template for each fixture class.
 
-These are the tasks for creating a fixture class:
+    You'll declare a template that is of `type: fixture` and reference it in the appropriate workflow and container templates.
 
-*   **Create** a YAML template for each fixture class.
+2. **Add** the desired attributes and actions to the fixture class.
 
-    You'll declare a template that is of type "fixture".
+    You'll define a list of attributes and actions that your workflow or app requires. See below for an example of attributes and actions.
 
-*   **Add** the desired attributes and actions to the fixture class.
-
-    See below for an example of attributes and actions.
-
-You are now ready to use this fixture class. See [Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md) for details.
 
 ### About Attributes and Actions for a Fixture
 
@@ -301,3 +294,7 @@ outputs:
       path: /tmp/fix_attrs.json
 
 ```
+
+##How to Use a Managed Fixture
+
+After creating the YAML template for the fixture class, you can now use it with your application or workflow. For the steps to use fixture classes, see [Using Fixtures for Accessing External Resources](./../user_guide/infrastructure/using_fixtures.md).   

@@ -12,7 +12,7 @@
     <meta name="description" content="Integrate Argo with issue tracking systems, create issues from Argo, configure webhooks for Argo, updates to a JIRA issue are forwarded to Argo">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5746,37 +5746,37 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;connecttoissuetrackingsystem&quot;>Connect to Issue Tracking System</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;connect-to-issue-tracking-system&quot;>Connect to Issue Tracking System</h1>
 <p>To make it easy to file issues against a job, application or deployment, Argo integrates with issue tracking systems such as JIRA so you can create issues from Argo. You can also set up webhooks for Argo so any updates to the already integrated JIRA issue are automatically forwarded to Argo. Here's the procedure to integrate with an issue tracking system:</p>
 <ol>
-<li><p>Click <strong>Configurations</strong> &amp;gt; <strong>Connect Issue Tracking System</strong>.</p></li>
-<li><p>Click the logo for your issue tracking system.</p></li>
-<li><p>Enter the URL for accessing your issue tracking system</p></li>
-<li><p>(Optional) Enter the host name of webhook server</p></li>
-<li><p>Enter Username for issue tracking system</p></li>
-<li><p>Enter Password or app password for issue tracking system</p></li>
-<li><p>Click <strong>Test</strong> to ping the connection.</p></li>
-<li><p>Under <strong>Add Projects</strong>, select the projects you want to add issues to.</p></li>
-<li><p>Click <strong>Connect</strong>.</p></li>
-<li><p>If satisfied with changes, click <strong>DONE</strong>.</p></li>
+<li>Click <strong>Navigation bar</strong> &amp;gt;  <strong>Administration</strong> &amp;gt;  <strong>Integrations</strong> &amp;gt; <strong>Issue Tracking Systems</strong>.</li>
+<li>Click the logo for your issue tracking system.</li>
+<li>Enter the URL for accessing your issue tracking system.</li>
+<li>(Optional) Enter the host name of webhook server.</li>
+<li>Enter Username and Password (or app password) for issue tracking system.</li>
+<li>Click <strong>Test</strong> to ping the connection.</li>
+<li>Under <strong>Add Projects</strong>, select the projects you want to add issues to.</li>
+<li>Click <strong>Connect</strong>.</li>
+<li>If satisfied with changes, click <strong>DONE</strong>.</li>
 </ol>
-<p>After you configure your issue tracking system with Argo, your issue tracking system shows that the webhook is set up to notify Argo of any changes to an issue as this screenshot shows:</p>
+<p>After you configure your issue tracking system with Argo, your issue tracking system shows that the webhook is set up to notify Argo of any changes to an issue.</p>
+<!--Need to replace this screenshot with one for Argo 9-27-17 cy-->
 <p><img src=&quot;docs/images/issue_tracker_jira_admin_webhook_status_1030x436.png&quot; alt=&quot;&quot; /></p>
-<p>If you want to disconnect the issue tracking system, click <strong>Disconnect</strong>. When prompted, click <strong>YES</strong>.</p>"><h1 id="connecttoissuetrackingsystem">Connect to Issue Tracking System</h1>
+<p>If you want to disconnect the issue tracking system, click <strong>Disconnect</strong>. When prompted, click <strong>YES</strong>.</p>"><h1 id="connect-to-issue-tracking-system">Connect to Issue Tracking System</h1>
 <p>To make it easy to file issues against a job, application or deployment, Argo integrates with issue tracking systems such as JIRA so you can create issues from Argo. You can also set up webhooks for Argo so any updates to the already integrated JIRA issue are automatically forwarded to Argo. Here's the procedure to integrate with an issue tracking system:</p>
 <ol>
-<li><p>Click <strong>Configurations</strong> &gt; <strong>Connect Issue Tracking System</strong>.</p></li>
-<li><p>Click the logo for your issue tracking system.</p></li>
-<li><p>Enter the URL for accessing your issue tracking system</p></li>
-<li><p>(Optional) Enter the host name of webhook server</p></li>
-<li><p>Enter Username for issue tracking system</p></li>
-<li><p>Enter Password or app password for issue tracking system</p></li>
-<li><p>Click <strong>Test</strong> to ping the connection.</p></li>
-<li><p>Under <strong>Add Projects</strong>, select the projects you want to add issues to.</p></li>
-<li><p>Click <strong>Connect</strong>.</p></li>
-<li><p>If satisfied with changes, click <strong>DONE</strong>.</p></li>
+<li>Click <strong>Navigation bar</strong> &gt;  <strong>Administration</strong> &gt;  <strong>Integrations</strong> &gt; <strong>Issue Tracking Systems</strong>.</li>
+<li>Click the logo for your issue tracking system.</li>
+<li>Enter the URL for accessing your issue tracking system.</li>
+<li>(Optional) Enter the host name of webhook server.</li>
+<li>Enter Username and Password (or app password) for issue tracking system.</li>
+<li>Click <strong>Test</strong> to ping the connection.</li>
+<li>Under <strong>Add Projects</strong>, select the projects you want to add issues to.</li>
+<li>Click <strong>Connect</strong>.</li>
+<li>If satisfied with changes, click <strong>DONE</strong>.</li>
 </ol>
-<p>After you configure your issue tracking system with Argo, your issue tracking system shows that the webhook is set up to notify Argo of any changes to an issue as this screenshot shows:</p>
+<p>After you configure your issue tracking system with Argo, your issue tracking system shows that the webhook is set up to notify Argo of any changes to an issue.</p>
+<!--Need to replace this screenshot with one for Argo 9-27-17 cy-->
 <p><img src="docs/images/issue_tracker_jira_admin_webhook_status_1030x436.png" alt=""></p>
 <p>If you want to disconnect the issue tracking system, click <strong>Disconnect</strong>. When prompted, click <strong>YES</strong>.</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->

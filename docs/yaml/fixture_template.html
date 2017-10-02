@@ -12,7 +12,7 @@
     <meta name="description" content="The Argo YAML DSL template for defining fixture classes that represent resources outside of Argo">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5742,9 +5742,9 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;fixturetemplate&quot;>Fixture Template</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;fixture-template&quot;>Fixture Template</h1>
 <p>A fixture template contains the following sections.</p>
-<h4 id=&quot;commonnameandtype&quot;>Common Name and Type</h4>
+<h4 id=&quot;common-name-and-type&quot;>Common Name and Type</h4>
 <ul>
 <li><code>type</code>: fixture</li>
 <li><code>version</code>: the Argo DSL version of the YAML template</li>
@@ -5756,7 +5756,7 @@ body {
 <p>All other attributes you define for a fixture depends on what the fixture requires.</p>
 <h4 id=&quot;actions&quot;>actions</h4>
 <p>Note: The <code>create</code> and <code>delete</code> actions are the &quot;minimum&quot; required actions for managing the lifecycle of a fixture. All other actions you define for a fixture depends on what actions your fixture requires.</p>
-<h4 id=&quot;exampleofamanagedfixture&quot;>Example of a Managed Fixture</h4>
+<h4 id=&quot;example-of-a-managed-fixture&quot;>Example of a Managed Fixture</h4>
 <p>This YAML template example shows the use of Argo-defined attributes (such as <code>flags</code>, <code>tags</code>, and <code>disable_nightly</code>) user-defined attributes, minimum-defined actions (<code>create</code> and <code>delete</code>), and user defined actions (such as <code>suspend</code>, <code>bad_attributes</code>, and <code>snapshot</code>).</p>
 <pre><code>---
 type: fixture
@@ -5853,9 +5853,8 @@ inputs:
 outputs:
   artifacts:
     attributes:
-      path: /tmp/fix_attrs.json
-</code></pre>
-<h4 id=&quot;exampleofaworkflowthatusesafixture&quot;>Example of a Workflow that Uses a Fixture</h4>
+      path: /tmp/fix_attrs.json</code></pre>
+<h4 id=&quot;example-of-a-workflow-that-uses-a-fixture&quot;>Example of a Workflow that Uses a Fixture</h4>
 <p>This example shows a workflow that uses 2 fixtures from the same fixture class (<code>test-fixture</code>) but each instance of the fixture class is differentiated by the set of attributes they use (<code>fix1</code> has the attribute <code>instance_type: m3.large</code> and <code>fix2</code> has the attribute <code>group: qa</code>).</p>
 <pre><code>---
 type: workflow
@@ -5895,10 +5894,9 @@ inputs:
   parameters:
     MESSAGE:
     SLEEP_SEC:
-      default: 60
-</code></pre>"><h1 id="fixturetemplate">Fixture Template</h1>
+      default: 60</code></pre>"><h1 id="fixture-template">Fixture Template</h1>
 <p>A fixture template contains the following sections.</p>
-<h4 id="commonnameandtype">Common Name and Type</h4>
+<h4 id="common-name-and-type">Common Name and Type</h4>
 <ul>
 <li><code>type</code>: fixture</li>
 <li><code>version</code>: the Argo DSL version of the YAML template</li>
@@ -5910,7 +5908,7 @@ inputs:
 <p>All other attributes you define for a fixture depends on what the fixture requires.</p>
 <h4 id="actions">actions</h4>
 <p>Note: The <code>create</code> and <code>delete</code> actions are the "minimum" required actions for managing the lifecycle of a fixture. All other actions you define for a fixture depends on what actions your fixture requires.</p>
-<h4 id="exampleofamanagedfixture">Example of a Managed Fixture</h4>
+<h4 id="example-of-a-managed-fixture">Example of a Managed Fixture</h4>
 <p>This YAML template example shows the use of Argo-defined attributes (such as <code>flags</code>, <code>tags</code>, and <code>disable_nightly</code>) user-defined attributes, minimum-defined actions (<code>create</code> and <code>delete</code>), and user defined actions (such as <code>suspend</code>, <code>bad_attributes</code>, and <code>snapshot</code>).</p>
 <pre><code>---
 type: fixture
@@ -6007,9 +6005,8 @@ inputs:
 outputs:
   artifacts:
     attributes:
-      path: /tmp/fix_attrs.json
-</code></pre>
-<h4 id="exampleofaworkflowthatusesafixture">Example of a Workflow that Uses a Fixture</h4>
+      path: /tmp/fix_attrs.json</code></pre>
+<h4 id="example-of-a-workflow-that-uses-a-fixture">Example of a Workflow that Uses a Fixture</h4>
 <p>This example shows a workflow that uses 2 fixtures from the same fixture class (<code>test-fixture</code>) but each instance of the fixture class is differentiated by the set of attributes they use (<code>fix1</code> has the attribute <code>instance_type: m3.large</code> and <code>fix2</code> has the attribute <code>group: qa</code>).</p>
 <pre><code>---
 type: workflow
@@ -6049,8 +6046,7 @@ inputs:
   parameters:
     MESSAGE:
     SLEEP_SEC:
-      default: 60
-</code></pre></div></argo-doc-viewer>
+      default: 60</code></pre></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

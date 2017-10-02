@@ -15,7 +15,7 @@ Argo provides two levels of access privileges for modifying a user's permissions
 
 ### Invite Users and Set Their Permissions (Administrative User Only)
 
-1.  Click **Configurations** > **Manage Users and Permissions**.
+1.  Click **Navigation bar** >  **Administration** > **Users**.
 
 2.  Click **+**.
 
@@ -23,7 +23,7 @@ Argo provides two levels of access privileges for modifying a user's permissions
 
     NOTE: If the email address is a distribution list, check **MAILING GROUP**.
 
-4.  Click **GROUPS** and select **admin** or **developer** to set the level of access privileges for the user.
+4.  Under **GROUPS**, select **admin** or **developer** to set the level of access privileges for the user.
 5.  Enter **FIRST NAME** and **LAST NAME** for the user.
 6.  Click **INVITE**.
 
@@ -33,20 +33,20 @@ This page shows the email address, the name of the user, and the date that the i
 
 ### Modify a User's Information or Access Privileges (Administrative User Only)
 
-*   Go to **Configurations** > **Manage Users and Permissions**. (Displays all users of the Cluster and their statuses)
+1. Go to Click **Navigation bar** >  **Administration** > **Users**. (Displays all users of the Cluster and their statuses)
 
-*   Select the row of the user and click ![](../../../images/clear_3_dots_34x34.png). Then choose one of the options:
+2. Select the row of the user and click ![](../../../images/clear_3_dots_34x34.png). Then choose one of the options:
 
-*   **Edit Profile** - Change a user's name, label, or password.
-*   **Disable** or **Enable** User- Changes status of user to "Disabled" or "Active".
-*   **Delete User** - Removes the user from accessing the Argo system.
-*   **Grant Admin Access** - Grants administrative privileges for a user.
+ *  **Edit Profile** - Change a user's name, label, or password.
+ *   **Deactivate** or **Activate** User - Changes status of user to "Deactivated" or "Active".
+ *   **Delete User** - Removes the user from accessing the Argo system.
+ *   **Grant** or **Admin Access** - Grants or revokes administrative privileges for a user.
 
 *   Follow the prompts to execute the option or click **Cancel** to back out of your changes.
 
 ### Modify a User's Profile (Developer User Only)
 
-1.  At bottom left, click ![](../../../images/_c_icon_31x35.png) and select **My Profile**.
+1.  At top-right corner, click ![](../../../images/_c_icon_31x35.png) and select **My Profile**.
 
     The profile displays.
 

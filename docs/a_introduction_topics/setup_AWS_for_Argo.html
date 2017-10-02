@@ -12,7 +12,7 @@
     <meta name="description" content="Documentation for Argo, open source workflow engine for Kubernetes. Tutorials, User guide, CLI reference, FAQs, release notes.">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,19 +5725,19 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
     <div class="main__container">
         <!----><div>
             <!---->
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;setupawsforargo&quot;>Set Up AWS for Argo</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;set-up-aws-for-argo&quot;>Set Up AWS for Argo</h1>
 <!--per Ed, this section (creating policies and assigning the policy to a role) is only needed if a customer wants Applatix to manage their AWS cluster for them. Otherwise, our users only need to create standard AWS credentials-->
-<h2 id=&quot;step1settingupawstoenableargo&quot;>Step 1: Setting Up AWS to Enable Argo</h2>
+<h2 id=&quot;step-1-setting-up-aws-to-enable-argo&quot;>Step 1: Setting Up AWS to Enable Argo</h2>
 <p>To ensure the security of the Argo cluster running in AWS, the  solution requires that you create a “cross account role” that allows Argo to install in your AWS account. Amazon recommends creating this role as the best security practice for 3rd-party software running in AWS.</p>
 <p>IMPORTANT: You must create a policy first before you can create the cross-account role. The policy is associated with the role. Here are the steps:</p>
-<h2 id=&quot;createapolicy&quot;>Create a Policy:</h2>
+<h2 id=&quot;create-a-policy&quot;>Create a Policy:</h2>
 <ol>
 <li><p>Go to your AWS console and select <strong>IAM</strong> (Identity And Management) service.</p></li>
 <li><p>Select <strong>Policies</strong> from left side bar and click <strong>Create Policy</strong>.</p></li>
@@ -5778,13 +5778,12 @@ body {
         &quot;Resource&quot;: &quot;*&quot;
     }
 ]
-}
-</code></pre></li>
+}</code></pre></li>
 <li><p>Paste the text into Policy Document and click Create Policy.</p>
 <p>The Review Policy panel in AWS will look similar to the following screenshot:</p>
 <p><img src=&quot;docs/images/AWS_Review_Policy_Panel.png&quot; alt=&quot;&quot; /></p></li>
 </ol>
-<h2 id=&quot;createthecrossaccountrole&quot;>Create the Cross-Account Role:</h2>
+<h2 id=&quot;create-the-cross-account-role&quot;>Create the Cross-Account Role:</h2>
 <ol>
 <li><p>Click <strong>Roles</strong> on left side bar and click <strong>Create New Role</strong>.</p></li>
 <li><p>Specify Role Name (such as &quot;Argo-management&quot;) and click Next Step.</p>
@@ -5798,15 +5797,15 @@ body {
 <p>Leave Require MFA unchecked.</p>
 <p><img src=&quot;docs/images/AWS_Step3_Establish_Trust.png&quot; alt=&quot;&quot; /></p>
 <p>Attach the &quot;ArgoManagement&quot; policy you just created.</p>
-<p>![](./../../images/AWS<em>Attach</em>Policy_to Role.png)</p>
+<p>![](./../../images/AWS_Attach_Policy_to Role.png)</p>
 <p>Click Next Step, and review your role. Please copy the &quot;Role ARN&quot; to your clip board.</p>
 <p>![](./../../images/AWS_Review _Role_ARN.png)</p>
-<p>Click Create Role to finish creating the role.</p>"><h1 id="setupawsforargo">Set Up AWS for Argo</h1>
+<p>Click Create Role to finish creating the role.</p>"><h1 id="set-up-aws-for-argo">Set Up AWS for Argo</h1>
 <!--per Ed, this section (creating policies and assigning the policy to a role) is only needed if a customer wants Applatix to manage their AWS cluster for them. Otherwise, our users only need to create standard AWS credentials-->
-<h2 id="step1settingupawstoenableargo">Step 1: Setting Up AWS to Enable Argo</h2>
+<h2 id="step-1-setting-up-aws-to-enable-argo">Step 1: Setting Up AWS to Enable Argo</h2>
 <p>To ensure the security of the Argo cluster running in AWS, the  solution requires that you create a “cross account role” that allows Argo to install in your AWS account. Amazon recommends creating this role as the best security practice for 3rd-party software running in AWS.</p>
 <p>IMPORTANT: You must create a policy first before you can create the cross-account role. The policy is associated with the role. Here are the steps:</p>
-<h2 id="createapolicy">Create a Policy:</h2>
+<h2 id="create-a-policy">Create a Policy:</h2>
 <ol>
 <li><p>Go to your AWS console and select <strong>IAM</strong> (Identity And Management) service.</p></li>
 <li><p>Select <strong>Policies</strong> from left side bar and click <strong>Create Policy</strong>.</p></li>
@@ -5847,13 +5846,12 @@ body {
         "Resource": "*"
     }
 ]
-}
-</code></pre></li>
+}</code></pre></li>
 <li><p>Paste the text into Policy Document and click Create Policy.</p>
 <p>The Review Policy panel in AWS will look similar to the following screenshot:</p>
 <p><img src="docs/images/AWS_Review_Policy_Panel.png" alt=""></p></li>
 </ol>
-<h2 id="createthecrossaccountrole">Create the Cross-Account Role:</h2>
+<h2 id="create-the-cross-account-role">Create the Cross-Account Role:</h2>
 <ol>
 <li><p>Click <strong>Roles</strong> on left side bar and click <strong>Create New Role</strong>.</p></li>
 <li><p>Specify Role Name (such as "Argo-management") and click Next Step.</p>
@@ -5867,7 +5865,7 @@ body {
 <p>Leave Require MFA unchecked.</p>
 <p><img src="docs/images/AWS_Step3_Establish_Trust.png" alt=""></p>
 <p>Attach the "ArgoManagement" policy you just created.</p>
-<p>![](./../../images/AWS<em>Attach</em>Policy_to Role.png)</p>
+<p>![](./../../images/AWS_Attach_Policy_to Role.png)</p>
 <p>Click Next Step, and review your role. Please copy the "Role ARN" to your clip board.</p>
 <p>![](./../../images/AWS_Review _Role_ARN.png)</p>
 <p>Click Create Role to finish creating the role.</p></div></argo-doc-viewer>

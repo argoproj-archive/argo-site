@@ -12,7 +12,7 @@
     <meta name="description" content="Securely connect Argo with an Identity Provider (IdP) and enable single sign-on (SSO)">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5746,27 +5746,27 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;configuringsinglesignon&quot;>Configuring Single Sign-On</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;configuring-single-sign-on&quot;>Configuring Single Sign-On</h1>
 <p>The Argo uses the Security Assertion Markup Language (SAML) to securely connect Argo with an Identity Provider (IdP) and enable single sign-on (SSO). Argo is the service provider and Active Directory is an example of an Identity Provider.</p>
 <p>By default, when a new SAML user is registered with your Argo, the new user is assigned to a developer group, which has restricted permissions to the Cluster. If the new user needs administrative privileges, then you must promote the new user account to an administrative account.</p>
-<p>Go to <strong>Configurations</strong> &amp;gt; <strong>Set Up Single Sign-on</strong> and follow these steps for configuring SSO for Argo:</p>
-<h2 id=&quot;step1giveargoinformationtoyouridentityprovider&quot;>Step 1 Give Argo Information to your Identity Provider</h2>
+<p>Go to Click <strong>Navigation bar</strong> &amp;gt;  <strong>Administration</strong> &amp;gt; <strong>Users</strong> &amp;gt; <strong>SSO CONFIGURATION</strong> and follow these steps for configuring SSO for Argo:</p>
+<h2 id=&quot;step-1-give-argo-information-to-your-identity-provider&quot;>Step 1 Give Argo Information to your Identity Provider</h2>
 <p>To enable single sign-on from your IdP into Argo, your IdP needs this required information from Argo:</p>
 <ul>
-<li>The secure URL for accessing Argo's SAML service.</li>
-<li>The secure URL for accessing your Argo cluster.</li>
+<li>The secure URL for accessing Argo's SAML service. Click <strong>COPY</strong> and paste this sign-on URL into your IdP's settings.</li>
+<li>The secure URL for accessing your Argo cluster. Click <strong>COPY</strong> and paste this entity id URL into your IdP's settings.</li>
 </ul>
 <p>(Optional) If your IdP or security system also requires authentication of Argo with digital certificates, then you must also provide</p>
 <ul>
 <li>A certificate that contains Argo's public key.</li>
 </ul>
-<h2 id=&quot;step2configureargoforsinglesignon&quot;>Step 2 Configure Argo for Single Sign-On</h2>
+<h2 id=&quot;step-2-configure-argo-for-single-sign-on&quot;>Step 2 Configure Argo for Single Sign-On</h2>
 <p>In this step, you configure Argo with the information that your IdP provides.</p>
 <ul>
 <li>Enter the following information for these fields:<ul>
-<li>SIGN IN BUTTON LABEL - Add a label to a button for SSO that automatically appears on your login page. Your users click this button to perform SSO into the Argo cluster.</li>
-<li>SSO URL - Enter the secure URL that the IdP returns for performing SSO into your security system.</li>
-<li>PUBLIC CERTIFICATE - (Optional) If your environment requires authentication of the IdP, you can enter the IdP's certificate with the public key that it returned after setting up SSO with Argo.</li>
+<li><strong>Sign In Button Label</strong> - Add a label to a button for SSO that automatically appears on your login page. Your users click this button to perform SSO into the Argo cluster.</li>
+<li><strong>SSO URL</strong> - Enter the secure URL that the IdP returns for performing SSO into your security system.</li>
+<li><strong>Public Certificate</strong> - (Optional) If your environment requires authentication of the IdP, you can enter the IdP's certificate with the public key that it returned after setting up SSO with Argo.</li>
 <li>(Optional) Click <strong>Advanced Settings</strong>. Your security system may require the entry of additional attribute values for SSO. Check the documentation for your security system to see if the following values are necessary:<ul>
 <li>EMAIL ATTRIBUTE (Required)</li>
 <li>FIRST NAME ATTRIBUTE (Optional)</li>
@@ -5782,27 +5782,27 @@ body {
 <li><p>(Optional) Check <strong>SIGN RESPONSE</strong> if your IdP provides a response that is signed.</p></li>
 <li><p>(Optional) Check <strong>SIGN RESPONSE ASSERTION</strong> if your IdP provides a response assertion that is signed.</p></li>
 <li><p>Click <strong>UPDATE</strong> if you have modified any information.</p></li>
-</ul>"><h1 id="configuringsinglesignon">Configuring Single Sign-On</h1>
+</ul>"><h1 id="configuring-single-sign-on">Configuring Single Sign-On</h1>
 <p>The Argo uses the Security Assertion Markup Language (SAML) to securely connect Argo with an Identity Provider (IdP) and enable single sign-on (SSO). Argo is the service provider and Active Directory is an example of an Identity Provider.</p>
 <p>By default, when a new SAML user is registered with your Argo, the new user is assigned to a developer group, which has restricted permissions to the Cluster. If the new user needs administrative privileges, then you must promote the new user account to an administrative account.</p>
-<p>Go to <strong>Configurations</strong> &gt; <strong>Set Up Single Sign-on</strong> and follow these steps for configuring SSO for Argo:</p>
-<h2 id="step1giveargoinformationtoyouridentityprovider">Step 1 Give Argo Information to your Identity Provider</h2>
+<p>Go to Click <strong>Navigation bar</strong> &gt;  <strong>Administration</strong> &gt; <strong>Users</strong> &gt; <strong>SSO CONFIGURATION</strong> and follow these steps for configuring SSO for Argo:</p>
+<h2 id="step-1-give-argo-information-to-your-identity-provider">Step 1 Give Argo Information to your Identity Provider</h2>
 <p>To enable single sign-on from your IdP into Argo, your IdP needs this required information from Argo:</p>
 <ul>
-<li>The secure URL for accessing Argo's SAML service.</li>
-<li>The secure URL for accessing your Argo cluster.</li>
+<li>The secure URL for accessing Argo's SAML service. Click <strong>COPY</strong> and paste this sign-on URL into your IdP's settings.</li>
+<li>The secure URL for accessing your Argo cluster. Click <strong>COPY</strong> and paste this entity id URL into your IdP's settings.</li>
 </ul>
 <p>(Optional) If your IdP or security system also requires authentication of Argo with digital certificates, then you must also provide</p>
 <ul>
 <li>A certificate that contains Argo's public key.</li>
 </ul>
-<h2 id="step2configureargoforsinglesignon">Step 2 Configure Argo for Single Sign-On</h2>
+<h2 id="step-2-configure-argo-for-single-sign-on">Step 2 Configure Argo for Single Sign-On</h2>
 <p>In this step, you configure Argo with the information that your IdP provides.</p>
 <ul>
 <li>Enter the following information for these fields:<ul>
-<li>SIGN IN BUTTON LABEL - Add a label to a button for SSO that automatically appears on your login page. Your users click this button to perform SSO into the Argo cluster.</li>
-<li>SSO URL - Enter the secure URL that the IdP returns for performing SSO into your security system.</li>
-<li>PUBLIC CERTIFICATE - (Optional) If your environment requires authentication of the IdP, you can enter the IdP's certificate with the public key that it returned after setting up SSO with Argo.</li>
+<li><strong>Sign In Button Label</strong> - Add a label to a button for SSO that automatically appears on your login page. Your users click this button to perform SSO into the Argo cluster.</li>
+<li><strong>SSO URL</strong> - Enter the secure URL that the IdP returns for performing SSO into your security system.</li>
+<li><strong>Public Certificate</strong> - (Optional) If your environment requires authentication of the IdP, you can enter the IdP's certificate with the public key that it returned after setting up SSO with Argo.</li>
 <li>(Optional) Click <strong>Advanced Settings</strong>. Your security system may require the entry of additional attribute values for SSO. Check the documentation for your security system to see if the following values are necessary:<ul>
 <li>EMAIL ATTRIBUTE (Required)</li>
 <li>FIRST NAME ATTRIBUTE (Optional)</li>

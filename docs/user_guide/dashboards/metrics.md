@@ -2,9 +2,11 @@
 
 This view shows a summary of the jobs that succeeded, failed, scheduled to run, in-progress, queued to run, and total spending within a specified time range.
 
+Go to **Navigation bar** > **Monitoring** > **Metrics** to view the following information:
+
 *   Filter for the desired data by repository branch, labels, or templates.
 
-    **NOTE**: You use labels to identify content or data that are searchable. For examples of labels, see Argo YAML Tutorial and Reference.
+    **NOTE**: You use labels to identify content or data that are searchable. For examples of labels in templates, see [Policy templates](./../../yaml/policy_templates.md).
 
 *   Sort by Spending or Name.
 

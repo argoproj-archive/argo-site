@@ -12,7 +12,7 @@
     <meta name="description" content="Using policies to automate Argo workflows on Kubernetes, enabling and disabling policies">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5746,11 +5746,11 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;automatingworkflowsusingpolicies&quot;>Automating Workflows Using Policies</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;automating-workflows-using-policies&quot;>Automating Workflows Using Policies</h1>
 <p>Now that you've seen how to manually start, stop, or terminate jobs as workflows, the next step is to automate when workflows get triggered. Argo uses policies to do this. You can also enable or disable a policy. For details, see <a href=&quot;#enable-disable-policies&quot;>Viewing, Enabling and Disabling Policies</a>.</p>
 <!--Add anchor to topic below for enabling/disabling policies -->
 <p>Additionally, you can also write a policy that alerts users as to when certain events happen on the Argo. For details, see <a href=&quot;/argo-site/docs/user_guide/configapplatixcluster/setupnotificationmanagement.html&quot;>Using Policies to Trigger a Notification Message</a>.</p>
-<h2 id=&quot;aboutpolicies&quot;>About Policies</h2>
+<h2 id=&quot;about-policies&quot;>About Policies</h2>
 <p>Policies are a set of rules that determine</p>
 <ul>
 <li>when certain workflows should run</li>
@@ -5832,18 +5832,17 @@ notifications:
 when:
   - event: on_push
   - event: on_pull_request
-  - event: on_pull_request_merge
-</code></pre>
+  - event: on_pull_request_merge</code></pre>
 <!--This info does not apply to YAML version 1 for Argo; thus it was removed) The `target_branch` is a regular expression filter that can be used to limit the policy to only certain branches. In this case, the policy applies to all branches.
 
 The policy also specifies that notifications should be generated for failures and that the committer and author of the commit should be notified.-->
-<h2 id=&quot;viewingenablinganddisablingpoliciesaidenabledisablepoliciesa&quot;>Viewing, Enabling and Disabling Policies <a id=&quot;enable-disable-policies&quot;></a></h2>
+<h2 id=&quot;viewing-enabling-and-disabling-policies-a-idenable-disable-policiesa&quot;>Viewing, Enabling and Disabling Policies <a id=&quot;enable-disable-policies&quot;></a></h2>
 <p>To view the policy details, go to Navigation bar &amp;gt; <strong>Policies</strong>, and double-click the name of the policy you want to view.</p>
-<p>To enable or disable a policy, click <strong>Policies</strong> &amp;gt; check the<code>&amp;lt;name_of_policy&amp;gt;</code> , and click <strong>ENABLE</strong> or <strong>DISABLE</strong> at the bottom of the screen.</p>"><h1 id="automatingworkflowsusingpolicies">Automating Workflows Using Policies</h1>
+<p>To enable or disable a policy, click <strong>Policies</strong> &amp;gt; check the<code>&amp;lt;name_of_policy&amp;gt;</code> , and click <strong>ENABLE</strong> or <strong>DISABLE</strong> at the bottom of the screen.</p>"><h1 id="automating-workflows-using-policies">Automating Workflows Using Policies</h1>
 <p>Now that you've seen how to manually start, stop, or terminate jobs as workflows, the next step is to automate when workflows get triggered. Argo uses policies to do this. You can also enable or disable a policy. For details, see <a href="#enable-disable-policies">Viewing, Enabling and Disabling Policies</a>.</p>
 <!--Add anchor to topic below for enabling/disabling policies -->
 <p>Additionally, you can also write a policy that alerts users as to when certain events happen on the Argo. For details, see <a href="/argo-site/docs/user_guide/configapplatixcluster/setupnotificationmanagement.html">Using Policies to Trigger a Notification Message</a>.</p>
-<h2 id="aboutpolicies">About Policies</h2>
+<h2 id="about-policies">About Policies</h2>
 <p>Policies are a set of rules that determine</p>
 <ul>
 <li>when certain workflows should run</li>
@@ -5925,12 +5924,11 @@ notifications:
 when:
   - event: on_push
   - event: on_pull_request
-  - event: on_pull_request_merge
-</code></pre>
+  - event: on_pull_request_merge</code></pre>
 <!--This info does not apply to YAML version 1 for Argo; thus it was removed) The `target_branch` is a regular expression filter that can be used to limit the policy to only certain branches. In this case, the policy applies to all branches.
 
 The policy also specifies that notifications should be generated for failures and that the committer and author of the commit should be notified.-->
-<h2 id="viewingenablinganddisablingpoliciesaidenabledisablepoliciesa">Viewing, Enabling and Disabling Policies <a id="enable-disable-policies"></a></h2>
+<h2 id="viewing-enabling-and-disabling-policies-a-idenable-disable-policiesa">Viewing, Enabling and Disabling Policies <a id="enable-disable-policies"></a></h2>
 <p>To view the policy details, go to Navigation bar &gt; <strong>Policies</strong>, and double-click the name of the policy you want to view.</p>
 <p>To enable or disable a policy, click <strong>Policies</strong> &gt; check the<code>&lt;name_of_policy&gt;</code> , and click <strong>ENABLE</strong> or <strong>DISABLE</strong> at the bottom of the screen.</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->

@@ -12,7 +12,7 @@
     <meta name="description" content="Configure system settings to encrypt secrets, configure signed certificates, enable spot instances, obtaining secret key pair from Argo, copy encryption key">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5746,71 +5746,129 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;configuringsystemsettings&quot;>Configuring System Settings</h1>
-<h2 id=&quot;configuringtheencryptionkeyfromanothercluster&quot;>Configuring the Encryption Key from another Cluster:</h2>
-<p>Argo allows you to securely embed and use encrypted secrets in your YAML templates. By default, each Argo Cluster uses its own encryption key that is associated with a specific repo. The secrets encrypted on one cluster are not usable by another cluster. If you have two clusters that you want to share secrets, you must copy the encryption key from one cluster to the other. Here are the steps:</p>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;configuring-system-settings&quot;>Configuring System Settings</h1>
+<!--Rahul/Alex 9-28-17 This is removed as of M10 -replaced by Configs > Configuration pane-->
+<!--
+## Configuring the Encryption Key from another Cluster:
+
+Argo allows you to securely embed and use encrypted secrets in your YAML templates. By default, each Argo Cluster uses its own encryption key that is associated with a specific repo. The secrets encrypted on one cluster are not usable by another cluster. If you have two clusters that you want to share secrets, you must copy the encryption key from one cluster to the other. Here are the steps:
+
+1.  Under SECRET MANAGEMENT, click **ENCRYPTION KEY** and enter the encyption key from another cluster (Super Admin only).
+2.  Click **UPDATE**.
+
+
+## Obtaining the Secret Key Pair from Argo
+
+
+
+1.  Under SECRET MANAGEMENT, click **VIEW** to see the current encryption key (Super Admin only).
+
+2.  Under **SECRET MANAGEMENT**, click **VIEW**.
+
+3.  Click **COPY** to obtain the encryption key.
+4.  Click **DONE** to exit the dialog.
+
+## Encrypting a Secret
+
+1.  Click ![](../../../images/configurations_manage_system_settings_encryptiontool_icon.png) in the upper right corner.
+
+2.  Enter the URL to the SCM repo you want to access.
+
+    NOTE: A secret encrypted for one repo cannot be used for another repo. This prevents users from cutting and pasting secrets from one repo and using them for arbitrary purposes in another repo that they create.
+
+3.  Enter your unecrypted secret .
+4.  Click **ENCRYPT**.
+
+    The encrypted secret is returned.
+
+5.  Click **COPY**. You can now paste this string directly into your YAML template as input parameters for a workflow or into the &quot;Review workflow parameters&quot;dialog right before you run a workflow. See the Argo YAML Tutorial and Reference for details.-->
+<h2 id=&quot;storing-configuration-information&quot;>Storing Configuration information</h2>
+<p>If you need to store configuration information either as a secret for Kubernetes or as public information (which is outside of a YAML template), use this procedure:</p>
 <ol>
-<li>Under SECRET MANAGEMENT, click <strong>ENCRYPTION KEY</strong> and enter the encyption key from another cluster (Super Admin only).</li>
-<li>Click <strong>UPDATE</strong>.</li>
+<li><p>Click <strong>Navigation bar</strong> &amp;gt; <strong>Infrastructure</strong> &amp;gt; <strong>Configs</strong>.</p></li>
+<li><p>Click <strong>+</strong> and select <strong>Add New Config as Kubernetes Secret</strong> or <strong>Add New Public Config</strong>.</p></li>
+<li><p>Enter the <strong>Name</strong> for the configuration and an optional <strong>Description</strong>.</p></li>
+<li><p>Click <strong>+ADD</strong> and enter the &quot;Key-Value&quot; pairs for each piece of data.</p></li>
+<li><p>Click <strong>SAVE</strong>.</p>
+<p>The new configuration displays on the CONFIGURATIONS page.</p></li>
 </ol>
-<h2 id=&quot;obtainingthesecretkeypairfromargo&quot;>Obtaining the Secret Key Pair from Argo</h2>
-<ol>
-<li><p>Under SECRET MANAGEMENT, click <strong>VIEW</strong> to see the current encryption key (Super Admin only).</p></li>
-<li><p>Under <strong>SECRET MANAGEMENT</strong>, click <strong>VIEW</strong>.</p></li>
-<li><p>Click <strong>COPY</strong> to obtain the encryption key.</p></li>
-<li><p>Click <strong>DONE</strong> to exit the dialog.</p></li>
-</ol>
-<h2 id=&quot;encryptingasecret&quot;>Encrypting a Secret</h2>
-<ol>
-<li><p>Click <img src=&quot;docs/images/configurations_manage_system_settings_encryptiontool_icon.png&quot; alt=&quot;&quot; /> in the upper right corner.</p></li>
-<li><p>Enter the URL to the SCM repo you want to access.</p>
-<p>NOTE: A secret encrypted for one repo cannot be used for another repo. This prevents users from cutting and pasting secrets from one repo and using them for arbitrary purposes in another repo that they create.</p></li>
-<li><p>Enter your unecrypted secret .</p></li>
-<li><p>Click <strong>ENCRYPT</strong>.</p>
-<p>The encrypted secret is returned.</p></li>
-<li><p>Click <strong>COPY</strong>. You can now paste this string directly into your YAML template as input parameters for a workflow or into the &quot;Review workflow parameters&quot;dialog right before you run a workflow. See the Argo YAML Tutorial and Reference for details.</p></li>
-</ol>
-<h2 id=&quot;configuringthesignedcertificateforargo&quot;>Configuring the Signed Certificate for Argo</h2>
+<p>To change a configuration data, click <img src=&quot;docs/images/3_vertical_dots_25x26_GREEN.png&quot; alt=&quot;&quot; /> and select <strong>Edit</strong>.</p>
+<p>To delete the configuration data, click <img src=&quot;docs/images/3_vertical_dots_25x26_GREEN.png&quot; alt=&quot;&quot; /> and select <strong>Delete</strong>.</p>
+<p>NOTE: You can only edit or delete the configurations you created. For all other configurations, you have read-only access. The configuration data that are Kubernetes secrets are displayed in encrypted form.</p>
+<h2 id=&quot;configuring-the-signed-certificate-for-argo&quot;>Configuring the Signed Certificate for Argo</h2>
 <p>NOTE: When you created your Argo, by default the Cluster provides a self-signed certificate. This appears in the <strong>SET CERTIFICATE</strong> section under the heading PUBLIC CERTIFICATE. You can replace the self-signed certificate from Argo with your signed certificates from a certificate authority (CA).</p>
 <ol>
-<li>Under <strong>SET CERTIFICATE</strong>, enter your signed certificate.</li>
-<li>Click <strong>UPDATE</strong>.</li>
+<li><p>Click <strong>Navigation bar</strong> &amp;gt;  <strong>Administration</strong> &amp;gt; <strong>Settings</strong> &amp;gt; <strong>System Settings</strong>.</p></li>
+<li><p>Under <strong>SET CERTIFICATE</strong>, enter your signed certificate.</p></li>
+<li><p>Click <strong>UPDATE</strong>.</p></li>
 </ol>
 <p>To remove the private key, press <strong>DELETE</strong>.</p>
-<h2 id=&quot;toenableordisablespotinstancesforacluster&quot;>To enable or disable spot instances for a cluster:</h2>
-<p>Under <strong>INSTANCE CONFIGURATION</strong>, toggle Spot Instances to enable or disable spot instances for your cluster.</p>"><h1 id="configuringsystemsettings">Configuring System Settings</h1>
-<h2 id="configuringtheencryptionkeyfromanothercluster">Configuring the Encryption Key from another Cluster:</h2>
-<p>Argo allows you to securely embed and use encrypted secrets in your YAML templates. By default, each Argo Cluster uses its own encryption key that is associated with a specific repo. The secrets encrypted on one cluster are not usable by another cluster. If you have two clusters that you want to share secrets, you must copy the encryption key from one cluster to the other. Here are the steps:</p>
+<h2 id=&quot;to-enable-or-disable-spot-instances-for-a-cluster&quot;>To enable or disable spot instances for a cluster:</h2>
 <ol>
-<li>Under SECRET MANAGEMENT, click <strong>ENCRYPTION KEY</strong> and enter the encyption key from another cluster (Super Admin only).</li>
-<li>Click <strong>UPDATE</strong>.</li>
-</ol>
-<h2 id="obtainingthesecretkeypairfromargo">Obtaining the Secret Key Pair from Argo</h2>
+<li>Click <strong>Navigation bar</strong> &amp;gt;  <strong>Administration</strong> &amp;gt; <strong>Settings</strong> &amp;gt; <strong>System Settings</strong>.</li>
+<li>Under <strong>SPOT INSTANCE CONFIGURATION</strong>, toggle Spot Instances to enable or disable spot instances for your cluster.</li>
+</ol>"><h1 id="configuring-system-settings">Configuring System Settings</h1>
+<!--Rahul/Alex 9-28-17 This is removed as of M10 -replaced by Configs > Configuration pane-->
+<!--
+## Configuring the Encryption Key from another Cluster:
+
+Argo allows you to securely embed and use encrypted secrets in your YAML templates. By default, each Argo Cluster uses its own encryption key that is associated with a specific repo. The secrets encrypted on one cluster are not usable by another cluster. If you have two clusters that you want to share secrets, you must copy the encryption key from one cluster to the other. Here are the steps:
+
+1.  Under SECRET MANAGEMENT, click **ENCRYPTION KEY** and enter the encyption key from another cluster (Super Admin only).
+2.  Click **UPDATE**.
+
+
+## Obtaining the Secret Key Pair from Argo
+
+
+
+1.  Under SECRET MANAGEMENT, click **VIEW** to see the current encryption key (Super Admin only).
+
+2.  Under **SECRET MANAGEMENT**, click **VIEW**.
+
+3.  Click **COPY** to obtain the encryption key.
+4.  Click **DONE** to exit the dialog.
+
+## Encrypting a Secret
+
+1.  Click ![](../../../images/configurations_manage_system_settings_encryptiontool_icon.png) in the upper right corner.
+
+2.  Enter the URL to the SCM repo you want to access.
+
+    NOTE: A secret encrypted for one repo cannot be used for another repo. This prevents users from cutting and pasting secrets from one repo and using them for arbitrary purposes in another repo that they create.
+
+3.  Enter your unecrypted secret .
+4.  Click **ENCRYPT**.
+
+    The encrypted secret is returned.
+
+5.  Click **COPY**. You can now paste this string directly into your YAML template as input parameters for a workflow or into the "Review workflow parameters"dialog right before you run a workflow. See the Argo YAML Tutorial and Reference for details.-->
+<h2 id="storing-configuration-information">Storing Configuration information</h2>
+<p>If you need to store configuration information either as a secret for Kubernetes or as public information (which is outside of a YAML template), use this procedure:</p>
 <ol>
-<li><p>Under SECRET MANAGEMENT, click <strong>VIEW</strong> to see the current encryption key (Super Admin only).</p></li>
-<li><p>Under <strong>SECRET MANAGEMENT</strong>, click <strong>VIEW</strong>.</p></li>
-<li><p>Click <strong>COPY</strong> to obtain the encryption key.</p></li>
-<li><p>Click <strong>DONE</strong> to exit the dialog.</p></li>
+<li><p>Click <strong>Navigation bar</strong> &gt; <strong>Infrastructure</strong> &gt; <strong>Configs</strong>.</p></li>
+<li><p>Click <strong>+</strong> and select <strong>Add New Config as Kubernetes Secret</strong> or <strong>Add New Public Config</strong>.</p></li>
+<li><p>Enter the <strong>Name</strong> for the configuration and an optional <strong>Description</strong>.</p></li>
+<li><p>Click <strong>+ADD</strong> and enter the "Key-Value" pairs for each piece of data.</p></li>
+<li><p>Click <strong>SAVE</strong>.</p>
+<p>The new configuration displays on the CONFIGURATIONS page.</p></li>
 </ol>
-<h2 id="encryptingasecret">Encrypting a Secret</h2>
-<ol>
-<li><p>Click <img src="docs/images/configurations_manage_system_settings_encryptiontool_icon.png" alt=""> in the upper right corner.</p></li>
-<li><p>Enter the URL to the SCM repo you want to access.</p>
-<p>NOTE: A secret encrypted for one repo cannot be used for another repo. This prevents users from cutting and pasting secrets from one repo and using them for arbitrary purposes in another repo that they create.</p></li>
-<li><p>Enter your unecrypted secret .</p></li>
-<li><p>Click <strong>ENCRYPT</strong>.</p>
-<p>The encrypted secret is returned.</p></li>
-<li><p>Click <strong>COPY</strong>. You can now paste this string directly into your YAML template as input parameters for a workflow or into the "Review workflow parameters"dialog right before you run a workflow. See the Argo YAML Tutorial and Reference for details.</p></li>
-</ol>
-<h2 id="configuringthesignedcertificateforargo">Configuring the Signed Certificate for Argo</h2>
+<p>To change a configuration data, click <img src="docs/images/3_vertical_dots_25x26_GREEN.png" alt=""> and select <strong>Edit</strong>.</p>
+<p>To delete the configuration data, click <img src="docs/images/3_vertical_dots_25x26_GREEN.png" alt=""> and select <strong>Delete</strong>.</p>
+<p>NOTE: You can only edit or delete the configurations you created. For all other configurations, you have read-only access. The configuration data that are Kubernetes secrets are displayed in encrypted form.</p>
+<h2 id="configuring-the-signed-certificate-for-argo">Configuring the Signed Certificate for Argo</h2>
 <p>NOTE: When you created your Argo, by default the Cluster provides a self-signed certificate. This appears in the <strong>SET CERTIFICATE</strong> section under the heading PUBLIC CERTIFICATE. You can replace the self-signed certificate from Argo with your signed certificates from a certificate authority (CA).</p>
 <ol>
-<li>Under <strong>SET CERTIFICATE</strong>, enter your signed certificate.</li>
-<li>Click <strong>UPDATE</strong>.</li>
+<li><p>Click <strong>Navigation bar</strong> &gt;  <strong>Administration</strong> &gt; <strong>Settings</strong> &gt; <strong>System Settings</strong>.</p></li>
+<li><p>Under <strong>SET CERTIFICATE</strong>, enter your signed certificate.</p></li>
+<li><p>Click <strong>UPDATE</strong>.</p></li>
 </ol>
 <p>To remove the private key, press <strong>DELETE</strong>.</p>
-<h2 id="toenableordisablespotinstancesforacluster">To enable or disable spot instances for a cluster:</h2>
-<p>Under <strong>INSTANCE CONFIGURATION</strong>, toggle Spot Instances to enable or disable spot instances for your cluster.</p></div></argo-doc-viewer>
+<h2 id="to-enable-or-disable-spot-instances-for-a-cluster">To enable or disable spot instances for a cluster:</h2>
+<ol>
+<li>Click <strong>Navigation bar</strong> &gt;  <strong>Administration</strong> &gt; <strong>Settings</strong> &gt; <strong>System Settings</strong>.</li>
+<li>Under <strong>SPOT INSTANCE CONFIGURATION</strong>, toggle Spot Instances to enable or disable spot instances for your cluster.</li>
+</ol></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

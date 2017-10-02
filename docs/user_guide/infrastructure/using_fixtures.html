@@ -12,7 +12,7 @@
     <meta name="description" content="Using Fixtures in workflows or apps to access a resource that is external to Argo, add a fixture class to a repo branch, create an instance of a fixture class">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5750,21 +5750,29 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;usingfixturesforaccessingexternalresources&quot;>Using Fixtures for Accessing External Resources</h1>
-<p>When you run a workflow or deploy an app, you may need to access a resource that is external to Argo, such as a pool of virtual machines (VMs), databases, ec2 instances, other REST-based services, etc. To handle these external resources, Argo provides the concept of “managed fixtures”. A managed fixture allows Argo to perform life-cycle management of an external resource such as creating and deleting instances, loading data, or any other custom action. In a managed fixture, attributes are used to distinguish instances that come from different managed fixture classes. Actions are workflows that you can perform on a managed fixture, (such as creating a managed fixture for an external database) Fixtures also allow you to use policies to automatically manage resources such as auto-suspension or termination based on various metrics and conditions.</p>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;using-fixtures-for-accessing-external-resources&quot;>Using Fixtures for Accessing External Resources</h1>
+<p>When you run a workflow or deploy an app, you may need to access a resource that is external to Argo, such as a pool of virtual machines (VMs), databases, EC2 instances, other REST-based services, etc. To handle these external resources, Argo provides the concept of “managed fixtures”.</p>
+<p>A managed fixture allows Argo to perform life-cycle management of an external resource such as creating and deleting instances, loading data, or any other custom action. Managed fixtures are comprised of two elements:</p>
+<ul>
+<li><code>attributes</code> - used to distinguish instances that come from different managed fixture classes.</li>
+<li><code>actions</code>- represents workflows you can perform on a managed fixture (such as creating a managed fixture for an external database).</li>
+</ul>
+<p>You can also use policies with fixtures to automatically manage resources such as auto-suspension or termination based on various metrics and conditions.</p>
+<h2 id=&quot;how-to-use-fixtures&quot;>How to Use Fixtures</h2>
 <p>The process for using fixtures in a workflow or app is</p>
+<p>NOTE: Before you can use a fixture, you must have created a fixture class for it.  in a YAML template of <code>type: fixture</code>  For the steps to defineing the YAML template for fixtures, see <a href=&quot;/argo-site/docs/yaml/ex_create_managed_fixtures.html&quot;>Creating a Managed Fixture for Workflows and Apps</a>.</p>
 <ol>
-<li><p>From the Argo Web UI, connect to the repo containing the fixture class you already defined as a YAML template.</p>
-<p>NOTE: Before you start using fixtures, make sure you have already created a YAML template for the fixture class and referenced it in the appropriate workflow and container templates. For details about the YAML template, see <a href=&quot;/argo-site/docs/yaml/ex_create_managed_fixtures.html&quot;>Creating a Managed Fixture for Workflows and Apps</a>..</p></li>
-<li><p>Go to Infrastructure &amp;gt; Fixture and add the fixture class you want to use and select the repo branch if you have multiple branches that contain this fixture class definition. See <a href=&quot;#AddFixtureClass2Repo&quot;>To add a new fixture class to your repo branch</a></p></li>
-<li><p>Create an instance of the fixture class. For more details, see <a href=&quot;#CreateInstanceFixtureClass&quot;>To create an instance of a fixture class</a>.</p></li>
+<li>Enable the fixture class which makes it available for Argo to use it at runtime. Go to <strong>Navigation bar</strong> &amp;gt; <strong>Infrastructure</strong> &amp;gt; <strong>Fixtures</strong> and select the fixture class you want to use and select the repo branch if you have multiple branches that contain this fixture class definition. Connect to the repo containing the YAML fixture class definition you created. For details, see <a href=&quot;#AddFixtureClass2Repo&quot;>To enable a new fixture class from a repo branch</a>.</li>
+<li>Create an instance of the fixture class. For more details, see <a href=&quot;#CreateInstanceFixtureClass&quot;>To create an instance of a fixture class</a>.</li>
 </ol>
-<p>After you create an instance of the fixture class, the instance of the fixture is available to use in your workflows. From the Console, you can manage the instance by selecting the actions you want to perform on the instance. (The actions were defined in the YAML template for the fixture class.) For details, see <a href=&quot;#TakeActionOnInstance&quot;>To select an action on an instance of a fixture class</a></p>
-<p>You can also monitor the usage of the fixture instance. To view details about the instance of the fixture, its attributes, and its job history, see .<a href=&quot;#MonitorFixtureInstance&quot;>To monitor an instance of a fixture class</a>.</p>
-<p>Going forward, if you decide later to remove a fixture class but your deployments still needs to use a fixture class, you can reassign another fixture class from a different repo branch to use. For details, see <a href=&quot;#ReassignFixtureTemplate&quot;>To reassign a fixture class</a></p>
-<h2 id=&quot;anameaddfixtureclass2repoatoaddanewfixtureclasstoyourrepobranch&quot;><a name=&quot;AddFixtureClass2Repo&quot;></a>To add a new fixture class to your repo branch</h2>
+<p>After you create an instance of the fixture class, the fixture instance is available for use in your workflows. Make sure you have also referenced the fixture in the appropriate workflow and container templates.</p>
+<p>From the Console, you can manage the fixture instance by selecting the actions you want to perform on the instance. (The actions were defined in the YAML template for the fixture class.) For details, see <a href=&quot;#TakeActionOnInstance&quot;>To select an action on an instance of a fixture class</a>.</p>
+<p>You can also monitor the usage of the fixture instance. To view details about the instance of the fixture, its attributes, and its job history, see <a href=&quot;#MonitorFixtureInstance&quot;>To monitor an instance of a fixture class</a>.</p>
+<p>Going forward, if you decide later to remove a fixture class but your deployments still needs to use a fixture class, you can reassign another fixture class from a different repo branch to use. For details, see <a href=&quot;#ReassignFixtureTemplate&quot;>To reassign a fixture class</a>.</p>
+<h2 id=&quot;a-nameaddfixtureclass2repoato-enable-a-new-fixture-class-from-a-repo-branch&quot;><a name=&quot;AddFixtureClass2Repo&quot;></a>To enable a new fixture class from a repo branch</h2>
+<!--Waiting for Alex's response about &quot;missing&quot; icon for adding fixture class to repo branch 9-28-17-->
 <ol>
-<li>Go to Infrastructure &amp;gt; Fixtures. (The Console displays the existing fixtures that are available for workflows to use.)</li>
+<li>Go to <strong>Navigation bar</strong> &amp;gt; <strong>Infrastructure</strong> &amp;gt; <strong>Fixtures</strong>. (The Console displays the existing fixtures that are available for workflows to use.)</li>
 <li>Click <img src=&quot;docs/images/add_button_31x29.png&quot; alt=&quot;&quot; /> (Add a Fixture Class dialog displays)</li>
 <li>Click Select for the fixture class you want to add to the Cluster.</li>
 <li>Click the dropdown to select the repo branch having the fixture class definition.</li>
@@ -5772,15 +5780,15 @@ body {
 <li>If satisfied with the selections, click SAVE.</li>
 </ol>
 <p>The newly added YAML template appears on the Fixture Classes screen. The last step is to create an instance of the fixture class so a workflow or app can use it.</p>
-<h2 id=&quot;anamecreateinstancefixtureclassatocreateaninstanceofafixtureclass&quot;><a name=&quot;CreateInstanceFixtureClass&quot;></a>To create an instance of a fixture class</h2>
+<h2 id=&quot;a-namecreateinstancefixtureclassato-create-an-instance-of-a-fixture-class&quot;><a name=&quot;CreateInstanceFixtureClass&quot;></a>To create an instance of a fixture class</h2>
 <ol>
-<li>Go to Infrastructure &amp;gt; Fixtures. (The Console displays the existing fixtures that are available to use.)</li>
+<li>Go to <strong>Navigation bar</strong> &amp;gt; <strong>Infrastructure</strong> &amp;gt; <strong>Fixtures</strong>. (The Console displays the existing fixtures that are available to use.)</li>
 <li>Click the fixture class you want (The instances for the Fixture Class displays)</li>
 <li>Right click <img src=&quot;docs/images/3_vertical_dots_26x26.png&quot; alt=&quot;&quot; /> and select Create Instance.(Create New Fixture)</li>
 <li>Enter information for the attribute fields that the fixture requires.</li>
 <li>Click Create. The newly created instance of the fixture class displays in the view with all instances of a fixture class.</li>
 </ol>
-<h2 id=&quot;anametakeactiononinstanceatoselectanactiononaninstanceofafixtureclass&quot;><a name=&quot;TakeActionOnInstance&quot;></a>To select an action on an instance of a fixture class</h2>
+<h2 id=&quot;a-nametakeactiononinstanceato-select-an-action-on-an-instance-of-a-fixture-class&quot;><a name=&quot;TakeActionOnInstance&quot;></a>To select an action on an instance of a fixture class</h2>
 <ol>
 <li><p>Go to Infrastructure &amp;gt; Fixtures. (The Console displays the existing fixtures that are available to use.)</p></li>
 <li><p>Click the fixture class you want (The instances for the Fixture Class displays)</p></li>
@@ -5789,34 +5797,42 @@ body {
 <li><p>Enter information for the attribute fields that the fixture requires.</p></li>
 <li><p>Click Create. The newly created instance of the fixture class displays in the view with all instances of a fixture class.</p></li>
 </ol>
-<h2 id=&quot;anamemonitorfixtureinstanceatomonitoraninstanceofafixtureclass&quot;><a name=&quot;MonitorFixtureInstance&quot;></a>To monitor an instance of a fixture class</h2>
+<h2 id=&quot;a-namemonitorfixtureinstanceato-monitor-an-instance-of-a-fixture-class&quot;><a name=&quot;MonitorFixtureInstance&quot;></a>To monitor an instance of a fixture class</h2>
 <ol>
 <li><p>Go to Infrastructure &amp;gt; Fixtures. (The Console displays the existing fixtures that are available to use.)</p></li>
 <li><p>Click the fixture class you want (The instances for the Fixture Class displays)</p></li>
 <li><p>Click the name of the instance you want to monitor.</p>
 <p>The view displays the Summary, Attributes, and Job History for the instance.</p></li>
 </ol>
-<h2 id=&quot;anamereassignfixturetemplateatoreassignafixtureclass&quot;><a name=&quot;ReassignFixtureTemplate&quot;></a>To reassign a fixture class</h2>
+<h2 id=&quot;a-namereassignfixturetemplateato-reassign-a-fixture-class&quot;><a name=&quot;ReassignFixtureTemplate&quot;></a>To reassign a fixture class</h2>
 <ol>
 <li>Go to Infrastructure &amp;gt; Fixtures. (The Console displays the existing fixtures that are available to use.)</li>
 <li>Click <img src=&quot;docs/images/3_vertical_dots_25x26.png&quot; alt=&quot;&quot; /> for the fixture class you want to change and select Reassign (Reassign Fixture Template dialog displays)</li>
 <li>Click the repo branch you want the fixture class to be applied to.</li>
 <li>Click Save.(Create New Fixture)</li>
-</ol>"><h1 id="usingfixturesforaccessingexternalresources">Using Fixtures for Accessing External Resources</h1>
-<p>When you run a workflow or deploy an app, you may need to access a resource that is external to Argo, such as a pool of virtual machines (VMs), databases, ec2 instances, other REST-based services, etc. To handle these external resources, Argo provides the concept of “managed fixtures”. A managed fixture allows Argo to perform life-cycle management of an external resource such as creating and deleting instances, loading data, or any other custom action. In a managed fixture, attributes are used to distinguish instances that come from different managed fixture classes. Actions are workflows that you can perform on a managed fixture, (such as creating a managed fixture for an external database) Fixtures also allow you to use policies to automatically manage resources such as auto-suspension or termination based on various metrics and conditions.</p>
+</ol>"><h1 id="using-fixtures-for-accessing-external-resources">Using Fixtures for Accessing External Resources</h1>
+<p>When you run a workflow or deploy an app, you may need to access a resource that is external to Argo, such as a pool of virtual machines (VMs), databases, EC2 instances, other REST-based services, etc. To handle these external resources, Argo provides the concept of “managed fixtures”.</p>
+<p>A managed fixture allows Argo to perform life-cycle management of an external resource such as creating and deleting instances, loading data, or any other custom action. Managed fixtures are comprised of two elements:</p>
+<ul>
+<li><code>attributes</code> - used to distinguish instances that come from different managed fixture classes.</li>
+<li><code>actions</code>- represents workflows you can perform on a managed fixture (such as creating a managed fixture for an external database).</li>
+</ul>
+<p>You can also use policies with fixtures to automatically manage resources such as auto-suspension or termination based on various metrics and conditions.</p>
+<h2 id="how-to-use-fixtures">How to Use Fixtures</h2>
 <p>The process for using fixtures in a workflow or app is</p>
+<p>NOTE: Before you can use a fixture, you must have created a fixture class for it.  in a YAML template of <code>type: fixture</code>  For the steps to defineing the YAML template for fixtures, see <a href="/argo-site/docs/yaml/ex_create_managed_fixtures.html">Creating a Managed Fixture for Workflows and Apps</a>.</p>
 <ol>
-<li><p>From the Argo Web UI, connect to the repo containing the fixture class you already defined as a YAML template.</p>
-<p>NOTE: Before you start using fixtures, make sure you have already created a YAML template for the fixture class and referenced it in the appropriate workflow and container templates. For details about the YAML template, see <a href="/argo-site/docs/yaml/ex_create_managed_fixtures.html">Creating a Managed Fixture for Workflows and Apps</a>..</p></li>
-<li><p>Go to Infrastructure &gt; Fixture and add the fixture class you want to use and select the repo branch if you have multiple branches that contain this fixture class definition. See <a href="#AddFixtureClass2Repo">To add a new fixture class to your repo branch</a></p></li>
-<li><p>Create an instance of the fixture class. For more details, see <a href="#CreateInstanceFixtureClass">To create an instance of a fixture class</a>.</p></li>
+<li>Enable the fixture class which makes it available for Argo to use it at runtime. Go to <strong>Navigation bar</strong> &gt; <strong>Infrastructure</strong> &gt; <strong>Fixtures</strong> and select the fixture class you want to use and select the repo branch if you have multiple branches that contain this fixture class definition. Connect to the repo containing the YAML fixture class definition you created. For details, see <a href="#AddFixtureClass2Repo">To enable a new fixture class from a repo branch</a>.</li>
+<li>Create an instance of the fixture class. For more details, see <a href="#CreateInstanceFixtureClass">To create an instance of a fixture class</a>.</li>
 </ol>
-<p>After you create an instance of the fixture class, the instance of the fixture is available to use in your workflows. From the Console, you can manage the instance by selecting the actions you want to perform on the instance. (The actions were defined in the YAML template for the fixture class.) For details, see <a href="#TakeActionOnInstance">To select an action on an instance of a fixture class</a></p>
-<p>You can also monitor the usage of the fixture instance. To view details about the instance of the fixture, its attributes, and its job history, see .<a href="#MonitorFixtureInstance">To monitor an instance of a fixture class</a>.</p>
-<p>Going forward, if you decide later to remove a fixture class but your deployments still needs to use a fixture class, you can reassign another fixture class from a different repo branch to use. For details, see <a href="#ReassignFixtureTemplate">To reassign a fixture class</a></p>
-<h2 id="anameaddfixtureclass2repoatoaddanewfixtureclasstoyourrepobranch"><a name="AddFixtureClass2Repo"></a>To add a new fixture class to your repo branch</h2>
+<p>After you create an instance of the fixture class, the fixture instance is available for use in your workflows. Make sure you have also referenced the fixture in the appropriate workflow and container templates.</p>
+<p>From the Console, you can manage the fixture instance by selecting the actions you want to perform on the instance. (The actions were defined in the YAML template for the fixture class.) For details, see <a href="#TakeActionOnInstance">To select an action on an instance of a fixture class</a>.</p>
+<p>You can also monitor the usage of the fixture instance. To view details about the instance of the fixture, its attributes, and its job history, see <a href="#MonitorFixtureInstance">To monitor an instance of a fixture class</a>.</p>
+<p>Going forward, if you decide later to remove a fixture class but your deployments still needs to use a fixture class, you can reassign another fixture class from a different repo branch to use. For details, see <a href="#ReassignFixtureTemplate">To reassign a fixture class</a>.</p>
+<h2 id="a-nameaddfixtureclass2repoato-enable-a-new-fixture-class-from-a-repo-branch"><a name="AddFixtureClass2Repo"></a>To enable a new fixture class from a repo branch</h2>
+<!--Waiting for Alex's response about "missing" icon for adding fixture class to repo branch 9-28-17-->
 <ol>
-<li>Go to Infrastructure &gt; Fixtures. (The Console displays the existing fixtures that are available for workflows to use.)</li>
+<li>Go to <strong>Navigation bar</strong> &gt; <strong>Infrastructure</strong> &gt; <strong>Fixtures</strong>. (The Console displays the existing fixtures that are available for workflows to use.)</li>
 <li>Click <img src="docs/images/add_button_31x29.png" alt=""> (Add a Fixture Class dialog displays)</li>
 <li>Click Select for the fixture class you want to add to the Cluster.</li>
 <li>Click the dropdown to select the repo branch having the fixture class definition.</li>
@@ -5824,15 +5840,15 @@ body {
 <li>If satisfied with the selections, click SAVE.</li>
 </ol>
 <p>The newly added YAML template appears on the Fixture Classes screen. The last step is to create an instance of the fixture class so a workflow or app can use it.</p>
-<h2 id="anamecreateinstancefixtureclassatocreateaninstanceofafixtureclass"><a name="CreateInstanceFixtureClass"></a>To create an instance of a fixture class</h2>
+<h2 id="a-namecreateinstancefixtureclassato-create-an-instance-of-a-fixture-class"><a name="CreateInstanceFixtureClass"></a>To create an instance of a fixture class</h2>
 <ol>
-<li>Go to Infrastructure &gt; Fixtures. (The Console displays the existing fixtures that are available to use.)</li>
+<li>Go to <strong>Navigation bar</strong> &gt; <strong>Infrastructure</strong> &gt; <strong>Fixtures</strong>. (The Console displays the existing fixtures that are available to use.)</li>
 <li>Click the fixture class you want (The instances for the Fixture Class displays)</li>
 <li>Right click <img src="docs/images/3_vertical_dots_26x26.png" alt=""> and select Create Instance.(Create New Fixture)</li>
 <li>Enter information for the attribute fields that the fixture requires.</li>
 <li>Click Create. The newly created instance of the fixture class displays in the view with all instances of a fixture class.</li>
 </ol>
-<h2 id="anametakeactiononinstanceatoselectanactiononaninstanceofafixtureclass"><a name="TakeActionOnInstance"></a>To select an action on an instance of a fixture class</h2>
+<h2 id="a-nametakeactiononinstanceato-select-an-action-on-an-instance-of-a-fixture-class"><a name="TakeActionOnInstance"></a>To select an action on an instance of a fixture class</h2>
 <ol>
 <li><p>Go to Infrastructure &gt; Fixtures. (The Console displays the existing fixtures that are available to use.)</p></li>
 <li><p>Click the fixture class you want (The instances for the Fixture Class displays)</p></li>
@@ -5841,14 +5857,14 @@ body {
 <li><p>Enter information for the attribute fields that the fixture requires.</p></li>
 <li><p>Click Create. The newly created instance of the fixture class displays in the view with all instances of a fixture class.</p></li>
 </ol>
-<h2 id="anamemonitorfixtureinstanceatomonitoraninstanceofafixtureclass"><a name="MonitorFixtureInstance"></a>To monitor an instance of a fixture class</h2>
+<h2 id="a-namemonitorfixtureinstanceato-monitor-an-instance-of-a-fixture-class"><a name="MonitorFixtureInstance"></a>To monitor an instance of a fixture class</h2>
 <ol>
 <li><p>Go to Infrastructure &gt; Fixtures. (The Console displays the existing fixtures that are available to use.)</p></li>
 <li><p>Click the fixture class you want (The instances for the Fixture Class displays)</p></li>
 <li><p>Click the name of the instance you want to monitor.</p>
 <p>The view displays the Summary, Attributes, and Job History for the instance.</p></li>
 </ol>
-<h2 id="anamereassignfixturetemplateatoreassignafixtureclass"><a name="ReassignFixtureTemplate"></a>To reassign a fixture class</h2>
+<h2 id="a-namereassignfixturetemplateato-reassign-a-fixture-class"><a name="ReassignFixtureTemplate"></a>To reassign a fixture class</h2>
 <ol>
 <li>Go to Infrastructure &gt; Fixtures. (The Console displays the existing fixtures that are available to use.)</li>
 <li>Click <img src="docs/images/3_vertical_dots_25x26.png" alt=""> for the fixture class you want to change and select Reassign (Reassign Fixture Template dialog displays)</li>

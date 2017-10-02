@@ -1,6 +1,6 @@
-# Tutorial 1: Run a CI Workflow
+# Tutorial 1: Run a CI Pipeline
 
-This tutorial shows you how to run a container-native, CI workflow on Kubernetes using the Argo workflow engine. An Argo Workflow consists of steps and every step runs as a container within a Kubernetes pod. These are the steps you'll run in the sample CI workflow:
+This tutorial shows you how to run a container-native, CI pipeline on Kubernetes using the Argo workflow engine. An Argo Workflow consists of steps and every step runs as a container within a Kubernetes pod. These are the steps you'll run in the sample CI pipeline:
 
 * Checkout code
 * Build the code

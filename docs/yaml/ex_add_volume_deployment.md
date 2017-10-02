@@ -11,7 +11,7 @@ When a long-running deployment executes, it may need storage for persisting data
 
         The newly-created volume is now visible on the main volumes page (Infrastructure > Volumes)
 
-*   ANONYMOUS volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are **only** declared in the YAML template and you must specify a `storage_class` for it and its required parameters. For details about the storage class, see [About Storage Classes for Volumes](#AboutStorageClass4Volumes).For details about declaring an anonymous volume, see [Code Example for An Anonymous Volume](#Code4DeclaringAnonymousVolume).
+*   ANONYMOUS volumes are coupled to the application and is automatically deleted when an application terminates. Anonymous volumes are **only** declared in the YAML template and you must specify a `storage_class` for it and its required parameters. For details about the storage class, see [About Storage Classes for Volumes](#AboutStorageClass4Volumes). For details about declaring an anonymous volume, see [Code Example for An Anonymous Volume](#Code4DeclaringAnonymousVolume).
 
 When creating a new volume, you must decide whether the volume is "named" or "anonymous".
 

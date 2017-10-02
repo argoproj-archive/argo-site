@@ -12,7 +12,7 @@
     <meta name="description" content="The Argo YAML DSL specification for defining rules that trigger a job or notification. Policies are applied to other templates (Workflow, Container, Deployment)">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5742,9 +5742,9 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;policytemplates&quot;>Policy Templates</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;policy-templates&quot;>Policy Templates</h1>
 <p>A policy template has the following sections.</p>
-<h4 id=&quot;commonnameandtype&quot;>Common Name and Type</h4>
+<h4 id=&quot;common-name-and-type&quot;>Common Name and Type</h4>
 <ul>
 <li><code>name</code>: the unique name of the policy object.</li>
 <li><code>type</code>: policy.</li>
@@ -5754,14 +5754,14 @@ body {
 </ul>
 <h4 id=&quot;parameters&quot;>parameters</h4>
 <ul>
-<li>Parameters that are enclosed with “double percent characters” (such as <code>%%session.commit%%</code> or <code>%%session.repo%%</code> ) represent<br />
+<li>Parameters that are enclosed with “double percent characters” (such as <code>%%session.commit%%</code> or <code>%%session.repo%%</code> ) represent  <br />
 special parameter values. (default values) that Argo automatically fulfills (based on session information), so you don't need to be specify the values here.</li>
 <li>However, values for other parameters must be explicitly specified in this section to fulfill the template’s parameters section.</li>
 </ul>
 <h4 id=&quot;notifications&quot;>notifications</h4>
 <p>The <code>notification</code> section has two parts:</p>
 <ul>
-<li><code>when</code> specifies the list of <em>job events</em> to notify, options: on<em>start, on</em>success, on<em>failure, on</em>change</li>
+<li><code>when</code> specifies the list of <em>job events</em> to notify, options: on_start, on_success, on_failure, on_change</li>
 <li><code>whom</code> specifies the list of <em>destinations</em> to notify, options: committer, author, email address, user label</li>
 </ul>
 <p>Multiple notifications can be specified.</p>
@@ -5774,48 +5774,48 @@ special parameter values. (default values) that Argo automatically fulfills (bas
 <li><code>on_cron</code>: trigger on the cron schedule; the key <code>schedule</code> is required, the key <code>timezone</code> is optional</li>
 </ul>
 <h2 id=&quot;&quot;>```</h2>
-<p>type: policy
-name: Argo Build Policy
-description: Policy to trigger build for all events
-template: Argo-CI
-parameters:
-  namespace: &quot;staging&quot;
-  version: &quot;latest&quot;
-  build_options: &quot;--no-push&quot;
+<p>type: policy<br />
+name: Argo Build Policy<br />
+description: Policy to trigger build for all events<br />
+template: Argo-CI<br />
+parameters:<br />
+  namespace: &quot;staging&quot;<br />
+  version: &quot;latest&quot;<br />
+  build_options: &quot;--no-push&quot;<br />
 notifications:</p>
-<h1 id=&quot;optionson_starton_successon_failureon_change&quot;>options: on<em>start, on</em>success, on<em>failure, on</em>change</h1>
+<h1 id=&quot;options-on_start-on_success-on_failure-on_change&quot;>options: on_start, on_success, on_failure, on_change</h1>
 <ul>
-<li>when:</li>
-<li>on_failure
-whom:
+<li>when:<ul>
+<li>on_failure<br />
+whom:<br />
 # options: committer, author, &amp;lt;email address&amp;gt;, &amp;lt;user label&amp;gt;</li>
 <li>committer</li>
 <li>author</li>
-<li>prod@slack
-when:</li>
+<li>prod@slack<br />
+when:</li></ul></li>
 </ul>
-<h1 id=&quot;multipletriggerscanbespecified&quot;>multiple triggers can be specified</h1>
-<h1 id=&quot;optionson_pushon_pull_requeston_pull_request_mergeon_cron&quot;>options: on<em>push, on</em>pull<em>request, on</em>pull<em>request</em>merge, on_cron</h1>
+<h1 id=&quot;multiple-triggers-can-be-specified&quot;>multiple triggers can be specified</h1>
+<h1 id=&quot;options-on_push-on_pull_request-on_pull_request_merge-on_cron&quot;>options: on_push, on_pull_request, on_pull_request_merge, on_cron</h1>
 <ul>
 <li>event: on_push</li>
-<li>event: on<em>pull</em>request</li>
-<li>event: on<em>pull</em>request_merge</li>
-<li>event: on_cron
-# cron expression
-# 0 1 * * *
-# | | | | |
-# | | | | |
-# | | | | +---- Run every day of the week
-# | | | +------ Run every month of the year
-# | +---------- Run at 1 Hour (1AM)
-# +------------ Run at 0 Minute
-schedule: &quot;0 * * * *&quot;
+<li>event: on_pull_request</li>
+<li>event: on_pull_request_merge</li>
+<li>event: on_cron<br />
+# cron expression<br />
+# 0 1 * * *<br />
+# | | | | |<br />
+# | | | | |<br />
+# | | | | +---- Run every day of the week<br />
+# | | | +------ Run every month of the year<br />
+# | +---------- Run at 1 Hour (1AM)<br />
+# +------------ Run at 0 Minute<br />
+schedule: &quot;0 * * * *&quot;<br />
 timezone: &quot;US/Pacific&quot;</pre></li>
 </ul>
-<h2 id=&quot;enablingpoliciesinabranch&quot;>Enabling Policies in a Branch</h2>
-<p>To enable a policy template in a branch, the Argo Web UI (Navigation Bar &amp;gt; ... &amp;gt; Policies).</p>"><h1 id="policytemplates">Policy Templates</h1>
+<h2 id=&quot;enabling-policies-in-a-branch&quot;>Enabling Policies in a Branch</h2>
+<p>To enable a policy template in a branch, the Argo Web UI (Navigation Bar &amp;gt; ... &amp;gt; Policies).</p>"><h1 id="policy-templates">Policy Templates</h1>
 <p>A policy template has the following sections.</p>
-<h4 id="commonnameandtype">Common Name and Type</h4>
+<h4 id="common-name-and-type">Common Name and Type</h4>
 <ul>
 <li><code>name</code>: the unique name of the policy object.</li>
 <li><code>type</code>: policy.</li>
@@ -5825,14 +5825,14 @@ timezone: &quot;US/Pacific&quot;</pre></li>
 </ul>
 <h4 id="parameters">parameters</h4>
 <ul>
-<li>Parameters that are enclosed with “double percent characters” (such as <code>%%session.commit%%</code> or <code>%%session.repo%%</code> ) represent<br>
+<li>Parameters that are enclosed with “double percent characters” (such as <code>%%session.commit%%</code> or <code>%%session.repo%%</code> ) represent  <br>
 special parameter values. (default values) that Argo automatically fulfills (based on session information), so you don't need to be specify the values here.</li>
 <li>However, values for other parameters must be explicitly specified in this section to fulfill the template’s parameters section.</li>
 </ul>
 <h4 id="notifications">notifications</h4>
 <p>The <code>notification</code> section has two parts:</p>
 <ul>
-<li><code>when</code> specifies the list of <em>job events</em> to notify, options: on<em>start, on</em>success, on<em>failure, on</em>change</li>
+<li><code>when</code> specifies the list of <em>job events</em> to notify, options: on_start, on_success, on_failure, on_change</li>
 <li><code>whom</code> specifies the list of <em>destinations</em> to notify, options: committer, author, email address, user label</li>
 </ul>
 <p>Multiple notifications can be specified.</p>
@@ -5845,45 +5845,45 @@ special parameter values. (default values) that Argo automatically fulfills (bas
 <li><code>on_cron</code>: trigger on the cron schedule; the key <code>schedule</code> is required, the key <code>timezone</code> is optional</li>
 </ul>
 <h2 id="">```</h2>
-<p>type: policy
-name: Argo Build Policy
-description: Policy to trigger build for all events
-template: Argo-CI
-parameters:
-  namespace: "staging"
-  version: "latest"
-  build_options: "--no-push"
+<p>type: policy<br>
+name: Argo Build Policy<br>
+description: Policy to trigger build for all events<br>
+template: Argo-CI<br>
+parameters:<br>
+  namespace: "staging"<br>
+  version: "latest"<br>
+  build_options: "--no-push"<br>
 notifications:</p>
-<h1 id="optionson_starton_successon_failureon_change">options: on<em>start, on</em>success, on<em>failure, on</em>change</h1>
+<h1 id="options-on_start-on_success-on_failure-on_change">options: on_start, on_success, on_failure, on_change</h1>
 <ul>
-<li>when:</li>
-<li>on_failure
-whom:
+<li>when:<ul>
+<li>on_failure<br>
+whom:<br>
 # options: committer, author, &lt;email address&gt;, &lt;user label&gt;</li>
 <li>committer</li>
 <li>author</li>
-<li>prod@slack
-when:</li>
+<li>prod@slack<br>
+when:</li></ul></li>
 </ul>
-<h1 id="multipletriggerscanbespecified">multiple triggers can be specified</h1>
-<h1 id="optionson_pushon_pull_requeston_pull_request_mergeon_cron">options: on<em>push, on</em>pull<em>request, on</em>pull<em>request</em>merge, on_cron</h1>
+<h1 id="multiple-triggers-can-be-specified">multiple triggers can be specified</h1>
+<h1 id="options-on_push-on_pull_request-on_pull_request_merge-on_cron">options: on_push, on_pull_request, on_pull_request_merge, on_cron</h1>
 <ul>
 <li>event: on_push</li>
-<li>event: on<em>pull</em>request</li>
-<li>event: on<em>pull</em>request_merge</li>
-<li>event: on_cron
-# cron expression
-# 0 1 * * *
-# | | | | |
-# | | | | |
-# | | | | +---- Run every day of the week
-# | | | +------ Run every month of the year
-# | +---------- Run at 1 Hour (1AM)
-# +------------ Run at 0 Minute
-schedule: "0 * * * *"
+<li>event: on_pull_request</li>
+<li>event: on_pull_request_merge</li>
+<li>event: on_cron<br>
+# cron expression<br>
+# 0 1 * * *<br>
+# | | | | |<br>
+# | | | | |<br>
+# | | | | +---- Run every day of the week<br>
+# | | | +------ Run every month of the year<br>
+# | +---------- Run at 1 Hour (1AM)<br>
+# +------------ Run at 0 Minute<br>
+schedule: "0 * * * *"<br>
 timezone: "US/Pacific"</li>
 </ul>
-<h2 id="enablingpoliciesinabranch">Enabling Policies in a Branch</h2>
+<h2 id="enabling-policies-in-a-branch">Enabling Policies in a Branch</h2>
 <p>To enable a policy template in a branch, the Argo Web UI (Navigation Bar &gt; ... &gt; Policies).</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>

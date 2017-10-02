@@ -12,7 +12,7 @@
     <meta name="description" content="The Argo YAML DSL template for defining apps or workflows that can be accessed in the Argo Catalog">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5742,10 +5742,10 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;projecttemplates&quot;>Project Templates</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;project-templates&quot;>Project Templates</h1>
 <p>You use project templates to make a workflow or application available in the Argo Catalog. This makes it possible for your users to run the workflow or application from the Catalog.</p>
 <p>A project template has the following sections.</p>
-<h4 id=&quot;commonnameandtype&quot;>Common Name and Type</h4>
+<h4 id=&quot;common-name-and-type&quot;>Common Name and Type</h4>
 <ul>
 <li><p><code>name</code>: the unique name of the object.</p></li>
 <li><p><code>type</code>: project.</p></li>
@@ -5755,8 +5755,7 @@ body {
 type: project
 name: Sample Go Project
 description: Sample Project to launch golang example
-template: golang check and build
-</code></pre>
+template: golang check and build</code></pre>
 <h4 id=&quot;actions&quot;>Actions</h4>
 <p>Actions map the &quot;action name&quot; to template references. One or more entry points to a project. Each entry point is a reference to an existing template. An action contains these fields:</p>
 <ul>
@@ -5768,8 +5767,7 @@ template: golang check and build
   build:
     template: golang check and build
     parameters:
-      repo: &quot;https://github.com/Argo/appstore.git&quot;
-</code></pre>
+      repo: &quot;https://github.com/Argo/appstore.git&quot;</code></pre>
 <h4 id=&quot;assets&quot;>Assets</h4>
 <p>Project assets are used by the Argo Catalog and include the icon and detail description of the project.</p>
 <ul>
@@ -5778,12 +5776,10 @@ template: golang check and build
 </ul>
 <pre><code>assets:
   icon: &quot;/sample/sample.png&quot;
-  detail: &quot;/sample/detail.md&quot;  
-</code></pre>
+  detail: &quot;/sample/detail.md&quot;  </code></pre>
 <h4 id=&quot;categories&quot;>Categories</h4>
 <p>A list of categories under which the project displays in the Argo Catalog.  </p>
-<pre><code>categories: [&quot;language&quot;, &quot;promoted&quot;]
-</code></pre>
+<pre><code>categories: [&quot;language&quot;, &quot;promoted&quot;]</code></pre>
 <h4 id=&quot;publish&quot;>Publish</h4>
 <p>Zero or more criteria for publishing a project to the Argo Catalog. Only published projects are visible in the Catalog.  </p>
 <pre><code>publish:
@@ -5791,8 +5787,7 @@ template: golang check and build
   branches:
   # branches are in regular expression format, eg. &quot;.*&quot; matches all branches  
     -master
-    -r.*
-</code></pre>
+    -r.*</code></pre>
 <h3 id=&quot;example&quot;>Example</h3>
 <pre><code>---
 type: project
@@ -5811,11 +5806,10 @@ labels:
 assets:
   icon: &quot;/claudia/icon.png&quot;
   publisher_icon: &quot;/claudia/AX_Pub.png&quot;
-  detail: &quot;/claudia/detail.md&quot;
-</code></pre>"><h1 id="projecttemplates">Project Templates</h1>
+  detail: &quot;/claudia/detail.md&quot;</code></pre>"><h1 id="project-templates">Project Templates</h1>
 <p>You use project templates to make a workflow or application available in the Argo Catalog. This makes it possible for your users to run the workflow or application from the Catalog.</p>
 <p>A project template has the following sections.</p>
-<h4 id="commonnameandtype">Common Name and Type</h4>
+<h4 id="common-name-and-type">Common Name and Type</h4>
 <ul>
 <li><p><code>name</code>: the unique name of the object.</p></li>
 <li><p><code>type</code>: project.</p></li>
@@ -5825,8 +5819,7 @@ assets:
 type: project
 name: Sample Go Project
 description: Sample Project to launch golang example
-template: golang check and build
-</code></pre>
+template: golang check and build</code></pre>
 <h4 id="actions">Actions</h4>
 <p>Actions map the "action name" to template references. One or more entry points to a project. Each entry point is a reference to an existing template. An action contains these fields:</p>
 <ul>
@@ -5838,8 +5831,7 @@ template: golang check and build
   build:
     template: golang check and build
     parameters:
-      repo: "https://github.com/Argo/appstore.git"
-</code></pre>
+      repo: "https://github.com/Argo/appstore.git"</code></pre>
 <h4 id="assets">Assets</h4>
 <p>Project assets are used by the Argo Catalog and include the icon and detail description of the project.</p>
 <ul>
@@ -5848,12 +5840,10 @@ template: golang check and build
 </ul>
 <pre><code>assets:
   icon: "/sample/sample.png"
-  detail: "/sample/detail.md"  
-</code></pre>
+  detail: "/sample/detail.md"  </code></pre>
 <h4 id="categories">Categories</h4>
 <p>A list of categories under which the project displays in the Argo Catalog.  </p>
-<pre><code>categories: ["language", "promoted"]
-</code></pre>
+<pre><code>categories: ["language", "promoted"]</code></pre>
 <h4 id="publish">Publish</h4>
 <p>Zero or more criteria for publishing a project to the Argo Catalog. Only published projects are visible in the Catalog.  </p>
 <pre><code>publish:
@@ -5861,8 +5851,7 @@ template: golang check and build
   branches:
   # branches are in regular expression format, eg. ".*" matches all branches  
     -master
-    -r.*
-</code></pre>
+    -r.*</code></pre>
 <h3 id="example">Example</h3>
 <pre><code>---
 type: project
@@ -5881,8 +5870,7 @@ labels:
 assets:
   icon: "/claudia/icon.png"
   publisher_icon: "/claudia/AX_Pub.png"
-  detail: "/claudia/detail.md"
-</code></pre></div></argo-doc-viewer>
+  detail: "/claudia/detail.md"</code></pre></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

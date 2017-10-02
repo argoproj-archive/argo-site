@@ -1,6 +1,8 @@
 # Cashboard
 
-Argo has a "Cashboard" makes it easy to view the total cost of running your Argo. For the time period you select, the Cashboard displays how much you are charged for the instances that are currently running, and the actual utilization of those instances. .
+Argo has a "Cashboard" makes it easy to view the total cost of running your Argo. For the time period you select, the Cashboard displays how much you are charged for the instances that are currently running, and the actual utilization of those instances.
+
+Go to **Navigation bar** > **Monitoring** > **Cashboard**.
 
 Simply select the time or date range you want to view: **TODAY**, **YESTERDAY**, **LAST 7 DAYS**, **LAST 15 DAYS**, or **CUSTOM** (Default is the current date.) The Cashboard graph displays this information:
 

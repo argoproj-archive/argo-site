@@ -10,6 +10,7 @@ https://argoproj.github.io/argo-site/docs/a_introduction_topics/overview.html
 https://argoproj.github.io/argo-site/docs/a_introduction_topics/setup_AWS_for_Argo.html
 https://argoproj.github.io/argo-site/docs/cli_reference.html
 https://argoproj.github.io/argo-site/docs/d_more_information/faqs.html
+https://argoproj.github.io/argo-site/docs/dev-cli-reference.html
 https://argoproj.github.io/argo-site/docs/intro-monitor_gov_spend.html
 https://argoproj.github.io/argo-site/docs/intro-run_stateful_apps_volumes_fixtures.html
 https://argoproj.github.io/argo-site/docs/quickstart/intro_argo_quick_start.html

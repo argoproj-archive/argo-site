@@ -12,7 +12,7 @@
     <meta name="description" content="The Argo YAML DSL specification for running containers and details about the container template sections (common name and type, inputs, outputs)">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5742,9 +5742,9 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;containertemplate&quot;>Container Template</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;container-template&quot;>Container Template</h1>
 <p>A container template contains the following sections.</p>
-<h4 id=&quot;commonnameandtype&quot;>Common Name and Type</h4>
+<h4 id=&quot;common-name-and-type&quot;>Common Name and Type</h4>
 <ul>
 <li><p><code>type</code>: container</p></li>
 <li><p><code>version</code>: the the Argo DSL version of the YAML template</p></li>
@@ -5790,8 +5790,7 @@ command: [&quot;sh&quot;, &quot;-c&quot;]
 args: [&quot;echo 'sleeping for %%inputs.parameters.SLEEP%% seconds' ; sleep %%inputs.parameters.SLEEP%%; echo 'done'&quot;]
 inputs:
   parameters:
-    SLEEP:
-</code></pre>
+    SLEEP:</code></pre>
 
 where:
 
@@ -5812,8 +5811,7 @@ args: [&quot;echo 'sleeping for 20 seconds' &amp;amp;&amp;amp; sleep 20 &amp;amp
 outputs:
   artifacts:
     BIN-OUTPUT:
-      path: /bin
-</code></pre>
+      path: /bin</code></pre>
 
 where:
 
@@ -5832,14 +5830,13 @@ args: [&quot;find /root/bin &amp;amp;&amp;amp; echo 'sleeping for 20 seconds' &a
 inputs:
   artifacts:
     BIN-INPUT:
-      path: /root/bin
-</code></pre>
+      path: /root/bin</code></pre>
 
 where:
 
 *   `BIN-INPUT` is the artifact that the container takes as input.
 *   `/root/bin` is the path to store the input artifact.-->
-<h4 id=&quot;containertakinginputartifactandoutputsanartifact&quot;>Container Taking Input Artifact and Outputs an Artifact</h4>
+<h4 id=&quot;container-taking-input-artifact-and-outputs-an-artifact&quot;>Container Taking Input Artifact and Outputs an Artifact</h4>
 <p>Note: This container template is one of the core YAML DSL templates that Argo provides for checking out source code from a repository and storing it in a directory. This template is agnostic to the repository you are using; in other words, you can run it against any repo.</p>
 <pre><code>---
 type: container
@@ -5861,8 +5858,7 @@ inputs:
 outputs:
   artifacts:
     CODE:
-      path: /src
-</code></pre>
+      path: /src</code></pre>
 <p>where:</p>
 <ul>
 <li><code>axscm</code> is the Argo command for checking out the source code from a repository you specify.</li>
@@ -5872,7 +5868,7 @@ outputs:
 <li><code>--commit</code> is the argument that tells Argo to clone the source code that belongs to a specific commit.</li>
 <li><code>%%inputs.parameters.COMMIT%%</code> is the argument that represents the fully qualified path to the value of the parameter.</li>
 </ul>
-<h4 id=&quot;containerwithvolumeattached&quot;>Container with Volume attached</h4>
+<h4 id=&quot;container-with-volume-attached&quot;>Container with Volume attached</h4>
 <pre><code>---
 type: container
 version: 2
@@ -5882,15 +5878,14 @@ image: httpd:latest
 inputs:
   volumes:
     DATA:
-      mount_path: /data
-</code></pre>
+      mount_path: /data</code></pre>
 <p>where:</p>
 <ul>
 <li><code>volumes</code> is the key that indicates a volume to be attached to the container as an input.</li>
 <li><code>DATA</code> is the name of volume.</li>
 <li><code>mount_path: /data</code> indicates the path &quot;/data&quot; to where the volume is mounted from.</li>
 </ul>
-<h4 id=&quot;containerwithenvironmentalvariabletobeset&quot;>Container with environmental variable to be set</h4>
+<h4 id=&quot;container-with-environmental-variable-to-be-set&quot;>Container with environmental variable to be set</h4>
 <pre><code>---
 type: container
 version: 2
@@ -5909,14 +5904,13 @@ inputs:
     REPO:
       default: &quot;%%session.repo%%&quot;
     FOO_VAL:
-      default: bar
-</code></pre>
+      default: bar</code></pre>
 <p>where:</p>
 <ul>
 <li><code>FOO</code> is the name of the environmental variable to be set.</li>
 <li><code>%%inputs.parameters.FOO_VAL%%</code> is the fully qualified path to the value that the environmental variable is set to</li>
 </ul>
-<h4 id=&quot;anamecontainerdindworkflowacontainercallingdockercommandsdockerindocker&quot;><a name=&quot;ContainerDinDWorkflow&quot;></a>Container calling Docker Commands &quot;Docker-in-Docker&quot;</h4>
+<h4 id=&quot;a-namecontainerdindworkflowacontainer-calling-docker-commands-docker-in-docker&quot;><a name=&quot;ContainerDinDWorkflow&quot;></a>Container calling Docker Commands &quot;Docker-in-Docker&quot;</h4>
 <p>If you are running a Docker-in-Docker (DinD), you must add two lines to your container template (as shown in bold below):</p>
 <pre><code>---
 type: container
@@ -5929,8 +5923,7 @@ resources:
   mem_mib: 300
   cpu_cores: 0.1
 **annotations:
-  ax_ea_docker_enable: '{&quot;graph-storage-size&quot;: &quot;10Gi&quot;, &quot;cpu_cores&quot;:0.1, &quot;mem_mib&quot;:200}'**
-</code></pre>
+  ax_ea_docker_enable: '{&quot;graph-storage-size&quot;: &quot;10Gi&quot;, &quot;cpu_cores&quot;:0.1, &quot;mem_mib&quot;:200}'**</code></pre>
 <p>where:</p>
 <ul>
 <li><code>annotations</code> refers to the metadata that you can add to a YAML template to extend it. It contains only information that you will consume.</li>
@@ -5938,9 +5931,9 @@ resources:
 <li><code>graph-storage-size</code> refers to the storage that Docker uses</li>
 <li><code>cpu_cores</code> and <code>mem_mib</code> represents the memory given to Docker daemon; 32MB minimum; no restriction on number of cores.</li>
 </ul>
-<p>For a complete example of Docker-in-Docker, see <a href=&quot;/argo-site/docs/yaml/argo_tutorial_2_create_docker_image_build_workflow.html&quot;>Tutorial 2: Build Docker Image and Deploy Workflow</a>.</p>"><h1 id="containertemplate">Container Template</h1>
+<p>For a complete example of Docker-in-Docker, see <a href=&quot;/argo-site/docs/yaml/argo_tutorial_2_create_docker_image_build_workflow.html&quot;>Tutorial 2: Build Docker Image and Deploy Workflow</a>.</p>"><h1 id="container-template">Container Template</h1>
 <p>A container template contains the following sections.</p>
-<h4 id="commonnameandtype">Common Name and Type</h4>
+<h4 id="common-name-and-type">Common Name and Type</h4>
 <ul>
 <li><p><code>type</code>: container</p></li>
 <li><p><code>version</code>: the the Argo DSL version of the YAML template</p></li>
@@ -5986,8 +5979,7 @@ command: ["sh", "-c"]
 args: ["echo 'sleeping for %%inputs.parameters.SLEEP%% seconds' ; sleep %%inputs.parameters.SLEEP%%; echo 'done'"]
 inputs:
   parameters:
-    SLEEP:
-</code></pre>
+    SLEEP:</code></pre>
 
 where:
 
@@ -6008,8 +6000,7 @@ args: ["echo 'sleeping for 20 seconds' &amp;&amp; sleep 20 &amp;&amp; echo 'done
 outputs:
   artifacts:
     BIN-OUTPUT:
-      path: /bin
-</code></pre>
+      path: /bin</code></pre>
 
 where:
 
@@ -6028,14 +6019,13 @@ args: ["find /root/bin &amp;&amp; echo 'sleeping for 20 seconds' &amp;&amp; slee
 inputs:
   artifacts:
     BIN-INPUT:
-      path: /root/bin
-</code></pre>
+      path: /root/bin</code></pre>
 
 where:
 
 *   `BIN-INPUT` is the artifact that the container takes as input.
 *   `/root/bin` is the path to store the input artifact.-->
-<h4 id="containertakinginputartifactandoutputsanartifact">Container Taking Input Artifact and Outputs an Artifact</h4>
+<h4 id="container-taking-input-artifact-and-outputs-an-artifact">Container Taking Input Artifact and Outputs an Artifact</h4>
 <p>Note: This container template is one of the core YAML DSL templates that Argo provides for checking out source code from a repository and storing it in a directory. This template is agnostic to the repository you are using; in other words, you can run it against any repo.</p>
 <pre><code>---
 type: container
@@ -6057,8 +6047,7 @@ inputs:
 outputs:
   artifacts:
     CODE:
-      path: /src
-</code></pre>
+      path: /src</code></pre>
 <p>where:</p>
 <ul>
 <li><code>axscm</code> is the Argo command for checking out the source code from a repository you specify.</li>
@@ -6068,7 +6057,7 @@ outputs:
 <li><code>--commit</code> is the argument that tells Argo to clone the source code that belongs to a specific commit.</li>
 <li><code>%%inputs.parameters.COMMIT%%</code> is the argument that represents the fully qualified path to the value of the parameter.</li>
 </ul>
-<h4 id="containerwithvolumeattached">Container with Volume attached</h4>
+<h4 id="container-with-volume-attached">Container with Volume attached</h4>
 <pre><code>---
 type: container
 version: 2
@@ -6078,15 +6067,14 @@ image: httpd:latest
 inputs:
   volumes:
     DATA:
-      mount_path: /data
-</code></pre>
+      mount_path: /data</code></pre>
 <p>where:</p>
 <ul>
 <li><code>volumes</code> is the key that indicates a volume to be attached to the container as an input.</li>
 <li><code>DATA</code> is the name of volume.</li>
 <li><code>mount_path: /data</code> indicates the path "/data" to where the volume is mounted from.</li>
 </ul>
-<h4 id="containerwithenvironmentalvariabletobeset">Container with environmental variable to be set</h4>
+<h4 id="container-with-environmental-variable-to-be-set">Container with environmental variable to be set</h4>
 <pre><code>---
 type: container
 version: 2
@@ -6105,14 +6093,13 @@ inputs:
     REPO:
       default: "%%session.repo%%"
     FOO_VAL:
-      default: bar
-</code></pre>
+      default: bar</code></pre>
 <p>where:</p>
 <ul>
 <li><code>FOO</code> is the name of the environmental variable to be set.</li>
 <li><code>%%inputs.parameters.FOO_VAL%%</code> is the fully qualified path to the value that the environmental variable is set to</li>
 </ul>
-<h4 id="anamecontainerdindworkflowacontainercallingdockercommandsdockerindocker"><a name="ContainerDinDWorkflow"></a>Container calling Docker Commands "Docker-in-Docker"</h4>
+<h4 id="a-namecontainerdindworkflowacontainer-calling-docker-commands-docker-in-docker"><a name="ContainerDinDWorkflow"></a>Container calling Docker Commands "Docker-in-Docker"</h4>
 <p>If you are running a Docker-in-Docker (DinD), you must add two lines to your container template (as shown in bold below):</p>
 <pre><code>---
 type: container
@@ -6125,8 +6112,7 @@ resources:
   mem_mib: 300
   cpu_cores: 0.1
 **annotations:
-  ax_ea_docker_enable: '{"graph-storage-size": "10Gi", "cpu_cores":0.1, "mem_mib":200}'**
-</code></pre>
+  ax_ea_docker_enable: '{"graph-storage-size": "10Gi", "cpu_cores":0.1, "mem_mib":200}'**</code></pre>
 <p>where:</p>
 <ul>
 <li><code>annotations</code> refers to the metadata that you can add to a YAML template to extend it. It contains only information that you will consume.</li>

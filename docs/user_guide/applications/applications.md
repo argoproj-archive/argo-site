@@ -17,39 +17,40 @@ To illustrate these concepts, the following diagram shows an application consist
  ![](../../../images/applications_deployments_volume_diagram_argo2.png)
 
 
-From the **Applications** tab, you can view all applications that are available for deployment on your Argo.
+You can view all applications that are available for deployment and their statuses on Argo:
 
-Here's how you view the status of an active application:
-
-*   Go to **Applications**.
+*   Go to **Navigation bar** > **Applications**.
 
     This view displays the status of the application, whether it is running, stopped, terminated, or has generated an error.
 
     This view also displays information about the last time the application was deployed or restarted.
 
-*   Click the name of the application to view details about the application.
+*   Click the name of the application to view details about the application (such as the number of deployments for an app, the number of instances for a deployment that are running).
 *   Click ![](../../../images/3_vertical_dots_25x26_GREEN.png) on the name of the app and select **View Spending** to see the current cost of running the application for a specific time period.
 
 In some cases, you may want to deploy and manage long-running services that are independent of a specific workflow. To identify each deployment, you assign it a name in the deployment type of YAML template. For configuration details, see [Deployment Template](./../../yaml/deployment_template.md).
 
 # Monitoring and Scaling Deployments
 
-*   From APPLICATIONS, click the name of the app you want to monitor, and then click the deployment that is attached to the app to view whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.
+*   To monitor the deployment of an app, click **APPLICATIONS**, click the name of the app you want to monitor, and then click the name of the deployment that is attached to the app.
+
+ This view shows whether a deployment is active or not, how many instances of the deployment are running, the spending details for the deployment. From this view, you can also start, stop, and scale the number of instances for your deployments easily.
+
+ From this view, you can also see the configured internal and external routes for a deployment template under the **END POINTS** section.
+
+ * **EXTERNAL ROUTES** allow a deployment to be accessed outside of the Argo.
+
+ * **INTERNAL ROUTES** allow a deployment to be accessed by other deployments and jobs running within the same Argo. Internal routes are typically used to allow multiple microservices that are a part of the same application to communicate with each other. For example, suppose that you had an application that consists of a web app front end and a database backend. The network connection between these two deployments can be an internal route.
+
+  If you want to change the value of the routes, edit the YAML file for your deployment template. For details, see [Deployment Template](./../../yaml/deployment_template.md).
 
 *   To scale the number of instances for a deployment, click the "plus" or "minus" sign under **INSTANCES** or enter a new number. Click **CONFIRM** to accept the change. Or click **CANCEL** to back out of the change.
 
-To access the logs or console for an instance, click ![](../../../images/3_vertical_dots_25x26_GREEN.png) and select:
+To access the logs or console for an instance, click ![](../../../images/3_vertical_dots_25x26_GREEN.png) for the instance, and select:
 
 *   **LOGS** to view the logs for the instance.
 *   **CONSOLE** to access the instance and enter custom commands for managing the instance. Click **EXECUTE** to perform the commands.
 
-From the Endpoints view, you can also see the internal and external routes for a deployment template.
-
-**EXTERNAL ROUTES** allow a deployment to be accessed outside of the Argo.
-
-**INTERNAL ROUTES** allow a deployment to be accessed by other deployments and jobs running within the same Argo. Internal routes are typically used to allow multiple microservices that are a part of the same application to communicate with each other. For example, suppose that you had an application that consists of a web app front end and a database backend. The network connection between these two deployments can be an internal route.
-
-For details about configuring the routes, see [Deployment Template](./../../yaml/deployment_template.md).
 
 # Rolling Updates for a Deployed Application
 
@@ -112,29 +113,30 @@ inputs:
 
 ## Performing a Rolling Update
 
-1.  Go to Applications and click an individual application.
+1.  Go to **Applications** and click the application you want to perform a rolling update. (You'll see the view of the app with its deployments and instances of those deployments.)
 
 2.  Choose one of these options:
 
-    1.  To perform a rolling update to the **latest commit** of your application, click ![](../../../images/clear_3_dots_23x23.png) for the deployment you want and click Redeploy.
-    2.  To perform a rolling update to roll back to a **specific revision** of your application, click the specific deployment. Then click ![](../../../images/clear_3_dots_23x23.png) for the revision you want and select Rollback.
-3.  Enter the input parameters that your workflow requires and click Submit to launch the rolling update.
+    1. To perform a rolling update to the **latest commit** of your application, click ![](../../../images/clear_3_dots_23x23.png) for the deployment you want and click **Redeploy**.
+    2. To perform a rolling update to roll back to a **specific revision** of your application, click the icon for the specific deployment. (You'll see the deployment details pane.)
+     Under **RECENT REVISION**, click ![](../../../images/clear_3_dots_23x23.png) for the revision you want and select **Redeploy**.
+3.  Enter the input parameters that your workflow requires and click **Submit** to launch the rolling update.
 
-    The job (aka workflow) is launched to perform the rolling update to either the most recent commit or a past deployment.
+    The job (aka workflow) launches to perform the rolling update to either the most recent commit or a recent revision of a deployment.
 
-The rolling update executes and has a status of SUCCESS when completed successfully.
+The rolling update executes and has a status of "SUCCESS" when it completed successfully.
 
 ## Viewing the Logs for a Deployment
 
-There are two ways you can view the logs for a deployment:
+There are two ways you can view or download the logs for a deployment:
 
-*   For a current deployment, click an instance for the deployment and select Logs.
-*   For a past deployment, click a deployment and select a revision or View Revision History. Click Artifacts and select the logs you want to view before clicking the download icon.
+*   For a current deployment, click an instance for the deployment and select **Logs**.
+*   For a past deployment, click a deployment and select **VIEW REVISION HISTORY**. Click the revision you want and click **ARTIFACTS** to select the logs you want to view before clicking the download icon.
 
 ## Conditions for Performing Rolling Updates
 
 There are restrictions on when you can perform a rolling update:
 
-*   You cannot change external routes while performing a rolling update
-*   You cannot do a rolling update if a volume is attached to a deployment
-*   You cannot do a rolling update to change the types of fixtures that are used
+*   You cannot change external routes while performing a rolling update.
+*   You cannot do a rolling update if a volume is attached to a deployment.
+*   You cannot do a rolling update to change the types of fixtures that are used.

@@ -12,7 +12,7 @@
     <meta name="description" content="The Argo YAML DSL template for specifying a long-running service (such as a microservice or application)">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a class="active" href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5742,9 +5742,9 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;deploymenttemplate&quot;>Deployment Template</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;deployment-template&quot;>Deployment Template</h1>
 <p>A deployment template is the orchestration spec for deploying a long-running service from a workflow. It is a wrapper on top of the Kubernetes deployment and service YAML. It includes the additional sections to provide the information about the route, scale, etc. All names used in this template must comply with the following pattern: <code>^([a-z0-9]([-a-z0-9]*[a-z0-9])?)$</code></p>
-<h4 id=&quot;commonnameandtype&quot;>Common Name and Type</h4>
+<h4 id=&quot;common-name-and-type&quot;>Common Name and Type</h4>
 <ul>
 <li><code>type</code>: deployment</li>
 <li><code>version</code>: the Argo DSL version of the YAML template</li>
@@ -5754,16 +5754,13 @@ body {
 <pre><code>type: deployment
 version: 1
 name: apache-example
-description: apache deployment example
-</code></pre>
+description: apache deployment example</code></pre>
 <h4 id=&quot;application_name&quot;>application_name</h4>
 <p>The unique name of the application, which is the group concept of deployments. With the same application, deployments can use an internal route to communicate with each other.</p>
-<pre><code>application_name: myapp
-</code></pre>
+<pre><code>application_name: myapp</code></pre>
 <h4 id=&quot;deployment_name&quot;>deployment_name</h4>
 <p>A unique name for the deployment name is required.</p>
-<pre><code>deployment_name: mydeployment
-</code></pre>
+<pre><code>deployment_name: mydeployment</code></pre>
 <h4 id=&quot;external_routes&quot;>external_routes</h4>
 <p>External Route is the route for deployment to be exposed to the Internet.</p>
 <ul>
@@ -5783,8 +5780,7 @@ description: apache deployment example
     redirect_http_to_https: true
     ip_white_list:
       - 0.0.0.0/0
-    visibility: organization
-</code></pre>
+    visibility: organization</code></pre>
 <h4 id=&quot;internal_routes&quot;>internal_routes</h4>
 <p>Internal Route is the route for deployment to be exposed within the cluster.</p>
 <p><code>name</code>: the unique name of the internal network object within application..</p>
@@ -5797,13 +5793,11 @@ description: apache deployment example
   - name: &quot;web-internal&quot;
     ports:
       - port: 80
-        target_port: 80
-</code></pre>
+        target_port: 80</code></pre>
 <h4 id=&quot;scale&quot;>scale</h4>
 <p>This section describes the number of replicas/instances to create for the deployment. When you configure the AWS 53 routes, AWS automatically creates a load balancer to balance the incoming load among the instances.  </p>
 <pre><code>scale:
-  min: 2
-</code></pre>
+  min: 2</code></pre>
 <h4 id=&quot;containers&quot;>containers</h4>
 <!--need example with deployment with inlined container, deployment with container reference------------ -->
 <p>Containers to be included in the deployment. You can specify either an image for the container or the container template itself.</p>
@@ -5818,8 +5812,7 @@ description: apache deployment example
 <pre><code>containers:                    # declares a container section of the YAML template
   userdb:                      # name of container
     image: postgres:9.6.1      # name of image for container
-    command: [&quot;postgresd&quot;]     # command to run on the container
-</code></pre>
+    command: [&quot;postgresd&quot;]     # command to run on the container</code></pre>
 <h4 id=&quot;termination_policy&quot;>termination_policy</h4>
 <p>Specifies time and spending limit for the deployment. Optional. This section has these fields:</p>
 <ul>
@@ -5828,9 +5821,8 @@ description: apache deployment example
 </ul>
 <pre><code>termination_policy:
   time_seconds: 43200
-  spending_cents: 100
-</code></pre>
-<h2 id=&quot;exampleofdeployment&quot;>Example of Deployment</h2>
+  spending_cents: 100</code></pre>
+<h2 id=&quot;example-of-deployment&quot;>Example of Deployment</h2>
 <p>This deployment has a named volume attached to a web server container:</p>
 <pre><code>---
 type: deployment
@@ -5873,10 +5865,9 @@ resources:
 inputs:
   volumes:
     DATA:
-      mount_path: /data
-</code></pre>"><h1 id="deploymenttemplate">Deployment Template</h1>
+      mount_path: /data</code></pre>"><h1 id="deployment-template">Deployment Template</h1>
 <p>A deployment template is the orchestration spec for deploying a long-running service from a workflow. It is a wrapper on top of the Kubernetes deployment and service YAML. It includes the additional sections to provide the information about the route, scale, etc. All names used in this template must comply with the following pattern: <code>^([a-z0-9]([-a-z0-9]*[a-z0-9])?)$</code></p>
-<h4 id="commonnameandtype">Common Name and Type</h4>
+<h4 id="common-name-and-type">Common Name and Type</h4>
 <ul>
 <li><code>type</code>: deployment</li>
 <li><code>version</code>: the Argo DSL version of the YAML template</li>
@@ -5886,16 +5877,13 @@ inputs:
 <pre><code>type: deployment
 version: 1
 name: apache-example
-description: apache deployment example
-</code></pre>
+description: apache deployment example</code></pre>
 <h4 id="application_name">application_name</h4>
 <p>The unique name of the application, which is the group concept of deployments. With the same application, deployments can use an internal route to communicate with each other.</p>
-<pre><code>application_name: myapp
-</code></pre>
+<pre><code>application_name: myapp</code></pre>
 <h4 id="deployment_name">deployment_name</h4>
 <p>A unique name for the deployment name is required.</p>
-<pre><code>deployment_name: mydeployment
-</code></pre>
+<pre><code>deployment_name: mydeployment</code></pre>
 <h4 id="external_routes">external_routes</h4>
 <p>External Route is the route for deployment to be exposed to the Internet.</p>
 <ul>
@@ -5915,8 +5903,7 @@ description: apache deployment example
     redirect_http_to_https: true
     ip_white_list:
       - 0.0.0.0/0
-    visibility: organization
-</code></pre>
+    visibility: organization</code></pre>
 <h4 id="internal_routes">internal_routes</h4>
 <p>Internal Route is the route for deployment to be exposed within the cluster.</p>
 <p><code>name</code>: the unique name of the internal network object within application..</p>
@@ -5929,13 +5916,11 @@ description: apache deployment example
   - name: "web-internal"
     ports:
       - port: 80
-        target_port: 80
-</code></pre>
+        target_port: 80</code></pre>
 <h4 id="scale">scale</h4>
 <p>This section describes the number of replicas/instances to create for the deployment. When you configure the AWS 53 routes, AWS automatically creates a load balancer to balance the incoming load among the instances.  </p>
 <pre><code>scale:
-  min: 2
-</code></pre>
+  min: 2</code></pre>
 <h4 id="containers">containers</h4>
 <!--need example with deployment with inlined container, deployment with container reference------------ -->
 <p>Containers to be included in the deployment. You can specify either an image for the container or the container template itself.</p>
@@ -5950,8 +5935,7 @@ description: apache deployment example
 <pre><code>containers:                    # declares a container section of the YAML template
   userdb:                      # name of container
     image: postgres:9.6.1      # name of image for container
-    command: ["postgresd"]     # command to run on the container
-</code></pre>
+    command: ["postgresd"]     # command to run on the container</code></pre>
 <h4 id="termination_policy">termination_policy</h4>
 <p>Specifies time and spending limit for the deployment. Optional. This section has these fields:</p>
 <ul>
@@ -5960,9 +5944,8 @@ description: apache deployment example
 </ul>
 <pre><code>termination_policy:
   time_seconds: 43200
-  spending_cents: 100
-</code></pre>
-<h2 id="exampleofdeployment">Example of Deployment</h2>
+  spending_cents: 100</code></pre>
+<h2 id="example-of-deployment">Example of Deployment</h2>
 <p>This deployment has a named volume attached to a web server container:</p>
 <pre><code>---
 type: deployment
@@ -6005,8 +5988,7 @@ resources:
 inputs:
   volumes:
     DATA:
-      mount_path: /data
-</code></pre></div></argo-doc-viewer>
+      mount_path: /data</code></pre></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

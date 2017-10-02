@@ -12,7 +12,7 @@
     <meta name="description" content="Create jobs from code commits and selecting YAML templates, viewing Job History from Timeline, managing and monitoring jobs">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5746,41 +5746,41 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;creatingajob&quot;>Creating a Job</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;creating-a-job&quot;>Creating a Job</h1>
 <p>When you want to start a job, you must choose which code commit (from a repo branch) to use for the job. <!--If this is the first time you are creating a job for a specific commit, you must select the commit from the Argo Web UI.--></p>
 <p>Here's the procedure:</p>
 <ol>
-<li><p>Click <strong>Timeline</strong> &amp;gt; <strong>Commits</strong>.</p>
-<p>You can filter the commits by date range or by &quot;My commits&quot;.</p></li>
-<li><p>Click the down arrow at the right margin of the row for the commit you are selecting.</p></li>
-<li><p>Click <strong>CREATE NEW JOB</strong>.</p></li>
-<li><p>Under <strong>TEMPLATES</strong>, select the YAML templates to use for running the job.</p></li>
-<li><p>Click <strong>NEXT</strong>.</p></li>
-<li><p>Under <strong>Review workflow parameters</strong>, enter the appropriate values for each parameter displayed.</p></li>
-<li><p>Click <strong>SUBMIT</strong> to start the job.</p></li>
+<li>Click <strong>Timeline</strong> &amp;gt; <strong>Commits</strong>.<br />
+You can filter the commits by date range or by &quot;My commits&quot;.</li>
+<li>Click the down arrow at the right margin of the row for the commit you are selecting.</li>
+<li>Click <strong>CREATE NEW JOB</strong>.</li>
+<li>Under <strong>TEMPLATES</strong>, select the YAML templates to use for running the job.</li>
+<li>Click <strong>NEXT</strong>.</li>
+<li>Under <strong>Review workflow parameters</strong>, enter the appropriate values for each parameter displayed.</li>
+<li>Click <strong>SUBMIT</strong> to start the job.</li>
 </ol>
 <p>NOTE: If you have already run a job from a specific commit, you can run the same job again without having to select the commit.</p>
-<h1 id=&quot;viewtemplatesandcreateajob&quot;>View Templates and Create a Job</h1>
-<p>The Argo Web UI provides multiple ways to view the YAML templates that a job uses. You can simply click Templates and then click a row in the template table to see the details for a specific template. From this view, you can</p>
+<h1 id=&quot;view-templates-and-create-a-job&quot;>View Templates and Create a Job</h1>
+<p>The Argo Web UI provides multiple ways to view the YAML templates that a job uses. You can simply click <strong>Templates</strong> and then click a row in the template table to see the details for a specific template. From this view, you can</p>
 <ul>
-<li><p>Start a job from a specific YAML template by clicking <img src=&quot;docs/images/3_vertical_dots_27x29.png&quot; alt=&quot;&quot; />at the end of each row.</p></li>
+<li><p>Create a job from a specific YAML template by clicking <img src=&quot;docs/images/3_vertical_dots_25x26_GREEN.png&quot; alt=&quot;&quot; /> at the end of each row and selecting <strong>Create New Job</strong>.</p></li>
 <li><p>View all the available YAML templates from a branch</p></li>
 <li><p>View the WORKFLOW for a given job based on the YAML template. Click any step in the workflow and see the corresponding code in the YAML viewer.</p></li>
 <li><p>View the JOB HISTORY for a YAML template and click the specific job for details about the success or failure of that job.</p></li>
 </ul>
-<h1 id=&quot;anameviewingaviewingjobhistory&quot;><a name=&quot;Viewing&quot;></a>Viewing Job History</h1>
-<p>After you have run a job, you can view the Timeline to see a history of all workflow jobs, commits, and branches. From this screen, you can:</p>
+<h1 id=&quot;a-nameviewingaviewing-job-history&quot;><a name=&quot;Viewing&quot;></a>Viewing Job History</h1>
+<p>After you have run a job, you can view the <strong>Timeline</strong> to see a history of all workflow jobs, commits, and branches. From this screen, you can:</p>
 <ul>
 <li><p>Filter for successful or failed jobs by branch.</p></li>
 <li><p>View a summary of jobs that have failed, succeeded, are still in-progress or queued (waiting to run).</p></li>
 <li><p>Specify the time period you want to see the jobs deployed.</p></li>
 <li><p>View job histories per commits on all branches or just your branch.</p></li>
 <li><p>Download any artifacts that were generated by the workflow.</p></li>
-<li><p>Click <img src=&quot;docs/images/branches_icon.png&quot; alt=&quot;&quot; /> to reveal the Quick Access menu and select the repo branch you want to access</p></li>
+<li><p>Click <img src=&quot;docs/images/Timeline_Branching_icon_2.png&quot; alt=&quot;&quot; /> to reveal the <strong>Quick Access</strong> menu and select the repo branch you want to access</p></li>
 <li><p>Start a job by clicking a specific <strong>COMMIT ID</strong>.</p></li>
-<li><p>Download artifacts generated from a job by clicking the name of the job and clicking <strong>ARTIFACTS</strong>.</p></li>
+<li><p>Download artifacts generated from a job by clicking the name of the job &amp;gt; <strong>ARTIFACTS</strong> &amp;gt; <<em>name_of_artifact</em>>.</p></li>
 </ul>
-<h1 id=&quot;managingandmonitoringyourjobs&quot;>Managing and Monitoring Your Jobs</h1>
+<h1 id=&quot;managing-and-monitoring-your-jobs&quot;>Managing and Monitoring Your Jobs</h1>
 <p>From <strong>Timeline</strong> &amp;gt; <strong>Jobs</strong>, you can kick off a job, monitor its progress, view its history and view logs for each YAML template that runs.</p>
 <ul>
 <li><p>Start a job from a specific commit</p>
@@ -5791,41 +5791,41 @@ body {
 <li><p>View the logs for each step in your workflow. Or to retrieve the logs, click <strong>DOWNLOAD LOGS</strong>.</p></li>
 <li><p>View the job summary (which includes duration, cost of the job and what YAML template was used).</p></li>
 <li><p>View the artifacts that the workflow uses or generates (including the step of the workflow that used or generated the artifact).</p></li>
-</ul>"><h1 id="creatingajob">Creating a Job</h1>
+</ul>"><h1 id="creating-a-job">Creating a Job</h1>
 <p>When you want to start a job, you must choose which code commit (from a repo branch) to use for the job. <!--If this is the first time you are creating a job for a specific commit, you must select the commit from the Argo Web UI.--></p>
 <p>Here's the procedure:</p>
 <ol>
-<li><p>Click <strong>Timeline</strong> &gt; <strong>Commits</strong>.</p>
-<p>You can filter the commits by date range or by "My commits".</p></li>
-<li><p>Click the down arrow at the right margin of the row for the commit you are selecting.</p></li>
-<li><p>Click <strong>CREATE NEW JOB</strong>.</p></li>
-<li><p>Under <strong>TEMPLATES</strong>, select the YAML templates to use for running the job.</p></li>
-<li><p>Click <strong>NEXT</strong>.</p></li>
-<li><p>Under <strong>Review workflow parameters</strong>, enter the appropriate values for each parameter displayed.</p></li>
-<li><p>Click <strong>SUBMIT</strong> to start the job.</p></li>
+<li>Click <strong>Timeline</strong> &gt; <strong>Commits</strong>.<br>
+You can filter the commits by date range or by "My commits".</li>
+<li>Click the down arrow at the right margin of the row for the commit you are selecting.</li>
+<li>Click <strong>CREATE NEW JOB</strong>.</li>
+<li>Under <strong>TEMPLATES</strong>, select the YAML templates to use for running the job.</li>
+<li>Click <strong>NEXT</strong>.</li>
+<li>Under <strong>Review workflow parameters</strong>, enter the appropriate values for each parameter displayed.</li>
+<li>Click <strong>SUBMIT</strong> to start the job.</li>
 </ol>
 <p>NOTE: If you have already run a job from a specific commit, you can run the same job again without having to select the commit.</p>
-<h1 id="viewtemplatesandcreateajob">View Templates and Create a Job</h1>
-<p>The Argo Web UI provides multiple ways to view the YAML templates that a job uses. You can simply click Templates and then click a row in the template table to see the details for a specific template. From this view, you can</p>
+<h1 id="view-templates-and-create-a-job">View Templates and Create a Job</h1>
+<p>The Argo Web UI provides multiple ways to view the YAML templates that a job uses. You can simply click <strong>Templates</strong> and then click a row in the template table to see the details for a specific template. From this view, you can</p>
 <ul>
-<li><p>Start a job from a specific YAML template by clicking <img src="docs/images/3_vertical_dots_27x29.png" alt="">at the end of each row.</p></li>
+<li><p>Create a job from a specific YAML template by clicking <img src="docs/images/3_vertical_dots_25x26_GREEN.png" alt=""> at the end of each row and selecting <strong>Create New Job</strong>.</p></li>
 <li><p>View all the available YAML templates from a branch</p></li>
 <li><p>View the WORKFLOW for a given job based on the YAML template. Click any step in the workflow and see the corresponding code in the YAML viewer.</p></li>
 <li><p>View the JOB HISTORY for a YAML template and click the specific job for details about the success or failure of that job.</p></li>
 </ul>
-<h1 id="anameviewingaviewingjobhistory"><a name="Viewing"></a>Viewing Job History</h1>
-<p>After you have run a job, you can view the Timeline to see a history of all workflow jobs, commits, and branches. From this screen, you can:</p>
+<h1 id="a-nameviewingaviewing-job-history"><a name="Viewing"></a>Viewing Job History</h1>
+<p>After you have run a job, you can view the <strong>Timeline</strong> to see a history of all workflow jobs, commits, and branches. From this screen, you can:</p>
 <ul>
 <li><p>Filter for successful or failed jobs by branch.</p></li>
 <li><p>View a summary of jobs that have failed, succeeded, are still in-progress or queued (waiting to run).</p></li>
 <li><p>Specify the time period you want to see the jobs deployed.</p></li>
 <li><p>View job histories per commits on all branches or just your branch.</p></li>
 <li><p>Download any artifacts that were generated by the workflow.</p></li>
-<li><p>Click <img src="docs/images/branches_icon.png" alt=""> to reveal the Quick Access menu and select the repo branch you want to access</p></li>
+<li><p>Click <img src="docs/images/Timeline_Branching_icon_2.png" alt=""> to reveal the <strong>Quick Access</strong> menu and select the repo branch you want to access</p></li>
 <li><p>Start a job by clicking a specific <strong>COMMIT ID</strong>.</p></li>
-<li><p>Download artifacts generated from a job by clicking the name of the job and clicking <strong>ARTIFACTS</strong>.</p></li>
+<li><p>Download artifacts generated from a job by clicking the name of the job &gt; <strong>ARTIFACTS</strong> &gt; &lt;<em>name_of_artifact</em>&gt;.</p></li>
 </ul>
-<h1 id="managingandmonitoringyourjobs">Managing and Monitoring Your Jobs</h1>
+<h1 id="managing-and-monitoring-your-jobs">Managing and Monitoring Your Jobs</h1>
 <p>From <strong>Timeline</strong> &gt; <strong>Jobs</strong>, you can kick off a job, monitor its progress, view its history and view logs for each YAML template that runs.</p>
 <ul>
 <li><p>Start a job from a specific commit</p>

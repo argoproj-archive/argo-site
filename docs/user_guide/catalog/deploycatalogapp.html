@@ -12,7 +12,7 @@
     <meta name="description" content="Running pre-configured Argo workflows and apps from Catalog, customizing an Argo workflow">
 
     
-<script src="/argo-site/assets/polyfills.0f7d7637fdd17a3228c8.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5725,7 +5725,7 @@ body {
         </div>
         <!----><div class="main__nav main__nav--hide-sm">
             <!----><div class="main__container">
-                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/cli_reference.html">CLI Reference</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a><a href="/argo-site/docs/releasenotes/release_notes_argo.html">Release Notes</a>
+                <!----><a href="/argo-site/docs/yaml/using_the_yaml_dsl.html">Tutorials</a><a class="active" href="/argo-site/docs/a_introduction_topics/overview.html">User Guide</a><a href="/argo-site/docs/yaml/dsl_reference_intro.html">YAML DSL</a><a href="/argo-site/docs/dev-cli-reference.html">Dev CLI</a><a href="/argo-site/docs/cli_reference.html">Cluster CLI</a><a href="/argo-site/docs/d_more_information/faqs.html">FAQs</a>
             </div>
         </div>
     </div>
@@ -5746,9 +5746,9 @@ body {
                     <!---->
                 </span>
             </div>
-            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;usingcatalogtorunworkflowsandapplications&quot;>Using Catalog to Run Workflows and Applications</h1>
+            <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;using-catalog-to-run-workflows-and-applications&quot;>Using Catalog to Run Workflows and Applications</h1>
 <p>Argo provides a Catalog of pre-configured workflows and applications. You can run them &quot;as is&quot; or use them as &quot;building blocks&quot; to create more complex workflows and apps.</p>
-<p>From Catalog, you can directly create and execute jobs for :</p>
+<p>From Catalog, you can directly create and execute jobs for:</p>
 <ul>
 <li><p>Workflows (such as Continuous Integration, testing automation, or Continuous Deployment) – These are the building blocks for creating higher-order workflows that perform jobs. You can also run the individually as a workflow. For details about creating a workflow, see <a href=&quot;/argo-site/docs/yaml/workflow_templates.html&quot;>Creating a Workflow</a>.</p></li>
 <li><p>Applications (such as WordPress, Claudia) – These are full-fledged applications that can be used with no additional configuration.</p></li>
@@ -5756,22 +5756,21 @@ body {
 </ul>
 <p>Here's the procedure for running a workflow or application from Catalog:</p>
 <ol>
-<li><p>Click <strong>Catalog</strong>.</p></li>
-<li><p>For the workflows on the <strong>top</strong> row, click the workflow or app you want to execute.</p></li>
-<li><p>For the workflows on the <strong>bottom</strong> row, click the category name and then click the workflow or app you want to execute.</p></li>
-<li><p>Click the green button and choose <strong>RUN</strong>, <strong>TEST</strong>, or <strong>BUILD</strong>. (NOTE: The options vary by workflow and application.)</p></li>
-<li><p>Check the values for the workflow parameters to ensure the inputs are correct.</p></li>
+<li><p>From <strong>Navigation bar</strong>, click <strong>Catalog</strong>.</p></li>
+<li><p>Select one of the categories (DEMO, DEVOPS, MONITORING, DATABASE, SECURITY, NETWORK) and choose <strong>RUN</strong>, <strong>TEST</strong>, <strong>DEPLOY</strong> or <strong>BUILD</strong>. (NOTE: The options vary by workflow and application.)</p></li>
+<li><p>Check the values for the workflow parameters to ensure the inputs are correct.</p>
+<p>NOTE: Most input parameters have pre-filled values but some workflows need a specific configured value. For example, the &quot;Odoo App&quot; needs a URL for the <strong>DBHost</strong> input parameter, or the &quot;CI Workflow&quot; needs an email address for the <strong>REQUIRED_APPROVALS</strong> input parameter.</p></li>
 <li><p>(Optional) Click <strong>TEMPLATE</strong> to see a visual representation of the workflow steps and the source YAML code for the workflow.</p></li>
 <li><p>Click <strong>SUBMIT</strong> to execute the job.</p>
 <p>The Console displays &quot;Successfully created a job for a Commit&quot;.</p></li>
 <li><p>(Optional) Depending on the workflow, you may be asked to perform a step to complete the workflow (such as an email approval)</p></li>
 </ol>
 <p>When a job successfully completes, the Workflow screen displays a green circle for the last container that was run.</p>
-<h2 id=&quot;customizingtheworkflows&quot;>Customizing the Workflows</h2>
+<h2 id=&quot;customizing-the-workflows&quot;>Customizing the Workflows</h2>
 <p>All workflows in the Catalog can be modified. To obtain the code in the YAML templates, go to the <a href=&quot;https://github.com/argoproj/appstore&quot;>Argo App Store repo</a> on GitHub.</p>
-<p>Under the <code>.argo</code> directory, clone the YAML templates to create your custom workflows and applications. Make sure the cloned YAML templates are located in the <code>.argo</code> directory of your repo — that is where Argo looks for the YAML templates to run.</p>"><h1 id="usingcatalogtorunworkflowsandapplications">Using Catalog to Run Workflows and Applications</h1>
+<p>Under the <code>.argo</code> directory, clone the YAML templates to create your custom workflows and applications. Make sure the cloned YAML templates are located in the <code>.argo</code> directory of your repo — this is where Argo looks for the YAML templates to run.</p>"><h1 id="using-catalog-to-run-workflows-and-applications">Using Catalog to Run Workflows and Applications</h1>
 <p>Argo provides a Catalog of pre-configured workflows and applications. You can run them "as is" or use them as "building blocks" to create more complex workflows and apps.</p>
-<p>From Catalog, you can directly create and execute jobs for :</p>
+<p>From Catalog, you can directly create and execute jobs for:</p>
 <ul>
 <li><p>Workflows (such as Continuous Integration, testing automation, or Continuous Deployment) – These are the building blocks for creating higher-order workflows that perform jobs. You can also run the individually as a workflow. For details about creating a workflow, see <a href="/argo-site/docs/yaml/workflow_templates.html">Creating a Workflow</a>.</p></li>
 <li><p>Applications (such as WordPress, Claudia) – These are full-fledged applications that can be used with no additional configuration.</p></li>
@@ -5779,20 +5778,19 @@ body {
 </ul>
 <p>Here's the procedure for running a workflow or application from Catalog:</p>
 <ol>
-<li><p>Click <strong>Catalog</strong>.</p></li>
-<li><p>For the workflows on the <strong>top</strong> row, click the workflow or app you want to execute.</p></li>
-<li><p>For the workflows on the <strong>bottom</strong> row, click the category name and then click the workflow or app you want to execute.</p></li>
-<li><p>Click the green button and choose <strong>RUN</strong>, <strong>TEST</strong>, or <strong>BUILD</strong>. (NOTE: The options vary by workflow and application.)</p></li>
-<li><p>Check the values for the workflow parameters to ensure the inputs are correct.</p></li>
+<li><p>From <strong>Navigation bar</strong>, click <strong>Catalog</strong>.</p></li>
+<li><p>Select one of the categories (DEMO, DEVOPS, MONITORING, DATABASE, SECURITY, NETWORK) and choose <strong>RUN</strong>, <strong>TEST</strong>, <strong>DEPLOY</strong> or <strong>BUILD</strong>. (NOTE: The options vary by workflow and application.)</p></li>
+<li><p>Check the values for the workflow parameters to ensure the inputs are correct.</p>
+<p>NOTE: Most input parameters have pre-filled values but some workflows need a specific configured value. For example, the "Odoo App" needs a URL for the <strong>DBHost</strong> input parameter, or the "CI Workflow" needs an email address for the <strong>REQUIRED_APPROVALS</strong> input parameter.</p></li>
 <li><p>(Optional) Click <strong>TEMPLATE</strong> to see a visual representation of the workflow steps and the source YAML code for the workflow.</p></li>
 <li><p>Click <strong>SUBMIT</strong> to execute the job.</p>
 <p>The Console displays "Successfully created a job for a Commit".</p></li>
 <li><p>(Optional) Depending on the workflow, you may be asked to perform a step to complete the workflow (such as an email approval)</p></li>
 </ol>
 <p>When a job successfully completes, the Workflow screen displays a green circle for the last container that was run.</p>
-<h2 id="customizingtheworkflows">Customizing the Workflows</h2>
+<h2 id="customizing-the-workflows">Customizing the Workflows</h2>
 <p>All workflows in the Catalog can be modified. To obtain the code in the YAML templates, go to the <a href="https://github.com/argoproj/appstore">Argo App Store repo</a> on GitHub.</p>
-<p>Under the <code>.argo</code> directory, clone the YAML templates to create your custom workflows and applications. Make sure the cloned YAML templates are located in the <code>.argo</code> directory of your repo — that is where Argo looks for the YAML templates to run.</p></div></argo-doc-viewer>
+<p>Under the <code>.argo</code> directory, clone the YAML templates to create your custom workflows and applications. Make sure the cloned YAML templates are located in the <code>.argo</code> directory of your repo — this is where Argo looks for the YAML templates to run.</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>
