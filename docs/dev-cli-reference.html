@@ -12,7 +12,7 @@
     <meta name="description" content="CLI for using Argo workflow engine on container-native Kubernetes workflows">
 
     
-<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.5a8f72ad69d0b5425563.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5733,56 +5733,98 @@ body {
         <!----><div>
             <!---->
             <argo-doc-viewer><div class="doc-viewer" innerHTML="<h1 id=&quot;development-cli&quot;>Development CLI</h1>
+<p>Use these commands to execute the common tasks of running workflows and applications on a Kubernetes cluster.</p>
+<p>NOTE: If you want to access the REST-based APIs for the SDK, add <code>/swagger</code> at the end of the URL for your Kubernetes cluster. For example, suppose the cluster URL is <code>https://sampleapp.com</code>. You would append the URL like this: <code>https://sampleapp.com/swagger</code>.</p>
+<h3 id=&quot;log-into-argo&quot;>Log into Argo</h3>
+<pre><code>$ ./argo login</code></pre>
+<p>After you enter this command, the interactive prompt displays the following:</p>
+<pre><code>Enter a configuration name (default):
+Enter cluster URL: &amp;lt;cluster_URL&amp;gt;
+Enter cluster username: &amp;lt;email_address_of_cluster_user&amp;gt;
+Enter cluster password: &amp;lt;password&amp;gt;
+Config written to: &amp;lt;path_to_config&amp;gt;</code></pre>
+<p>You are now ready to use the Argo development CLI commands.</p>
+<h3 id=&quot;validating-argo-yaml-template-files&quot;>Validating Argo YAML Template files</h3>
+<p>Validating a directory of Argo YAML Template files</p>
+<pre><code>$ argo yaml validate &amp;lt;name_of_directory_with_YAML_files&amp;gt;</code></pre>
+<p>Validating a list of of Argo YAML Template files in a directory</p>
+<pre><code>$ argo yaml validate &amp;lt;filename1&amp;gt; &amp;lt;filename2&amp;gt; &amp;lt;filename3&amp;gt;</code></pre>
 <h3 id=&quot;submitting-a-job&quot;>Submitting a Job</h3>
-<p>Usage: <strong>submitting through a template from a repo branch</strong><br />
-    argo job submit TEMPLATE_NAME --argument INPUT_PARAMETER_PATH --branch NAME_OF_BRANCH --repo URL_OF_REPOSITORY</p>
-<p><strong>submitting through a local template</strong><br />
-    argo job submit TEMPLATE_NAME <strong>--local</strong></p>
-<h3 id=&quot;get-id-for-the-job-you-submitted&quot;>Get ID for the Job you submitted</h3>
-<p>$ argo job list --submitter USER_NAME</p>
+<ul>
+<li><strong>Using a template from a repo branch</strong></li>
+</ul>
+<pre><code> $ argo job submit &amp;lt;Argo_YAML_template_name&amp;gt; --argument &quot;parameters.&amp;lt;input_parameter&amp;gt;&quot; --branch &amp;lt;name_of_branch&amp;gt; --repo &amp;lt;URL_of_Repository&amp;gt;</code></pre>
+<ul>
+<li><strong>Using a local template</strong></li>
+</ul>
+<pre><code>$ argo job submit  &amp;lt;Argo_YAML_template_name&amp;gt; --local</code></pre>
+<h3 id=&quot;get-id-for-the-job-you-submitted&quot;>Get ID for the Job You Submitted</h3>
+<pre><code>$ argo job list --submitter &amp;lt;user_name&amp;gt;</code></pre>
 <h3 id=&quot;get-a-list-of-all-jobs-running-on-argo&quot;>Get a list of all jobs running on Argo</h3>
-<p>$ argo job list --show-all</p>
+<pre><code>$ argo job list --show-all</code></pre>
 <h3 id=&quot;show-status-of-a-job&quot;>Show status of a Job</h3>
-<p>$ argo job show <job_ID></p>
+<pre><code>$ argo job show &amp;lt;job_ID&amp;gt;</code></pre>
 <h3 id=&quot;show-status-of-a-workflow&quot;>Show status of a workflow</h3>
-<p>$ argo job show SERVICE_ID --tree</p>
+<pre><code>$ argo job show &amp;lt;job_ID&amp;gt; --tree</code></pre>
 <h3 id=&quot;terminating-a-job&quot;>Terminating a Job</h3>
-<p>Usage: <strong>Terminating a job</strong><br />
-  argo job kill SERVICE_ID [flags]</p>
-<p>##View the apps running on Argo and their status</p>
-<p>$ argo app list</p>
+<pre><code>$ argo job kill &amp;lt;job_ID&amp;gt;</code></pre>
+<h3 id=&quot;view-the-apps-running-on-argo-and-their-status&quot;>View the apps running on Argo and their status</h3>
+<pre><code>$ argo app list</code></pre>
+<h3 id=&quot;view-the-details-for-an-app&quot;>View the details for an app</h3>
+<pre><code>$ argo app show &amp;lt;name_of_app&amp;gt;</code></pre>
 <h3 id=&quot;view-usernamepasswordurl-for-argo&quot;>View username/password/URL for Argo</h3>
-<p>$ argo config show</p>
+<pre><code>$ argo config show</code></pre>
 <h3 id=&quot;view-logs&quot;>View logs</h3>
-<p>Usage:<br />
-    argo job logs SERVICE_ID [flags]</p>
-<h3 id=&quot;setting-the-configuration-for-argo&quot;>Setting the configuration for Argo</h3>
-<p>--config</p>"><h1 id="development-cli">Development CLI</h1>
+<pre><code>$ argo job logs &amp;lt;job_ID&amp;gt;</code></pre>
+<h3 id=&quot;changing-configuration-settings-for-argo&quot;>Changing configuration settings for Argo</h3>
+<pre><code>$ cd .argo</code></pre>
+<p>and open the configuration file you want to change.</p>"><h1 id="development-cli">Development CLI</h1>
+<p>Use these commands to execute the common tasks of running workflows and applications on a Kubernetes cluster.</p>
+<p>NOTE: If you want to access the REST-based APIs for the SDK, add <code>/swagger</code> at the end of the URL for your Kubernetes cluster. For example, suppose the cluster URL is <code>https://sampleapp.com</code>. You would append the URL like this: <code>https://sampleapp.com/swagger</code>.</p>
+<h3 id="log-into-argo">Log into Argo</h3>
+<pre><code>$ ./argo login</code></pre>
+<p>After you enter this command, the interactive prompt displays the following:</p>
+<pre><code>Enter a configuration name (default):
+Enter cluster URL: &lt;cluster_URL&gt;
+Enter cluster username: &lt;email_address_of_cluster_user&gt;
+Enter cluster password: &lt;password&gt;
+Config written to: &lt;path_to_config&gt;</code></pre>
+<p>You are now ready to use the Argo development CLI commands.</p>
+<h3 id="validating-argo-yaml-template-files">Validating Argo YAML Template files</h3>
+<p>Validating a directory of Argo YAML Template files</p>
+<pre><code>$ argo yaml validate &lt;name_of_directory_with_YAML_files&gt;</code></pre>
+<p>Validating a list of of Argo YAML Template files in a directory</p>
+<pre><code>$ argo yaml validate &lt;filename1&gt; &lt;filename2&gt; &lt;filename3&gt;</code></pre>
 <h3 id="submitting-a-job">Submitting a Job</h3>
-<p>Usage: <strong>submitting through a template from a repo branch</strong><br>
-    argo job submit TEMPLATE_NAME --argument INPUT_PARAMETER_PATH --branch NAME_OF_BRANCH --repo URL_OF_REPOSITORY</p>
-<p><strong>submitting through a local template</strong><br>
-    argo job submit TEMPLATE_NAME <strong>--local</strong></p>
-<h3 id="get-id-for-the-job-you-submitted">Get ID for the Job you submitted</h3>
-<p>$ argo job list --submitter USER_NAME</p>
+<ul>
+<li><strong>Using a template from a repo branch</strong></li>
+</ul>
+<pre><code> $ argo job submit &lt;Argo_YAML_template_name&gt; --argument "parameters.&lt;input_parameter&gt;" --branch &lt;name_of_branch&gt; --repo &lt;URL_of_Repository&gt;</code></pre>
+<ul>
+<li><strong>Using a local template</strong></li>
+</ul>
+<pre><code>$ argo job submit  &lt;Argo_YAML_template_name&gt; --local</code></pre>
+<h3 id="get-id-for-the-job-you-submitted">Get ID for the Job You Submitted</h3>
+<pre><code>$ argo job list --submitter &lt;user_name&gt;</code></pre>
 <h3 id="get-a-list-of-all-jobs-running-on-argo">Get a list of all jobs running on Argo</h3>
-<p>$ argo job list --show-all</p>
+<pre><code>$ argo job list --show-all</code></pre>
 <h3 id="show-status-of-a-job">Show status of a Job</h3>
-<p>$ argo job show <job_id></job_id></p>
+<pre><code>$ argo job show &lt;job_ID&gt;</code></pre>
 <h3 id="show-status-of-a-workflow">Show status of a workflow</h3>
-<p>$ argo job show SERVICE_ID --tree</p>
+<pre><code>$ argo job show &lt;job_ID&gt; --tree</code></pre>
 <h3 id="terminating-a-job">Terminating a Job</h3>
-<p>Usage: <strong>Terminating a job</strong><br>
-  argo job kill SERVICE_ID [flags]</p>
-<p>##View the apps running on Argo and their status</p>
-<p>$ argo app list</p>
+<pre><code>$ argo job kill &lt;job_ID&gt;</code></pre>
+<h3 id="view-the-apps-running-on-argo-and-their-status">View the apps running on Argo and their status</h3>
+<pre><code>$ argo app list</code></pre>
+<h3 id="view-the-details-for-an-app">View the details for an app</h3>
+<pre><code>$ argo app show &lt;name_of_app&gt;</code></pre>
 <h3 id="view-usernamepasswordurl-for-argo">View username/password/URL for Argo</h3>
-<p>$ argo config show</p>
+<pre><code>$ argo config show</code></pre>
 <h3 id="view-logs">View logs</h3>
-<p>Usage:<br>
-    argo job logs SERVICE_ID [flags]</p>
-<h3 id="setting-the-configuration-for-argo">Setting the configuration for Argo</h3>
-<p>--config</p></div></argo-doc-viewer>
+<pre><code>$ argo job logs &lt;job_ID&gt;</code></pre>
+<h3 id="changing-configuration-settings-for-argo">Changing configuration settings for Argo</h3>
+<pre><code>$ cd .argo</code></pre>
+<p>and open the configuration file you want to change.</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

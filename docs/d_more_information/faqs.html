@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-    <title>FAQs - Answers to Common questions around Kubernetes workflow engine | Argo</title>
+    <title>FAQs - Common questions about Argo, workflow engine for Kubernetes | Argo</title>
     <base href="/argo-site/">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
@@ -9,10 +9,10 @@
     <meta name="theme-color" content="#363c4a">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700" rel="stylesheet">
-    <meta name="description" content="FAQs of Argo, container native Kubernetes workflow engine">
+    <meta name="description" content="FAQs - Answers to common questions about Argo, a container native workflow engine for Kubernetes clusters">
 
     
-<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.5a8f72ad69d0b5425563.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5476,7 +5476,7 @@ body {
     display: block;
     width: 120px;
     padding: 0 20px; }
-</style><meta property="og:title" content="FAQs - Answers to Common questions around Kubernetes workflow engine | Argo"><meta property="og:description" content="FAQs of Argo, container native Kubernetes workflow engine"><style ng-transition="argo-main">.docs-browser-view {
+</style><meta property="og:title" content="FAQs - Common questions about Argo, workflow engine for Kubernetes | Argo"><meta property="og:description" content="FAQs - Answers to common questions about Argo, a container native workflow engine for Kubernetes clusters"><style ng-transition="argo-main">.docs-browser-view {
   position: relative; }
   .docs-browser-view__top {
     margin-bottom: 30px;
@@ -5744,7 +5744,12 @@ body {
 <p>Q. Why should I run spot instances versus on-demand? Aren't spot instances more costly to run?</p>
 <p>A. The proper use of spot instances in AWS can dramatically reduce your spend on running instances. (How do you do this?)</p>
 <p>Q. My workflow is failing and I'm getting this log message &quot;<code>ax_gzip_ax: stdout: Cannot allocate memory</code>&quot;. How can I fix this?</p>
-<p>A. For this type of message, Argo recommends that you increase the <code>mem_mib</code> setting in the corresponding container template.</p>"><h1 id="faqs">FAQs</h1>
+<p>A. For this type of message, Argo recommends that you increase the <code>mem_mib</code> setting in the corresponding container template.</p>
+<p>Q.Install error - &quot;An error occurred (Unsupported) when calling the RunInstances operation: The requested configuration is currently not supported. Please check the documentation for supported configuration&quot;</p>
+<p>A. This error occurs when you try to install Argo in a region where the supported instance type needed is not valid.As the Argo installer persists installation settings and reuses these in subsequent installations of cluster with the same name. This is done to make sure that installation is idempotent and can be retried multiple times.</p>
+<p>To reinstall your cluster with new settings you need to uninstall it first using following command :</p>
+<p>argocluster uninstall --cluster-name argo-cluster --cloud-provider aws --cloud-profile default<br />
+and install it again with new valid settings.</p>"><h1 id="faqs">FAQs</h1>
 <p>Q. When my test fails, I can't don't see any failure messages in my logs.</p>
 <p>A. You need to identify where in the process of running a job the failure occurred. From the Jobs view in the Timeline of the Argo Web UI, look for the left-most container or workflow that has a red circle. This indicates the part of the process that failed. For example, if the deployment step shows a red circle and there are no error messages in that log, this means the failure occurred earlier in the process. In this case, you could check an earlier step, such as the workflow logs to see what part of the YAML code failed.</p>
 <p>Q. My YAML code failed on one of the parameters.</p>
@@ -5756,7 +5761,12 @@ body {
 <p>Q. Why should I run spot instances versus on-demand? Aren't spot instances more costly to run?</p>
 <p>A. The proper use of spot instances in AWS can dramatically reduce your spend on running instances. (How do you do this?)</p>
 <p>Q. My workflow is failing and I'm getting this log message "<code>ax_gzip_ax: stdout: Cannot allocate memory</code>". How can I fix this?</p>
-<p>A. For this type of message, Argo recommends that you increase the <code>mem_mib</code> setting in the corresponding container template.</p></div></argo-doc-viewer>
+<p>A. For this type of message, Argo recommends that you increase the <code>mem_mib</code> setting in the corresponding container template.</p>
+<p>Q.Install error - "An error occurred (Unsupported) when calling the RunInstances operation: The requested configuration is currently not supported. Please check the documentation for supported configuration"</p>
+<p>A. This error occurs when you try to install Argo in a region where the supported instance type needed is not valid.As the Argo installer persists installation settings and reuses these in subsequent installations of cluster with the same name. This is done to make sure that installation is idempotent and can be retried multiple times.</p>
+<p>To reinstall your cluster with new settings you need to uninstall it first using following command :</p>
+<p>argocluster uninstall --cluster-name argo-cluster --cloud-provider aws --cloud-profile default<br>
+and install it again with new valid settings.</p></div></argo-doc-viewer>
             <argo-docs-subnav><!---->
 </argo-docs-subnav>
         </div>

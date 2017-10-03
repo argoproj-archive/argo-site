@@ -12,7 +12,7 @@
     <meta name="description" content="Tutorial for creating CI Pipeline using Argoproj, container-native workflow engine on Kubernetes">
 
     
-<script src="/argo-site/assets/polyfills.123393cf903827fcf4cb.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
+<script src="/argo-site/assets/polyfills.5a8f72ad69d0b5425563.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/vendor.846648d9ab82ec685eb5.bundle.js" type="text/javascript" defer=""></script><script src="/argo-site/assets/main.ac8bd7b2dcd29bbee7e0.bundle.js" type="text/javascript" defer=""></script><style ng-transition="argo-main">@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Muli");
 @font-face {
   font-family: "ax-icon-v1";
@@ -5808,15 +5808,14 @@ For more details about writing the YAML DSL see <a href=&quot;/argo-site/docs/ya
 <p>From Argo Web UI</p>
 <ol>
 <li>Go to <strong>Timeline</strong> menu, select a commit and click <strong>Create a New Job</strong>.</li>
-<li>Select the CI workflow name, enter values for the input parameters and click <strong>Submit</strong>.  <br />
-<br/><br />
-(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory of your repo. This YAML file defines how to add a CI workflow item in your Catalog.</li></ol>
+<li>Select the CI workflow name, enter values for the input parameters and click <strong>Submit</strong>.  </li></ol>
+<p>(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory of your repo. This YAML file defines how to add a CI workflow item in your Catalog.</p>
 <ul>
 <li><strong>Automatically</strong></li></ul>
 <ol>
-<li>Copy the <code>example-policy.yaml</code> file to the <code>.argo</code> directory in your repo and modify it as needed.</li>
-<li>Enable your policy template. (<strong>Templates</strong> &amp;gt; <<em>name_of_policy_template</em> > and click <strong>Enabled</strong>)</li></ol>
-<p>NOTE: The automatic feature is only available through the Argo Web UI.</p>
+<li><p>Copy the <code>example-policy.yaml</code> file to the <code>.argo</code> directory in your repo and modify it as needed.</p></li>
+<li><p>Enable your policy template. (<strong>Templates</strong> &amp;gt; <<em>name_of_policy_template</em> > and click <strong>Enabled</strong>)</p>
+<p>NOTE: The automatic feature is only available through the Argo Web UI.</p></li></ol>
 <p>After you've completed these steps, every time you make a commit in your repo, the CI workflow is automatically triggered.</p></li>
 </ul>"><h1 id="tutorial-1-run-a-ci-pipeline">Tutorial 1: Run a CI Pipeline</h1>
 <p>This tutorial shows you how to run a container-native, CI pipeline on Kubernetes using the Argo workflow engine. An Argo Workflow consists of steps and every step runs as a container within a Kubernetes pod. These are the steps you'll run in the sample CI pipeline:</p>
@@ -5884,15 +5883,14 @@ For more details about writing the YAML DSL see <a href="/argo-site/docs/yaml/ds
 <p>From Argo Web UI</p>
 <ol>
 <li>Go to <strong>Timeline</strong> menu, select a commit and click <strong>Create a New Job</strong>.</li>
-<li>Select the CI workflow name, enter values for the input parameters and click <strong>Submit</strong>.  <br>
-<br><br>
-(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory of your repo. This YAML file defines how to add a CI workflow item in your Catalog.</li></ol>
+<li>Select the CI workflow name, enter values for the input parameters and click <strong>Submit</strong>.  </li></ol>
+<p>(Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the <code>example-approval-project.yaml</code> file into the <code>.argo</code> directory of your repo. This YAML file defines how to add a CI workflow item in your Catalog.</p>
 <ul>
 <li><strong>Automatically</strong></li></ul>
 <ol>
-<li>Copy the <code>example-policy.yaml</code> file to the <code>.argo</code> directory in your repo and modify it as needed.</li>
-<li>Enable your policy template. (<strong>Templates</strong> &gt; &lt;<em>name_of_policy_template</em> &gt; and click <strong>Enabled</strong>)</li></ol>
-<p>NOTE: The automatic feature is only available through the Argo Web UI.</p>
+<li><p>Copy the <code>example-policy.yaml</code> file to the <code>.argo</code> directory in your repo and modify it as needed.</p></li>
+<li><p>Enable your policy template. (<strong>Templates</strong> &gt; &lt;<em>name_of_policy_template</em> &gt; and click <strong>Enabled</strong>)</p>
+<p>NOTE: The automatic feature is only available through the Argo Web UI.</p></li></ol>
 <p>After you've completed these steps, every time you make a commit in your repo, the CI workflow is automatically triggered.</p></li>
 </ul></div></argo-doc-viewer>
             <argo-docs-subnav><!---->

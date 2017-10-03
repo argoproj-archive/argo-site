@@ -276,14 +276,14 @@
     {
       "title": "Cluster CLI",
       "path": "cli_reference.md",
-      "summary": "CLI for Argo cluster management",
-      "details": "Command line interface for Argo to manage Kubernetes clusters"
+      "summary": "CLI for managing Kubernetes clusters from Argo",
+      "details": "Command line interface for managing Kubernetes clusters from Argo"
     },
     {
       "title": "FAQs",
       "path": "d_more_information/faqs.md",
-      "summary": "FAQs - Answers to Common questions around Kubernetes workflow engine",
-      "details": "FAQs of Argo, container native Kubernetes workflow engine"
+      "summary": "FAQs - Common questions about Argo, workflow engine for Kubernetes",
+      "details": "FAQs - Answers to common questions about Argo, a container native workflow engine for Kubernetes clusters"
     }
   ]
 }

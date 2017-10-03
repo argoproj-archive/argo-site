@@ -99,8 +99,8 @@ $ argo job show <job_ID>
   From Argo Web UI
 	1. Go to **Timeline** menu, select a commit and click **Create a New Job**.
 	1. Select the CI workflow name, enter values for the input parameters and click **Submit**.  
-<br/>
-   (Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the `example-approval-project.yaml` file into the `.argo` directory of your repo. This YAML file defines how to add a CI workflow item in your Catalog.
+
+    (Optional) If you want your CI-Workflow to show up in your Catalog menu, just copy the `example-approval-project.yaml` file into the `.argo` directory of your repo. This YAML file defines how to add a CI workflow item in your Catalog.
 
 
 * **Automatically**
@@ -108,6 +108,6 @@ $ argo job show <job_ID>
 	1. Copy the `example-policy.yaml` file to the `.argo` directory in your repo and modify it as needed.
 	1. Enable your policy template. (**Templates** > <*name_of_policy_template* > and click **Enabled**)
 
-	NOTE: The automatic feature is only available through the Argo Web UI.
+	 NOTE: The automatic feature is only available through the Argo Web UI.
 
-  After you've completed these steps, every time you make a commit in your repo, the CI workflow is automatically triggered.
+ After you've completed these steps, every time you make a commit in your repo, the CI workflow is automatically triggered.

@@ -23,3 +23,13 @@ A. The proper use of spot instances in AWS can dramatically reduce your spend on
 Q. My workflow is failing and I'm getting this log message "`ax_gzip_ax: stdout: Cannot allocate memory`". How can I fix this?
 
 A. For this type of message, Argo recommends that you increase the `mem_mib` setting in the corresponding container template.
+
+Q.Install error - "An error occurred (Unsupported) when calling the RunInstances operation: The requested configuration is currently not supported. Please check the documentation for supported configuration"
+
+A. This error occurs when you try to install Argo in a region where the supported instance type needed is not valid.As the Argo installer persists installation settings and reuses these in subsequent installations of cluster with the same name. This is done to make sure that installation is idempotent and can be retried multiple times.
+
+To reinstall your cluster with new settings you need to uninstall it first using following command :
+
+argocluster uninstall --cluster-name argo-cluster --cloud-provider aws --cloud-profile default
+and install it again with new valid settings.
+

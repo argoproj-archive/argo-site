@@ -12,8 +12,8 @@ XXXXX
 
 ## Known Issues
 
-### 1.0
+### 1.0.1
 
-#### TBD
+#### Bug fixes related to M10 milestone.
 
 xxxxxxxxxxx
