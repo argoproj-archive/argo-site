@@ -8,10 +8,14 @@ inputs:
       default: "%%session.commit%%"
     repo:
       default: "%%session.repo%%"
+    publish-repo:
+      default: "https://github.com/argoproj/argoproj.github.io.git"
+    publish-branch:
+      default: "master"
     tracking-id:
       default: "UA-105170809-1"
     href-base:
-      default: "/argo-site/"
+      default: "/"
     base-url:
       default: "https://argoproj.github.io"
     docs-branch:
@@ -29,11 +33,11 @@ steps:
     image: argoproj/argoscm:v2.0
     command: ["sh", "-c"]
     args: [
-      axscm clone %%inputs.parameters.repo%% --commit gh-pages /src &&
-      cd /src && rm -rf ./assets && rm -rf ./docs && rm ./index.html && rm ./webpack-assets.json &&
-      cp -r /argo-site/dist_rendered/* . && cp ./index.html ./404.html && rm ./docs/.gitignore &&
+      axscm clone %%inputs.parameters.publish-repo%% --commit %%inputs.parameters.publish-branch%% /src &&
+      cd /src && rm -rf ./assets && rm -rf ./docs && rm -rf ./index.html && rm -rf ./webpack-assets.json &&
+      cp -r /argo-site/dist_rendered/* . && cp ./index.html ./404.html && rm -rf ./docs/.gitignore &&
       git add . && git commit -m "Build on `date`" &&
-      axscm clone %%inputs.parameters.repo%% /src --commit gh-pages --merge=gh-pages --push]
+      axscm clone %%inputs.parameters.publish-repo%% /src --commit master --merge=%%inputs.parameters.publish-branch%% --push]
     resources:
       mem_mib: 500
       cpu_cores: 0.1
