@@ -9,15 +9,15 @@ inputs:
     repo:
       default: "%%session.repo%%"
     publish-repo:
-      default: "https://github.com/argoproj/argoproj.github.io.git"
+      default: "https://bitbucket.org/applatix/ax-www.git"
     publish-branch:
       default: "master"
     tracking-id:
       default: "UA-105170809-1"
     href-base:
-      default: "/"
+      default: "/open-source/argo/"
     base-url:
-      default: "https://argoproj.github.io"
+      default: "https://applatix.com/open-source/argo/"
     docs-branch:
       default: "production"
     ad-conversion-config:
@@ -34,9 +34,9 @@ steps:
     command: ["sh", "-c"]
     args: [
       axscm clone %%inputs.parameters.publish-repo%% --commit %%inputs.parameters.publish-branch%% /src &&
-      cd /src && rm -rf ./assets && rm -rf ./docs && rm -rf ./index.html && rm -rf ./webpack-assets.json &&
+      cd /src/open-source/argo/ && rm -rf ./assets && rm -rf ./docs && rm -rf ./index.html && rm -rf ./webpack-assets.json &&
       cp -r /argo-site/dist_rendered/* . && cp ./index.html ./404.html && rm -rf ./docs/.gitignore &&
-      git add . && git commit -m "Build on `date`" &&
+      git add . && git commit -m "Build argo site on `date`" &&
       axscm clone %%inputs.parameters.publish-repo%% /src --commit master --merge=%%inputs.parameters.publish-branch%% --push]
     resources:
       mem_mib: 500
