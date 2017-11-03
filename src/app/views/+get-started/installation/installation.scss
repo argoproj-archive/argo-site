@@ -15,13 +15,22 @@
     &__logo {
         position: absolute;
         top: 0;
-        left: calc(50% - #{$base-width/2} - 84px);
+        left: calc(50% - #{$base-width/2} + 20px);
         width: 84px;
         opacity: 0;
         animation: show .5s forwards;
     }
 
+    &__chat {
+        padding: 0 0 40px 104px;
+
+        .installation__button {
+            min-width: 250px;
+        }
+    }
+
     &__row {
+        overflow: hidden;
         margin-bottom: 20px;
         opacity: 0;
         animation-name: show;
@@ -40,10 +49,9 @@
     }
 
     &__row-bg {
-        display: inline-block;
         padding: 20px 30px;
         font-size: 1.16em;
-        line-height: 2;
+        line-height: 2.2;
         color: #788394;
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
@@ -69,12 +77,109 @@
         }
     }
 
+    &__button {
+        display: inline-block;
+        padding: 8px 20px;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.4em;
+        text-transform: uppercase;
+        text-align: center;
+        border-radius: 7px;
+        border: 1px solid rgba(#0055b8, .5);
+
+        &:hover {
+            background-color: rgba(#000, .05);
+        }
+
+        i {
+            position: relative;
+            top: -2px;
+            vertical-align: middle;
+            margin-right: 8px;
+            font-size: 1.6em;
+            color: #000;
+        }
+    }
+
+    &__options {
+        padding: 60px 0;
+        background-color: #0055b8;
+    }
+
+    &__options-header {
+        display: flex;
+
+        h3 {
+            font-weight: 500;
+            font-size: 1.6em;
+            color: #f1784a;
+        }
+
+        .installation__options-col {
+            padding-top: 50px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            text-align: center;
+            align-self: flex-end;
+
+            &--des {
+                font-weight: 300;
+                font-size: 1.9em;
+                text-align: left;
+            }
+        }
+    }
+
+    &__options-row {
+        position: relative;
+        display: flex;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: rgba(#bbb, .5);
+            content: '';
+        }
+
+        &:last-child {
+            .installation__options-col {
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+        }
+    }
+
+    &__options-col {
+        display: block;
+        width: 38%;
+        margin-left: 24px;
+        padding: 24px 20px;
+        color: #777;
+        background-color: #fff;
+
+        &--des  {
+            width: 24%;
+            margin: 0;
+            padding-left: 0;
+            color: #fff;
+            background-color: transparent;
+        }
+
+        &--button {
+            padding: 40px 0;
+            text-align: center;
+        }
+    }
+
     &__video {
         position: relative;
         overflow: hidden;
         max-width: 100%;
         height: auto;
-        margin-top: 30px;
         padding-bottom: 56.25%;
         background-color: #000;
 
@@ -105,5 +210,15 @@
         &:hover {
             background-color: #2AA2F2;
         }
+    }
+
+    &__x {
+        font-size: 1.2em;
+        color: #e68024;
+    }
+
+    &__v {
+        font-size: 1.2em;
+        color: #2db063;
     }
 }

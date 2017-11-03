@@ -6,36 +6,96 @@
         <div class="installation__chat">
             <div class="installation__row">
                 <div class="installation__row-bg">
-                    Argo is super simple to install and set up! Check these
-                    <a [routerLink]="['/docs', 'a_introduction_topics', 'Min_Req_AWS_Resources_4_Argo.html']">prerequisites</a> before you start the installation.
+                    If you want to kick the tires with workflows, try Argo Lite on your laptop.
+                    Installation process is super simple, it takes less than two minutes to complete!
                 </div>
             </div>
             <div class="installation__row">
                 <div class="installation__row-bg">
-                    For Mac<br>
-                    <pre class="first">{{macInstallCmd}}</pre><br>
-                    For Linux<br>
-                    <pre class="first">{{linuxInstallCmd}}</pre>
+                    You can install Argo Lite in Docker, or in Kubernetes Minikube or you can install in your existing Kubernetes cluster
+                    <a class="installation__button" href="https://github.com/argoproj/argo/blob/master/lite/README.md" target="_blank" ><i class="fa fa-github"></i> Argo Lite Installation</a>
                 </div>
             </div>
             <div class="installation__row">
                 <div class="installation__row-bg">
-                    <pre class="first">chmod +x argo</pre>
+                    When you are ready to explore the advanced features and CI/CD workflows, install Argo Workflow Engine.
+                    <br> Check the <a [routerLink]="['/docs', 'a_introduction_topics', 'Min_Req_AWS_Resources_4_Argo.html']">Installation Options and Prerequisites.</a>
                 </div>
             </div>
             <div class="installation__row">
                 <div class="installation__row-bg">
-                    Then <pre>./argo cluster</pre> to open the Argo Command Shell
+                    Please see the <a href="">Feature Comparison</a> to choose an installation option.
                 </div>
             </div>
-            <div class="installation__row">
-                <div class="installation__row-bg">
-                    Once you get the prompt, <pre>argo cluster ops> argocluster install </pre> to start the installation
+        </div>
+    </div>
+    <div class="installation__options">
+        <div class="main__container">
+            <div class="installation__options-header">
+                <div class="installation__options-col installation__options-col--des">
+                    Compare features to choose an installation option
+                </div>
+                <div class="installation__options-col">
+                    <h3>Argo Lite</h3>
+                    Trial version for developers to try simple workflows on laptop.
+                </div>
+                <div class="installation__options-col">
+                    <h3>Argo Workflow Engine</h3>
+                    Production-grade workflow engine for enterprises developers and DevOps teams
                 </div>
             </div>
-            <div class="installation__row">
-                <div class="installation__row-bg">
-                    Then enter a name for your cluster and your AWS profile details. Your cluster would be ready in about 20 minutes.
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Kubernetes version</div>
+                <div class="installation__options-col">All</div>
+                <div class="installation__options-col">1.6 and above</div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Scalability</div>
+                <div class="installation__options-col">Limited workflows</div>
+                <div class="installation__options-col">Supports thousands of concurrent workflows</div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Workflows</div>
+                <div class="installation__options-col"><i class="fa fa-check installation__v"></i></div>
+                <div class="installation__options-col"><i class="fa fa-check installation__v"></i></div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Policies</div>
+                <div class="installation__options-col"><i class="fa fa-times installation__x"></i></div>
+                <div class="installation__options-col"><i class="fa fa-check installation__v"></i></div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Secret Management</div>
+                <div class="installation__options-col"><i class="fa fa-times installation__x"></i></div>
+                <div class="installation__options-col"><i class="fa fa-check installation__v"></i></div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Artifacts</div>
+                <div class="installation__options-col">Local container storage</div>
+                <div class="installation__options-col">Upload to S3/GCS</div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Docker-in-Docker</div>
+                <div class="installation__options-col"><i class="fa fa-times installation__x"></i></div>
+                <div class="installation__options-col"><i class="fa fa-check installation__v"></i></div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Kubernetes-in-Kubernetes</div>
+                <div class="installation__options-col"><i class="fa fa-times installation__x"></i></div>
+                <div class="installation__options-col"><i class="fa fa-check installation__v"></i></div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des">Interfaces</div>
+                <div class="installation__options-col">CLI and GUI</div>
+                <div class="installation__options-col">CLI and GUI</div>
+            </div>
+            <div class="installation__options-row">
+                <div class="installation__options-col installation__options-col--des"></div>
+                <div class="installation__options-col installation__options-col--button">
+                    <a class="installation__button"><i class="fa fa-github"></i> Installation options</a>
+                </div>
+                <div class="installation__options-col installation__options-col--button">
+                    <a class="installation__button"><i class="fa fa-github"></i> Installation options</a>
                 </div>
             </div>
         </div>
