@@ -6,25 +6,19 @@
         <div class="installation__chat">
             <div class="installation__row">
                 <div class="installation__row-bg">
-                    If you want to kick the tires with workflows, try Argo Lite on your laptop.
-                    Installation process is super simple, it takes less than two minutes to complete!
+                    If you want to kick the tires with workflows, install Argo Lite on your laptop.
+                    Installation process is super simple, and it takes less than two minutes to complete!
                 </div>
             </div>
             <div class="installation__row">
                 <div class="installation__row-bg">
                     You can install Argo Lite in Docker, or in Kubernetes Minikube or you can install in your existing Kubernetes cluster
-                    <a class="installation__button" href="https://github.com/argoproj/argo/blob/master/lite/README.md" target="_blank" ><i class="fa fa-github"></i> Argo Lite Installation</a>
+                    <a class="installation__button" href="https://github.com/argoproj/docs/blob/master/content/user_guide/install_argo_lite/install_argo-lite.md" target="_blank" ><i class="fa fa-github"></i> Argo Lite Installation</a>
                 </div>
             </div>
             <div class="installation__row">
                 <div class="installation__row-bg">
                     When you are ready to explore the advanced features and CI/CD workflows, install Argo Workflow Engine.
-                    <br> Check the <a [routerLink]="['/docs', 'a_introduction_topics', 'Min_Req_AWS_Resources_4_Argo.html']">Installation Options and Prerequisites.</a>
-                </div>
-            </div>
-            <div class="installation__row">
-                <div class="installation__row-bg">
-                    Please see the <a href="">Feature Comparison</a> to choose an installation option.
                 </div>
             </div>
         </div>
@@ -92,16 +86,20 @@
             <div class="installation__options-row">
                 <div class="installation__options-col installation__options-col--des"></div>
                 <div class="installation__options-col installation__options-col--button">
-                    <a class="installation__button"><i class="fa fa-github"></i> Installation options</a>
+                    <a class="installation__button"
+                        target="_blank"
+                        href="https://github.com/argoproj/docs/blob/master/content/user_guide/install_argo_lite/install_argo-lite.md">
+                        <i class="fa fa-github"></i> Installation options
+                    </a>
                 </div>
                 <div class="installation__options-col installation__options-col--button">
-                    <a class="installation__button"><i class="fa fa-github"></i> Installation options</a>
+                    <a class="installation__button"
+                        target="_blank"
+                        href="https://github.com/argoproj/docs/blob/master/content/user_guide/install_argo_custom_k8s_cluster/install_argo_k8s_cluster_AWS_GKE_Minikube.md">
+                        <i class="fa fa-github"></i> Installation options
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="installation__video" (click)="play()">
-        <div class="installation__video-play"><i class="fa fa-play"></i></div>
-        <iframe *ngIf="showPlayer" src="https://player.vimeo.com/video/230650625?autoplay=1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
     </div>
 </div>
