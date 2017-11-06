@@ -8,10 +8,15 @@ import { TrackingService } from '../../../services';
 })
 export class InstallationComponent {
 
+    public showPlayer: boolean;
     public macInstallCmd = 'curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/darwin_amd64/argo';
     public linuxInstallCmd = 'curl -sSL -O https://s3-us-west-1.amazonaws.com/ax-public/argocli/stable/linux_amd64/argo';
 
     constructor(private trackingService: TrackingService) {
+    }
+
+    public play() {
+        this.showPlayer = true;
     }
 
     @HostListener('document:copy', ['$event'])

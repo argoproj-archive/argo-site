@@ -174,6 +174,42 @@
             text-align: center;
         }
     }
+    &__video {
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+        height: auto;
+        padding-bottom: 56.25%;
+        background-color: #000;
+
+            iframe, object, embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__video-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 64px;
+        line-height: 64px;
+        font-size: 24px;
+        text-align: center;
+        color: #fff;
+        background: #474445;
+        border-radius: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #2AA2F2;
+        }
+    }
 
     &__x {
         font-size: 1.2em;
