@@ -545,7 +545,6 @@ $shadows-big:    multiple-box-shadow(100);
     right: 0;
     line-height: 60px;
     background-color: #000;
-    color: #edce67;
     z-index: 10;
 
     a {
@@ -563,6 +562,10 @@ $shadows-big:    multiple-box-shadow(100);
         max-width: 40px;
         margin-right: 8px;
     }
+}
+
+.home__bar-title, a.home__bar-title {
+    color: #edce67;
 }
 
 .home__try-lite-img {
