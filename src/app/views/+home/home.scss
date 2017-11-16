@@ -545,27 +545,30 @@ $shadows-big:    multiple-box-shadow(100);
     right: 0;
     line-height: 60px;
     background-color: #000;
+    color: #edce67;
     z-index: 10;
-
-    a {
-        font-weight: 500;
-        font-size: .8em;
-        color: #33bae7;
-        text-decoration: none;
-
-        &:hover {
-            color: #33bae7;
-        }
-    }
 
     img {
         max-width: 40px;
         margin-right: 8px;
     }
-}
+    a {
+        color: #edce67;
+        text-decoration: underline;
+    }
 
-.home__bar-title, a.home__bar-title {
-    color: #edce67;
+    &-additional {
+        a {
+            font-weight: 500;
+            font-size: .8em;
+            color: #33bae7;
+            text-decoration: none;
+    
+            &:hover {
+                color: #33bae7;
+            }
+        }
+    }
 }
 
 .home__try-lite-img {
