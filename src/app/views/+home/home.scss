@@ -545,12 +545,23 @@ $shadows-big:    multiple-box-shadow(100);
     right: 0;
     line-height: 60px;
     background-color: #000;
-    color: #fff;
+    color: #edce67;
     z-index: 10;
 
     a {
-        color: #fff;
-        text-decoration: underline;
+        font-weight: 500;
+        font-size: .8em;
+        color: #33bae7;
+        text-decoration: none;
+
+        &:hover {
+            color: #33bae7;
+        }
+    }
+
+    img {
+        max-width: 40px;
+        margin-right: 8px;
     }
 }
 
