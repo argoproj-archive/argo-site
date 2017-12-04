@@ -1,0 +1,30 @@
+.feature-template {
+    &__header {
+        position: relative;
+        padding-top: 60px;
+        
+        &:before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: -70px;
+            left: 0;
+            background: linear-gradient(to right, rgba(#270c53, 0.9) 0%, rgba(#3e449d, 0.9) 100%), url(assets/images/stars.gif);
+            content: '';
+        }
+    }
+
+    &__title {
+        position: relative;
+        font-size: 3.4em;
+        font-weight: 500;
+    }
+
+    &__content {
+        position: relative;
+        margin-top: 20px;
+        padding: 50px;
+        color: #777;
+        background-color: #fff;
+    }
+}
