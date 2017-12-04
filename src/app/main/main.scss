@@ -10,7 +10,7 @@ body {
 }
 
 body {
-    background-color: #fbfaff !important;
+    background-color: #f5f8fa !important;
 }
 
 .main {
@@ -44,7 +44,7 @@ body {
         z-index: 10;
         height: $header-height;
         line-height: $header-height;
-        background: linear-gradient(to top left, rgba($base-color, 0.9) 0%, rgba($base-color, 0.9) 100%), url(assets/images/stars.gif) bottom;
+        background: linear-gradient(to right, rgba(#270c53, 0.9) 0%, rgba(#3e449d, 0.9) 100%), url(assets/images/stars.gif) bottom;
     }
 
     &__logo {
@@ -93,21 +93,21 @@ body {
             @media screen and (min-width: $screen-md-min) {
                 display: inline-block;
                 margin-left: 24px;
-                font-size: .8em;
-                color: $ax-color-cyan;
+                font-size: .9em;
+                color:  #fff;
                 text-transform: uppercase;
 
                 &:active,
                 &:visited {
-                    color: $ax-color-cyan;
+                    color:  #fff;
                 }
 
                 &:hover {
-                    color: darken($ax-color-cyan, 20);
+                    color: darken(#fff, 20);
                 }
 
                 i {
-                    font-size: 2em;
+                    font-size: 1.2em;
                     color: $ax-color-gray-3;
                 }
 
@@ -317,7 +317,7 @@ body {
         left: 0;
         height: 64px;
         line-height: 64px;
-        background-color: #363c4a;
+        background-color: #dfe4e9;
     }
 
     &__footer-logo {
