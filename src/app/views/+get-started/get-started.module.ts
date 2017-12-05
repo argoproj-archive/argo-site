@@ -5,8 +5,6 @@ import { BaseModule } from '../../common';
 
 import { GetStartedComponent } from './get-started.component';
 import { OverviewComponent } from './overview/overview.component';
-import { ArchitectureComponent } from './architecture/architecture.component';
-import { FeaturesComponent } from './features/features.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { InstallationComponent } from './installation/installation.component';
 
@@ -14,8 +12,6 @@ import { InstallationComponent } from './installation/installation.component';
     declarations: [
         GetStartedComponent,
         OverviewComponent,
-        ArchitectureComponent,
-        FeaturesComponent,
         TutorialsComponent,
         InstallationComponent,
     ],
@@ -25,8 +21,6 @@ import { InstallationComponent } from './installation/installation.component';
             { path: '', component: GetStartedComponent, children: [
                 { path: '', redirectTo: 'overview', pathMatch: 'full' },
                 { path: 'overview', component: OverviewComponent },
-                { path: 'architecture', component: ArchitectureComponent },
-                { path: 'features', component: FeaturesComponent },
                 { path: 'tutorials', component: TutorialsComponent },
                 { path: 'installation', component: InstallationComponent },
             ]},
