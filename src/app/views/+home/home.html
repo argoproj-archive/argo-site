@@ -3,103 +3,66 @@
     <div id="stars2"></div>
     <div id="stars3"></div>
     <div class="main__container">
-        <h1>The workflow engine for Kubernetes</h1>
-        <h2>Get stuff done with Kubernetes using container-native workflows</h2>
-        <img src="assets/images/argo-wheel.png" alt="Argo">
-        <div class="btns">
-            <a class="btn btn--filled" routerLink="get-started">Get Started</a>
-            <a class="btn btn--border" href="https://github.com/argoproj/argo" target="_blank"><i class="fa fa-github"></i> GitHub Project</a>
-        </div>
-    </div>
-</div>
-<div class="problem-solution">
-    <div class="main__container">
-        <div class="section problem">
-            <h3>The Problem</h3>
-            <p>Running useful jobs on Kubernetes requires gluing<br> together a bunch of tools and services.</p>
-            <img src="assets/images/Argprob.png" alt="">
-        </div>
-        <div class="section solution">
-            <h3>The Solution</h3>
-            <p>Argo integrates container orchestration, artifact management, admission control, fixtures, and source code management with a simple YAML DSL to get jobs done simply and quickly.</p>
-            <img src="assets/images/argosol.svg" alt="Argo">
-            <p class="highlight">Argo provides container-native<br> workflows for Kubernetes.</p>
-        </div>
-    </div>
-</div>
-<div class="features">
-    <div class="main__container">
-        <div class="features-bg">
-            <div class="cases-section">
-                <div class="title">Use Cases</div>
-                <div class="cases-section__item">
-                    <h3>CI Workflows</h3>
-                    <p>Run container-native, CI workflows on Kubernetes</p>
-                    <a [routerLink]="['/docs', 'yaml', 'argo_tutorial_1_create_ci_workflow.html']">View Tutorial</a>
-                </div>
-                <div class="cases-section__item">
-                    <h3>Docker-in-Docker (DinD) on Kubernetes</h3>
-                    <p>Build Docker Image within a Docker container using DinD</p>
-                    <a [routerLink]="['/docs', 'yaml', 'argo_tutorial_2_create_docker_image_build_workflow.html']">View Tutorial</a>
-                </div>
-                <div class="cases-section__item">
-                    <h3>Deploy Stateful and Stateless apps</h3>
-                    <p>Manage persistent volumes and deploy and scale microservices based apps</p>
-                    <a [routerLink]="['/docs', 'yaml', 'argo_tutorial_4_deploy_stateful_odoo_app_volume.html']">View Tutorial</a>
+        <div class="row">
+            <div class="columns small-8">
+                <h1>The workflow engin<br> for Kubernetes</h1>
+                <h2>Get stuff done with Kubernetes using container-native workflows</h2>
+                <div class="btns">
+                    <a class="btn btn--filled" routerLink="get-started">Get Started</a>
+                    <a class="btn btn--border" href="https://github.com/argoproj/argo" target="_blank"><i class="fa fa-github"></i> GitHub</a>
                 </div>
             </div>
-            <div class="features-section">
-                <div class="title">Features</div>
-                <div class="feature">
-                    <div class="feature-img"><img src="assets/images/AF1.svg" alt=""></div>
-                    <div class="features-des">Each step in the workflow is a container</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-img"><img src="assets/images/AF2.svg" alt=""></div>
-                    <div class="features-des">Integrated artifact management, admission control, fixtures, and source code management</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-img"><img src="assets/images/AF3.svg" alt=""></div>
-                    <div class="features-des">Define rich workflows using YAML specs for jobs ranging from continuous
-                        integration to orchestration and lifecycle management of microservices</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-img"><img src="assets/images/AF4.svg" alt=""></div>
-                    <div class="features-des">Built in support for DinD (Docker-in-Docker)</div>
-                </div>
+            <div class="columns small-4">
+                <img src="assets/images/argo-wheel.png" alt="Argo">
             </div>
+        </div>
+        <div class="intro__boxes">
+            <a class="intro__box" [routerLink]="['/docs', 'argo_v2_example_ci_workflow.html']">
+                <h3>Continuous Integration</h3>
+                <p>Run a container-native CI pipeline on Kubernetes doing build and multiple tests in parallel.</p>
+            </a>
+            <a class="intro__box" [routerLink]="['/docs', 'argo_v2_example_cd_workflow.html']">
+                <h3>Continuous Delivery</h3>
+                <p>Deploy and manage microservices based application on Kubernetes.
+                </p>
+            </a>
+            <a class="intro__box" [routerLink]="['/docs', 'argo_v2_example_dind_workflow.html']">
+                <h3>Docker in Docker</h3>
+                <p>
+                    Run docker commands in container-native, CI pipeline on Kubernetes.
+                </p>
+            </a>
+            <a class="intro__box" [routerLink]="['/docs', 'argo_v2_example_ml_workflow.html']">
+                <h3>Machine Learning</h3>
+                <p>Run a compute intensive Machine Learning Pipeline on Kubernetes.
+                </p>
+            </a>
+            <a class="intro__box">
+                <h3>Data Processing</h3>
+                <p>Run complex, data processing workflows on Kubernetes. Coming soon...
+                </p>
+            </a>
+            <a class="intro__box" href="https://github.com/argoproj/argo/tree/master/examples" target="_blank">
+                <h3>Contribute example workflows</h3>
+                <p>Please contribute interesting example workflows.
+                </p>
+            </a>
         </div>
     </div>
 </div>
-<div class="why-argo">
-    <div class="main__container">
-        <div class="box">
-            <h3>Why Argo?</h3>
-            <ul>
-                <li>Argo is designed from the ground up for containers without the baggage and limitations of legacy VM and server-based environments.</li>
-                <li>You don't need to use other tools such as Jenkins, Chef, Cloud Formation...</li>
-                <li>Run workflows ranging from continuous integration to  lifecycle management of distributed applications.</li>
-            </ul>
-            <div class="btns">
-                <a class="btn btn--filled" routerLink="get-started">Get Started</a>
-                <a class="btn btn--border" href="https://github.com/argoproj/argo" target="_blank"><i class="fa fa-github"></i> GitHub Project</a>
-            </div>
+<div class="main__container">
+    <div class="home__bar">
+        <a class="pull-right home__bar-additional" href="https://groups.google.com/forum/#!forum/argoproj" target="_blank">
+            <img src="assets/images/google-groups.png" alt="">REQUEST EARLY ACCESS
+        </a>
+        <div class="home__bar-content">
+            Argo 2.0 is coming soon as Custom Resource Definition - Create Workflows as Custom Kubernetes Resources                
         </div>
     </div>
 </div>
-<div class="home__community">
-    <div class="main__container">
-        <div class="title">Argo is trusted by the community</div>
+<div class="main__container">
+    <div class="home__community">
+        <div class="title">Join the growing community</div>
         <argo-community-logos></argo-community-logos>
-    </div>
-</div>
-<div class="home__bar">
-    <div class="main__container">
-        <div class="pull-left">
-            <a href="https://github.com/argoproj/argo/blob/master/README.md" target="_blank"> Argo 2.0</a> is coming soon as Custom Resource Definition - Create Workflows as Custom Kubernetes Resources
-        </div>
-        <div class="pull-right home__bar-additional"><a href="https://groups.google.com/forum/#!forum/argoproj" target="_blank">
-            <img src="assets/images/google-groups.png" alt="">REQUEST EARLY ACCESS</a>
-        </div>
     </div>
 </div>

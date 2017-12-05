@@ -1,137 +1,92 @@
 <div class="main__container">
-    <p>Argo is an open source project to provide container-native workflows for Kubernetes. Each step in an Argo workflow is defined as a container. Argo integrates artifact management, admission control, "fixtures," and source code management to create a complete, easy to use system that can be used for a variety of workflow-driven tasks ranging from continuous integration to orchestration and lifecycle management of complex distributed applications.</p>
-    <p>Argo helps you use Docker containers, Kubernetes orchestration, and public cloud APIs without the pain of configuration, maintenance, and upgrades. Driven by YAML templates written in the Argo DSL (Domain Specific Language), argo handles the complexity of deploying, running, and managing containers at scale.</p>
+    <p>Argo is an open source project to provide container-native workflows for Kubernetes.
+       A workflow is composed of one or more sequential and/or parallel steps.
+       Eash step is implemented as a container and workflows may be arbitrarily nested.
+    </p>
+    <p>Argo V2 is implemented as a Kubernetes CRD (Custom Resource Definition). As a result, Argo workflows can be managed using kubectl and natively integrates with other Kubernetes services such as volumes, secrets, and RBAC.
+       The Argo V2 software is lightweight, installs in seconds, and provides complete workflow features including parameter
+       substitution, artifacts, scripting, loops, and recursive workflows.
+    </p>
     <h2>Concepts</h2>
     <div class="main__box">
-        <h3>Admission Control</h3>
+        <h3>Workflow CRD</h3>
         <ul>
-            <li>Delays workflows until there are sufficient resources to run the workflow.</li>
-            <li>Allows implementation of QoS (Quality of Service) controls.</li>
-            <li>Prevents overloading Kubernetes with too much work that cannot be scheduled.</li>
-            <li>Prevents resource deadlocks when executing complex workflows.</li>
+            <li>A Kubernetes Custom Resource Definition (CRD) used to define Argo workflows.</li>
         </ul>
     </div>
     <div class="main__box">
-        <h3>Workflow</h3>
+        <h3>Workflow Resource</h3>
         <ul>
-            <li>An argo workflow consists of a sequence of sequential and/or parallel steps.</li>
-            <li>A workflow may be arbitrarily nested.</li>
+            <li>A custom Kubernetes resource instance containing the Argo workflow specification and state.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Workflow Controller</h3>
+        <ul>
+            <li>A Kubernetes controller that interpretes the Argo Workflow Resource specifications and controls the state, flow, and scheduling of individual workflows.</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Template</h3>
+        <ul>
+            <li>A composable, reusable definition of a workflow or step within a workflow with support for parameterization.</li>
+            <li>Defined as a container, script (e.g. bash, python, javascript), or a series of workflow steps.</li>
+            <li>Accepts input parameters/artifacts and produce output parameters/artifacts.</li>
         </ul>
     </div>
     <div class="main__box">
         <h3>Step</h3>
         <ul>
-            <li>A step is the basic execution unit of a workflow.</li>
-            <li>A step is executed by running a container.</li>
-            <li>A step itself may be a workflow, which contains other steps.</li>
+            <li>A unit of execution in an Argo workflow.</li>
+            <li>Represents a container, or defies a series of steps (e.g. nested workflows).</li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Pod</h3>
+        <ul>
+            <li>
+                Each pod created to run a step in an Argo workflow consists of the following containers:
+                <ul>
+                    <li>The 'main' container which runs the user specified container or script</li>
+                    <li>An optional 'init' container which loads any input artifacts and makes them available to the main container</li>
+                    <li>The 'wait' sidecar container saves any output artifacts/parameters produced by the main container</li>
+                    <li>Additional user specified sidecar containers to provide supporting role to the main container (e.g. docker-in-docker, database)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main__box">
+        <h3>Parameter</h3>
+        <ul>
+            <li>The Argo CLI allows users to specify values for parameterized workflows before they are submitted to Kubernetes.</li>
         </ul>
     </div>
     <div class="main__box">
         <h3>Artifact</h3>
         <ul>
-            <li>An artifact is a collection of files/directories that can be used as input or output to a step in a workflow.</li>
-            <li>Artifacts may be "internal", in which case they may be referenced only within the execution of a particular workflow.</li>
-            <li>Internal artifacts are automatically garbage collected after 7 days.</li>
-            <li>Exported artifacts may be referenced by other workflows.</li>
-            <li>Exported artifacts are automatically garbage collected after 6 months.</li>
-            <li>Any "tagged" artifacts are retained indefinitely and must be manually deleted.</li>
+            <li>A collection of files/directories that can be used as inputs or outputs to a step in a workflow.</li>
+            <li>Support for Git, HTTP, S3, Artifactory.</li>
         </ul>
     </div>
     <div class="main__box">
-        <h3>Fixture</h3>
+        <h3>Artifact Repository</h3>
         <ul>
-            <li>A service needed to run a workflow.
-                <ul>
-                    <li>E.g. A mysql service needed to run a test.</li>
-                </ul>
-            </li>
-            <li>A dynamic fixture is created automatically by the system before executing a workflow by running a specified container that implements the service.</li>
-            <li>
-                A static fixture can be any service that is registered with the Argo system.
-                <ul>
-                    <li>E.g. A Windows VM running SQL Server or any accessible SaaS service.</li>
-                </ul>
-            </li>
-            <li>
-                A static fixture is specified using labels.
-                <ul>
-                    <li>E.g. mem=2mib os=Windows</li>
-                    <li>E.g. db=RDS</li>
-                </ul>
-            </li>
-            <li>
-                A static fixture may be "exclusive" or "shared".
-                <ul>
-                    <li>
-                        An exclusive fixture may only be used by one workflow at a time.
-                        <ul>
-                            <li>Workflows that need a static fixture will wait until it becomes available.</li>
-                        </ul>
-                    </li>
-                    <li>A shared fixture may be used by multiple resources concurrently.</li>
-                </ul>
-            </li>
+            <li>A long term persistent storage of artifacts.</li>
+            <li>Support for S3, Artifactory.</li>
         </ul>
     </div>
     <div class="main__box">
         <h3>Volume</h3>
         <ul>
-            <li>A persistent volume used to store data used by workflows.</li>
-            <li>An anonymous volume exists only within the context of a specific executing workflow.</li>
-            <li>A named volume exists independently of workflows.</li>
-        </ul>
-    </div>
-    <div class="main__box">
-        <h3>CMDB (Configuration Management Database aka. AXDB)</h3>
-        <ul>
-            <li>Stores the configuration and operational state of all Argo component and services including active workflows, fixtures, etc.</li>
-            <li>Currently also stores stats but much of that will be moving to Prometheus.</li>
+            <li>A persistent volume used to read and store data throughout steps in a workflow (e.g. a working directory)</li>
+            <li>Ephemeral volumes (PVCs) will share the same lifetime of its workflow and are created and destroyed with the workflow</li>
+            <li>Existing Kubernetes volumes can be referenced and mounted to workflow containers for persistence (e.g. machine learning)</li>
         </ul>
     </div>
     <div class="main__box">
         <h3>Secret</h3>
         <ul>
-            <li>An encrypted string that can be included in Argo templates to avoid exposing the secret in source repos.</li>
-            <li>The secret is decrypted just prior to when it is used during the execution of a workflow.</li>
-        </ul>
-    </div>
-    <div class="main__box">
-        <h3>Configuration Parameter</h3>
-        <ul>
-            <li>A parameter that is stored in CMDB and can be referenced by name from within Argo templates.</li>
-            <li>Avoids having to hardwire parameters in source repos.</li>
-        </ul>
-    </div>
-    <div class="main__box">
-        <h3>Policy</h3>
-        <ul>
-            <li>An Argo policy template is used to specify automatically triggered workflows.</li>
-            <li>
-                Common triggers include:
-                <ul>
-                    <li>Time based (e.g. cron)</li>
-                    <li>Commits, pull requests, merges to repos</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div class="main__box">
-        <h3>Project</h3>
-        <ul>
-            <li>An Argo project template is used to create a catalog of workflows that can be executed by users.</li>
-            <li>This allows convenient grouping and identification of commonly used workflows.</li>
-        </ul>
-    </div>
-    <div class="main__box">
-        <h3>Repo</h3>
-        <ul>
-            <li>Generally used to refer to a git repository.</li>
-        </ul>
-    </div>
-    <div class="main__box">
-        <h3>Commit</h3>
-        <ul>
-            <li>Generally refers to a commit made to a git repository.</li>
+            <li>Kubernetes secrets can be exposed to the container as envionment variables or volumes.</li>
         </ul>
     </div>
     <div class="main__box">

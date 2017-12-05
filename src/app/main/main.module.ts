@@ -28,6 +28,7 @@ import { MainComponent } from './main.component';
             { path: 'get-started', loadChildren: () => System.import('../views/+get-started').then((comp: any) => comp.default) },
             { path: 'docs', loadChildren: () => System.import('../views/+docs').then((comp: any) => comp.default) },
             { path: 'community', loadChildren: () => System.import('../views/+community').then((comp: any) => comp.default) },
+            { path: 'features', loadChildren: () => System.import('../views/+features').then((comp: any) => comp.default) },
             { path: '**', redirectTo: '' },
         ], { initialNavigation: 'enabled' }),
     ],
