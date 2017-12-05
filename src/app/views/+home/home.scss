@@ -43,6 +43,10 @@
         left: 0;
         background: linear-gradient(to right, rgba(#270c53, 0.9) 0%, rgba(#3e449d, 0.9) 100%), url(assets/images/stars.gif);
         content: '';
+        
+        @media screen and (max-width: $screen-sm-max) {
+            bottom: 0;
+        }
     }
 
     .main__container {
@@ -54,6 +58,7 @@
     }
 
     @media screen and (max-width: $screen-sm-max) {
+        margin-bottom: 40px;
         padding: 20px 0 40px;
     }
 
@@ -115,6 +120,14 @@
         background-color: #fff;
         box-shadow: 1px 1px 1px rgba(0,0,0,.1);
         cursor: pointer;
+        
+        @media screen and (max-width: $screen-md-max) {
+            width: calc(100% * (1/2) - 24px);
+        }
+        
+        @media screen and (max-width: $screen-sm-max) {
+            width: calc(100% - 24px);
+        }
 
         h3 {
             color: #4b8cd0;
@@ -251,9 +264,14 @@ $shadows-big:    multiple-box-shadow(100);
 }
 
 .home__bar {
+    position: relative;
     overflow: hidden;
     background-color: #fff;
     box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+
+    @media screen and (max-width: $screen-sm-max) {
+        padding-bottom: 100px;
+    }
 
     &-additional {
         margin-left: 60px;
@@ -261,6 +279,14 @@ $shadows-big:    multiple-box-shadow(100);
         font-weight: 500;
         color: #fff !important;
         background-color: #2e86ce;
+        
+        @media screen and (max-width: $screen-sm-max) {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            margin: 0;
+            float: none;
+        }
 
         img {
             margin-right: 12px;
