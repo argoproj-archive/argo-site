@@ -47,15 +47,6 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
 
     public async ngOnInit() {
         this.versions = await this.docsService.getVersions();
-        this.route.params.subscribe(async params => {
-            this.searchText = params['search'];
-            if (this.searchText) {
-                this.searchItems = (await this.docsService.search(this.searchText, this.docsVersion)).map(
-                    item => Object.assign({}, item, {summary: this.getSearchSummary(this.searchText, item.body)}));
-            } else {
-                this.searchItems = null;
-            }
-        });
         this.route.url.subscribe(async segements => {
             let version = this.versions[0].version;
             if (this.selectedVersion !== version) {
@@ -73,6 +64,15 @@ export class DocsBrowserViewComponent implements OnInit, PageSettings, HasPageSe
             this.selectedTree = this.searchTree(this.tree, this.selectedDocPath);
             if (isPlatformBrowser(this.platformId)) {
                 document.body.scrollTop = 0;
+            }
+        });
+        this.route.params.subscribe(async params => {
+            this.searchText = params['search'];
+            if (this.searchText) {
+                this.searchItems = (await this.docsService.search(this.searchText, this.docsVersion)).map(
+                    item => Object.assign({}, item, {summary: this.getSearchSummary(this.searchText, item.body)}));
+            } else {
+                this.searchItems = null;
             }
         });
     }
